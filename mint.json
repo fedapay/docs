@@ -21,8 +21,8 @@
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Créer un compte FedaPay",
+    "url": "https://live.fedapay.com/register"
   },
   "tabs": [
     {
