@@ -40,7 +40,7 @@
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Paiements",
       "pages": [
         "essentials/demarage",
         "essentials/markdown",
