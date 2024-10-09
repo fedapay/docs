@@ -32,7 +32,6 @@
   ],
   "navigation": [
     {
-      "group": "Acceuil",
       "pages": [
         "introduction",
         "quickstart",
