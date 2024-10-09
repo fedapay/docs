@@ -1,5 +1,4 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
   "name": "FedaPay",
   "logo": {
     "dark": "/logo/dark.svg",
