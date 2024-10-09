@@ -40,12 +40,6 @@
       ]
     },
     {
-      "group":"Paiements",
-      "pages":[
-        "/paiements/demarage"
-      ]
-    },
-    {
       "group": "Essentials",
       "pages": [
         "essentials/markdown",
