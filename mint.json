@@ -47,8 +47,7 @@
         "essentials/test/demarage",
         "essentials/test/route2",
         "essentials/test/route3"
-      ],
-      "version": "en"
+      ]
     },
     {
       "group":"Test domaine 2",
