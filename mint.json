@@ -40,6 +40,12 @@
       ]
     },
     {
+      "group":"Test domaine",
+      "pages":[
+        "essentials/test/route"
+      ]
+    },
+    {
       "group": "Paiements",
       "pages": [
         "essentials/demarage",
