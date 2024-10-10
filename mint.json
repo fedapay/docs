@@ -43,7 +43,8 @@
       "group":"Test domaine",
       "pages":[
         "essentials/test/route",
-        "essentials/test/route2"
+        "essentials/test/route2",
+        "essentials/test/route3"
       ]
     },
     {
