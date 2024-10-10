@@ -40,6 +40,13 @@
       ]
     },
     {
+      "group": "En",
+      "pages": [
+        "en/test12"
+        
+      ]
+    },
+    {
       "group":"Test domaine",
       "pages":[
         "essentials/test/demarage",
