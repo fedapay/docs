@@ -42,7 +42,7 @@
     {
       "group":"Test domaine",
       "pages":[
-        "essentials/test/route",
+        "essentials/test/demarage",
         "essentials/test/route2",
         "essentials/test/route3"
       ]
