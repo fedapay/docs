@@ -57,6 +57,12 @@
       ]
     },
     {
+      "group":"test5",
+      "pages":[
+        "test5/route5"
+      ]
+    },
+    {
       "group": "Paiements",
       "pages": [
         "essentials/demarage",
