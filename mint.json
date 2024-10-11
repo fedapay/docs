@@ -36,7 +36,8 @@
     {
       "group": "Introduction",
       "pages": [
-        "introduction/fr/keyconcepts"
+        "introduction/fr/keyconcepts",
+        "introduction/fr/firststep"
       ],
       "version": "fr"
     },
