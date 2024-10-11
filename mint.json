@@ -31,7 +31,7 @@
       "url": "api-reference"
     }
   ],
-  "versions": ["fr", "en"],
+  "versions": ["en", "fr"],
   "navigation": [
     {
       "group": "Introduction",
