@@ -31,7 +31,7 @@
       "url": "api-reference"
     }
   ],
-  "versions": ["en", "fr"],
+  "versions": ["fr", "en"],
   "navigation": [
     {
       "group": "Introduction",
@@ -45,9 +45,9 @@
     {
       "group": "Introduction",
       "pages": [
-        "introduction/fr/fedapay-en",
-        "introduction/fr/keyconcepts-en",
-        "introduction/fr/firststep-en"
+        "introduction/en/fedapay-en",
+        "introduction/en/keyconcepts-en",
+        "introduction/en/firststep-en"
       ],
       "version": "en"
     },
