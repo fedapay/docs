@@ -36,9 +36,7 @@
     {
       "group": "Introduction",
       "pages": [
-        "introduction/fr/fedapayFr",
-        "introduction/fr/keyConcepts",
-        "introduction/fr/firstStep"
+        "introduction/fr/fedapayFr"
       ],
       "version": "fr"
     },
