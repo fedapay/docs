@@ -43,6 +43,15 @@
       "version": "fr"
     },
     {
+      "group": "Introduction",
+      "pages": [
+        "introduction/fr/fedapay-en",
+        "introduction/fr/keyconcepts-en",
+        "introduction/fr/firststep-en"
+      ],
+      "version": "en"
+    },
+    {
       "group": "Essentials",
       "pages": [
         "essentials/demarage",
