@@ -36,10 +36,10 @@
     {
       "group": "Introduction",
       "pages": [
-        "introduction",
-        "quickstart",
-        "development"
-      ]
+        "/introduction/fedapay"
+        
+      ],
+      "version": "fr"
     },
     {
       "group": "Essentials",
@@ -52,9 +52,7 @@
         "essentials/navigation",
         "essentials/reusable-snippets",
         "essentials/paiements"
-      ],
-      "version": "fr"
-
+      ]
     },
     {
       "group": "API Documentation",
