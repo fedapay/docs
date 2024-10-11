@@ -36,8 +36,7 @@
     {
       "group": "Introduction",
       "pages": [
-        "/introduction/fedapay"
-        
+        "introduction/fedapay"
       ],
       "version": "fr"
     },
