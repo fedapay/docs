@@ -34,7 +34,7 @@
   "versions": ["en", "fr"],
   "navigation": [
     {
-      "group": "Acceuil",
+      "group": "Introduction",
       "pages": [
         "introduction",
         "quickstart",
@@ -47,18 +47,6 @@
         "essentials/test/demarage",
         "essentials/test/route2",
         "essentials/test/route3"
-      ]
-    },
-    {
-      "group":"Test domaine 2",
-      "pages":[
-        "test3/route21"
-      ]
-    },
-    {
-      "group":"test5",
-      "pages":[
-        "test5/route5"
       ]
     },
     {
