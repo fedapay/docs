@@ -36,7 +36,9 @@
     {
       "group": "Introduction",
       "pages": [
-        "introduction/fedapay"
+        "introduction/fedapay",
+        "introduction/conceptsClés",
+        "introduction/premierPas"
       ],
       "version": "fr"
     },
