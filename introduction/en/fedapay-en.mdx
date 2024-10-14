@@ -114,7 +114,7 @@ Add content directly in your files with MDX syntax and React components. You can
 </AccordionGroup>
 
 
-#### Limite
+limite lien à l'intérieur de Card
 <CardGroup cols={2}>
   <Card
     title="Creation de compte test"
@@ -135,15 +135,36 @@ Add content directly in your files with MDX syntax and React components. You can
 
 ## Section4
 
-```
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
-}
-```
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Intégrer Feda Checkout à mon site</title>
+  <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+</head>
+<body>
+  <button class="pay-btn"
+  data-transaction-amount="1000"
+  data-transaction-description="Acheter mon produit"
+  data-customer-email="johndoe@gmail.com"
+  data-customer-lastname="Doe">Payer 1000 FCFA</button>
+
+  <button class="pay-btn"
+  data-transaction-amount="2000"
+  data-transaction-description="Acheter mon produit"
+  data-customer-email="janetay@gmail.com"
+  data-customer-lastname="Tay">Payer 2000 FCFA</button>
+  <script type="text/javascript">
+      FedaPay.init('.pay-btn', { public_key: 'VOTRE_CLE_API_PUBLIQUE' });
+  </script>
+</body>
+</html>
 
 ```
+
+```html
 npx novu init --secret-key=<YOUR_NOVU_SECRET_KEY>
 
 ```
@@ -172,7 +193,23 @@ class HelloWorld {
   **Prerequisite**: Please install Node.js (version 19 or higher) before proceeding.
 </Info>
 
-Step 1. Install Mintlify on your OS:
+<Warning>
+  MDX does not compile inside the body of an arrow function. Stick to HTML
+  syntax when you can or use a default export if you need to use MDX.
+</Warning>
+
+trip limite logo
+<Tip>
+  Unlimited editors available under the [Pro
+  Plan](https://mintlify.com/pricing) and above.
+</Tip>
+
+<Note>
+  Any page in the `snippets` directory will be treated as a snippet and will not
+  be rendered into a standalone page. If you want to create a standalone page
+  from the snippet, import the snippet into another file and call it as a
+  component.
+</Note>
 
 <CodeGroup>
 
@@ -186,77 +223,44 @@ yarn global add mintlify
 
 </CodeGroup>
 
-Step 2. Go to the docs are located (where you can find `mint.json`) and run the following command:
-
-```bash
-mintlify dev
-```
-
-The documentation website is now available at `http://localhost:3000`.
-
-### Custom Ports
-
-Mintlify uses port 3000 by default. You can use the `--port` flag to customize the port Mintlify runs on. For example, use this command to run in port 3333:
-
-```bash
-mintlify dev --port 3333
-```
-
-You will see an error like this if you try to run Mintlify in a port that's already taken:
-
-```md
-Error: listen EADDRINUSE: address already in use :::3000
-```
-
-## Mintlify Versions
-
-Each CLI is linked to a specific version of Mintlify. Please update the CLI if your local website looks different than production.
-
-<CodeGroup>
-
-```bash npm
-npm i -g mintlify@latest
-```
-
-```bash yarn
-yarn global upgrade mintlify
-```
-
-</CodeGroup>
-
-## Deployment
-
-<Tip>
-  Unlimited editors available under the [Pro
-  Plan](https://mintlify.com/pricing) and above.
-</Tip>
-
-You should see the following if the deploy successfully went through:
 
 <Frame>
   <img src="/images/checks-passed.png" style={{ borderRadius: '0.5rem' }} />
 </Frame>
 
-## Troubleshooting
+<CodeGroup>
 
-Here's how to solve some common problems when working with the CLI.
+```bash App Router (app/api/route.ts)
+import { serve } from "@novu/framework/next";
+import { myWorkflow } from "../../novu/workflows";
 
-<AccordionGroup>
-  <Accordion title="Mintlify is not loading">
-    Update to Node v18. Run `mintlify install` and try again.
-  </Accordion>
-  <Accordion title="No such file or directory on Windows">
-Go to the `C:/Users/Username/.mintlify/` directory and remove the `mint`
-folder. Then Open the Git Bash in this location and run `git clone
-https://github.com/mintlify/mint.git`.
+export const { GET, POST, OPTIONS } = serve({ workflows: [myWorkflow] });
 
-Repeat step 3.
+```
 
-  </Accordion>
-  <Accordion title="Getting an unknown error">
-    Try navigating to the root of your device and delete the ~/.mintlify folder.
-    Then run `mintlify dev` again.
-  </Accordion>
-</AccordionGroup>
+```bash page Router
+import { serve } from '@novu/framework/next';
+import { testWorkflow } from '../../novu/workflows';
 
-Curious about what changed in a CLI version? [Check out the CLI changelog.](/changelog/command-line)
+export default serve({ workflows: [testWorkflow] });
+
+```
+
+</CodeGroup>
+
+
+
+qzsedrftgyhujikol
+
+<CodeGroup>
+
+
+```bash npm
+npm i -g mintlify
+```
+
+```bash yarn
+yarn global add mintlify
+```
+
+</CodeGroup>
