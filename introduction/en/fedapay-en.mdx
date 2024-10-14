@@ -289,3 +289,76 @@ yarn global add mintlify
 > The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
 
 
+<Tabs>
+    <Tab title="Node.js">
+        ```jsx
+        import { Novu } from '@novu/node';
+
+        const novu = new Novu('<NOVU_SECRET_KEY>');
+
+        await novu.trigger('<WORKFLOW_TRIGGER_IDENTIFIER>', {
+            to: {
+                subscriberId: '111',
+                email: 'john.doe@domain.com',
+                firstName: 'John',
+                lastName: 'Doe',
+                phone: '+13603963366',
+            },
+            payload: {
+                customVariable: 'variableValue',
+                organization: {
+                    logo: 'https://organization.com/logo.png',
+                },
+            },
+        });
+        ```
+    </Tab>
+    <Tab title="PHP">
+        ```php
+        use Novu\SDK\Novu;
+
+        $novu = new Novu('<NOVU_SECRET_KEY>');
+
+        $novu->triggerEvent([
+        'name' => '<WORKFLOW_TRIGGER_IDENTIFIER>',
+            'to' => [
+                'subscriberId' => '111',
+                'email' => 'john.doe@domain.com',
+                'firstName' => 'John',
+                'lastName'  => 'Doe',
+                'phone' => '+13603963366'
+            ]
+            'payload' => [
+                'customVariable' => 'variableValue',
+                'organization' => [
+                    'logo' => 'https://organization.com/logo.png',
+                ]
+            ],
+        ]);
+        ```
+    </Tab>
+
+</Tabs>
+
+
+<Tabs>
+<Tab title="Node.js">
+### Steps:
+- `mkdir export_novu_subscribers`
+- `cd export_novu_subscribers`
+- create `fetch_subscribers.js` file and copy [export_novu_subscribers.js](https://gist.github.com/jainpawan21/8604b4b2c1582b419e837bdc72290696#file-export_novu_subscribers-js) gist code into this file.
+- `npm init -y`
+- `npm install axios fast-csv fs`
+- Run `node fetch_subscribers.js`
+- Subscribers are exported in `subscribers.csv` file
+
+</Tab>
+
+<Tab title="Shell Script">
+### Steps:
+- Create file with name fetch_subscribers.sh and copy [export_novu_subscribers.sh](https://gist.github.com/jainpawan21/8604b4b2c1582b419e837bdc72290696#file-export_novu_subscribers-sh) gist code into this file.
+- Run `chmod +x fetch_subscribers.sh`
+- Run `./fetch_subscribers.sh`
+- Subscribers are exported in `subscribers.csv` file
+</Tab>
+</Tabs>
