@@ -211,6 +211,25 @@ trip limite logo
   component.
 </Note>
 
+```java
+const { events } = await step.digest("digest-3-days", async () => {
+  return {
+    unit: "days", // 'seconds' | 'minutes' | 'hours' | 'days' | 'weeks' | 'months'
+    amount: 3, // the number of units to digest events for
+  };
+});
+
+await step.email("send-email", async () => {
+  const eventCount = events.length;
+
+  return {
+    subject: "Digest Email",
+    body: `You have ${eventCount} new events`,
+  };
+});
+
+```
+
 <CodeGroup>
 
 ```bash npm
@@ -264,3 +283,4 @@ yarn global add mintlify
 ```
 
 </CodeGroup>
+
