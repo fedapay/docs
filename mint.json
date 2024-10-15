@@ -32,7 +32,12 @@
       "url": "api-reference"
     }
   ],
-  "versions": ["fr", "en"],
+
+  "backgroundImage": "/background.png",
+  "metadata": {
+    "og:image": "https://novu.co/images/social-preview.jpg"
+  },
+  
   "navigation": [
     {
       "group": "Introduction",
