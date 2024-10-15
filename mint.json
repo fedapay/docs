@@ -31,12 +31,10 @@
       "url": "api-reference"
     }
   ],
-
   "backgroundImage": "/background.png",
   "metadata": {
     "og:image": "https://novu.co/images/social-preview.jpg"
   },
-  
   "navigation": [
     {
       "group": "Introduction",
