@@ -18,7 +18,7 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "https://www.fedapay.com/contact/?v=ddd70bbaf5be"
     }
   ],
   "topbarCtaButton": {
@@ -81,8 +81,8 @@
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
+    "x": "https://www.fedapay.com/?v=ddd70bbaf5be",
     "github": "https://github.com/mintlify",
-    "linkedin": "https://linkedin.com/company/mintlify"
+    "linkedin": "https://www.linkedin.com/company/fedapay/"
   }
 }
