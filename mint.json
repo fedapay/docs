@@ -38,8 +38,7 @@
         "introduction/fr/fedapay-fr",
         "introduction/fr/keyconcepts-fr",
         "introduction/fr/firststep-fr"
-      ],
-      "version": "fr"
+      ]
     },
     {
       "group": "Introduction",
@@ -47,8 +46,7 @@
         "introduction/en/fedapay-en",
         "introduction/en/keyconcepts-en",
         "introduction/en/firststep-en"
-      ],
-      "version": "en"
+      ]
     },
     {
       "group": "Essentials",
