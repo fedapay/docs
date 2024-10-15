@@ -23,7 +23,8 @@
   ],
   "topbarCtaButton": {
     "name": "Créer un compte FedaPay",
-    "url": "https://live.fedapay.com/register"
+    "url": "https://live.fedapay.com/register",
+    "version": "fr"
   },
   "tabs": [
     {
