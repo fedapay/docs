@@ -79,7 +79,6 @@
     {
       "group": "Endpoint Examples",
       "pages": [
-        "api-reference/endpoint/crtr",
         "api-reference/endpoint/get",
         "api-reference/endpoint/create",
         "api-reference/endpoint/delete"
