@@ -16,7 +16,7 @@
     }
   },
 
-  "backgroundImage": "/background.png",
+  "backgroundImage": "https://images.pexels.com/photos/3297593/pexels-photo-3297593.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   "metadata": {
     "og:image": "https://novu.co/images/social-preview.jpg"
   },
