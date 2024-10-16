@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "FedaPay",
   "logo": {
-    "dark": "/logo/dark.svg",
+    "dark": "https://docs.fedapay.com/assets/feda-logo-blue-321eee300a4d16670cbaf7d5be77f632632781529e018009a77b7aaffdfb9a4e.svg",
     "light": "https://docs.fedapay.com/assets/feda-logo-blue-321eee300a4d16670cbaf7d5be77f632632781529e018009a77b7aaffdfb9a4e.svg"
   },
   "favicon": "/favicon.svg",
