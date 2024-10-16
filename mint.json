@@ -38,16 +38,6 @@
     }
   ],
   "versions": ["fr", "en"],
-
-  "anchors": [
-    {
-      "name": "API Reference",
-      "openapi": "api-reference/openapi.json",
-      "url": "api-reference",
-      "icon": "square-terminal"
-    }
-  ],
-
   "navigation": [
     {
       "group": "Introduction",
