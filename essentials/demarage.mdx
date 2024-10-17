@@ -1,4 +1,2564 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: 'What is FedaPay'
 ---
+
+## Section1
+
+is a full-stack (UI Components, API, and Framework) open source notification infrastructure platform for building, ~managing, delivering, and monitoring all types of end-user notifications~.
+
+`is a developer-first product built for engineers` looking to deliver a notifications platform for products. _Novu simplifies the complexities of notification management for developers who_ can then empower the product and marketing teams that need to edit and maintain notification content and copy. Novu supports a variety of common notification channels out-of-the-box, including ***Email, SMS, Push, Inbox, and Chat***.
+`{{payload.user_name}} `
+
+## Section2
+
+empowers developers and engineering teams to quickly deliver a fully extensible notifications platform for product teams to create captivating notification experiences.
+
+- [Redirect to section1](#section1) Code-first Notification Framework Opinionated, yet flexible, Framework for building and managing notification workflows.
+- [Redirect to Concepts clés](/introduction/fr/keyconcepts-fr)JSON Schema Based Controls to craft a no-code visual editor to enable non-technical team members to modify content and behaviour.
+- [Redirect to introduction api reference](/api-reference/introduction) Prebuilt, customisable UI components for in-app user notification feeds and preference experiences.
+- [Redirects to FedaPay](https://www.fedapay.com/?v=ddd70bbaf5be) Observability for delving into the lifecycle of a notification’s success or failure. Eliminate guesswork of how, when, and why a user receives a notification.
+
+## Section3
+
+<CardGroup cols={2}>
+  <Card
+    title="Creation de compte test"
+    href="https://sandbox.fedapay.com/register"
+  >
+    Créer un compte test pour le tester le produit
+  </Card>
+  <Card
+    title="Creation de compte live"
+    href="https://live.fedapay.com/register"
+  >
+    Un compte live pour la mise en service du produit
+  </Card>
+</CardGroup>
+
+Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+
+<CardGroup>
+
+<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
+  Add flair to your docs with personalized branding.
+</Card>
+
+<Card
+  title="Add API Endpoints"
+  icon="square-code"
+  href="/api-playground/configuration"
+>
+  Implement your OpenAPI spec and enable API user interaction.
+</Card>
+
+<Card
+  title="Integrate Analytics"
+  icon="chart-mixed"
+  href="/analytics/supported-integrations"
+>
+  Draw insights from user interactions with your documentation.
+</Card>
+
+<Card
+  title="Host on a Custom Domain"
+  icon="browser"
+  href="/settings/custom-domain/subdomain"
+>
+  Keep your docs on your own website's subdomain.
+</Card>
+
+</CardGroup>
+
+
+### Edit and preview
+
+<AccordionGroup>
+  <Accordion icon="github" title="Clone your docs locally">
+    During the onboarding process, we created a repository on your Github with
+    your docs content. You can find this repository on our
+    [dashboard](https://dashboard.mintlify.com). To clone the repository
+    locally, follow these
+    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+    in your terminal.
+  </Accordion>
+  <Accordion icon="rectangle-terminal" title="Preview changes">
+    Previewing helps you make sure your changes look as intended. We built a
+    command line interface to render these changes locally. 1. Install the
+    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
+    documentation changes locally with this command: ``` npm i -g mintlify ```
+    2. Run the following command at the root of your documentation (where
+    `mint.json` is): ``` mintlify dev ```
+  </Accordion>
+</AccordionGroup>
+
+
+### Deploy your changes
+
+<AccordionGroup>
+
+<Accordion icon="message-bot" title="Install our Github app">
+  Our Github app automatically deploys your changes to your docs site, so you
+  don't need to manage deployments yourself. You can find the link to install on
+  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
+  successfully installed, there should be a check mark next to the commit hash
+  of the repo.
+</Accordion>
+<Accordion icon="rocket" title="Push your changes">
+  [Commit and push your changes to
+  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
+  for your changes to update in your docs site. If you push and don't see that
+  the Github app successfully deployed your changes, you can also manually
+  update your docs through our [dashboard](https://dashboard.mintlify.com).
+</Accordion>
+
+</AccordionGroup>
+
+
+limite lien à l'intérieur de Card
+<CardGroup cols={2}>
+  <Card
+    title="Creation de compte test"
+  >
+    - [Créer un compte test pour le tester](#section1)
+    - Créer un compte test pour le tester
+    - Créer un compte test pour le tester
+    - Créer un compte test pour le tester
+  </Card>
+
+  <Card
+    title="Creation de compte live"
+    href="https://live.fedapay.com/register"
+  >
+    Un compte live pour la mise en service du produit
+  </Card>
+</CardGroup>
+
+## Section4
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Intégrer Feda Checkout à mon site</title>
+  <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+</head>
+<body>
+  <button class="pay-btn"
+  data-transaction-amount="1000"
+  data-transaction-description="Acheter mon produit"
+  data-customer-email="johndoe@gmail.com"
+  data-customer-lastname="Doe">Payer 1000 FCFA</button>
+
+  <button class="pay-btn"
+  data-transaction-amount="2000"
+  data-transaction-description="Acheter mon produit"
+  data-customer-email="janetay@gmail.com"
+  data-customer-lastname="Tay">Payer 2000 FCFA</button>
+  <script type="text/javascript">
+      FedaPay.init('.pay-btn', { public_key: 'VOTRE_CLE_API_PUBLIQUE' });
+  </script>
+</body>
+</html>
+
+```
+
+```html
+npx novu init --secret-key=<YOUR_NOVU_SECRET_KEY>
+
+```
+
+```java HelloWorld.java
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+
+````md
+```java HelloWorld.java
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+````
+
+
+
+<Info>
+  **Prerequisite**: Please install Node.js (version 19 or higher) before proceeding.
+</Info>
+
+<Warning>
+  MDX does not compile inside the body of an arrow function. Stick to HTML
+  syntax when you can or use a default export if you need to use MDX.
+</Warning>
+
+trip limite logo
+<Tip>
+  Unlimited editors available under the [Pro
+  Plan](https://mintlify.com/pricing) and above.
+</Tip>
+
+<Note>
+  Any page in the `snippets` directory will be treated as a snippet and will not
+  be rendered into a standalone page. If you want to create a standalone page
+  from the snippet, import the snippet into another file and call it as a
+  component.
+</Note>
+
+```java
+const { events } = await step.digest("digest-3-days", async () => {
+  return {
+    unit: "days", // 'seconds' | 'minutes' | 'hours' | 'days' | 'weeks' | 'months'
+    amount: 3, // the number of units to digest events for
+  };
+});
+
+await step.email("send-email", async () => {
+  const eventCount = events.length;
+
+  return {
+    subject: "Digest Email",
+    body: `You have ${eventCount} new events`,
+  };
+});
+
+```
+
+<CodeGroup>
+
+```bash npm
+npm i -g mintlify
+```
+
+```bash yarn
+yarn global add mintlify
+```
+
+</CodeGroup>
+
+
+<Frame>
+  <img src="/images/checks-passed.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+<CodeGroup>
+
+```bash App Router (app/api/route.ts)
+import { serve } from "@novu/framework/next";
+import { myWorkflow } from "../../novu/workflows";
+
+export const { GET, POST, OPTIONS } = serve({ workflows: [myWorkflow] });
+
+```
+
+```bash page Router
+import { serve } from '@novu/framework/next';
+import { testWorkflow } from '../../novu/workflows';
+
+export default serve({ workflows: [testWorkflow] });
+
+```
+
+</CodeGroup>
+
+
+
+qzsedrftgyhujikol
+
+<CodeGroup>
+
+
+```bash npm
+npm i -g mintlify
+```
+
+```bash yarn
+yarn global add mintlify
+```
+
+</CodeGroup>
+
+> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+
+
+<Tabs>
+    <Tab title="Node.js">
+        ```jsx
+        import { Novu } from '@novu/node';
+
+        const novu = new Novu('<NOVU_SECRET_KEY>');
+
+        await novu.trigger('<WORKFLOW_TRIGGER_IDENTIFIER>', {
+            to: {
+                subscriberId: '111',
+                email: 'john.doe@domain.com',
+                firstName: 'John',
+                lastName: 'Doe',
+                phone: '+13603963366',
+            },
+            payload: {
+                customVariable: 'variableValue',
+                organization: {
+                    logo: 'https://organization.com/logo.png',
+                },
+            },
+        });
+        ```
+    </Tab>
+    <Tab title="PHP">
+    Dorothy followed her through many of the beautiful rooms in her castle.
+
+    The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+        ```php
+        use Novu\SDK\Novu;
+
+        $novu = new Novu('<NOVU_SECRET_KEY>');
+
+        $novu->triggerEvent([
+        'name' => '<WORKFLOW_TRIGGER_IDENTIFIER>',
+            'to' => [
+                'subscriberId' => '111',
+                'email' => 'john.doe@domain.com',
+                'firstName' => 'John',
+                'lastName'  => 'Doe',
+                'phone' => '+13603963366'
+            ]
+            'payload' => [
+                'customVariable' => 'variableValue',
+                'organization' => [
+                    'logo' => 'https://organization.com/logo.png',
+                ]
+            ],
+        ]);
+        ```
+    </Tab>
+
+</Tabs>
+
+
+<Tabs>
+<Tab title="Node.js">
+### Steps:
+- `mkdir export_novu_subscribers`
+- `cd export_novu_subscribers`
+- create `fetch_subscribers.js` file and copy [export_novu_subscribers.js](https://gist.github.com/jainpawan21/8604b4b2c1582b419e837bdc72290696#file-export_novu_subscribers-js) gist code into this file.
+- `npm init -y`
+- `npm install axios fast-csv fs`
+- Run `node fetch_subscribers.js`
+- Subscribers are exported in `subscribers.csv` file
+
+</Tab>
+
+<Tab title="Shell Script">
+### Steps:
+- Create file with name fetch_subscribers.sh and copy [export_novu_subscribers.sh](https://gist.github.com/jainpawan21/8604b4b2c1582b419e837bdc72290696#file-export_novu_subscribers-sh) gist code into this file.
+- Run `chmod +x fetch_subscribers.sh`
+- Run `./fetch_subscribers.sh`
+- Subscribers are exported in `subscribers.csv` file
+</Tab>
+</Tabs>
+
+In this guide, we will add a Novu [Bridge Endpoint](/concepts/endpoint) to a Next.js application and send our first test workflow.
+
+<Steps>
+    <LocalStudio />
+    <Step title="Create a Next.js application">
+        This link can be copied right from the onboarding guide on the Novu Studio or can always be copied from the [API Keys](https://dashboard.novu.co/api-keys/Development) page on the Novu Dashboard.
+
+        ```bash
+        npx novu init --secret-key=<YOUR_NOVU_SECRET_KEY>
+        ```
+
+        The sample application will create an `.env` file containing the `NOVU_SECRET_KEY` environment variable required
+        for securing your endpoint. And a sample workflow demonstrating the flexibility of Novu using Step Controls.
+
+        <AccordionGroup>
+            <Accordion title="Manually add to an existing application (5 minutes)">
+                **Install required packages**
+
+                ```bash
+                npm install @novu/framework @react-email/components react-email zod zod-to-json-schema
+                ```
+
+                This will install
+
+                - **`@novu/framework`** SDK Package
+                - **React Email** (Recommended) - For writing your email templates with React
+                - **Zod** (Recommended) - For end-to-end type safety for your Payload and Step Controls
+
+                **Add a Novu API Endpoint**
+
+                <CodeGroup>
+
+                    ```typescript App Router (app/api/novu/route.ts)
+                    import { serve } from "@novu/framework/next";
+                    import { myWorkflow } from "../../novu/workflows";
+
+                    export const { GET, POST, OPTIONS } = serve({ workflows: [myWorkflow] });
+                    ```
+
+                    ```typescript Pages Router (pages/api/novu.ts)
+                    import { serve } from '@novu/framework/next';
+                    import { testWorkflow } from '../../novu/workflows';
+
+                    export default serve({ workflows: [testWorkflow] });
+                    ```
+                </CodeGroup>
+
+                **Add a Novu Secret Key Environment Variable**
+
+                Add `NOVU_SECRET_KEY` environment variable to your `.env`
+
+                ```env
+                NOVU_SECRET_KEY=<NOVU_SECRET_KEY>
+                ```
+
+                **Create your workflow definition**
+
+                Add a `novu` folder that will contain your workflow definitions
+
+                ```tsx app/novu/workflows.ts
+                import { workflow } from '@novu/framework';
+                import { renderEmail } from './emails/test-email';
+                import { z } from 'zod';
+
+                export const testWorkflow = workflow('test-workflow', async ({ step, payload }) => {
+                    await step.email('send-email', async (controls) => {
+                        return {
+                            subject: controls.subject,
+                            body: renderEmail(payload.userName),
+                        };
+                    },
+                    {
+                        controlSchema: z.object({
+                            subject: z.string().default('A Successful Test on Novu from {{userName}}'),
+                        }),
+                    });
+                }, {
+                    payloadSchema: z.object({
+                        userName: z.string().default('John Doe'),
+                    }),
+                });
+                ```
+
+                **Create your React Email Template (Optional)**
+
+                Add a new email template
+
+                ```typescript app/novu/emails/test-email.tsx
+                import {
+                    Body,
+                    Container,
+                    Head,
+                    Html,
+                    render,
+                } from '@react-email/components';
+                import * as React from "react";
+
+                interface TestEmailProps {
+                    name: string
+                }
+
+                export const TestEmailTemplate = ({ name }: TestEmailProps) => {
+                    return (
+                        <Html>
+                            <Head />
+                            <Body>
+                                <Container>
+                                    Hello {name} welcome to your first React E-mail template!
+                                </Container>
+                            </Body>
+                        </Html>
+                    );
+                };
+
+                export default TestEmailTemplate;
+
+                export function renderEmail(name: string) {
+                    return render(<TestEmailTemplate name={name} />);
+                }
+                ```
+            </Accordion>
+        </AccordionGroup>
+    </Step>
+    <Step title="Start your application">
+        To start your boilerplate Next.js server with the Novu Endpoint configured, run the following command:
+
+        ```tsx
+        cd my-novu-app && npm run dev
+        ```
+
+        The sample application will start on [`https://localhost:4000`](https://localhost:4000) and your novu endpoint will be exposed at `/api/novu` served by the Next.js API.
+
+        If your Next.js application is running on other than `4000` port, restart the `novu dev` command with the port:
+
+        ```tsx
+        npx novu@latest dev --port <YOUR_NEXTJS_PORT>
+        ```
+    </Step>
+    <TestStep framework="Next.js" />
+
+    <DeployApp />
+
+</Steps>
+
+<NextStepsStep />
+
+
+## Duplique1
+
+## Section1
+
+is a full-stack (UI Components, API, and Framework) open source notification infrastructure platform for building, ~managing, delivering, and monitoring all types of end-user notifications~.
+
+`is a developer-first product built for engineers` looking to deliver a notifications platform for products. _Novu simplifies the complexities of notification management for developers who_ can then empower the product and marketing teams that need to edit and maintain notification content and copy. Novu supports a variety of common notification channels out-of-the-box, including ***Email, SMS, Push, Inbox, and Chat***.
+`{{payload.user_name}} `
+
+## Section2
+
+empowers developers and engineering teams to quickly deliver a fully extensible notifications platform for product teams to create captivating notification experiences.
+
+- [Redirect to section1](#section1) Code-first Notification Framework Opinionated, yet flexible, Framework for building and managing notification workflows.
+- [Redirect to Concepts clés](/introduction/fr/keyconcepts-fr)JSON Schema Based Controls to craft a no-code visual editor to enable non-technical team members to modify content and behaviour.
+- [Redirect to introduction api reference](/api-reference/introduction) Prebuilt, customisable UI components for in-app user notification feeds and preference experiences.
+- [Redirects to FedaPay](https://www.fedapay.com/?v=ddd70bbaf5be) Observability for delving into the lifecycle of a notification’s success or failure. Eliminate guesswork of how, when, and why a user receives a notification.
+
+## Section3
+
+<CardGroup cols={2}>
+  <Card
+    title="Creation de compte test"
+    href="https://sandbox.fedapay.com/register"
+  >
+    Créer un compte test pour le tester le produit
+  </Card>
+  <Card
+    title="Creation de compte live"
+    href="https://live.fedapay.com/register"
+  >
+    Un compte live pour la mise en service du produit
+  </Card>
+</CardGroup>
+
+Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+
+<CardGroup>
+
+<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
+  Add flair to your docs with personalized branding.
+</Card>
+
+<Card
+  title="Add API Endpoints"
+  icon="square-code"
+  href="/api-playground/configuration"
+>
+  Implement your OpenAPI spec and enable API user interaction.
+</Card>
+
+<Card
+  title="Integrate Analytics"
+  icon="chart-mixed"
+  href="/analytics/supported-integrations"
+>
+  Draw insights from user interactions with your documentation.
+</Card>
+
+<Card
+  title="Host on a Custom Domain"
+  icon="browser"
+  href="/settings/custom-domain/subdomain"
+>
+  Keep your docs on your own website's subdomain.
+</Card>
+
+</CardGroup>
+
+
+### Edit and preview
+
+<AccordionGroup>
+  <Accordion icon="github" title="Clone your docs locally">
+    During the onboarding process, we created a repository on your Github with
+    your docs content. You can find this repository on our
+    [dashboard](https://dashboard.mintlify.com). To clone the repository
+    locally, follow these
+    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+    in your terminal.
+  </Accordion>
+  <Accordion icon="rectangle-terminal" title="Preview changes">
+    Previewing helps you make sure your changes look as intended. We built a
+    command line interface to render these changes locally. 1. Install the
+    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
+    documentation changes locally with this command: ``` npm i -g mintlify ```
+    2. Run the following command at the root of your documentation (where
+    `mint.json` is): ``` mintlify dev ```
+  </Accordion>
+</AccordionGroup>
+
+
+### Deploy your changes
+
+<AccordionGroup>
+
+<Accordion icon="message-bot" title="Install our Github app">
+  Our Github app automatically deploys your changes to your docs site, so you
+  don't need to manage deployments yourself. You can find the link to install on
+  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
+  successfully installed, there should be a check mark next to the commit hash
+  of the repo.
+</Accordion>
+<Accordion icon="rocket" title="Push your changes">
+  [Commit and push your changes to
+  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
+  for your changes to update in your docs site. If you push and don't see that
+  the Github app successfully deployed your changes, you can also manually
+  update your docs through our [dashboard](https://dashboard.mintlify.com).
+</Accordion>
+
+</AccordionGroup>
+
+
+limite lien à l'intérieur de Card
+<CardGroup cols={2}>
+  <Card
+    title="Creation de compte test"
+  >
+    - [Créer un compte test pour le tester](#section1)
+    - Créer un compte test pour le tester
+    - Créer un compte test pour le tester
+    - Créer un compte test pour le tester
+  </Card>
+
+  <Card
+    title="Creation de compte live"
+    href="https://live.fedapay.com/register"
+  >
+    Un compte live pour la mise en service du produit
+  </Card>
+</CardGroup>
+
+## Section4
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Intégrer Feda Checkout à mon site</title>
+  <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+</head>
+<body>
+  <button class="pay-btn"
+  data-transaction-amount="1000"
+  data-transaction-description="Acheter mon produit"
+  data-customer-email="johndoe@gmail.com"
+  data-customer-lastname="Doe">Payer 1000 FCFA</button>
+
+  <button class="pay-btn"
+  data-transaction-amount="2000"
+  data-transaction-description="Acheter mon produit"
+  data-customer-email="janetay@gmail.com"
+  data-customer-lastname="Tay">Payer 2000 FCFA</button>
+  <script type="text/javascript">
+      FedaPay.init('.pay-btn', { public_key: 'VOTRE_CLE_API_PUBLIQUE' });
+  </script>
+</body>
+</html>
+
+```
+
+```html
+npx novu init --secret-key=<YOUR_NOVU_SECRET_KEY>
+
+```
+
+```java HelloWorld.java
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+
+````md
+```java HelloWorld.java
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+````
+
+
+
+<Info>
+  **Prerequisite**: Please install Node.js (version 19 or higher) before proceeding.
+</Info>
+
+<Warning>
+  MDX does not compile inside the body of an arrow function. Stick to HTML
+  syntax when you can or use a default export if you need to use MDX.
+</Warning>
+
+trip limite logo
+<Tip>
+  Unlimited editors available under the [Pro
+  Plan](https://mintlify.com/pricing) and above.
+</Tip>
+
+<Note>
+  Any page in the `snippets` directory will be treated as a snippet and will not
+  be rendered into a standalone page. If you want to create a standalone page
+  from the snippet, import the snippet into another file and call it as a
+  component.
+</Note>
+
+```java
+const { events } = await step.digest("digest-3-days", async () => {
+  return {
+    unit: "days", // 'seconds' | 'minutes' | 'hours' | 'days' | 'weeks' | 'months'
+    amount: 3, // the number of units to digest events for
+  };
+});
+
+await step.email("send-email", async () => {
+  const eventCount = events.length;
+
+  return {
+    subject: "Digest Email",
+    body: `You have ${eventCount} new events`,
+  };
+});
+
+```
+
+<CodeGroup>
+
+```bash npm
+npm i -g mintlify
+```
+
+```bash yarn
+yarn global add mintlify
+```
+
+</CodeGroup>
+
+
+<Frame>
+  <img src="/images/checks-passed.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+<CodeGroup>
+
+```bash App Router (app/api/route.ts)
+import { serve } from "@novu/framework/next";
+import { myWorkflow } from "../../novu/workflows";
+
+export const { GET, POST, OPTIONS } = serve({ workflows: [myWorkflow] });
+
+```
+
+```bash page Router
+import { serve } from '@novu/framework/next';
+import { testWorkflow } from '../../novu/workflows';
+
+export default serve({ workflows: [testWorkflow] });
+
+```
+
+</CodeGroup>
+
+
+
+qzsedrftgyhujikol
+
+<CodeGroup>
+
+
+```bash npm
+npm i -g mintlify
+```
+
+```bash yarn
+yarn global add mintlify
+```
+
+</CodeGroup>
+
+> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+
+
+<Tabs>
+    <Tab title="Node.js">
+        ```jsx
+        import { Novu } from '@novu/node';
+
+        const novu = new Novu('<NOVU_SECRET_KEY>');
+
+        await novu.trigger('<WORKFLOW_TRIGGER_IDENTIFIER>', {
+            to: {
+                subscriberId: '111',
+                email: 'john.doe@domain.com',
+                firstName: 'John',
+                lastName: 'Doe',
+                phone: '+13603963366',
+            },
+            payload: {
+                customVariable: 'variableValue',
+                organization: {
+                    logo: 'https://organization.com/logo.png',
+                },
+            },
+        });
+        ```
+    </Tab>
+    <Tab title="PHP">
+    Dorothy followed her through many of the beautiful rooms in her castle.
+
+    The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+        ```php
+        use Novu\SDK\Novu;
+
+        $novu = new Novu('<NOVU_SECRET_KEY>');
+
+        $novu->triggerEvent([
+        'name' => '<WORKFLOW_TRIGGER_IDENTIFIER>',
+            'to' => [
+                'subscriberId' => '111',
+                'email' => 'john.doe@domain.com',
+                'firstName' => 'John',
+                'lastName'  => 'Doe',
+                'phone' => '+13603963366'
+            ]
+            'payload' => [
+                'customVariable' => 'variableValue',
+                'organization' => [
+                    'logo' => 'https://organization.com/logo.png',
+                ]
+            ],
+        ]);
+        ```
+    </Tab>
+
+</Tabs>
+
+
+<Tabs>
+<Tab title="Node.js">
+### Steps:
+- `mkdir export_novu_subscribers`
+- `cd export_novu_subscribers`
+- create `fetch_subscribers.js` file and copy [export_novu_subscribers.js](https://gist.github.com/jainpawan21/8604b4b2c1582b419e837bdc72290696#file-export_novu_subscribers-js) gist code into this file.
+- `npm init -y`
+- `npm install axios fast-csv fs`
+- Run `node fetch_subscribers.js`
+- Subscribers are exported in `subscribers.csv` file
+
+</Tab>
+
+<Tab title="Shell Script">
+### Steps:
+- Create file with name fetch_subscribers.sh and copy [export_novu_subscribers.sh](https://gist.github.com/jainpawan21/8604b4b2c1582b419e837bdc72290696#file-export_novu_subscribers-sh) gist code into this file.
+- Run `chmod +x fetch_subscribers.sh`
+- Run `./fetch_subscribers.sh`
+- Subscribers are exported in `subscribers.csv` file
+</Tab>
+</Tabs>
+
+In this guide, we will add a Novu [Bridge Endpoint](/concepts/endpoint) to a Next.js application and send our first test workflow.
+
+<Steps>
+    <LocalStudio />
+    <Step title="Create a Next.js application">
+        This link can be copied right from the onboarding guide on the Novu Studio or can always be copied from the [API Keys](https://dashboard.novu.co/api-keys/Development) page on the Novu Dashboard.
+
+        ```bash
+        npx novu init --secret-key=<YOUR_NOVU_SECRET_KEY>
+        ```
+
+        The sample application will create an `.env` file containing the `NOVU_SECRET_KEY` environment variable required
+        for securing your endpoint. And a sample workflow demonstrating the flexibility of Novu using Step Controls.
+
+        <AccordionGroup>
+            <Accordion title="Manually add to an existing application (5 minutes)">
+                **Install required packages**
+
+                ```bash
+                npm install @novu/framework @react-email/components react-email zod zod-to-json-schema
+                ```
+
+                This will install
+
+                - **`@novu/framework`** SDK Package
+                - **React Email** (Recommended) - For writing your email templates with React
+                - **Zod** (Recommended) - For end-to-end type safety for your Payload and Step Controls
+
+                **Add a Novu API Endpoint**
+
+                <CodeGroup>
+
+                    ```typescript App Router (app/api/novu/route.ts)
+                    import { serve } from "@novu/framework/next";
+                    import { myWorkflow } from "../../novu/workflows";
+
+                    export const { GET, POST, OPTIONS } = serve({ workflows: [myWorkflow] });
+                    ```
+
+                    ```typescript Pages Router (pages/api/novu.ts)
+                    import { serve } from '@novu/framework/next';
+                    import { testWorkflow } from '../../novu/workflows';
+
+                    export default serve({ workflows: [testWorkflow] });
+                    ```
+                </CodeGroup>
+
+                **Add a Novu Secret Key Environment Variable**
+
+                Add `NOVU_SECRET_KEY` environment variable to your `.env`
+
+                ```env
+                NOVU_SECRET_KEY=<NOVU_SECRET_KEY>
+                ```
+
+                **Create your workflow definition**
+
+                Add a `novu` folder that will contain your workflow definitions
+
+                ```tsx app/novu/workflows.ts
+                import { workflow } from '@novu/framework';
+                import { renderEmail } from './emails/test-email';
+                import { z } from 'zod';
+
+                export const testWorkflow = workflow('test-workflow', async ({ step, payload }) => {
+                    await step.email('send-email', async (controls) => {
+                        return {
+                            subject: controls.subject,
+                            body: renderEmail(payload.userName),
+                        };
+                    },
+                    {
+                        controlSchema: z.object({
+                            subject: z.string().default('A Successful Test on Novu from {{userName}}'),
+                        }),
+                    });
+                }, {
+                    payloadSchema: z.object({
+                        userName: z.string().default('John Doe'),
+                    }),
+                });
+                ```
+
+                **Create your React Email Template (Optional)**
+
+                Add a new email template
+
+                ```typescript app/novu/emails/test-email.tsx
+                import {
+                    Body,
+                    Container,
+                    Head,
+                    Html,
+                    render,
+                } from '@react-email/components';
+                import * as React from "react";
+
+                interface TestEmailProps {
+                    name: string
+                }
+
+                export const TestEmailTemplate = ({ name }: TestEmailProps) => {
+                    return (
+                        <Html>
+                            <Head />
+                            <Body>
+                                <Container>
+                                    Hello {name} welcome to your first React E-mail template!
+                                </Container>
+                            </Body>
+                        </Html>
+                    );
+                };
+
+                export default TestEmailTemplate;
+
+                export function renderEmail(name: string) {
+                    return render(<TestEmailTemplate name={name} />);
+                }
+                ```
+            </Accordion>
+        </AccordionGroup>
+    </Step>
+    <Step title="Start your application">
+        To start your boilerplate Next.js server with the Novu Endpoint configured, run the following command:
+
+        ```tsx
+        cd my-novu-app && npm run dev
+        ```
+
+        The sample application will start on [`https://localhost:4000`](https://localhost:4000) and your novu endpoint will be exposed at `/api/novu` served by the Next.js API.
+
+        If your Next.js application is running on other than `4000` port, restart the `novu dev` command with the port:
+
+        ```tsx
+        npx novu@latest dev --port <YOUR_NEXTJS_PORT>
+        ```
+    </Step>
+    <TestStep framework="Next.js" />
+
+    <DeployApp />
+
+</Steps>
+
+<NextStepsStep />
+
+
+## Duplique2
+
+## Section1
+
+is a full-stack (UI Components, API, and Framework) open source notification infrastructure platform for building, ~managing, delivering, and monitoring all types of end-user notifications~.
+
+`is a developer-first product built for engineers` looking to deliver a notifications platform for products. _Novu simplifies the complexities of notification management for developers who_ can then empower the product and marketing teams that need to edit and maintain notification content and copy. Novu supports a variety of common notification channels out-of-the-box, including ***Email, SMS, Push, Inbox, and Chat***.
+`{{payload.user_name}} `
+
+## Section2
+
+empowers developers and engineering teams to quickly deliver a fully extensible notifications platform for product teams to create captivating notification experiences.
+
+- [Redirect to section1](#section1) Code-first Notification Framework Opinionated, yet flexible, Framework for building and managing notification workflows.
+- [Redirect to Concepts clés](/introduction/fr/keyconcepts-fr)JSON Schema Based Controls to craft a no-code visual editor to enable non-technical team members to modify content and behaviour.
+- [Redirect to introduction api reference](/api-reference/introduction) Prebuilt, customisable UI components for in-app user notification feeds and preference experiences.
+- [Redirects to FedaPay](https://www.fedapay.com/?v=ddd70bbaf5be) Observability for delving into the lifecycle of a notification’s success or failure. Eliminate guesswork of how, when, and why a user receives a notification.
+
+## Section3
+
+<CardGroup cols={2}>
+  <Card
+    title="Creation de compte test"
+    href="https://sandbox.fedapay.com/register"
+  >
+    Créer un compte test pour le tester le produit
+  </Card>
+  <Card
+    title="Creation de compte live"
+    href="https://live.fedapay.com/register"
+  >
+    Un compte live pour la mise en service du produit
+  </Card>
+</CardGroup>
+
+Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+
+<CardGroup>
+
+<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
+  Add flair to your docs with personalized branding.
+</Card>
+
+<Card
+  title="Add API Endpoints"
+  icon="square-code"
+  href="/api-playground/configuration"
+>
+  Implement your OpenAPI spec and enable API user interaction.
+</Card>
+
+<Card
+  title="Integrate Analytics"
+  icon="chart-mixed"
+  href="/analytics/supported-integrations"
+>
+  Draw insights from user interactions with your documentation.
+</Card>
+
+<Card
+  title="Host on a Custom Domain"
+  icon="browser"
+  href="/settings/custom-domain/subdomain"
+>
+  Keep your docs on your own website's subdomain.
+</Card>
+
+</CardGroup>
+
+
+### Edit and preview
+
+<AccordionGroup>
+  <Accordion icon="github" title="Clone your docs locally">
+    During the onboarding process, we created a repository on your Github with
+    your docs content. You can find this repository on our
+    [dashboard](https://dashboard.mintlify.com). To clone the repository
+    locally, follow these
+    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+    in your terminal.
+  </Accordion>
+  <Accordion icon="rectangle-terminal" title="Preview changes">
+    Previewing helps you make sure your changes look as intended. We built a
+    command line interface to render these changes locally. 1. Install the
+    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
+    documentation changes locally with this command: ``` npm i -g mintlify ```
+    2. Run the following command at the root of your documentation (where
+    `mint.json` is): ``` mintlify dev ```
+  </Accordion>
+</AccordionGroup>
+
+
+### Deploy your changes
+
+<AccordionGroup>
+
+<Accordion icon="message-bot" title="Install our Github app">
+  Our Github app automatically deploys your changes to your docs site, so you
+  don't need to manage deployments yourself. You can find the link to install on
+  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
+  successfully installed, there should be a check mark next to the commit hash
+  of the repo.
+</Accordion>
+<Accordion icon="rocket" title="Push your changes">
+  [Commit and push your changes to
+  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
+  for your changes to update in your docs site. If you push and don't see that
+  the Github app successfully deployed your changes, you can also manually
+  update your docs through our [dashboard](https://dashboard.mintlify.com).
+</Accordion>
+
+</AccordionGroup>
+
+
+limite lien à l'intérieur de Card
+<CardGroup cols={2}>
+  <Card
+    title="Creation de compte test"
+  >
+    - [Créer un compte test pour le tester](#section1)
+    - Créer un compte test pour le tester
+    - Créer un compte test pour le tester
+    - Créer un compte test pour le tester
+  </Card>
+
+  <Card
+    title="Creation de compte live"
+    href="https://live.fedapay.com/register"
+  >
+    Un compte live pour la mise en service du produit
+  </Card>
+</CardGroup>
+
+## Section4
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Intégrer Feda Checkout à mon site</title>
+  <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+</head>
+<body>
+  <button class="pay-btn"
+  data-transaction-amount="1000"
+  data-transaction-description="Acheter mon produit"
+  data-customer-email="johndoe@gmail.com"
+  data-customer-lastname="Doe">Payer 1000 FCFA</button>
+
+  <button class="pay-btn"
+  data-transaction-amount="2000"
+  data-transaction-description="Acheter mon produit"
+  data-customer-email="janetay@gmail.com"
+  data-customer-lastname="Tay">Payer 2000 FCFA</button>
+  <script type="text/javascript">
+      FedaPay.init('.pay-btn', { public_key: 'VOTRE_CLE_API_PUBLIQUE' });
+  </script>
+</body>
+</html>
+
+```
+
+```html
+npx novu init --secret-key=<YOUR_NOVU_SECRET_KEY>
+
+```
+
+```java HelloWorld.java
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+
+````md
+```java HelloWorld.java
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+````
+
+
+
+<Info>
+  **Prerequisite**: Please install Node.js (version 19 or higher) before proceeding.
+</Info>
+
+<Warning>
+  MDX does not compile inside the body of an arrow function. Stick to HTML
+  syntax when you can or use a default export if you need to use MDX.
+</Warning>
+
+trip limite logo
+<Tip>
+  Unlimited editors available under the [Pro
+  Plan](https://mintlify.com/pricing) and above.
+</Tip>
+
+<Note>
+  Any page in the `snippets` directory will be treated as a snippet and will not
+  be rendered into a standalone page. If you want to create a standalone page
+  from the snippet, import the snippet into another file and call it as a
+  component.
+</Note>
+
+```java
+const { events } = await step.digest("digest-3-days", async () => {
+  return {
+    unit: "days", // 'seconds' | 'minutes' | 'hours' | 'days' | 'weeks' | 'months'
+    amount: 3, // the number of units to digest events for
+  };
+});
+
+await step.email("send-email", async () => {
+  const eventCount = events.length;
+
+  return {
+    subject: "Digest Email",
+    body: `You have ${eventCount} new events`,
+  };
+});
+
+```
+
+<CodeGroup>
+
+```bash npm
+npm i -g mintlify
+```
+
+```bash yarn
+yarn global add mintlify
+```
+
+</CodeGroup>
+
+
+<Frame>
+  <img src="/images/checks-passed.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+<CodeGroup>
+
+```bash App Router (app/api/route.ts)
+import { serve } from "@novu/framework/next";
+import { myWorkflow } from "../../novu/workflows";
+
+export const { GET, POST, OPTIONS } = serve({ workflows: [myWorkflow] });
+
+```
+
+```bash page Router
+import { serve } from '@novu/framework/next';
+import { testWorkflow } from '../../novu/workflows';
+
+export default serve({ workflows: [testWorkflow] });
+
+```
+
+</CodeGroup>
+
+
+
+qzsedrftgyhujikol
+
+<CodeGroup>
+
+
+```bash npm
+npm i -g mintlify
+```
+
+```bash yarn
+yarn global add mintlify
+```
+
+</CodeGroup>
+
+> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+
+
+<Tabs>
+    <Tab title="Node.js">
+        ```jsx
+        import { Novu } from '@novu/node';
+
+        const novu = new Novu('<NOVU_SECRET_KEY>');
+
+        await novu.trigger('<WORKFLOW_TRIGGER_IDENTIFIER>', {
+            to: {
+                subscriberId: '111',
+                email: 'john.doe@domain.com',
+                firstName: 'John',
+                lastName: 'Doe',
+                phone: '+13603963366',
+            },
+            payload: {
+                customVariable: 'variableValue',
+                organization: {
+                    logo: 'https://organization.com/logo.png',
+                },
+            },
+        });
+        ```
+    </Tab>
+    <Tab title="PHP">
+    Dorothy followed her through many of the beautiful rooms in her castle.
+
+    The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+        ```php
+        use Novu\SDK\Novu;
+
+        $novu = new Novu('<NOVU_SECRET_KEY>');
+
+        $novu->triggerEvent([
+        'name' => '<WORKFLOW_TRIGGER_IDENTIFIER>',
+            'to' => [
+                'subscriberId' => '111',
+                'email' => 'john.doe@domain.com',
+                'firstName' => 'John',
+                'lastName'  => 'Doe',
+                'phone' => '+13603963366'
+            ]
+            'payload' => [
+                'customVariable' => 'variableValue',
+                'organization' => [
+                    'logo' => 'https://organization.com/logo.png',
+                ]
+            ],
+        ]);
+        ```
+    </Tab>
+
+</Tabs>
+
+
+<Tabs>
+<Tab title="Node.js">
+### Steps:
+- `mkdir export_novu_subscribers`
+- `cd export_novu_subscribers`
+- create `fetch_subscribers.js` file and copy [export_novu_subscribers.js](https://gist.github.com/jainpawan21/8604b4b2c1582b419e837bdc72290696#file-export_novu_subscribers-js) gist code into this file.
+- `npm init -y`
+- `npm install axios fast-csv fs`
+- Run `node fetch_subscribers.js`
+- Subscribers are exported in `subscribers.csv` file
+
+</Tab>
+
+<Tab title="Shell Script">
+### Steps:
+- Create file with name fetch_subscribers.sh and copy [export_novu_subscribers.sh](https://gist.github.com/jainpawan21/8604b4b2c1582b419e837bdc72290696#file-export_novu_subscribers-sh) gist code into this file.
+- Run `chmod +x fetch_subscribers.sh`
+- Run `./fetch_subscribers.sh`
+- Subscribers are exported in `subscribers.csv` file
+</Tab>
+</Tabs>
+
+In this guide, we will add a Novu [Bridge Endpoint](/concepts/endpoint) to a Next.js application and send our first test workflow.
+
+<Steps>
+    <LocalStudio />
+    <Step title="Create a Next.js application">
+        This link can be copied right from the onboarding guide on the Novu Studio or can always be copied from the [API Keys](https://dashboard.novu.co/api-keys/Development) page on the Novu Dashboard.
+
+        ```bash
+        npx novu init --secret-key=<YOUR_NOVU_SECRET_KEY>
+        ```
+
+        The sample application will create an `.env` file containing the `NOVU_SECRET_KEY` environment variable required
+        for securing your endpoint. And a sample workflow demonstrating the flexibility of Novu using Step Controls.
+
+        <AccordionGroup>
+            <Accordion title="Manually add to an existing application (5 minutes)">
+                **Install required packages**
+
+                ```bash
+                npm install @novu/framework @react-email/components react-email zod zod-to-json-schema
+                ```
+
+                This will install
+
+                - **`@novu/framework`** SDK Package
+                - **React Email** (Recommended) - For writing your email templates with React
+                - **Zod** (Recommended) - For end-to-end type safety for your Payload and Step Controls
+
+                **Add a Novu API Endpoint**
+
+                <CodeGroup>
+
+                    ```typescript App Router (app/api/novu/route.ts)
+                    import { serve } from "@novu/framework/next";
+                    import { myWorkflow } from "../../novu/workflows";
+
+                    export const { GET, POST, OPTIONS } = serve({ workflows: [myWorkflow] });
+                    ```
+
+                    ```typescript Pages Router (pages/api/novu.ts)
+                    import { serve } from '@novu/framework/next';
+                    import { testWorkflow } from '../../novu/workflows';
+
+                    export default serve({ workflows: [testWorkflow] });
+                    ```
+                </CodeGroup>
+
+                **Add a Novu Secret Key Environment Variable**
+
+                Add `NOVU_SECRET_KEY` environment variable to your `.env`
+
+                ```env
+                NOVU_SECRET_KEY=<NOVU_SECRET_KEY>
+                ```
+
+                **Create your workflow definition**
+
+                Add a `novu` folder that will contain your workflow definitions
+
+                ```tsx app/novu/workflows.ts
+                import { workflow } from '@novu/framework';
+                import { renderEmail } from './emails/test-email';
+                import { z } from 'zod';
+
+                export const testWorkflow = workflow('test-workflow', async ({ step, payload }) => {
+                    await step.email('send-email', async (controls) => {
+                        return {
+                            subject: controls.subject,
+                            body: renderEmail(payload.userName),
+                        };
+                    },
+                    {
+                        controlSchema: z.object({
+                            subject: z.string().default('A Successful Test on Novu from {{userName}}'),
+                        }),
+                    });
+                }, {
+                    payloadSchema: z.object({
+                        userName: z.string().default('John Doe'),
+                    }),
+                });
+                ```
+
+                **Create your React Email Template (Optional)**
+
+                Add a new email template
+
+                ```typescript app/novu/emails/test-email.tsx
+                import {
+                    Body,
+                    Container,
+                    Head,
+                    Html,
+                    render,
+                } from '@react-email/components';
+                import * as React from "react";
+
+                interface TestEmailProps {
+                    name: string
+                }
+
+                export const TestEmailTemplate = ({ name }: TestEmailProps) => {
+                    return (
+                        <Html>
+                            <Head />
+                            <Body>
+                                <Container>
+                                    Hello {name} welcome to your first React E-mail template!
+                                </Container>
+                            </Body>
+                        </Html>
+                    );
+                };
+
+                export default TestEmailTemplate;
+
+                export function renderEmail(name: string) {
+                    return render(<TestEmailTemplate name={name} />);
+                }
+                ```
+            </Accordion>
+        </AccordionGroup>
+    </Step>
+    <Step title="Start your application">
+        To start your boilerplate Next.js server with the Novu Endpoint configured, run the following command:
+
+        ```tsx
+        cd my-novu-app && npm run dev
+        ```
+
+        The sample application will start on [`https://localhost:4000`](https://localhost:4000) and your novu endpoint will be exposed at `/api/novu` served by the Next.js API.
+
+        If your Next.js application is running on other than `4000` port, restart the `novu dev` command with the port:
+
+        ```tsx
+        npx novu@latest dev --port <YOUR_NEXTJS_PORT>
+        ```
+    </Step>
+    <TestStep framework="Next.js" />
+
+    <DeployApp />
+
+</Steps>
+
+<NextStepsStep />
+
+## Duplique3
+
+## Section1
+
+is a full-stack (UI Components, API, and Framework) open source notification infrastructure platform for building, ~managing, delivering, and monitoring all types of end-user notifications~.
+
+`is a developer-first product built for engineers` looking to deliver a notifications platform for products. _Novu simplifies the complexities of notification management for developers who_ can then empower the product and marketing teams that need to edit and maintain notification content and copy. Novu supports a variety of common notification channels out-of-the-box, including ***Email, SMS, Push, Inbox, and Chat***.
+`{{payload.user_name}} `
+
+## Section2
+
+empowers developers and engineering teams to quickly deliver a fully extensible notifications platform for product teams to create captivating notification experiences.
+
+- [Redirect to section1](#section1) Code-first Notification Framework Opinionated, yet flexible, Framework for building and managing notification workflows.
+- [Redirect to Concepts clés](/introduction/fr/keyconcepts-fr)JSON Schema Based Controls to craft a no-code visual editor to enable non-technical team members to modify content and behaviour.
+- [Redirect to introduction api reference](/api-reference/introduction) Prebuilt, customisable UI components for in-app user notification feeds and preference experiences.
+- [Redirects to FedaPay](https://www.fedapay.com/?v=ddd70bbaf5be) Observability for delving into the lifecycle of a notification’s success or failure. Eliminate guesswork of how, when, and why a user receives a notification.
+
+## Section3
+
+<CardGroup cols={2}>
+  <Card
+    title="Creation de compte test"
+    href="https://sandbox.fedapay.com/register"
+  >
+    Créer un compte test pour le tester le produit
+  </Card>
+  <Card
+    title="Creation de compte live"
+    href="https://live.fedapay.com/register"
+  >
+    Un compte live pour la mise en service du produit
+  </Card>
+</CardGroup>
+
+Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+
+<CardGroup>
+
+<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
+  Add flair to your docs with personalized branding.
+</Card>
+
+<Card
+  title="Add API Endpoints"
+  icon="square-code"
+  href="/api-playground/configuration"
+>
+  Implement your OpenAPI spec and enable API user interaction.
+</Card>
+
+<Card
+  title="Integrate Analytics"
+  icon="chart-mixed"
+  href="/analytics/supported-integrations"
+>
+  Draw insights from user interactions with your documentation.
+</Card>
+
+<Card
+  title="Host on a Custom Domain"
+  icon="browser"
+  href="/settings/custom-domain/subdomain"
+>
+  Keep your docs on your own website's subdomain.
+</Card>
+
+</CardGroup>
+
+
+### Edit and preview
+
+<AccordionGroup>
+  <Accordion icon="github" title="Clone your docs locally">
+    During the onboarding process, we created a repository on your Github with
+    your docs content. You can find this repository on our
+    [dashboard](https://dashboard.mintlify.com). To clone the repository
+    locally, follow these
+    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+    in your terminal.
+  </Accordion>
+  <Accordion icon="rectangle-terminal" title="Preview changes">
+    Previewing helps you make sure your changes look as intended. We built a
+    command line interface to render these changes locally. 1. Install the
+    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
+    documentation changes locally with this command: ``` npm i -g mintlify ```
+    2. Run the following command at the root of your documentation (where
+    `mint.json` is): ``` mintlify dev ```
+  </Accordion>
+</AccordionGroup>
+
+
+### Deploy your changes
+
+<AccordionGroup>
+
+<Accordion icon="message-bot" title="Install our Github app">
+  Our Github app automatically deploys your changes to your docs site, so you
+  don't need to manage deployments yourself. You can find the link to install on
+  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
+  successfully installed, there should be a check mark next to the commit hash
+  of the repo.
+</Accordion>
+<Accordion icon="rocket" title="Push your changes">
+  [Commit and push your changes to
+  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
+  for your changes to update in your docs site. If you push and don't see that
+  the Github app successfully deployed your changes, you can also manually
+  update your docs through our [dashboard](https://dashboard.mintlify.com).
+</Accordion>
+
+</AccordionGroup>
+
+
+limite lien à l'intérieur de Card
+<CardGroup cols={2}>
+  <Card
+    title="Creation de compte test"
+  >
+    - [Créer un compte test pour le tester](#section1)
+    - Créer un compte test pour le tester
+    - Créer un compte test pour le tester
+    - Créer un compte test pour le tester
+  </Card>
+
+  <Card
+    title="Creation de compte live"
+    href="https://live.fedapay.com/register"
+  >
+    Un compte live pour la mise en service du produit
+  </Card>
+</CardGroup>
+
+## Section4
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Intégrer Feda Checkout à mon site</title>
+  <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+</head>
+<body>
+  <button class="pay-btn"
+  data-transaction-amount="1000"
+  data-transaction-description="Acheter mon produit"
+  data-customer-email="johndoe@gmail.com"
+  data-customer-lastname="Doe">Payer 1000 FCFA</button>
+
+  <button class="pay-btn"
+  data-transaction-amount="2000"
+  data-transaction-description="Acheter mon produit"
+  data-customer-email="janetay@gmail.com"
+  data-customer-lastname="Tay">Payer 2000 FCFA</button>
+  <script type="text/javascript">
+      FedaPay.init('.pay-btn', { public_key: 'VOTRE_CLE_API_PUBLIQUE' });
+  </script>
+</body>
+</html>
+
+```
+
+```html
+npx novu init --secret-key=<YOUR_NOVU_SECRET_KEY>
+
+```
+
+```java HelloWorld.java
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+
+````md
+```java HelloWorld.java
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+````
+
+
+
+<Info>
+  **Prerequisite**: Please install Node.js (version 19 or higher) before proceeding.
+</Info>
+
+<Warning>
+  MDX does not compile inside the body of an arrow function. Stick to HTML
+  syntax when you can or use a default export if you need to use MDX.
+</Warning>
+
+trip limite logo
+<Tip>
+  Unlimited editors available under the [Pro
+  Plan](https://mintlify.com/pricing) and above.
+</Tip>
+
+<Note>
+  Any page in the `snippets` directory will be treated as a snippet and will not
+  be rendered into a standalone page. If you want to create a standalone page
+  from the snippet, import the snippet into another file and call it as a
+  component.
+</Note>
+
+```java
+const { events } = await step.digest("digest-3-days", async () => {
+  return {
+    unit: "days", // 'seconds' | 'minutes' | 'hours' | 'days' | 'weeks' | 'months'
+    amount: 3, // the number of units to digest events for
+  };
+});
+
+await step.email("send-email", async () => {
+  const eventCount = events.length;
+
+  return {
+    subject: "Digest Email",
+    body: `You have ${eventCount} new events`,
+  };
+});
+
+```
+
+<CodeGroup>
+
+```bash npm
+npm i -g mintlify
+```
+
+```bash yarn
+yarn global add mintlify
+```
+
+</CodeGroup>
+
+
+<Frame>
+  <img src="/images/checks-passed.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+<CodeGroup>
+
+```bash App Router (app/api/route.ts)
+import { serve } from "@novu/framework/next";
+import { myWorkflow } from "../../novu/workflows";
+
+export const { GET, POST, OPTIONS } = serve({ workflows: [myWorkflow] });
+
+```
+
+```bash page Router
+import { serve } from '@novu/framework/next';
+import { testWorkflow } from '../../novu/workflows';
+
+export default serve({ workflows: [testWorkflow] });
+
+```
+
+</CodeGroup>
+
+
+
+qzsedrftgyhujikol
+
+<CodeGroup>
+
+
+```bash npm
+npm i -g mintlify
+```
+
+```bash yarn
+yarn global add mintlify
+```
+
+</CodeGroup>
+
+> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+
+
+<Tabs>
+    <Tab title="Node.js">
+        ```jsx
+        import { Novu } from '@novu/node';
+
+        const novu = new Novu('<NOVU_SECRET_KEY>');
+
+        await novu.trigger('<WORKFLOW_TRIGGER_IDENTIFIER>', {
+            to: {
+                subscriberId: '111',
+                email: 'john.doe@domain.com',
+                firstName: 'John',
+                lastName: 'Doe',
+                phone: '+13603963366',
+            },
+            payload: {
+                customVariable: 'variableValue',
+                organization: {
+                    logo: 'https://organization.com/logo.png',
+                },
+            },
+        });
+        ```
+    </Tab>
+    <Tab title="PHP">
+    Dorothy followed her through many of the beautiful rooms in her castle.
+
+    The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+        ```php
+        use Novu\SDK\Novu;
+
+        $novu = new Novu('<NOVU_SECRET_KEY>');
+
+        $novu->triggerEvent([
+        'name' => '<WORKFLOW_TRIGGER_IDENTIFIER>',
+            'to' => [
+                'subscriberId' => '111',
+                'email' => 'john.doe@domain.com',
+                'firstName' => 'John',
+                'lastName'  => 'Doe',
+                'phone' => '+13603963366'
+            ]
+            'payload' => [
+                'customVariable' => 'variableValue',
+                'organization' => [
+                    'logo' => 'https://organization.com/logo.png',
+                ]
+            ],
+        ]);
+        ```
+    </Tab>
+
+</Tabs>
+
+
+<Tabs>
+<Tab title="Node.js">
+### Steps:
+- `mkdir export_novu_subscribers`
+- `cd export_novu_subscribers`
+- create `fetch_subscribers.js` file and copy [export_novu_subscribers.js](https://gist.github.com/jainpawan21/8604b4b2c1582b419e837bdc72290696#file-export_novu_subscribers-js) gist code into this file.
+- `npm init -y`
+- `npm install axios fast-csv fs`
+- Run `node fetch_subscribers.js`
+- Subscribers are exported in `subscribers.csv` file
+
+</Tab>
+
+<Tab title="Shell Script">
+### Steps:
+- Create file with name fetch_subscribers.sh and copy [export_novu_subscribers.sh](https://gist.github.com/jainpawan21/8604b4b2c1582b419e837bdc72290696#file-export_novu_subscribers-sh) gist code into this file.
+- Run `chmod +x fetch_subscribers.sh`
+- Run `./fetch_subscribers.sh`
+- Subscribers are exported in `subscribers.csv` file
+</Tab>
+</Tabs>
+
+In this guide, we will add a Novu [Bridge Endpoint](/concepts/endpoint) to a Next.js application and send our first test workflow.
+
+<Steps>
+    <LocalStudio />
+    <Step title="Create a Next.js application">
+        This link can be copied right from the onboarding guide on the Novu Studio or can always be copied from the [API Keys](https://dashboard.novu.co/api-keys/Development) page on the Novu Dashboard.
+
+        ```bash
+        npx novu init --secret-key=<YOUR_NOVU_SECRET_KEY>
+        ```
+
+        The sample application will create an `.env` file containing the `NOVU_SECRET_KEY` environment variable required
+        for securing your endpoint. And a sample workflow demonstrating the flexibility of Novu using Step Controls.
+
+        <AccordionGroup>
+            <Accordion title="Manually add to an existing application (5 minutes)">
+                **Install required packages**
+
+                ```bash
+                npm install @novu/framework @react-email/components react-email zod zod-to-json-schema
+                ```
+
+                This will install
+
+                - **`@novu/framework`** SDK Package
+                - **React Email** (Recommended) - For writing your email templates with React
+                - **Zod** (Recommended) - For end-to-end type safety for your Payload and Step Controls
+
+                **Add a Novu API Endpoint**
+
+                <CodeGroup>
+
+                    ```typescript App Router (app/api/novu/route.ts)
+                    import { serve } from "@novu/framework/next";
+                    import { myWorkflow } from "../../novu/workflows";
+
+                    export const { GET, POST, OPTIONS } = serve({ workflows: [myWorkflow] });
+                    ```
+
+                    ```typescript Pages Router (pages/api/novu.ts)
+                    import { serve } from '@novu/framework/next';
+                    import { testWorkflow } from '../../novu/workflows';
+
+                    export default serve({ workflows: [testWorkflow] });
+                    ```
+                </CodeGroup>
+
+                **Add a Novu Secret Key Environment Variable**
+
+                Add `NOVU_SECRET_KEY` environment variable to your `.env`
+
+                ```env
+                NOVU_SECRET_KEY=<NOVU_SECRET_KEY>
+                ```
+
+                **Create your workflow definition**
+
+                Add a `novu` folder that will contain your workflow definitions
+
+                ```tsx app/novu/workflows.ts
+                import { workflow } from '@novu/framework';
+                import { renderEmail } from './emails/test-email';
+                import { z } from 'zod';
+
+                export const testWorkflow = workflow('test-workflow', async ({ step, payload }) => {
+                    await step.email('send-email', async (controls) => {
+                        return {
+                            subject: controls.subject,
+                            body: renderEmail(payload.userName),
+                        };
+                    },
+                    {
+                        controlSchema: z.object({
+                            subject: z.string().default('A Successful Test on Novu from {{userName}}'),
+                        }),
+                    });
+                }, {
+                    payloadSchema: z.object({
+                        userName: z.string().default('John Doe'),
+                    }),
+                });
+                ```
+
+                **Create your React Email Template (Optional)**
+
+                Add a new email template
+
+                ```typescript app/novu/emails/test-email.tsx
+                import {
+                    Body,
+                    Container,
+                    Head,
+                    Html,
+                    render,
+                } from '@react-email/components';
+                import * as React from "react";
+
+                interface TestEmailProps {
+                    name: string
+                }
+
+                export const TestEmailTemplate = ({ name }: TestEmailProps) => {
+                    return (
+                        <Html>
+                            <Head />
+                            <Body>
+                                <Container>
+                                    Hello {name} welcome to your first React E-mail template!
+                                </Container>
+                            </Body>
+                        </Html>
+                    );
+                };
+
+                export default TestEmailTemplate;
+
+                export function renderEmail(name: string) {
+                    return render(<TestEmailTemplate name={name} />);
+                }
+                ```
+            </Accordion>
+        </AccordionGroup>
+    </Step>
+    <Step title="Start your application">
+        To start your boilerplate Next.js server with the Novu Endpoint configured, run the following command:
+
+        ```tsx
+        cd my-novu-app && npm run dev
+        ```
+
+        The sample application will start on [`https://localhost:4000`](https://localhost:4000) and your novu endpoint will be exposed at `/api/novu` served by the Next.js API.
+
+        If your Next.js application is running on other than `4000` port, restart the `novu dev` command with the port:
+
+        ```tsx
+        npx novu@latest dev --port <YOUR_NEXTJS_PORT>
+        ```
+    </Step>
+    <TestStep framework="Next.js" />
+
+    <DeployApp />
+
+</Steps>
+
+<NextStepsStep />
+
+## Duplique4
+
+## Section1
+
+is a full-stack (UI Components, API, and Framework) open source notification infrastructure platform for building, ~managing, delivering, and monitoring all types of end-user notifications~.
+
+`is a developer-first product built for engineers` looking to deliver a notifications platform for products. _Novu simplifies the complexities of notification management for developers who_ can then empower the product and marketing teams that need to edit and maintain notification content and copy. Novu supports a variety of common notification channels out-of-the-box, including ***Email, SMS, Push, Inbox, and Chat***.
+`{{payload.user_name}} `
+
+## Section2
+
+empowers developers and engineering teams to quickly deliver a fully extensible notifications platform for product teams to create captivating notification experiences.
+
+- [Redirect to section1](#section1) Code-first Notification Framework Opinionated, yet flexible, Framework for building and managing notification workflows.
+- [Redirect to Concepts clés](/introduction/fr/keyconcepts-fr)JSON Schema Based Controls to craft a no-code visual editor to enable non-technical team members to modify content and behaviour.
+- [Redirect to introduction api reference](/api-reference/introduction) Prebuilt, customisable UI components for in-app user notification feeds and preference experiences.
+- [Redirects to FedaPay](https://www.fedapay.com/?v=ddd70bbaf5be) Observability for delving into the lifecycle of a notification’s success or failure. Eliminate guesswork of how, when, and why a user receives a notification.
+
+## Section3
+
+<CardGroup cols={2}>
+  <Card
+    title="Creation de compte test"
+    href="https://sandbox.fedapay.com/register"
+  >
+    Créer un compte test pour le tester le produit
+  </Card>
+  <Card
+    title="Creation de compte live"
+    href="https://live.fedapay.com/register"
+  >
+    Un compte live pour la mise en service du produit
+  </Card>
+</CardGroup>
+
+Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+
+<CardGroup>
+
+<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
+  Add flair to your docs with personalized branding.
+</Card>
+
+<Card
+  title="Add API Endpoints"
+  icon="square-code"
+  href="/api-playground/configuration"
+>
+  Implement your OpenAPI spec and enable API user interaction.
+</Card>
+
+<Card
+  title="Integrate Analytics"
+  icon="chart-mixed"
+  href="/analytics/supported-integrations"
+>
+  Draw insights from user interactions with your documentation.
+</Card>
+
+<Card
+  title="Host on a Custom Domain"
+  icon="browser"
+  href="/settings/custom-domain/subdomain"
+>
+  Keep your docs on your own website's subdomain.
+</Card>
+
+</CardGroup>
+
+
+### Edit and preview
+
+<AccordionGroup>
+  <Accordion icon="github" title="Clone your docs locally">
+    During the onboarding process, we created a repository on your Github with
+    your docs content. You can find this repository on our
+    [dashboard](https://dashboard.mintlify.com). To clone the repository
+    locally, follow these
+    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+    in your terminal.
+  </Accordion>
+  <Accordion icon="rectangle-terminal" title="Preview changes">
+    Previewing helps you make sure your changes look as intended. We built a
+    command line interface to render these changes locally. 1. Install the
+    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
+    documentation changes locally with this command: ``` npm i -g mintlify ```
+    2. Run the following command at the root of your documentation (where
+    `mint.json` is): ``` mintlify dev ```
+  </Accordion>
+</AccordionGroup>
+
+
+### Deploy your changes
+
+<AccordionGroup>
+
+<Accordion icon="message-bot" title="Install our Github app">
+  Our Github app automatically deploys your changes to your docs site, so you
+  don't need to manage deployments yourself. You can find the link to install on
+  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
+  successfully installed, there should be a check mark next to the commit hash
+  of the repo.
+</Accordion>
+<Accordion icon="rocket" title="Push your changes">
+  [Commit and push your changes to
+  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
+  for your changes to update in your docs site. If you push and don't see that
+  the Github app successfully deployed your changes, you can also manually
+  update your docs through our [dashboard](https://dashboard.mintlify.com).
+</Accordion>
+
+</AccordionGroup>
+
+
+limite lien à l'intérieur de Card
+<CardGroup cols={2}>
+  <Card
+    title="Creation de compte test"
+  >
+    - [Créer un compte test pour le tester](#section1)
+    - Créer un compte test pour le tester
+    - Créer un compte test pour le tester
+    - Créer un compte test pour le tester
+  </Card>
+
+  <Card
+    title="Creation de compte live"
+    href="https://live.fedapay.com/register"
+  >
+    Un compte live pour la mise en service du produit
+  </Card>
+</CardGroup>
+
+## Section4
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Intégrer Feda Checkout à mon site</title>
+  <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+</head>
+<body>
+  <button class="pay-btn"
+  data-transaction-amount="1000"
+  data-transaction-description="Acheter mon produit"
+  data-customer-email="johndoe@gmail.com"
+  data-customer-lastname="Doe">Payer 1000 FCFA</button>
+
+  <button class="pay-btn"
+  data-transaction-amount="2000"
+  data-transaction-description="Acheter mon produit"
+  data-customer-email="janetay@gmail.com"
+  data-customer-lastname="Tay">Payer 2000 FCFA</button>
+  <script type="text/javascript">
+      FedaPay.init('.pay-btn', { public_key: 'VOTRE_CLE_API_PUBLIQUE' });
+  </script>
+</body>
+</html>
+
+```
+
+```html
+npx novu init --secret-key=<YOUR_NOVU_SECRET_KEY>
+
+```
+
+```java HelloWorld.java
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+
+````md
+```java HelloWorld.java
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+````
+
+
+
+<Info>
+  **Prerequisite**: Please install Node.js (version 19 or higher) before proceeding.
+</Info>
+
+<Warning>
+  MDX does not compile inside the body of an arrow function. Stick to HTML
+  syntax when you can or use a default export if you need to use MDX.
+</Warning>
+
+trip limite logo
+<Tip>
+  Unlimited editors available under the [Pro
+  Plan](https://mintlify.com/pricing) and above.
+</Tip>
+
+<Note>
+  Any page in the `snippets` directory will be treated as a snippet and will not
+  be rendered into a standalone page. If you want to create a standalone page
+  from the snippet, import the snippet into another file and call it as a
+  component.
+</Note>
+
+```java
+const { events } = await step.digest("digest-3-days", async () => {
+  return {
+    unit: "days", // 'seconds' | 'minutes' | 'hours' | 'days' | 'weeks' | 'months'
+    amount: 3, // the number of units to digest events for
+  };
+});
+
+await step.email("send-email", async () => {
+  const eventCount = events.length;
+
+  return {
+    subject: "Digest Email",
+    body: `You have ${eventCount} new events`,
+  };
+});
+
+```
+
+<CodeGroup>
+
+```bash npm
+npm i -g mintlify
+```
+
+```bash yarn
+yarn global add mintlify
+```
+
+</CodeGroup>
+
+
+<Frame>
+  <img src="/images/checks-passed.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+<CodeGroup>
+
+```bash App Router (app/api/route.ts)
+import { serve } from "@novu/framework/next";
+import { myWorkflow } from "../../novu/workflows";
+
+export const { GET, POST, OPTIONS } = serve({ workflows: [myWorkflow] });
+
+```
+
+```bash page Router
+import { serve } from '@novu/framework/next';
+import { testWorkflow } from '../../novu/workflows';
+
+export default serve({ workflows: [testWorkflow] });
+
+```
+
+</CodeGroup>
+
+
+
+qzsedrftgyhujikol
+
+<CodeGroup>
+
+
+```bash npm
+npm i -g mintlify
+```
+
+```bash yarn
+yarn global add mintlify
+```
+
+</CodeGroup>
+
+> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+
+
+<Tabs>
+    <Tab title="Node.js">
+        ```jsx
+        import { Novu } from '@novu/node';
+
+        const novu = new Novu('<NOVU_SECRET_KEY>');
+
+        await novu.trigger('<WORKFLOW_TRIGGER_IDENTIFIER>', {
+            to: {
+                subscriberId: '111',
+                email: 'john.doe@domain.com',
+                firstName: 'John',
+                lastName: 'Doe',
+                phone: '+13603963366',
+            },
+            payload: {
+                customVariable: 'variableValue',
+                organization: {
+                    logo: 'https://organization.com/logo.png',
+                },
+            },
+        });
+        ```
+    </Tab>
+    <Tab title="PHP">
+    Dorothy followed her through many of the beautiful rooms in her castle.
+
+    The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+        ```php
+        use Novu\SDK\Novu;
+
+        $novu = new Novu('<NOVU_SECRET_KEY>');
+
+        $novu->triggerEvent([
+        'name' => '<WORKFLOW_TRIGGER_IDENTIFIER>',
+            'to' => [
+                'subscriberId' => '111',
+                'email' => 'john.doe@domain.com',
+                'firstName' => 'John',
+                'lastName'  => 'Doe',
+                'phone' => '+13603963366'
+            ]
+            'payload' => [
+                'customVariable' => 'variableValue',
+                'organization' => [
+                    'logo' => 'https://organization.com/logo.png',
+                ]
+            ],
+        ]);
+        ```
+    </Tab>
+
+</Tabs>
+
+
+<Tabs>
+<Tab title="Node.js">
+### Steps:
+- `mkdir export_novu_subscribers`
+- `cd export_novu_subscribers`
+- create `fetch_subscribers.js` file and copy [export_novu_subscribers.js](https://gist.github.com/jainpawan21/8604b4b2c1582b419e837bdc72290696#file-export_novu_subscribers-js) gist code into this file.
+- `npm init -y`
+- `npm install axios fast-csv fs`
+- Run `node fetch_subscribers.js`
+- Subscribers are exported in `subscribers.csv` file
+
+</Tab>
+
+<Tab title="Shell Script">
+### Steps:
+- Create file with name fetch_subscribers.sh and copy [export_novu_subscribers.sh](https://gist.github.com/jainpawan21/8604b4b2c1582b419e837bdc72290696#file-export_novu_subscribers-sh) gist code into this file.
+- Run `chmod +x fetch_subscribers.sh`
+- Run `./fetch_subscribers.sh`
+- Subscribers are exported in `subscribers.csv` file
+</Tab>
+</Tabs>
+
+In this guide, we will add a Novu [Bridge Endpoint](/concepts/endpoint) to a Next.js application and send our first test workflow.
+
+<Steps>
+    <LocalStudio />
+    <Step title="Create a Next.js application">
+        This link can be copied right from the onboarding guide on the Novu Studio or can always be copied from the [API Keys](https://dashboard.novu.co/api-keys/Development) page on the Novu Dashboard.
+
+        ```bash
+        npx novu init --secret-key=<YOUR_NOVU_SECRET_KEY>
+        ```
+
+        The sample application will create an `.env` file containing the `NOVU_SECRET_KEY` environment variable required
+        for securing your endpoint. And a sample workflow demonstrating the flexibility of Novu using Step Controls.
+
+        <AccordionGroup>
+            <Accordion title="Manually add to an existing application (5 minutes)">
+                **Install required packages**
+
+                ```bash
+                npm install @novu/framework @react-email/components react-email zod zod-to-json-schema
+                ```
+
+                This will install
+
+                - **`@novu/framework`** SDK Package
+                - **React Email** (Recommended) - For writing your email templates with React
+                - **Zod** (Recommended) - For end-to-end type safety for your Payload and Step Controls
+
+                **Add a Novu API Endpoint**
+
+                <CodeGroup>
+
+                    ```typescript App Router (app/api/novu/route.ts)
+                    import { serve } from "@novu/framework/next";
+                    import { myWorkflow } from "../../novu/workflows";
+
+                    export const { GET, POST, OPTIONS } = serve({ workflows: [myWorkflow] });
+                    ```
+
+                    ```typescript Pages Router (pages/api/novu.ts)
+                    import { serve } from '@novu/framework/next';
+                    import { testWorkflow } from '../../novu/workflows';
+
+                    export default serve({ workflows: [testWorkflow] });
+                    ```
+                </CodeGroup>
+
+                **Add a Novu Secret Key Environment Variable**
+
+                Add `NOVU_SECRET_KEY` environment variable to your `.env`
+
+                ```env
+                NOVU_SECRET_KEY=<NOVU_SECRET_KEY>
+                ```
+
+                **Create your workflow definition**
+
+                Add a `novu` folder that will contain your workflow definitions
+
+                ```tsx app/novu/workflows.ts
+                import { workflow } from '@novu/framework';
+                import { renderEmail } from './emails/test-email';
+                import { z } from 'zod';
+
+                export const testWorkflow = workflow('test-workflow', async ({ step, payload }) => {
+                    await step.email('send-email', async (controls) => {
+                        return {
+                            subject: controls.subject,
+                            body: renderEmail(payload.userName),
+                        };
+                    },
+                    {
+                        controlSchema: z.object({
+                            subject: z.string().default('A Successful Test on Novu from {{userName}}'),
+                        }),
+                    });
+                }, {
+                    payloadSchema: z.object({
+                        userName: z.string().default('John Doe'),
+                    }),
+                });
+                ```
+
+                **Create your React Email Template (Optional)**
+
+                Add a new email template
+
+                ```typescript app/novu/emails/test-email.tsx
+                import {
+                    Body,
+                    Container,
+                    Head,
+                    Html,
+                    render,
+                } from '@react-email/components';
+                import * as React from "react";
+
+                interface TestEmailProps {
+                    name: string
+                }
+
+                export const TestEmailTemplate = ({ name }: TestEmailProps) => {
+                    return (
+                        <Html>
+                            <Head />
+                            <Body>
+                                <Container>
+                                    Hello {name} welcome to your first React E-mail template!
+                                </Container>
+                            </Body>
+                        </Html>
+                    );
+                };
+
+                export default TestEmailTemplate;
+
+                export function renderEmail(name: string) {
+                    return render(<TestEmailTemplate name={name} />);
+                }
+                ```
+            </Accordion>
+        </AccordionGroup>
+    </Step>
+    <Step title="Start your application">
+        To start your boilerplate Next.js server with the Novu Endpoint configured, run the following command:
+
+        ```tsx
+        cd my-novu-app && npm run dev
+        ```
+
+        The sample application will start on [`https://localhost:4000`](https://localhost:4000) and your novu endpoint will be exposed at `/api/novu` served by the Next.js API.
+
+        If your Next.js application is running on other than `4000` port, restart the `novu dev` command with the port:
+
+        ```tsx
+        npx novu@latest dev --port <YOUR_NEXTJS_PORT>
+        ```
+    </Step>
+    <TestStep framework="Next.js" />
+
+    <DeployApp />
+
+</Steps>
+
+<NextStepsStep />
+
