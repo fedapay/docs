@@ -21,6 +21,7 @@
   "paths": {
     "/plants": {
       "get": {
+        "operationId":"getPlants",
         "description": "Returns all plants from the system that the user has access to",
         "parameters": [
           {

@@ -1,9 +1,15 @@
 {
    "openapi": "3.0.0",
    "info":{
-      "title": "FedaPay API"
-      
-   }
+      "title": "FedaPay API",
+      "description":"",
+      "version":""  
+   },
+   "servers": [
+    {
+      "url": "https://api.fedapay.com/api/v1"
+    }
+   ]
 }
 
 
@@ -11,4 +17,3 @@
 
 
 
-https://dashboard.fedapay.com/api/v1
