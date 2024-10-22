@@ -81,9 +81,13 @@
       ]
     },
     {
-          "group": "Events",
+          "group": "Customers",
           "pages": [
-            "api-reference/endpoint2/testfolder"
+            "api-reference/customers/get-all",
+            "api-reference/customers/create",
+            "api-reference/customers/get-by-id",
+            "api-reference/customers/update",
+            "api-reference/customers/delete"
           ]
     }
   ],
