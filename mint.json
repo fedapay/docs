@@ -74,12 +74,6 @@
       ]
     },
     {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/crtr"
-      ]
-    },
-    {
           "group": "Customers",
           "pages": [
             "api-reference/customers/get-all",
