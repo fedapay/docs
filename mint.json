@@ -72,11 +72,8 @@
       "pages": [
         "api-reference/introduction",
         {
-          "group": "Transactions",
-          "pages": [
-            "api-reference/transactions/create",
-            {
-              "group": "Customers",
+         
+            "group":"Customers",
               "pages": [
                 "api-reference/customers/get-all",
                 "api-reference/customers/create",
@@ -85,6 +82,11 @@
                 "api-reference/customers/delete"
               ]
             }
+        ,
+        {
+          "group": "Transactions",
+          "pages": [
+            "api-reference/transactions/create"
           ]
         }
       ]
