@@ -4,6 +4,11 @@
     "title": "Customer API",
     "version": "v1"
   },
+  "servers": [
+    {
+      "url": "https://api.fedapay.com/api/v1"
+    }
+   ],
   "paths": {
     "/customers": {
       "post": {
