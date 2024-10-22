@@ -470,6 +470,11 @@
     "/transactions": {
       "post": {
         "summary": "Create a new transaction",
+         "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
