@@ -84,7 +84,7 @@
         {
           "group": "Transactions",
           "pages": [
-            "api-reference/transations/get-all",
+            "api-reference/customers/get-all",
             "api-reference/transations/create",
             "api-reference/transations/get-by-id",
             "api-reference/transations/update",
