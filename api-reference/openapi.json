@@ -1,5 +1,25 @@
 {
-      "/customers": {
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Customer API",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://sandbox-api.fedapay.com/v1"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "paths": {
+        "/customers": {
       "post": {
         "summary": "Create a new customer",
         "security": [
@@ -446,5 +466,6 @@
           }
         }
       }
-    },
+    }
+  }
 }
