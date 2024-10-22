@@ -80,6 +80,18 @@
             "api-reference/customers/update",
             "api-reference/customers/delete"
           ]
+        },
+        {
+          "group": "Transactions",
+          "pages": [
+            "api-reference/transations/get-all",
+            "api-reference/transations/create",
+            "api-reference/transations/get-by-id",
+            "api-reference/transations/update",
+            "api-reference/transations/delete",
+            "api-reference/transations/create-token"
+
+          ]
         }
       ]
     }
