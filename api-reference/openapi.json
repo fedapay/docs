@@ -4,15 +4,24 @@
     "title": "Customer API",
     "version": "v1"
   },
-  "servers": [
-    {
-      "url": "https://api.fedapay.com/api/v1"
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
     }
-   ],
+  },
   "paths": {
     "/customers": {
       "post": {
         "summary": "Create a new customer",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -129,11 +138,19 @@
           },
           "422": {
             "description": "Validation error."
+          },
+          "401": {
+            "description": "Unauthorized. Provide a valid secret key."
           }
         }
       },
       "get": {
         "summary": "Get a list of customers.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "List of customers.",
@@ -193,6 +210,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized. Provide a valid secret key."
           }
         }
       }
@@ -200,6 +220,11 @@
     "/customers/{id}": {
       "get": {
         "summary": "Get a customer by ID.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -270,11 +295,19 @@
           },
           "404": {
             "description": "Customer not found."
+          },
+          "401": {
+            "description": "Unauthorized. Provide a valid secret key."
           }
         }
       },
       "put": {
         "summary": "Update a customer by ID.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -386,11 +419,19 @@
           },
           "404": {
             "description": "Customer not found."
+          },
+          "401": {
+            "description": "Unauthorized. Provide a valid secret key."
           }
         }
       },
       "delete": {
         "summary": "Delete a customer by ID.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -408,10 +449,12 @@
           },
           "404": {
             "description": "Customer not found."
+          },
+          "401": {
+            "description": "Unauthorized. Provide a valid secret key."
           }
         }
       }
     }
   }
 }
-
