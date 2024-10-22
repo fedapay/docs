@@ -8,7 +8,7 @@
     {
       "url": "https://sandbox-api.fedapay.com/v1"
     }
-   ],
+  ],
   "components": {
     "securitySchemes": {
       "bearerAuth": {
@@ -22,7 +22,7 @@
     "/transactions": {
       "post": {
         "summary": "Create a new transaction",
-         "security": [
+        "security": [
           {
             "bearerAuth": []
           }
@@ -33,15 +33,13 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "description-1": {
+                  "description": {
                     "type": "string",
-                    "description": "Description of the transaction.",
-                    "required": true
+                    "description": "Description of the transaction."
                   },
                   "amount": {
                     "type": "integer",
-                    "description": "Amount of the transaction.",
-                    "required": true
+                    "description": "Amount of the transaction."
                   },
                   "currency": {
                     "type": "object",
@@ -49,8 +47,7 @@
                     "properties": {
                       "iso": {
                         "type": "string",
-                        "description": "The ISO code of the currency (e.g., XOF)",
-                        "required": true
+                        "description": "The ISO code of the currency (e.g., XOF)."
                       }
                     }
                   },
@@ -58,39 +55,6 @@
                     "type": "string",
                     "description": "URL to receive transaction updates.",
                     "format": "url"
-                  },
-                  "customer": {
-                    "type": "object",
-                    "description": "Customer information.",
-                    "properties": {
-                      "firstname": {
-                        "type": "string",
-                        "description": "Customer's first name."
-                      },
-                      "lastname": {
-                        "type": "string",
-                        "description": "Customer's last name."
-                      },
-                      "email": {
-                        "type": "string",
-                        "format": "email",
-                        "description": "Customer's email address."
-                      },
-                      "phone_number": {
-                        "type": "object",
-                        "description": "Customer's phone number.",
-                        "properties": {
-                          "number": {
-                            "type": "integer",
-                            "description": "Phone number without national prefix."
-                          },
-                          "country": {
-                            "type": "string",
-                            "description": "Country code."
-                          }
-                        }
-                      }
-                    }
                   },
                   "mode": {
                     "type": "string",
@@ -204,52 +168,6 @@
                       "type": "string",
                       "format": "date-time",
                       "description": "Date and time of transaction transfer."
-                    },
-                    "deleted_at": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Date and time of transaction deletion."
-                    },
-                    "last_error_code": {
-                      "type": "string",
-                      "description": "Last error code encountered during the transaction."
-                    },
-                    "custom_metadata": {
-                      "type": "object",
-                      "description": "Custom metadata associated with the transaction."
-                    },
-                    "amount_debited": {
-                      "type": "integer",
-                      "description": "Amount debited from the payer."
-                    },
-                    "receipt_url": {
-                      "type": "string",
-                      "format": "url",
-                      "description": "URL to the transaction receipt."
-                    },
-                    "payment_method_id": {
-                      "type": "integer",
-                      "description": "Payment method ID used for the transaction."
-                    },
-                    "sub_accounts_commissions": {
-                      "type": "array",
-                      "description": "Commissions applied to sub-accounts."
-                    },
-                    "transaction_key": {
-                      "type": "string",
-                      "description": "Unique key associated with the transaction."
-                    },
-                    "merchant_reference": {
-                      "type": "string",
-                      "description": "Merchant reference provided for the transaction."
-                    },
-                    "account_id": {
-                      "type": "integer",
-                      "description": "Account ID associated with the transaction."
-                    },
-                    "balance_id": {
-                      "type": "integer",
-                      "description": "Balance ID associated with the transaction."
                     }
                   }
                 }
