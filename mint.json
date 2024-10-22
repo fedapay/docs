@@ -71,7 +71,6 @@
       "group": "API Documentation",
       "pages": [
         "api-reference/introduction",
-       
         {
           "group": "Transactions",
           "pages": [

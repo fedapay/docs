@@ -19,7 +19,6 @@
     }
   },
   "paths": {
-
     "/transactions": {
       "post": {
         "summary": "Create a new transaction",
