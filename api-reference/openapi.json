@@ -65,7 +65,7 @@
                   "email",
                   "phone_number"
                 ],
-                "oneOf": [
+                "anyOf": [
                   {
                     "required": [
                       "email"
