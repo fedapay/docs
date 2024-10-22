@@ -1,3 +1,23 @@
 ---
 openapi: post /customers 
 ---
+
+
+```ruby Ruby
+require 'novu'
+
+client = Novu::Client.new('<NOVU_SECRET_KEY>')
+
+payload = {
+    'name' => '<WORKFLOW_TRIGGER_IDENTIFIER>',
+    'payload' => { # optional
+        'first-name' => 'Adam' # optional
+    },
+    'to' => {
+        'subscriberId' => '<UNIQUE_SUBSCRIBER_IDENTIFIER>'
+    },
+    'transactionId' => '89kjfke9893' #optional
+}
+
+client.trigger_event(payload)
+```
