@@ -144,7 +144,7 @@
             "description": "Unauthorized. Provide a valid secret key."
           }
         },
-        "x-code-samples": {
+        "x-codeSamples": {
           "ruby": {
             "lang": "Ruby",
             "source": "ruby\nrequire 'json'\nrequire 'net/http'\n\n# Replace with your actual API URL\napi_url = 'https://api.example.com/customers'\n# Replace with your actual secret key\nsecret_key = 'your_secret_key'\n\n# Sample customer data\ncustomer_data = {\n  \"firstname\": \"John\",\n  \"lastname\": \"Doe\",\n  \"email\": \"john.doe@example.com\"\n}\n\nuri = URI(api_url)\nhttp = Net::HTTP.new(uri.host, uri.port)\nhttp.use_ssl = true\n\nrequest = Net::HTTP::Post.new(uri)\nrequest['Content-Type'] = 'application/json'\nrequest['Authorization'] = \"Bearer #{secret_key}\"\nrequest.body = customer_data.to_json\n\nresponse = http.request(request)\n\n# Check the response status\nif response.code == '201'\n  puts \"Customer created successfully!\"\n  # Parse the response body (if needed)\n  response_body = JSON.parse(response.body)\n  puts response_body\nelse\n  puts \"Error creating customer: #{response.code}\"\n  puts response.body\nend\n"
