@@ -61,10 +61,6 @@
                     "description": "Customer's last name."
                   }
                 },
-                "required": [
-                  "email",
-                  "phone_number"
-                ],
                 "anyOf": [
                   {
                     "required": [
