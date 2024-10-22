@@ -1,105 +1,65 @@
 {
-  "openapi": "3.0.0",
-  "info": {
-    "title": "Customer API",
-    "version": "v1"
-  },
-  "servers": [
-    {
-      "url": "https://sandbox-api.fedapay.com/v1"
-    }
-  ],
-  "components": {
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
-      }
-    }
-  },
-  "paths": {
-    "/transactions": {
+      "/customers": {
       "post": {
-        "summary": "Create a new transaction",
+        "summary": "Create a new customer",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
-                  "description": {
+                  "email": {
                     "type": "string",
-                    "description": "Description of the transaction.",
-                    "required": true
+                    "format": "email",
+                    "description": "Customer's email address."
                   },
-                  "amount": {
-                    "type": "integer",
-                    "description": "Amount of the transaction.",
-                    "required": true
-                  },
-                  "currency": {
+                  "phone_number": {
                     "type": "object",
-                    "description": "Currency information.",
+                    "description": "Customer's phone number.",
                     "properties": {
-                      "iso": {
+                      "number": {
+                        "type": "integer",
+                        "description": "Phone number without national prefix."
+                      },
+                      "country": {
                         "type": "string",
-                        "description": "The ISO code of the currency (e.g., XOF)",
-                        "required": true
+                        "description": "Country code."
                       }
                     }
                   },
-                  "callback_url": {
+                  "firstname": {
                     "type": "string",
-                    "description": "URL to receive transaction updates.",
-                    "format": "url"
+                    "description": "Customer's first name."
                   },
-          "customer": {
-            "type": "object",
-            "description": "Customer information.",
-            "properties": {
-              "firstname": {
-                "type": "string",
-                "description": "Customer's first name."
-              },
-              "lastname": {
-                "type": "string",
-                "description": "Customer's last name."
-              },
-              "email": {
-                "type": "string",
-                "format": "email",
-                "description": "Customer's email address."
-              },
-              "phone_number": {
-                "type": "object",
-                "description": "Customer's phone number.",
-                "properties": {
-                  "number": {
-                    "type": "integer",
-                    "description": "Phone number without national prefix."
-                  },
-                  "country": {
+                  "lastname": {
                     "type": "string",
-                    "description": "Country code."
-                  }
-                }
-              }
-            }
-          },
-                  "mode": {
-                    "type": "string",
-                    "description": "Transaction mode (e.g., 'standard', 'mobile_money')."
+                    "description": "Customer's last name."
                   }
                 },
-                "required": ["description", "amount", "currency"]
+                "anyOf": [
+                  {
+                    "required": [
+                      "email"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "phone_number"
+                    ]
+                  }
+                ]
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": "Transaction created successfully.",
+            "description": "Customer created successfully.",
             "content": {
               "application/json": {
                 "schema": {
@@ -107,140 +67,47 @@
                   "properties": {
                     "id": {
                       "type": "integer",
-                      "description": "Transaction ID."
+                      "description": "Customer ID."
                     },
-                    "reference": {
+                    "firstname": {
                       "type": "string",
-                      "description": "Transaction reference."
+                      "description": "Customer's first name."
                     },
-                    "amount": {
-                      "type": "integer",
-                      "description": "Transaction amount."
-                    },
-                    "description": {
+                    "lastname": {
                       "type": "string",
-                      "description": "Transaction description."
+                      "description": "Customer's last name."
                     },
-                    "callback_url": {
+                    "full_name": {
                       "type": "string",
-                      "description": "Transaction callback URL."
+                      "description": "Customer's full name."
                     },
-                    "status": {
+                    "email": {
                       "type": "string",
-                      "description": "Transaction status (e.g., 'pending', 'approved', 'canceled')."
+                      "format": "email",
+                      "description": "Customer's email address."
                     },
-                    "customer_id": {
+                    "account_id": {
                       "type": "integer",
-                      "description": "Customer ID associated with the transaction."
+                      "description": "ID of the customer's account."
                     },
-                    "currency_id": {
+                    "phone_number_id": {
                       "type": "integer",
-                      "description": "Currency ID associated with the transaction."
-                    },
-                    "mode": {
-                      "type": "string",
-                      "description": "Transaction mode."
-                    },
-                    "metadata": {
-                      "type": "object",
-                      "description": "Additional metadata related to the transaction."
-                    },
-                    "commission": {
-                      "type": "integer",
-                      "description": "Transaction commission."
-                    },
-                    "fees": {
-                      "type": "integer",
-                      "description": "Transaction fees."
-                    },
-                    "fixed_commission": {
-                      "type": "integer",
-                      "description": "Fixed commission applied to the transaction."
-                    },
-                    "amount_transferred": {
-                      "type": "integer",
-                      "description": "Amount transferred to the beneficiary."
+                      "description": "ID of the customer's phone number."
                     },
                     "created_at": {
                       "type": "string",
                       "format": "date-time",
-                      "description": "Date and time of transaction creation."
+                      "description": "Date and time of customer creation."
                     },
                     "updated_at": {
                       "type": "string",
                       "format": "date-time",
-                      "description": "Date and time of last transaction update."
-                    },
-                    "approved_at": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Date and time of transaction approval."
-                    },
-                    "canceled_at": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Date and time of transaction cancellation."
-                    },
-                    "declined_at": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Date and time of transaction decline."
-                    },
-                    "refunded_at": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Date and time of transaction refund."
-                    },
-                    "transferred_at": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Date and time of transaction transfer."
+                      "description": "Date and time of last customer update."
                     },
                     "deleted_at": {
                       "type": "string",
                       "format": "date-time",
-                      "description": "Date and time of transaction deletion."
-                    },
-                    "last_error_code": {
-                      "type": "string",
-                      "description": "Last error code encountered during the transaction."
-                    },
-                    "custom_metadata": {
-                      "type": "object",
-                      "description": "Custom metadata associated with the transaction."
-                    },
-                    "amount_debited": {
-                      "type": "integer",
-                      "description": "Amount debited from the payer."
-                    },
-                    "receipt_url": {
-                      "type": "string",
-                      "format": "url",
-                      "description": "URL to the transaction receipt."
-                    },
-                    "payment_method_id": {
-                      "type": "integer",
-                      "description": "Payment method ID used for the transaction."
-                    },
-                    "sub_accounts_commissions": {
-                      "type": "array",
-                      "description": "Commissions applied to sub-accounts."
-                    },
-                    "transaction_key": {
-                      "type": "string",
-                      "description": "Unique key associated with the transaction."
-                    },
-                    "merchant_reference": {
-                      "type": "string",
-                      "description": "Merchant reference provided for the transaction."
-                    },
-                    "account_id": {
-                      "type": "integer",
-                      "description": "Account ID associated with the transaction."
-                    },
-                    "balance_id": {
-                      "type": "integer",
-                      "description": "Balance ID associated with the transaction."
+                      "description": "Date and time of customer deletion (if applicable)."
                     }
                   }
                 }
@@ -252,9 +119,332 @@
           },
           "422": {
             "description": "Validation error."
+          },
+          "401": {
+            "description": "Unauthorized. Provide a valid secret key."
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "source": "const { FedaPay, Customer } = require('fedapay');\n\n/* Remplacez VOTRE_CLE_API par votre véritable clé API */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n\n/* Précisez si vous souhaitez exécuter votre requête en mode test ou live */\nFedaPay.setEnvironment('sandbox'); //ou setEnvironment('live');\n\n/* Créer le client */\nconst customer = await Customer.create({\n  firstname: 'John',\n  lastname: 'Doe',\n  email: 'john@doe.com',\n  phone_number: {\n    number: '90090909',\n    country: 'BJ'\n  }\n});\n"
+          },
+          {
+            "lang": "PHP",
+            "source": "php\n<?php\n/* Remplacez VOTRE_CLE_API_SECRETE par votre clé API secrète */\n\\FedaPay\\FedaPay::setApiKey(\"VOTRE_CLE_API_SECRETE\");\n\n/* Précisez si vous souhaitez exécuter votre requête en mode test ou live */\n\\FedaPay\\FedaPay::setEnvironment('sandbox'); // ou setEnvironment('live');\n\n/* Créer le client */\n\\FedaPay\\Customer::create(array(\n  \"firstname\" => \"John\",\n  \"lastname\" => \"Doe\",\n  \"email\" => \"John.doe@gmail.com\",\n  \"phone_number\" => {\n    \"number\" => \"+22966666600\",\n    \"country\" => 'bj' // 'bj' code indicatif du Bénin\n  }\n));\n?>"
+          }
+        ]
+      },
+      "get": {
+        "summary": "Get a list of customers.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of customers.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "Customer ID."
+                      },
+                      "firstname": {
+                        "type": "string",
+                        "description": "Customer's first name."
+                      },
+                      "lastname": {
+                        "type": "string",
+                        "description": "Customer's last name."
+                      },
+                      "full_name": {
+                        "type": "string",
+                        "description": "Customer's full name."
+                      },
+                      "email": {
+                        "type": "string",
+                        "format": "email",
+                        "description": "Customer's email address."
+                      },
+                      "account_id": {
+                        "type": "integer",
+                        "description": "ID of the customer's account."
+                      },
+                      "phone_number_id": {
+                        "type": "integer",
+                        "description": "ID of the customer's phone number."
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of customer creation."
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of last customer update."
+                      },
+                      "deleted_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of customer deletion (if applicable)."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. Provide a valid secret key."
           }
         }
       }
-    }
-  }
+    },
+    "/customers/{id}": {
+      "get": {
+        "summary": "Get a customer by ID.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Customer ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Customer retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Customer ID."
+                    },
+                    "firstname": {
+                      "type": "string",
+                      "description": "Customer's first name."
+                    },
+                    "lastname": {
+                      "type": "string",
+                      "description": "Customer's last name."
+                    },
+                    "full_name": {
+                      "type": "string",
+                      "description": "Customer's full name."
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email",
+                      "description": "Customer's email address."
+                    },
+                    "account_id": {
+                      "type": "integer",
+                      "description": "ID of the customer's account."
+                    },
+                    "phone_number_id": {
+                      "type": "integer",
+                      "description": "ID of the customer's phone number."
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of customer creation."
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of last customer update."
+                    },
+                    "deleted_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of customer deletion (if applicable)."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Customer not found."
+          },
+          "401": {
+            "description": "Unauthorized. Provide a valid secret key."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a customer by ID.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Customer ID."
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Customer's email address."
+                  },
+                  "phone_number": {
+                    "type": "object",
+                    "description": "Customer's phone number.",
+                    "properties": {
+                      "number": {
+                        "type": "integer",
+                        "description": "Phone number without national prefix."
+                      },
+                      "country": {
+                        "type": "string",
+                        "description": "Country code."
+                      }
+                    }
+                  },
+                  "firstname": {
+                    "type": "string",
+                    "description": "Customer's first name."
+                  },
+                  "lastname": {
+                    "type": "string",
+                    "description": "Customer's last name."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Customer updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Customer ID."
+                    },
+                    "firstname": {
+                      "type": "string",
+                      "description": "Customer's first name."
+                    },
+                    "lastname": {
+                      "type": "string",
+                      "description": "Customer's last name."
+                    },
+                    "full_name": {
+                      "type": "string",
+                      "description": "Customer's full name."
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email",
+                      "description": "Customer's email address."
+                    },
+                    "account_id": {
+                      "type": "integer",
+                      "description": "ID of the customer's account."
+                    },
+                    "phone_number_id": {
+                      "type": "integer",
+                      "description": "ID of the customer's phone number."
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of customer creation."
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of last customer update."
+                    },
+                    "deleted_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of customer deletion (if applicable)."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body."
+          },
+          "404": {
+            "description": "Customer not found."
+          },
+          "401": {
+            "description": "Unauthorized. Provide a valid secret key."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a customer by ID.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Customer ID."
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Customer deleted successfully."
+          },
+          "404": {
+            "description": "Customer not found."
+          },
+          "401": {
+            "description": "Unauthorized. Provide a valid secret key."
+          }
+        }
+      }
+    },
 }
