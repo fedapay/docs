@@ -466,6 +466,170 @@
           }
         }
       }
+    },
+     "/transactions": {
+      "post": {
+        "summary": "Create a new transaction",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "type": "string",
+                    "description": "Description of the transaction."
+                  },
+                  "amount": {
+                    "type": "integer",
+                    "description": "Amount of the transaction."
+                  },
+                  "currency": {
+                    "type": "object",
+                    "description": "Currency information.",
+                    "properties": {
+                      "iso": {
+                        "type": "string",
+                        "description": "The ISO code of the currency (e.g., XOF)."
+                      }
+                    }
+                  },
+                  "callback_url": {
+                    "type": "string",
+                    "description": "URL to receive transaction updates.",
+                    "format": "url"
+                  },
+                  "mode": {
+                    "type": "string",
+                    "description": "Transaction mode (e.g., 'mtn_open', 'moov')."
+                  }
+                },
+                "required": [
+                  "description",
+                  "amount",
+                  "currency"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Transaction created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Transaction ID."
+                    },
+                    "reference": {
+                      "type": "string",
+                      "description": "Transaction reference."
+                    },
+                    "amount": {
+                      "type": "integer",
+                      "description": "Transaction amount."
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "Transaction description."
+                    },
+                    "callback_url": {
+                      "type": "string",
+                      "description": "Transaction callback URL."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Transaction status (e.g., 'pending', 'approved', 'canceled')."
+                    },
+                    "customer_id": {
+                      "type": "integer",
+                      "description": "Customer ID associated with the transaction."
+                    },
+                    "currency_id": {
+                      "type": "integer",
+                      "description": "Currency ID associated with the transaction."
+                    },
+                    "mode": {
+                      "type": "string",
+                      "description": "Transaction mode."
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "description": "Additional metadata related to the transaction."
+                    },
+                    "commission": {
+                      "type": "integer",
+                      "description": "Transaction commission."
+                    },
+                    "fees": {
+                      "type": "integer",
+                      "description": "Transaction fees."
+                    },
+                    "fixed_commission": {
+                      "type": "integer",
+                      "description": "Fixed commission applied to the transaction."
+                    },
+                    "amount_transferred": {
+                      "type": "integer",
+                      "description": "Amount transferred to the beneficiary."
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of transaction creation."
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of last transaction update."
+                    },
+                    "approved_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of transaction approval."
+                    },
+                    "canceled_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of transaction cancellation."
+                    },
+                    "declined_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of transaction decline."
+                    },
+                    "refunded_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of transaction refund."
+                    },
+                    "transferred_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of transaction transfer."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body."
+          },
+          "422": {
+            "description": "Validation error."
+          }
+        }
+      }
     }
   }
 }
