@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "https://api.fedapay.com/api/v1"
+      "url": "https://sandbox-api.fedapay.com/api/v1"
     }
    ],
   "components": {
