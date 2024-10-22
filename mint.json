@@ -86,7 +86,11 @@
         {
           "group": "Transactions",
           "pages": [
-            "api-reference/transactions/create"
+            "api-reference/transactions/get-all",
+            "api-reference/transactions/create",
+            "api-reference/transactions/update",
+            "api-reference/transactions/delete",
+            "api-reference/transactions/create-token"
           ]
         }
       ]
