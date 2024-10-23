@@ -629,9 +629,16 @@
             "description": "Validation error."
           }
         }
-      },
+      }
+    },
+    "/transactions/search":{
          "get": {
         "summary": "Get a list of transactions.",
+         "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "List of transactions.",
@@ -791,6 +798,11 @@
     "/transactions/{id}": {
       "get": {
         "summary": "Get a transaction.",
+         "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -959,6 +971,11 @@
       },
       "put": {
         "summary": "Update a transaction by ID.",
+         "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1162,6 +1179,11 @@
       },
       "delete": {
         "summary": "Delete a transaction by ID.",
+         "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1186,6 +1208,11 @@
     "/transactions/{id}/token": {
       "post": {
         "summary": "Get the payment link for a transaction.",
+         "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1432,8 +1459,11 @@
           "description": "Validation error."
         }
       }
+    }
+  
     },
-    "get": {
+    "/payouts/search":{
+        "get": {
       "summary": "Get a list of payouts.",
        "security": [
           {
