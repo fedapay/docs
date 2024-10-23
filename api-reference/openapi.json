@@ -1242,6 +1242,16 @@
                   "type": "integer",
                   "description": "Amount of the payout."
                 },
+                "currency": {
+                    "type": "object",
+                    "description": "Currency information.",
+                    "properties": {
+                      "iso": {
+                        "type": "string",
+                        "description": "The ISO code of the currency (e.g., XOF)."
+                      }
+                    }
+                  },
                 "customer": {
                   "type": "object",
                   "description": "Customer information.",
