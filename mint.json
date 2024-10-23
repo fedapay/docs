@@ -56,18 +56,6 @@
       "version": "en"
     },
     {
-      "group": "Essentials",
-      "pages": [
-        "essentials/demarage",
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
-    },
-    {
       "group": "API Documentation",
       "pages": [
         "api-reference/introduction",
@@ -97,8 +85,8 @@
     }
   ],
   "footerSocials": {
-    "x": "https://www.fedapay.com/?v=ddd70bbaf5be",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/fedapay/"
+    "x": "https://x.com/fedapay",
+    "github": "https://github.com/fedapay",
+    "linkedin": "https://www.linkedin.com/company/fedapay"
   }
 }
