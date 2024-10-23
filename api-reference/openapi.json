@@ -230,7 +230,7 @@
     },
     "/customers/{id}": {
       "get": {
-        "summary": "Get a customer by ID.",
+        "summary": "Get a customer.",
         "security": [
           {
             "bearerAuth": []
@@ -313,7 +313,7 @@
         }
       },
       "put": {
-        "summary": "Update a customer by ID.",
+        "summary": "Update a customer.",
         "security": [
           {
             "bearerAuth": []
@@ -437,7 +437,7 @@
         }
       },
       "delete": {
-        "summary": "Delete a customer by ID.",
+        "summary": "Delete a customer.",
         "security": [
           {
             "bearerAuth": []
@@ -790,7 +790,7 @@
     },
     "/transactions/{id}": {
       "get": {
-        "summary": "Get a transaction by ID.",
+        "summary": "Get a transaction.",
         "parameters": [
           {
             "in": "path",
@@ -1561,7 +1561,7 @@
     },
   "/payouts/{id}": {
     "get": {
-      "summary": "Get a payout by ID.",
+      "summary": "Get a payout.",
        "security": [
           {
             "bearerAuth": []
@@ -1707,7 +1707,7 @@
       }
     },
     "put": {
-      "summary": "Update a payout by ID.",
+      "summary": "Update a payout.",
        "security": [
           {
             "bearerAuth": []
@@ -1876,7 +1876,7 @@
       }
     },
     "delete": {
-      "summary": "Delete a payout by ID.",
+      "summary": "Delete a payout.",
        "security": [
           {
             "bearerAuth": []
