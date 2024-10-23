@@ -1227,6 +1227,11 @@
   "/payouts": {
     "post": {
       "summary": "Create a new payout",
+       "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
       "requestBody": {
         "content": {
           "application/json": {
@@ -1420,6 +1425,11 @@
     },
     "get": {
       "summary": "Get a list of payouts.",
+       "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
       "responses": {
         "200": {
           "description": "List of payouts.",
@@ -1552,6 +1562,11 @@
   "/payouts/{id}": {
     "get": {
       "summary": "Get a payout by ID.",
+       "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
       "parameters": [
         {
           "in": "path",
@@ -1693,6 +1708,11 @@
     },
     "put": {
       "summary": "Update a payout by ID.",
+       "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
       "parameters": [
         {
           "in": "path",
@@ -1857,6 +1877,11 @@
     },
     "delete": {
       "summary": "Delete a payout by ID.",
+       "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
       "parameters": [
         {
           "in": "path",
@@ -1881,6 +1906,11 @@
   "/payouts/start": {
     "put": {
       "summary": "Start payout for multiple payouts.",
+       "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
       "requestBody": {
         "content": {
           "application/json": {
