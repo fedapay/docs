@@ -61,16 +61,15 @@
         "api-reference/introduction",
         {
          
-            "group":"Customers",
-              "pages": [
-                "api-reference/customers/get-all",
-                "api-reference/customers/create",
-                "api-reference/customers/get-by-id",
-                "api-reference/customers/update",
-                "api-reference/customers/delete"
-              ]
-            }
-        ,
+          "group":"Customers",
+            "pages": [
+              "api-reference/customers/get-all",
+              "api-reference/customers/create",
+              "api-reference/customers/get-by-id",
+              "api-reference/customers/update",
+              "api-reference/customers/delete"
+          ]
+        },
         {
           "group": "Transactions",
           "pages": [
@@ -78,7 +77,19 @@
             "api-reference/transactions/create",
             "api-reference/transactions/update",
             "api-reference/transactions/delete",
+            "api-reference/transactions/get-by-id",
             "api-reference/transactions/create-token"
+          ]
+        },
+        {
+          "group": "Payouts",
+          "pages": [
+            "api-reference/payouts/get-all",
+            "api-reference/payouts/create",
+            "api-reference/payouts/update",
+            "api-reference/payouts/delete",
+            "api-reference/payouts/get-by-id",
+            "api-reference/payouts/update-start"
           ]
         }
       ]
