@@ -146,7 +146,7 @@
         },
         "x-codeSamples": [
           {
-            "lang": "Node.js",
+            "lang": "Node",
             "source": "const { FedaPay, Customer } = require('fedapay');\n\n/* Remplacez VOTRE_CLE_API par votre véritable clé API */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n\n/* Précisez si vous souhaitez exécuter votre requête en mode test ou live */\nFedaPay.setEnvironment('sandbox'); //ou setEnvironment('live');\n\n/* Créer le client */\nconst customer = await Customer.create({\n  firstname: 'John',\n  lastname: 'Doe',\n  email: 'john@doe.com',\n  phone_number: {\n    number: '90090909',\n    country: 'BJ'\n  }\n});\n"
           },
           {
