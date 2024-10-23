@@ -1223,7 +1223,7 @@
           }
         }
       }
-    }, 
+    },
   "/payouts": {
     "post": {
       "summary": "Create a new payout",
@@ -1235,8 +1235,7 @@
               "properties": {
                 "amount": {
                   "type": "integer",
-                  "description": "Amount of the payout.",
-                  "required": true
+                  "description": "Amount of the payout."
                 },
                 "customer": {
                   "type": "object",
@@ -1260,7 +1259,7 @@
                       "description": "Customer's phone number.",
                       "properties": {
                         "number": {
-                          "type": "integer",
+                          "type": "string",
                           "description": "Phone number without national prefix."
                         },
                         "country": {
@@ -1270,14 +1269,20 @@
                       }
                     }
                   },
-                  "required": ["firstname", "lastname"]
+                  "required": [
+                    "firstname",
+                    "lastname"
+                  ]
                 },
                 "mode": {
                   "type": "string",
                   "description": "Payout mode (e.g., 'bank_transfer', 'mobile_money')."
                 }
               },
-              "required": ["amount", "customer"]
+              "required": [
+                "amount",
+                "customer"
+              ]
             }
           }
         }
@@ -1543,6 +1548,6 @@
         }
       }
     }
-  }
+    }
   }
 }
