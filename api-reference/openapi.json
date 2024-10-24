@@ -469,7 +469,22 @@
           "401": {
             "description": "Unauthorized. Provide a valid secret key."
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Modify customer */\nconst customer = await Customer.update(ID, params = {}, headers = {});"
+          },
+          {
+            "lang": "PHP",
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n$customer = \\FedaPay\\Customer::retrieve(ID);\n$customer->firstname = \"Eric\";\n$customer->save();\n// Or\n$customer = \\FedaPay\\Customer::update(ID, [\n\"firstname\" => \"Eric\"\n]);"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\ncustomer.firstname = 'My Firstname';\ncustomer.save;\n# or use this method below\ncustomer.save fistname: 'My Firstname', lastname: 'My Lastname';\n# Update a customer by id\ncustomer = FedaPay::Customer.update ID, email: 'myemail@test.com';"
+          }
+        ]
       },
       "delete": {
         "summary": "Delete a customer",
