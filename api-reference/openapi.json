@@ -713,7 +713,7 @@
     },
     "/transactions/search":{
          "get": {
-        "summary": "Get a list of transactions.",
+        "summary": "Search your customers",
          "security": [
           {
             "bearerAuth": []
@@ -872,7 +872,22 @@
               }
             }
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const { FedaPay, Transaction } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test mode or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show customers */\nconst transaction = await Transaction.all(params = {}, headers = {});"
+          },
+          {
+            "lang": "PHP",
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n$customer = \\FedaPay\\Transaction::all(params = {}, header = {});"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\ntransactions = FedaPay::Transaction.list"
+          }
+        ]
       }
     },
     "/transactions/{id}": {
