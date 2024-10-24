@@ -1918,7 +1918,7 @@
         {
           "lang": "JavaScript",
           "label": "Node",
-          "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_PRIVEE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Afficher un dépôt */\nconst payout = await Payout.retrieve(params = {}, headers = {});"
+          "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_PRIVEE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show a payout */\nconst payout = await Payout.retrieve(params = {}, headers = {});"
         },
         {
           "lang": "PHP",
@@ -2097,7 +2097,22 @@
         "404": {
           "description": "Payout not found."
         }
-      }
+      },
+      "x-codeSamples": [
+        {
+          "lang": "JavaScript",
+          "label": "Node",
+          "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_PRIVEE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Update a dépôt */\nconst payout = await Payout.update(params = {}, headers = {});"
+        },
+        {
+          "lang": "PHP",
+          "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n\\FedaPay\\Payout::update(ID, params = {}, headers = {});"
+        },
+        {
+          "lang": "Ruby",
+          "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\n# Update a payout instance\npayout.amount = 5000\npayout.save\n# Or\npayout.save amount: 5000\n# Update a payout by id\nFedaPay.update ID, amount: 5000;"
+        }
+      ]
     },
     "delete": {
       "summary": "Delete a payout.",
