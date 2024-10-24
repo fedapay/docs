@@ -1080,7 +1080,7 @@
         ]
       },
       "put": {
-        "summary": "Update a transaction by ID.",
+        "summary": "Update a transaction",
          "security": [
           {
             "bearerAuth": []
@@ -1285,7 +1285,22 @@
           "404": {
             "description": "Transaction not found."
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const { FedaPay, Transaction } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test mode or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Update a transaction */\nconst transaction = await Transaction.update(ID, params = {}, headers = {});"
+          },
+          {
+            "lang": "PHP",
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n\\FedaPay\\Transaction::update(ID, params = {}, headers = {});"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\n# Update a transaction instance\ntransaction.amount = 5000;\ntransaction.save;\n# Or\ntransaction.save amount: 5000;\n# Update a transaction by id\nFedaPay::Transaction.update(ID, amount: 5000);"
+          }
+        ]
       },
       "delete": {
         "summary": "Delete a transaction by ID.",
