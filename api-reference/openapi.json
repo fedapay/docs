@@ -1393,7 +1393,7 @@
     },
   "/payouts": {
     "post": {
-      "summary": "Create a new payout",
+      "summary": "Create a payout",
        "security": [
           {
             "bearerAuth": []
@@ -1598,9 +1598,23 @@
         "422": {
           "description": "Validation error."
         }
-      }
+      },
+      "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_PRIVEE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Create a payout */\nconst payout = await Payout.create(params = {}, headers = {});"
+          },
+          {
+            "lang": "PHP",
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n\\FedaPay\\Payout::create(array(\n  \"amount\" => 2000,\n  \"currency\" => {\"iso\" => \"XOF\"},\n  \"mode\" => \"mtn\",\n  \"customer\" => [\n    \"firstname\" => \"John\",\n    \"lastname\" => \"Doe\",\n    \"email\" => \"john.doe@example.com\",\n    \"phone_number\" => [\n      \"number\" => \"+22997808080\",\n      \"country\" => \"bj\"\n    ]\n  ]\n));"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\n# Create a payout with existing customer instance\ncurrencies = FedaPay::Currency.list;\ncustomer = FedaPay::Customer.retrieve(ID);\npayout = FedaPay::Payout.create(currencies.first.to_hash, amount: 1000, currency: customer.to_hash, description: '', mode: '');\n# Create a payout with existing customer by id or email\ncustomer = {\n  id: 1, # Or email\n  email: 'customer@test.com'\n};\ncurrency = {\n  iso: 'XOF', # Or code\n  code: '952'\n};\npayout = FedaPay::Payout.create(amount: 1000, currency: currencies, customer: customer, description: '', mode: '');"
+          }
+        ]
     }
-  
     },
     "/payouts/search":{
         "get": {
@@ -1738,7 +1752,7 @@
         }
       }
     }
-    },
+  },
   "/payouts/{id}": {
     "get": {
       "summary": "Get a payout.",
