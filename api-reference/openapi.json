@@ -1744,15 +1744,15 @@
                       "type": "integer",
                       "description": "Balance ID associated with the payout."
                     }
-                  }
+                   }
+                 }
                 }
               }
             }
           }
         }
       }
-    }
-  },
+    },
   "/payouts/{id}": {
     "get": {
       "summary": "Get a payout.",
