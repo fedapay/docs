@@ -148,11 +148,11 @@
           {
             "lang": "JavaScript",
             "label": "Node",
-            "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //ou setEnvironment('live');\n/* Créer le client */\nconst customer = await Customer.create({\n  firstname: 'John',\n  lastname: 'Doe',\n  email: 'john@doe.com',\n  phone_number: {\n    number: '90090909',\n    country: 'BJ'\n  }\n});"
+            "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Create customer */\nconst customer = await Customer.create({\n  firstname: 'John',\n  lastname: 'Doe',\n  email: 'john@doe.com',\n  phone_number: {\n    number: '90090909',\n    country: 'BJ'\n  }\n});"
           },
           {
             "lang": "PHP",
-            "source": "/* Replace VOTRE_CLE_API_SECRETE with your secret API key */\n\\FedaPay\\FedaPay::setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test or live mode */\n\\FedaPay\\FedaPay::setEnvironment('sandbox'); //ou setEnvironment('live');\n/* Créer le client */\n\\FedaPay\\Customer::create(array(\n  \"firstname\" => \"John\",\n  \"lastname\" => \"Doe\",\n  \"email\" => \"John.doe@gmail.com\",\n  \"phone_number\" => [\n    \"number\" => \"+22966666600\",\n    \"country\" => 'bj' // 'bj' code indicatif du Bénin\n  ]\n));"
+            "source": "/* Replace VOTRE_CLE_API_SECRETE with your secret API key */\n\\FedaPay\\FedaPay::setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test or live mode */\n\\FedaPay\\FedaPay::setEnvironment('sandbox'); //or setEnvironment('live');\n/* Create customer */\n\\FedaPay\\Customer::create(array(\n  \"firstname\" => \"John\",\n  \"lastname\" => \"Doe\",\n  \"email\" => \"John.doe@gmail.com\",\n  \"phone_number\" => [\n    \"number\" => \"+22966666600\",\n    \"country\" => 'bj' // 'bj' Benin code\n  ]\n));"
           },
           {
             "lang": "Ruby",
