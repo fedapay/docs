@@ -71,7 +71,7 @@
           ]
         },
         {
-          "group": "Transactions",
+          "group": "Collect",
           "pages": [
             "api-reference/transactions/get-by-id",
             "api-reference/transactions/create",
@@ -84,11 +84,11 @@
         {
           "group": "Payouts",
           "pages": [
-            "api-reference/payouts/get-all",
+            "api-reference/payouts/get-by-id",
             "api-reference/payouts/create",
             "api-reference/payouts/update",
             "api-reference/payouts/delete",
-            "api-reference/payouts/get-by-id",
+            "api-reference/payouts/get-all",
             "api-reference/payouts/update-start"
           ]
         }
