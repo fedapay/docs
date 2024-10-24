@@ -250,7 +250,7 @@
     },
     "/customers/{id}": {
       "get": {
-        "summary": "search your customers",
+        "summary": "Search your customers",
         "security": [
           {
             "bearerAuth": []
