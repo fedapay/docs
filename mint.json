@@ -63,11 +63,11 @@
          
           "group":"Customers",
             "pages": [
-              "api-reference/customers/get-all",
-              "api-reference/customers/create",
               "api-reference/customers/get-by-id",
+              "api-reference/customers/create",
               "api-reference/customers/update",
-              "api-reference/customers/delete"
+              "api-reference/customers/delete",
+              "api-reference/customers/get-all"
           ]
         },
         {
