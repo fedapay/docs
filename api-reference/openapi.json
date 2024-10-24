@@ -331,22 +331,21 @@
             "description": "Unauthorized. Provide a valid secret key."
           }
         },
-  "x-codeSamples": [
-    {
-      "lang": "JavaScript",
-      "label": "Node",
-      "source": "const { FedaPay, Customer } = require('fedapay')\n/* Remplacez VOTRE_CLE_API par votre véritable clé API */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Précisez si vous souhaitez exécuter votre requête en mode test ou live */\nFedaPay.setEnvironment('sandbox'); //ou setEnvironment('live');\n/* Afficher le client */\nconst customer = await Customer.retrieve(ID, params = {}, headers = {});"
-    },
-    {
-      "lang": "PHP",
-      "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n/**\n* @var \\FedaPay\\FedaPayObject\n*/\n$response = \\FedaPay\\Customer::retrieve(ID);\n$customers = $response->customers;\n$meta = $response→meta;"
-    },
-    {
-      "lang": "Ruby",
-      "source": "require 'fedapay'\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\ncustomers = FedaPay::Customer.retrieve(ID);"
-    }
-  ]
-
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const { FedaPay, Customer } = require('fedapay')\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show customer */\nconst customer = await Customer.retrieve(ID, params = {}, headers = {});"
+          },
+          {
+            "lang": "PHP",
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n/**\n* @var \\FedaPay\\FedaPayObject\n*/\n$response = \\FedaPay\\Customer::retrieve(ID);\n$customers = $response->customers;\n$meta = $response→meta;"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay'\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\ncustomers = FedaPay::Customer.retrieve(ID);"
+          }
+        ]
       },
       "put": {
         "summary": "Update a customer",
