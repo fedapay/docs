@@ -21,7 +21,7 @@
   "paths": {
         "/customers": {
       "post": {
-        "summary": "Create a new customer",
+        "summary": "Create a customer",
         "security": [
           {
             "bearerAuth": []
@@ -161,7 +161,7 @@
        ]
       },
       "get": {
-        "summary": "Get a list of customers.",
+        "summary": "Get a customers",
         "security": [
           {
             "bearerAuth": []
@@ -250,7 +250,7 @@
     },
     "/customers/{id}": {
       "get": {
-        "summary": "Get a customer.",
+        "summary": "search your customers",
         "security": [
           {
             "bearerAuth": []
@@ -348,7 +348,7 @@
         ]
       },
       "put": {
-        "summary": "Update a customer.",
+        "summary": "Update a customer",
         "security": [
           {
             "bearerAuth": []
@@ -472,7 +472,7 @@
         }
       },
       "delete": {
-        "summary": "Delete a customer.",
+        "summary": "Delete a customer",
         "security": [
           {
             "bearerAuth": []
