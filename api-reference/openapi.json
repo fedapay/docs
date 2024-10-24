@@ -161,7 +161,7 @@
        ]
       },
       "get": {
-        "summary": "Get a customers",
+        "summary": "Get a customer",
         "security": [
           {
             "bearerAuth": []
