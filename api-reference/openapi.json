@@ -534,7 +534,7 @@
     },
      "/transactions": {
       "post": {
-        "summary": "Create a new transaction",
+        "summary": "Create a transaction",
         "security": [
           {
             "bearerAuth": []
@@ -693,7 +693,22 @@
           "422": {
             "description": "Validation error."
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const { FedaPay, Transaction } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test mode or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Create the transaction */\nconst transaction = await Transaction.create(params = {}, headers = {});"
+          },
+          {
+            "lang": "PHP",
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n$customer = \\FedaPay\\Transaction::create([\n\"description\" => \"Description\",\n\"amount\" => 100,\n\"callback_url\" => \"http://e-shop.com/article/2\",\n\"currency\" => [\n\"code\" => \"xof\"\n]\n]);"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\n# Create a transaction with existing customer instance\ncurrencies = FedaPay::Currency.list\ncustomer = FedaPay::Customer.retrieve(ID)\ntransaction = FedaPay::Transaction.create(amount: 1000, currency: currencies.first.to_hash, customer: customer.to_hash, description: '');\n# Create a transaction with existing customer by id or email\ncustomer = {\n  id: 1, # Or email\n  email: 'customer@test.com'\n};\ncurrency = {\n  iso: 'XOF', # Or code\n  code: '952'\n};\ntransaction = FedaPay::Transaction.create(amount: 1000, currency: currency, customer: customer, description: '');"
+          }
+        ]
       }
     },
     "/transactions/search":{
