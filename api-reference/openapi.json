@@ -1303,7 +1303,7 @@
         ]
       },
       "delete": {
-        "summary": "Delete a transaction by ID.",
+        "summary": "Delete a transaction",
          "security": [
           {
             "bearerAuth": []
@@ -1327,7 +1327,22 @@
           "404": {
             "description": "Transaction not found."
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const { FedaPay, Transaction } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test mode or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Delete transaction */\nconst transaction = await Transaction.delete(ID, params = {}, headers = {});"
+          },
+          {
+            "lang": "PHP",
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n\\FedaPay\\Transaction::delete(ID);"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\ntransaction.delete;"
+          }
+        ]
       }
     },
     "/transactions/{id}/token": {
