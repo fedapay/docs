@@ -1618,7 +1618,7 @@
     },
     "/payouts/search":{
         "get": {
-      "summary": "Get a list of payouts.",
+      "summary": "Search your customers",
        "security": [
           {
             "bearerAuth": []
@@ -1750,7 +1750,22 @@
               }
             }
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_PRIVEE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Afficher les dépôts */\nconst payout = await Payout.all(params = {}, headers = {});"
+          },
+          {
+            "lang": "PHP",
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n$payout = \\FedaPay\\Payout::all(params = {}, header = {});"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\npayouts = FedaPay::Payout.list;"
+          }
+        ]
       }
     },
   "/payouts/{id}": {
