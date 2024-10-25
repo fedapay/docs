@@ -2521,7 +2521,7 @@
           "lang": "Ruby",
           "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\nwebhooks = FedaPay::Webhook.retrieve(ID);"
         }
-      ]
+        ]
       }
     }
   }
