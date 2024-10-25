@@ -2431,15 +2431,15 @@
           {
             "lang": "JavaScript",
             "label": "Node",
-            "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show customers */\nconst customer = await Customer.all( params = {}, headers = {} );"
+            "source": "const { FedaPay, Webhook } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show webhooks */\nconst webhook = await Webhook.all( params = {}, headers = {} );"
           },
           {
             "lang": "PHP",
-            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n/**\n* @var \\FedaPay\\FedaPayObject\n*/\n$response = \\FedaPay\\Customer::all();\n$customers = $response->customers;\n$meta = $response->meta;"
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n/**\n* @var \\FedaPay\\FedaPayObject\n*/\n$response = \\FedaPay\\Webhook::all();\n$webhooks = $response->webhooks;\n$meta = $response->meta;"
           },
           {
             "lang": "Ruby",
-            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\ncustomers = FedaPay::Customer.list;"
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\nwebhooks = FedaPay::Webhook.list;"
           }
         ]
       }
