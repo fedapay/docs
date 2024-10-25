@@ -2353,7 +2353,7 @@
       }
     }
     }, 
-    "/webhooks/search": {
+    "/webhooks": {
       "get": {
         "summary": "Search your webhooks",
         "security": [
@@ -2362,132 +2362,60 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "List of webhooks",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "integer",
-                        "description": "Webhook ID."
-                      },
-                      "reference": {
-                        "type": "string",
-                        "description": "Payout reference."
-                      },
-                      "amount": {
-                        "type": "integer",
-                        "description": "Payout amount."
-                      },
-                      "status": {
-                        "type": "string",
-                        "description": "Payout status (e.g., 'pending', 'scheduled', 'sent', 'failed')."
-                      },
-                      "customer_id": {
-                        "type": "integer",
-                        "description": "Customer ID associated with the payout."
-                      },
-                      "currency_id": {
-                        "type": "integer",
-                        "description": "Currency ID associated with the payout."
-                      },
-                      "mode": {
-                        "type": "string",
-                        "description": "Payout mode."
-                      },
-                      "last_error_code": {
-                        "type": "string",
-                        "description": "Last error code encountered during the payout."
-                      },
-                      "commission": {
-                        "type": "integer",
-                        "description": "Payout commission."
-                      },
-                      "fees": {
-                        "type": "integer",
-                        "description": "Payout fees."
-                      },
-                      "fixed_commission": {
-                        "type": "integer",
-                        "description": "Fixed commission applied to the payout."
-                      },
-                      "amount_transferred": {
-                        "type": "integer",
-                        "description": "Amount transferred to the beneficiary."
-                      },
-                      "amount_debited": {
-                        "type": "integer",
-                        "description": "Amount debited from the payer."
-                      },
-                      "created_at": {
-                        "type": "string",
-                        "format": "date-time",
-                        "description": "Date and time of payout creation."
-                      },
-                      "updated_at": {
-                        "type": "string",
-                        "format": "date-time",
-                        "description": "Date and time of last payout update."
-                      },
-                      "scheduled_at": {
-                        "type": "string",
-                        "format": "date-time",
-                        "description": "Date and time the payout is scheduled to be sent."
-                      },
-                      "sent_at": {
-                        "type": "string",
-                        "format": "date-time",
-                        "description": "Date and time the payout was sent."
-                      },
-                      "failed_at": {
-                        "type": "string",
-                        "format": "date-time",
-                        "description": "Date and time the payout failed."
-                      },
-                      "deleted_at": {
-                        "type": "string",
-                        "format": "date-time",
-                        "description": "Date and time of payout deletion."
-                      },
-                      "metadata": {
-                        "type": "object",
-                        "description": "Additional metadata related to the payout."
-                      },
-                      "custom_metadata": {
-                        "type": "object",
-                        "description": "Custom metadata associated with the payout."
-                      },
-                      "payment_method_id": {
-                        "type": "integer",
-                        "description": "Payment method ID used for the payout."
-                      },
-                      "transaction_key": {
-                        "type": "string",
-                        "description": "Unique key associated with the payout."
-                      },
-                      "merchant_reference": {
-                        "type": "string",
-                        "description": "Merchant reference provided for the payout."
-                      },
-                      "account_id": {
-                        "type": "integer",
-                        "description": "Account ID associated with the payout."
-                      },
-                      "balance_id": {
-                        "type": "integer",
-                        "description": "Balance ID associated with the payout."
-                      }
-                    }
+        "200": {
+          "description": "Payout retrieved successfully.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "Payout ID."
+                  },
+                  "url": {
+                    "type": "string",
+                    "description": "Payout reference."
+                  },
+                  "enabled": {
+                    "type": "boolean",
+                    "description": "webhook status"
+                  },
+                  "ssl_verify": {
+                    "type": "boolean",
+                    "description": "By default it's true"
+                  },
+                  "disable_on_error": {
+                    "type": "boolean",
+                    "description": "By default it's true"
+                  },
+                  "account_id": {
+                    "type": "integer",
+                    "description": "Account ID"
+                  },
+                  "http_headers": {
+                    "type": "json",
+                    "description": "Headers of webhook"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Date and time of payout creation."
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Date and time of last payout update."
                   }
                 }
               }
             }
           }
         },
+        "404": {
+          "description": "Payout not found."
+        }
+      }
         "x-codeSamples": [
           {
             "lang": "JavaScript",
@@ -2536,53 +2464,29 @@
                     "type": "integer",
                     "description": "Payout ID."
                   },
-                  "reference": {
+                  "url": {
                     "type": "string",
                     "description": "Payout reference."
                   },
-                  "amount": {
+                  "enabled": {
+                    "type": "boolean",
+                    "description": "webhook status"
+                  },
+                  "ssl_verify": {
+                    "type": "boolean",
+                    "description": "By default it's true"
+                  },
+                  "disable_on_error": {
+                    "type": "boolean",
+                    "description": "By default it's true"
+                  },
+                  "account_id": {
                     "type": "integer",
-                    "description": "Payout amount."
+                    "description": "Account ID"
                   },
-                  "status": {
-                    "type": "string",
-                    "description": "Payout status (e.g., 'pending', 'scheduled', 'sent', 'failed')."
-                  },
-                  "customer_id": {
-                    "type": "integer",
-                    "description": "Customer ID associated with the payout."
-                  },
-                  "currency_id": {
-                    "type": "integer",
-                    "description": "Currency ID associated with the payout."
-                  },
-                  "mode": {
-                    "type": "string",
-                    "description": "Payout mode."
-                  },
-                  "last_error_code": {
-                    "type": "string",
-                    "description": "Last error code encountered during the payout."
-                  },
-                  "commission": {
-                    "type": "integer",
-                    "description": "Payout commission."
-                  },
-                  "fees": {
-                    "type": "integer",
-                    "description": "Payout fees."
-                  },
-                  "fixed_commission": {
-                    "type": "integer",
-                    "description": "Fixed commission applied to the payout."
-                  },
-                  "amount_transferred": {
-                    "type": "integer",
-                    "description": "Amount transferred to the beneficiary."
-                  },
-                  "amount_debited": {
-                    "type": "integer",
-                    "description": "Amount debited from the payer."
+                  "http_headers": {
+                    "type": "json",
+                    "description": "Headers of webhook"
                   },
                   "created_at": {
                     "type": "string",
@@ -2593,54 +2497,6 @@
                     "type": "string",
                     "format": "date-time",
                     "description": "Date and time of last payout update."
-                  },
-                  "scheduled_at": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "Date and time the payout is scheduled to be sent."
-                  },
-                  "sent_at": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "Date and time the payout was sent."
-                  },
-                  "failed_at": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "Date and time the payout failed."
-                  },
-                  "deleted_at": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "Date and time of payout deletion."
-                  },
-                  "metadata": {
-                    "type": "object",
-                    "description": "Additional metadata related to the payout."
-                  },
-                  "custom_metadata": {
-                    "type": "object",
-                    "description": "Custom metadata associated with the payout."
-                  },
-                  "payment_method_id": {
-                    "type": "integer",
-                    "description": "Payment method ID used for the payout."
-                  },
-                  "transaction_key": {
-                    "type": "string",
-                    "description": "Unique key associated with the payout."
-                  },
-                  "merchant_reference": {
-                    "type": "string",
-                    "description": "Merchant reference provided for the payout."
-                  },
-                  "account_id": {
-                    "type": "integer",
-                    "description": "Account ID associated with the payout."
-                  },
-                  "balance_id": {
-                    "type": "integer",
-                    "description": "Balance ID associated with the payout."
                   }
                 }
               }
