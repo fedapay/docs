@@ -2363,6 +2363,97 @@
         ],
         "responses": {
         "200": {
+          "description": "Payout retrieved successfully.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "Payout ID."
+                  },
+                  "url": {
+                    "type": "string",
+                    "description": "Payout reference."
+                  },
+                  "enabled": {
+                    "type": "boolean",
+                    "description": "webhook status"
+                  },
+                  "ssl_verify": {
+                    "type": "boolean",
+                    "description": "By default it's true"
+                  },
+                  "disable_on_error": {
+                    "type": "boolean",
+                    "description": "By default it's true"
+                  },
+                  "account_id": {
+                    "type": "integer",
+                    "description": "Account ID"
+                  },
+                  "http_headers": {
+                    "type": "json",
+                    "description": "Headers of webhook"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Date and time of payout creation."
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Date and time of last payout update."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "webhook not found."
+        }
+      },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const { FedaPay, Webhook } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show webhooks */\nconst webhook = await Webhook.all(params = {}, headers = {});"
+          },
+          {
+            "lang": "PHP",
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n/**\n* @var \\FedaPay\\FedaPayObject\n*/\n$response = \\FedaPay\\Webhook::all();\n$webhooks = $response->webhooks;\n$meta = $response->meta;"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\nwebhooks = FedaPay::Webhook.list;"
+          }
+        ]
+      }
+    },
+    "/webhooks/{id}": {
+      "get": {
+      "summary": "Get a webhook",
+       "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "schema": {
+            "type": "integer"
+          },
+          "required": true,
+          "description": "Webhook ID."
+        }
+      ],
+      "responses": {
+        "200": {
           "description": "Webhook retrieved successfully.",
           "content": {
             "application/json": {
@@ -2415,22 +2506,22 @@
         "404": {
           "description": "webhook not found."
         }
-          },
-        "x-codeSamples": [
-          {
-            "lang": "JavaScript",
-            "label": "Node",
-            "source": "const { FedaPay, Webhook } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show webhooks */\nconst webhook = await Webhook.all(params = {}, headers = {});"
-          },
-          {
-            "lang": "PHP",
-            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n/**\n* @var \\FedaPay\\FedaPayObject\n*/\n$response = \\FedaPay\\Webhook::all();\n$webhooks = $response->webhooks;\n$meta = $response->meta;"
-          },
-          {
-            "lang": "Ruby",
-            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\nwebhooks = FedaPay::Webhook.list;"
-          }
-        ]
+      },
+      "x-codeSamples": [
+        {
+          "lang": "JavaScript",
+          "label": "Node",
+          "source": "const { FedaPay, Webhook } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show a webhook */\nconst webhook = await Webhook.retrieve(params = {}, headers = {});"
+        },
+        {
+          "lang": "PHP",
+          "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n$customer = \\FedaPay\\Webhook::retrieve(ID, params = {}, header = {});"
+        },
+        {
+          "lang": "Ruby",
+          "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\nwebhooks = FedaPay::Webhook.retrieve(ID);"
+        }
+      ]
       }
     }
   }
