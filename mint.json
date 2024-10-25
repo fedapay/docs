@@ -96,7 +96,35 @@
           "group": "Events",
           "pages": [
             "api-reference/events/get-by-id",
-            "api-reference/payouts/get-all"
+            "api-reference/events/get-all"
+          ]
+        },
+        {
+          "group": "Balances",
+          "pages": [
+            "api-reference/balances/get-by-id",
+            "api-reference/balances/get-all"
+          ]
+        },
+        {
+          "group": "Currencies",
+          "pages": [
+            "api-reference/currencies/get-by-id",
+            "api-reference/currencies/get-all"
+          ]
+        },
+        {
+          "group": "Logs",
+          "pages": [
+            "api-reference/logs/get-by-id",
+            "api-reference/logs/get-all"
+          ]
+        },
+        {
+          "group": "Webhooks",
+          "pages": [
+            "api-reference/webhooks/get-by-id",
+            "api-reference/webhooks/get-all"
           ]
         }
       ]
