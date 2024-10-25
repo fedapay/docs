@@ -2352,6 +2352,321 @@
         }
       }
     }
+    },
+    "/webhooks/search":{
+        "get": {
+      "summary": "Search your webhooks",
+       "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+      "responses": {
+        "200": {
+          "description": "List of webhooks",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Wenhook ID."
+                    },
+                    "reference": {
+                      "type": "string",
+                      "description": "Payout reference."
+                    },
+                    "amount": {
+                      "type": "integer",
+                      "description": "Payout amount."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Payout status (e.g., 'pending', 'scheduled', 'sent', 'failed')."
+                    },
+                    "customer_id": {
+                      "type": "integer",
+                      "description": "Customer ID associated with the payout."
+                    },
+                    "currency_id": {
+                      "type": "integer",
+                      "description": "Currency ID associated with the payout."
+                    },
+                    "mode": {
+                      "type": "string",
+                      "description": "Payout mode."
+                    },
+                    "last_error_code": {
+                      "type": "string",
+                      "description": "Last error code encountered during the payout."
+                    },
+                    "commission": {
+                      "type": "integer",
+                      "description": "Payout commission."
+                    },
+                    "fees": {
+                      "type": "integer",
+                      "description": "Payout fees."
+                    },
+                    "fixed_commission": {
+                      "type": "integer",
+                      "description": "Fixed commission applied to the payout."
+                    },
+                    "amount_transferred": {
+                      "type": "integer",
+                      "description": "Amount transferred to the beneficiary."
+                    },
+                    "amount_debited": {
+                      "type": "integer",
+                      "description": "Amount debited from the payer."
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of payout creation."
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of last payout update."
+                    },
+                    "scheduled_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time the payout is scheduled to be sent."
+                    },
+                    "sent_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time the payout was sent."
+                    },
+                    "failed_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time the payout failed."
+                    },
+                    "deleted_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of payout deletion."
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "description": "Additional metadata related to the payout."
+                    },
+                    "custom_metadata": {
+                      "type": "object",
+                      "description": "Custom metadata associated with the payout."
+                    },
+                    "payment_method_id": {
+                      "type": "integer",
+                      "description": "Payment method ID used for the payout."
+                    },
+                    "transaction_key": {
+                      "type": "string",
+                      "description": "Unique key associated with the payout."
+                    },
+                    "merchant_reference": {
+                      "type": "string",
+                      "description": "Merchant reference provided for the payout."
+                    },
+                    "account_id": {
+                      "type": "integer",
+                      "description": "Account ID associated with the payout."
+                    },
+                    "balance_id": {
+                      "type": "integer",
+                      "description": "Balance ID associated with the payout."
+                    }
+                   }
+                 }
+                }
+              }
+            }
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_PRIVEE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show payouts */\nconst payout = await Payout.all(params = {}, headers = {});"
+          },
+          {
+            "lang": "PHP",
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n$payout = \\FedaPay\\Payout::all(params = {}, header = {});"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\npayouts = FedaPay::Payout.list;"
+          }
+        ]
+      }
+    },
+  "/webhooks/{id}": {
+    "get": {
+      "summary": "Get a payout",
+       "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "schema": {
+            "type": "integer"
+          },
+          "required": true,
+          "description": "Payout ID."
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Payout retrieved successfully.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "Payout ID."
+                  },
+                  "reference": {
+                    "type": "string",
+                    "description": "Payout reference."
+                  },
+                  "amount": {
+                    "type": "integer",
+                    "description": "Payout amount."
+                  },
+                  "status": {
+                    "type": "string",
+                    "description": "Payout status (e.g., 'pending', 'scheduled', 'sent', 'failed')."
+                  },
+                  "customer_id": {
+                    "type": "integer",
+                    "description": "Customer ID associated with the payout."
+                  },
+                  "currency_id": {
+                    "type": "integer",
+                    "description": "Currency ID associated with the payout."
+                  },
+                  "mode": {
+                    "type": "string",
+                    "description": "Payout mode."
+                  },
+                  "last_error_code": {
+                    "type": "string",
+                    "description": "Last error code encountered during the payout."
+                  },
+                  "commission": {
+                    "type": "integer",
+                    "description": "Payout commission."
+                  },
+                  "fees": {
+                    "type": "integer",
+                    "description": "Payout fees."
+                  },
+                  "fixed_commission": {
+                    "type": "integer",
+                    "description": "Fixed commission applied to the payout."
+                  },
+                  "amount_transferred": {
+                    "type": "integer",
+                    "description": "Amount transferred to the beneficiary."
+                  },
+                  "amount_debited": {
+                    "type": "integer",
+                    "description": "Amount debited from the payer."
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Date and time of payout creation."
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Date and time of last payout update."
+                  },
+                  "scheduled_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Date and time the payout is scheduled to be sent."
+                  },
+                  "sent_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Date and time the payout was sent."
+                  },
+                  "failed_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Date and time the payout failed."
+                  },
+                  "deleted_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Date and time of payout deletion."
+                  },
+                  "metadata": {
+                    "type": "object",
+                    "description": "Additional metadata related to the payout."
+                  },
+                  "custom_metadata": {
+                    "type": "object",
+                    "description": "Custom metadata associated with the payout."
+                  },
+                  "payment_method_id": {
+                    "type": "integer",
+                    "description": "Payment method ID used for the payout."
+                  },
+                  "transaction_key": {
+                    "type": "string",
+                    "description": "Unique key associated with the payout."
+                  },
+                  "merchant_reference": {
+                    "type": "string",
+                    "description": "Merchant reference provided for the payout."
+                  },
+                  "account_id": {
+                    "type": "integer",
+                    "description": "Account ID associated with the payout."
+                  },
+                  "balance_id": {
+                    "type": "integer",
+                    "description": "Balance ID associated with the payout."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Payout not found."
+        }
+      },
+      "x-codeSamples": [
+        {
+          "lang": "JavaScript",
+          "label": "Node",
+          "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_PRIVEE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show a payout */\nconst payout = await Payout.retrieve(params = {}, headers = {});"
+        },
+        {
+          "lang": "PHP",
+          "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n$customer = \\FedaPay\\Payout::retrieve(ID, params = {}, header = {});"
+        },
+        {
+          "lang": "Ruby",
+          "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\npayouts = FedaPay::Payout.retrieve(ID);"
+        }
+      ]
+    }
     }
   }
 }
