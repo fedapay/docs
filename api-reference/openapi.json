@@ -2428,20 +2428,20 @@
         }
       },
       "x-codeSamples": [
-        {
-          "lang": "JavaScript",
-          "label": "Node",
-          "source": "const { FedaPay, Webhook } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show a webhook */\nconst webhook = await Webhook.retrieve(params = {}, headers = {});"
-        },
-        {
-          "lang": "PHP",
-          "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n$customer = \\FedaPay\\Webhook::retrieve(ID, params = {}, header = {});"
-        },
-        {
-          "lang": "Ruby",
-          "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\nwebhooks = FedaPay::Webhook.retrieve(ID);"
-        }
-      ]
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const { FedaPay, Webhook } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show webhook */\nconst webhook = await Webhook.all( params = {}, headers = {} );"
+          },
+          {
+            "lang": "PHP",
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n/**\n* @var \\FedaPay\\FedaPayObject\n*/\n$response = \\FedaPay\\Webhook::all();\n$webhooks = $response->webhooks;\n$meta = $response->meta;"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\nwebhooks = FedaPay::Webhook.list;"
+          }
+        ]
       }
     },
     "/webhooks/{id}": {
