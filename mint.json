@@ -91,6 +91,13 @@
             "api-reference/payouts/get-all",
             "api-reference/payouts/update-start"
           ]
+        },
+        {
+          "group": "Events",
+          "pages": [
+            "api-reference/events/get-by-id",
+            "api-reference/payouts/get-all"
+          ]
         }
       ]
     }
