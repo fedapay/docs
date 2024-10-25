@@ -2144,7 +2144,7 @@
         {
           "lang": "JavaScript",
           "label": "Node",
-          "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_PRIVEE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Supprimer un dépôt */\nconst payout = await Payout.delete(params = {}, headers = {});"
+          "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_PRIVEE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* delete a payout */\nconst payout = await Payout.delete(params = {}, headers = {});"
         },
         {
           "lang": "PHP",
