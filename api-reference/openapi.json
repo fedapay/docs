@@ -2363,7 +2363,7 @@
         ],
         "responses": {
         "200": {
-          "description": "Payout retrieved successfully.",
+          "description": "Webhook retrieved successfully.",
           "content": {
             "application/json": {
               "schema": {
@@ -2371,11 +2371,11 @@
                 "properties": {
                   "id": {
                     "type": "integer",
-                    "description": "Payout ID."
+                    "description": "Webhook ID."
                   },
                   "url": {
                     "type": "string",
-                    "description": "Payout reference."
+                    "description": "Webhook reference."
                   },
                   "enabled": {
                     "type": "boolean",
@@ -2400,12 +2400,12 @@
                   "created_at": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Date and time of payout creation."
+                    "description": "Date and time of webhook creation."
                   },
                   "updated_at": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Date and time of last payout update."
+                    "description": "Date and time of last webhook update."
                   }
                 }
               }
@@ -2413,9 +2413,9 @@
           }
         },
         "404": {
-          "description": "Payout not found."
+          "description": "webhook not found."
         }
-      }
+          },
         "x-codeSamples": [
           {
             "lang": "JavaScript",
@@ -2454,7 +2454,7 @@
       ],
       "responses": {
         "200": {
-          "description": "Payout retrieved successfully.",
+          "description": "Webhook retrieved successfully.",
           "content": {
             "application/json": {
               "schema": {
@@ -2462,11 +2462,11 @@
                 "properties": {
                   "id": {
                     "type": "integer",
-                    "description": "Payout ID."
+                    "description": "Webhook ID."
                   },
                   "url": {
                     "type": "string",
-                    "description": "Payout reference."
+                    "description": "Webhook reference."
                   },
                   "enabled": {
                     "type": "boolean",
@@ -2491,12 +2491,12 @@
                   "created_at": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Date and time of payout creation."
+                    "description": "Date and time of webhook creation."
                   },
                   "updated_at": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Date and time of last payout update."
+                    "description": "Date and time of last webhook update."
                   }
                 }
               }
@@ -2504,7 +2504,7 @@
           }
         },
         "404": {
-          "description": "Payout not found."
+          "description": "webhook not found."
         }
       },
       "x-codeSamples": [
