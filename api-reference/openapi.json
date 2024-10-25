@@ -2507,7 +2507,7 @@
     },
     "/webhooks/{id}": {
       "get": {
-        "summary": "Get a payout",
+        "summary": "Get a webhook",
         "security": [
             {
               "bearerAuth": []
@@ -2521,7 +2521,7 @@
               "type": "integer"
             },
             "required": true,
-            "description": "Payout ID."
+            "description": "Webhook ID."
           }
         ],
         "responses": {
