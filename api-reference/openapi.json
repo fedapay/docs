@@ -148,11 +148,11 @@
           {
             "lang": "JavaScript",
             "label": "Node",
-            "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Create customer */\nconst customer = await Customer.create({\n  firstname: 'John',\n  lastname: 'Doe',\n  email: 'john@doe.com',\n  phone_number: {\n    number: '90090909',\n    country: 'BJ'\n  }\n});"
+            "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Create customer */\nconst customer = await Customer.create({\n  firstname: 'John',\n  lastname: 'Doe',\n  email: 'john@doe.com',\n  phone_number: {\n    number: '90090909',\n    country: 'BJ'\n  }\n});"
           },
           {
             "lang": "PHP",
-            "source": "/* Replace VOTRE_CLE_API_SECRETE with your secret API key */\n\\FedaPay\\FedaPay::setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test or live mode */\n\\FedaPay\\FedaPay::setEnvironment('sandbox'); //or setEnvironment('live');\n/* Create customer */\n\\FedaPay\\Customer::create(array(\n  \"firstname\" => \"John\",\n  \"lastname\" => \"Doe\",\n  \"email\" => \"John.doe@gmail.com\",\n  \"phone_number\" => [\n    \"number\" => \"+22966666600\",\n    \"country\" => 'bj' // 'bj' Benin code\n  ]\n));"
+            "source": "/* Replace YOUR_SECRETE_API_KEY with your secret API key */\n\\FedaPay\\FedaPay::setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\n\\FedaPay\\FedaPay::setEnvironment('sandbox'); //or setEnvironment('live');\n/* Create customer */\n\\FedaPay\\Customer::create(array(\n  \"firstname\" => \"John\",\n  \"lastname\" => \"Doe\",\n  \"email\" => \"John.doe@gmail.com\",\n  \"phone_number\" => [\n    \"number\" => \"+22966666600\",\n    \"country\" => 'bj' // 'bj' Benin code\n  ]\n));"
           },
           {
             "lang": "Ruby",
@@ -235,7 +235,7 @@
           {
             "lang": "JavaScript",
             "label": "Node",
-            "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show customers */\nconst customer = await Customer.all( params = {}, headers = {} );"
+            "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show customers */\nconst customer = await Customer.all( params = {}, headers = {} );"
           },
           {
             "lang": "PHP",
@@ -335,7 +335,7 @@
           {
             "lang": "JavaScript",
             "label": "Node",
-            "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Afficher le client */\nconst customer = await Customer.retrieve( ID, params = {}, headers = {} );"
+            "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Afficher le client */\nconst customer = await Customer.retrieve( ID, params = {}, headers = {} );"
           },
           {
             "lang": "PHP",
@@ -474,7 +474,7 @@
           {
             "lang": "JavaScript",
             "label": "Node",
-            "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Modify customer */\nconst customer = await Customer.update(ID, params = {}, headers = {});"
+            "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Modify customer */\nconst customer = await Customer.update(ID, params = {}, headers = {});"
           },
           {
             "lang": "PHP",
@@ -519,7 +519,7 @@
           {
             "lang": "JavaScript",
             "label": "Node",
-            "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Delete customer */\nconst customer = await Customer.delete(ID, params = {}, headers = {});"
+            "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Delete customer */\nconst customer = await Customer.delete(ID, params = {}, headers = {});"
           },
           {
             "lang": "PHP",
@@ -698,7 +698,7 @@
           {
             "lang": "JavaScript",
             "label": "Node",
-            "source": "const { FedaPay, Transaction } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test mode or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Create the transaction */\nconst transaction = await Transaction.create(params = {}, headers = {});"
+            "source": "const { FedaPay, Transaction } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test mode or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Create the transaction */\nconst transaction = await Transaction.create(params = {}, headers = {});"
           },
           {
             "lang": "PHP",
@@ -877,7 +877,7 @@
           {
             "lang": "JavaScript",
             "label": "Node",
-            "source": "const { FedaPay, Transaction } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test mode or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show customers */\nconst transaction = await Transaction.all(params = {}, headers = {});"
+            "source": "const { FedaPay, Transaction } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test mode or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show customers */\nconst transaction = await Transaction.all(params = {}, headers = {});"
           },
           {
             "lang": "PHP",
@@ -1067,7 +1067,7 @@
           {
             "lang": "JavaScript",
             "label": "Node",
-            "source": "const { FedaPay, Transaction } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test mode or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show customers */\nconst transaction = await Transaction.retrieve(ID, params = {}, headers = {});"
+            "source": "const { FedaPay, Transaction } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test mode or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show customers */\nconst transaction = await Transaction.retrieve(ID, params = {}, headers = {});"
           },
           {
             "lang": "PHP",
@@ -1290,7 +1290,7 @@
           {
             "lang": "JavaScript",
             "label": "Node",
-            "source": "const { FedaPay, Transaction } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test mode or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Update a transaction */\nconst transaction = await Transaction.update(ID, params = {}, headers = {});"
+            "source": "const { FedaPay, Transaction } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test mode or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Update a transaction */\nconst transaction = await Transaction.update(ID, params = {}, headers = {});"
           },
           {
             "lang": "PHP",
@@ -1332,7 +1332,7 @@
           {
             "lang": "JavaScript",
             "label": "Node",
-            "source": "const { FedaPay, Transaction } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test mode or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Delete transaction */\nconst transaction = await Transaction.delete(ID, params = {}, headers = {});"
+            "source": "const { FedaPay, Transaction } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test mode or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Delete transaction */\nconst transaction = await Transaction.delete(ID, params = {}, headers = {});"
           },
           {
             "lang": "PHP",
@@ -1603,7 +1603,7 @@
           {
             "lang": "JavaScript",
             "label": "Node",
-            "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_PRIVEE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Create a payout */\nconst payout = await Payout.create(params = {}, headers = {});"
+            "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Create a payout */\nconst payout = await Payout.create(params = {}, headers = {});"
           },
           {
             "lang": "PHP",
@@ -1755,7 +1755,7 @@
           {
             "lang": "JavaScript",
             "label": "Node",
-            "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_PRIVEE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show payouts */\nconst payout = await Payout.all(params = {}, headers = {});"
+            "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show payouts */\nconst payout = await Payout.all(params = {}, headers = {});"
           },
           {
             "lang": "PHP",
@@ -1918,7 +1918,7 @@
         {
           "lang": "JavaScript",
           "label": "Node",
-          "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_PRIVEE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show a payout */\nconst payout = await Payout.retrieve(params = {}, headers = {});"
+          "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show a payout */\nconst payout = await Payout.retrieve(params = {}, headers = {});"
         },
         {
           "lang": "PHP",
@@ -2102,7 +2102,7 @@
         {
           "lang": "JavaScript",
           "label": "Node",
-          "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_PRIVEE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Update a payout */\nconst payout = await Payout.update(params = {}, headers = {});"
+          "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Update a payout */\nconst payout = await Payout.update(params = {}, headers = {});"
         },
         {
           "lang": "PHP",
@@ -2144,7 +2144,7 @@
         {
           "lang": "JavaScript",
           "label": "Node",
-          "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_PRIVEE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* delete a payout */\nconst payout = await Payout.delete(params = {}, headers = {});"
+          "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* delete a payout */\nconst payout = await Payout.delete(params = {}, headers = {});"
         },
         {
           "lang": "PHP",
@@ -2492,15 +2492,15 @@
           {
             "lang": "JavaScript",
             "label": "Node",
-            "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_PRIVEE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show payouts */\nconst payout = await Payout.all(params = {}, headers = {});"
+            "source": "const { FedaPay, Webhook } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show webhooks */\nconst webhook = await Webhook.all(params = {}, headers = {});"
           },
           {
             "lang": "PHP",
-            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n$payout = \\FedaPay\\Payout::all(params = {}, header = {});"
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n/**\n* @var \\FedaPay\\FedaPayObject\n*/\n$response = \\FedaPay\\Webhook::all();\n$webhooks = $response->webhooks;\n$meta = $response->meta;"
           },
           {
             "lang": "Ruby",
-            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\npayouts = FedaPay::Payout.list;"
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\nwebhooks = FedaPay::Webhook.list;"
           }
         ]
       }
@@ -2655,7 +2655,7 @@
           {
             "lang": "JavaScript",
             "label": "Node",
-            "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_API_KEY with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_PRIVEE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show a payout */\nconst payout = await Payout.retrieve(params = {}, headers = {});"
+            "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace VOTRE_CLE_API_SECRETE with your real API key */\nFedaPay.setApiKey(\"VOTRE_CLE_API_SECRETE\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show webhooks */\nconst payout = await Payout.retrieve(params = {}, headers = {});"
           },
           {
             "lang": "PHP",
