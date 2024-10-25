@@ -2353,7 +2353,7 @@
       }
     }
     }, 
-    "/webhooks/search": {
+    "/webhooks/": {
       "get": {
       "summary": "Get a webhook",
        "security": [
