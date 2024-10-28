@@ -56,6 +56,17 @@
       "version": "en"
     },
     {
+      "group": "Intégration API",
+      "pages": [
+        "integration-api/fr/api-authentication-fr",
+        "integration-api/fr/sending-requests-fr",
+        "integration-api/fr/collects-management-fr",
+        "integration-api/fr/customer-management-fr",
+        "integration-api/fr/webhooks-fr"
+      ],
+      "version": "fr"
+    },
+    {
       "group": "API Documentation",
       "pages": [
         "api-reference/introduction",
