@@ -2464,60 +2464,69 @@
         }
       ],
       "responses": {
-        "200": {
-          "description": "Webhook retrieved successfully.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "integer",
-                    "description": "Webhook ID."
-                  },
-                  "url": {
-                    "type": "string",
-                    "description": "Webhook reference."
-                  },
-                  "enabled": {
-                    "type": "boolean",
-                    "description": "webhook status"
-                  },
-                  "ssl_verify": {
-                    "type": "boolean",
-                    "description": "By default it's true"
-                  },
-                  "disable_on_error": {
-                    "type": "boolean",
-                    "description": "By default it's true"
-                  },
-                  "account_id": {
-                    "type": "integer",
-                    "description": "Account ID"
-                  },
-                  "http_headers": {
-                    "type": "json",
-                    "description": "Headers of webhook"
-                  },
-                  "created_at": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "Date and time of webhook creation."
-                  },
-                  "updated_at": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "Date and time of last webhook update."
+          "200": {
+            "description": "Customer retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Customer ID."
+                    },
+                    "firstname": {
+                      "type": "string",
+                      "description": "Customer's first name."
+                    },
+                    "lastname": {
+                      "type": "string",
+                      "description": "Customer's last name."
+                    },
+                    "full_name": {
+                      "type": "string",
+                      "description": "Customer's full name."
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email",
+                      "description": "Customer's email address."
+                    },
+                    "account_id": {
+                      "type": "integer",
+                      "description": "ID of the customer's account."
+                    },
+                    "phone_number_id": {
+                      "type": "integer",
+                      "description": "ID of the customer's phone number."
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of customer creation."
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of last customer update."
+                    },
+                    "deleted_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of customer deletion (if applicable)."
+                    }
                   }
                 }
               }
             }
+          },
+          "404": {
+            "description": "Customer not found."
+          },
+          "401": {
+            "description": "Unauthorized. Provide a valid secret key."
           }
         },
-        "404": {
-          "description": "webhook not found."
-        }
-      },
       "x-codeSamples": [
         {
           "lang": "JavaScript",
