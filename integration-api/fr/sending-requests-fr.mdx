@@ -43,14 +43,34 @@ Authorization: Bearer VOTRE_CLÉ_API
 
 ###  Mode Test vs Mode Live
 
-<Steps>
-  <Step title="Mode Test">
+
+  1. Mode Test
     Avant de passer en mode Live, il est essentiel de tester votre intégration en mode test. Ce mode vous permet de simuler différentes opérations de paiement sans effectuer de transactions réelles. Vous devez créer un compte test, et utiliser les clés API test pour adresser vos requêtes à l'environnement de test.
 
     - **Clés API Test** : Ces clés ne peuvent être utilisées que sur le serveur de test.
     - **Transactions de test** : Simulez des transactions avec des cartes et des numéros de téléphone fictifs pour voir comment votre système réagit.
-  </Step>
-  <Step title="Mode Live">
+  
+  2. Mode Live
     Une fois que vous avez validé vos tests, vous pouvez passer en production en utilisant vos clés API live. Ce mode permet de réaliser des transactions réelles avec vos clients.
-  </Step>
-</Steps>
+  
+
+
+###  Numéros de test pour les cartes et le mobile money
+
+Pour tester votre intégration, FedaPay vous fournit des numéros de carte et des numéros de téléphone pour simuler des paiements réussis ou échoués. Vous devez utiliser ces numéros en mode test uniquement.
+
+<Tabs>
+    <Tab title="Serveur de test">
+    Utilisé pour effectuer des tests sans impact réel sur votre compte.
+        ```bash
+         https://sandbox-api.fedapay.com
+        ```
+    </Tab>
+
+    <Tab title="Serveur live">
+    Utilisé pour traiter les transactions réelles.
+        ```bash
+          https://api.fedapay.com
+        ```
+    </Tab>
+</Tabs>
