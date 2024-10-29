@@ -60,11 +60,16 @@ Authorization: Bearer VOTRE_CLÉ_API
 Pour tester votre intégration, FedaPay vous fournit des numéros de carte et des numéros de téléphone pour simuler des paiements réussis ou échoués. Vous devez utiliser ces numéros en mode test uniquement.
 
 <Tabs>
-    <Tab title="Serveur de test">
+    <Tab title="Numéros de carte de test">
     Utilisé pour effectuer des tests sans impact réel sur votre compte.
-        ```bash
-         https://sandbox-api.fedapay.com
-        ```
+
+|   Numéro          | Type de carte  | Scénario  |
+|   :------:        | :------:       | :----:    |
+| 4111111111111111  |  Visa          | Succès    |
+| 4242424242424241  |  Visa          | Échecs    |
+| 5555555555554444  |  Mastercard    | Succès    |
+| 4242424242424242  |  Visa          | Echecs    |
+
     </Tab>
 
     <Tab title="Serveur live">
