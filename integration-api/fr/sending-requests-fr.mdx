@@ -87,3 +87,18 @@ Chaque requête que vous envoyez à l'API FedaPay reçoit une réponse, que vous
 #### Réponse réussie (200)
 
 Une réponse réussie est généralement un code HTTP 200. Elle inclut les détails de la ressource créée ou consultée.
+
+#### Réponse en cas d'erreur
+
+Si une erreur survient (mauvaise clé API, requête mal formée, etc.), l'API renvoie un code d’erreur spécifique (par exemple, 400, 401, 404, 500).
+
+### Gestion des erreurs
+
+Pour une gestion optimale de vos transactions, voici quelques pratiques recommandées en cas d’erreurs :
+
+- **400 Bad Request** : Vérifiez que vos paramètres sont bien formatés et conformes aux spécifications de l'API.
+- **401 Unauthorized** : Assurez-vous que vous utilisez la clé API correcte (test ou live) et qu'elle est valide.
+- **404 Not Found** : Vérifiez que l'URL que vous utilisez est correcte et que la ressource existe.
+- **500 Internal Server Error** : Ces erreurs proviennent de l'API FedaPay. Si elles persistent, contactez l'assistance.
+
+Testez rigoureusement votre intégration avec FedaPay avant de passer en mode live est essentiel pour garantir un fonctionnement fluide. Utilisez les clés API appropriées, suivez la structure des requêtes et tenez compte des réponses de l'API pour assurer une intégration réussie.
