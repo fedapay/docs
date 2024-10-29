@@ -36,3 +36,21 @@ L'API FedaPay supporte plusieurs méthodes HTTP, dont les principales sont :
 </Tabs>
 
 #### Authentification
+
+Vous devez inclure votre clé API dans l'en-tête HTTP de chaque requête. Selon que vous êtes en mode test ou live, vous utiliserez l'une des deux clés :
+
+Authorization: Bearer VOTRE_CLÉ_API
+
+####  Mode Test vs Mode Live
+
+<Steps>
+  <Step title="Mode Test">
+    Avant de passer en mode Live, il est essentiel de tester votre intégration en mode test. Ce mode vous permet de simuler différentes opérations de paiement sans effectuer de transactions réelles. Vous devez créer un compte test, et utiliser les clés API test pour adresser vos requêtes à l'environnement de test.
+
+    - **Clés API Test** : Ces clés ne peuvent être utilisées que sur le serveur de test.
+    - **Transactions de test** : Simulez des transactions avec des cartes et des numéros de téléphone fictifs pour voir comment votre système réagit.
+  </Step>
+  <Step title="Mode Live">
+    Une fois que vous avez validé vos tests, vous pouvez passer en production en utilisant vos clés API live. Ce mode permet de réaliser des transactions réelles avec vos clients.
+  </Step>
+</Steps>
