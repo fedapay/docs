@@ -68,5 +68,59 @@ FedaPay propose des librairies pour faciliter l'intégration dans vos projets. N
     <Tab title="ReactJs">
     A revoir
     </Tab>
-
 </Tabs>
+
+#### 3. Faire un test de requête API
+
+Une fois que vous avez obtenu vos clés et installé la librairie, il est temps d’effectuer un test pour valider votre intégration.
+
+Voici un exemple de requête pour créer une transaction de test via Node.JS
+
+```ruby
+require 'fedapay';
+# configure FedaPay library
+FedaPay.api_key = '' # Your secret api key
+FedaPay.environment = '' # sandbox or live
+# Create a transaction with existing customer instance
+currencies = FedaPay::Currency.list
+customer = FedaPay::Customer.retrieve(ID)
+transaction = FedaPay::Transaction.create(amount: 1000, currency: currencies.first.to_hash, customer: customer.to_hash, description: '');
+# Create a transaction with existing customer by id or email
+customer = {
+  id: 1, # Or email
+  email: 'customer@test.com'
+};
+currency = {
+  iso: 'XOF', # Or code
+  code: '952'
+};
+transaction = FedaPay::Transaction.create(amount: 1000, currency: currency, customer: customer, description: '');
+```
+
+FedaPay répondra avec un objet transaction contenant les détails de l'opération. Par exemple :
+
+```ruby
+{
+  "id": 123,
+  "reference": "<string>",
+  "amount": 123,
+  "description": "<string>",
+  "callback_url": "<string>",
+  "status": "<string>",
+  "customer_id": 123,
+  "currency_id": 123,
+  "mode": "<string>",
+  "metadata": {},
+  "commission": 123,
+  "fees": 123,
+  "fixed_commission": 123,
+  "amount_transferred": 123,
+  "created_at": "2023-11-07T05:31:56Z",
+  "updated_at": "2023-11-07T05:31:56Z",
+  "approved_at": "2023-11-07T05:31:56Z",
+  "canceled_at": "2023-11-07T05:31:56Z",
+  "declined_at": "2023-11-07T05:31:56Z",
+  "refunded_at": "2023-11-07T05:31:56Z",
+  "transferred_at": "2023-11-07T05:31:56Z"
+}
+```
