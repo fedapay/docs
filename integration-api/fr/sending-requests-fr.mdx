@@ -1,4 +1,38 @@
 ---
-title: 'Envoi de requete'
-description: 'Description of your new file.'
+title: 'Envoi de requêtes'
 ---
+
+L'intégration de la solution de paiement FedaPay repose sur l'envoi de requêtes HTTPS à ses serveurs. Pour vous assurer que votre plateforme fonctionne correctement en mode test comme en production, il est essentiel de comprendre comment ces requêtes doivent être structurées et quelles réponses vous pouvez attendre.
+
+## Structure des requêtes HTTPS
+
+Lorsque vous interagissez avec l'API FedaPay, vos requêtes HTTPS doivent suivre une structure spécifique pour être traitées correctement. FedaPay fournit deux environnements : un environnement de test et un environnement live. Chaque environnement a son propre ensemble de clés API (test et live), et chaque clé API doit être utilisée en fonction de l'environnement dans lequel vous opérez.
+
+#### Méthodes HTTPS supportées
+
+L'API FedaPay supporte plusieurs méthodes HTTP, dont les principales sont :
+
+- **POST** : Pour envoyer des données et créer de nouvelles ressources (par exemple, une nouvelle transaction).
+- **GET** : Pour récupérer des informations ou des ressources existantes (par exemple, les détails d’une transaction).
+- **PUT** : Utilisé pour mettre à jour une ressource existante avec de nouvelles informations (par exemple, mettre à jour les détails d'une transaction).
+- **DELETE** : Utilisé pour supprimer une ressource existante (par exemple, annuler une transaction).
+
+#### URL des serveurs
+
+<Tabs>
+    <Tab title="Serveur de test">
+    Utilisé pour effectuer des tests sans impact réel sur votre compte.
+        ```bash
+         https://sandbox-api.fedapay.com
+        ```
+    </Tab>
+
+    <Tab title="Serveur live">
+    Utilisé pour traiter les transactions réelles.
+        ```bash
+          https://api.fedapay.com
+        ```
+    </Tab>
+</Tabs>
+
+#### Authentification
