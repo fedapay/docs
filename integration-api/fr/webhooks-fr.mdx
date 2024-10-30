@@ -6,24 +6,8 @@ title: 'Webhooks et Evénements'
 
 Les événements sont des actions importantes qui se produisent dans votre compte FedaPay, comme la création d'une transaction ou la mise à jour d'un client. Comprendre comment fonctionnent ces événements vous permet de mieux gérer vos transactions et d’offrir une meilleure expérience à vos clients.
 
-Chaque fois qu'un événement se produit, FedaPay le signale en temps réel via des notifications d'événements. Ces notifications peuvent être utilisées pour suivre et réagir à ce qui se passe dans votre compte, comme lorsqu'un paiement est approuvé ou un client est modifié.
+Chaque fois qu'un événement se produit, FedaPay le signale en temps réel via des **notifications d'événements**. Ces notifications peuvent être utilisées pour suivre et réagir à ce qui se passe dans votre compte, comme lorsqu'un paiement est approuvé ou un client est modifié.
 
 ### Cycle de vie des transactions
 
 Les transactions sur FedaPay suivent un cycle de vie, et chaque étape de ce cycle génère un événement particulier. Voici comment ça se passe :
-
-<Steps>
-  <Step title="Création de la transaction">
-    Une fois que le client est créé, vous pouvez lui attribuer une transaction. Cela déclenche l'événement **transaction.created** .
-  </Step>
-  <Step title="Suivi des transactions">
-    Une transaction peut évoluer de plusieurs façons:
-    - transaction.approved : La transaction a été approuvée, ce qui signifie que le paiement a été validé.
-    - transaction.dCréation du client : Lorsqu’un nouveau client est ajouté à votre compte, cela génère l’événement customer.created.
-    - eclined : Le paiement a échoué ou a été refusé.
-    - transaction.canceled : La transaction a été annulée avant sa finalisation.
-    - transaction.transferred : Les fonds de la transaction ont été transférés au compte prévu (par exemple, vers un compte bancaire ou mobile money).
-  </Step>
-  <Step title="À chaque changement de statut, un nouvel événement est généré pour vous tenir informé. Par exemple, dès qu'une transaction est mise à jour, l’événement transaction.updated est déclenché.">
-  </Step>
-</Steps>
