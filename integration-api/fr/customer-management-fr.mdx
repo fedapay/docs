@@ -1,4 +1,88 @@
 ---
-title: 'Gestion des clients'
-description: 'Description of your new file.'
+title: 'Gestion des Clients'
 ---
+
+La gestion des clients est une étape essentielle pour effectuer des transactions via la plateforme FedaPay. Chaque transaction est liée à un client, c’est pourquoi vous devez enregistrer et gérer vos clients dans le système avant de pouvoir initier une transaction.
+
+## Création des clients
+
+La création d’un client dans FedaPay se fait via une requête API qui permet d'ajouter les informations nécessaires sur votre client. Ces données sont utilisées lors des transactions pour identifier clairement l'utilisateur.
+
+### Paramètres nécessaires
+
+Lors de la création d’un client, vous devez fournir les informations suivantes :
+- **Prénom (firstname)** : le prénom du client.
+- **Nom (lastname)** : le nom de famille du client.
+- **Email (email)** : l’adresse email du client, qui servira pour toute communication et confirmation.
+- **Numéro de téléphone (phone_number)** : facultatif, mais utile pour des transactions avec certains services (doit inclure l’indicatif du pays, ex. +229 pour le Bénin).
+
+Ces informations sont obligatoires à l'exception du numéro de téléphone, mais il est conseillé de les fournir pour améliorer la gestion des interactions avec le client et les paiements.
+
+### Exemple de requête API pour la création d’un client
+
+Vous pouvez ajouter un nouveau client en envoyant une requête à l’API FedaPay. Voici des exemples dans différents langages de programmation :
+
+<CodeGroup>
+```javascript Node
+const { FedaPay, Customer } = require('fedapay');
+/* Replace YOUR_SECRETE_API_KEY with your real API key */
+FedaPay.setApiKey("YOUR_SECRETE_API_KEY");
+/* Specify whether you want to run your query in test or live mode */
+FedaPay.setEnvironment('sandbox'); //or setEnvironment('live');
+/* Create customer */
+const customer = await Customer.create({
+  firstname: 'John',
+  lastname: 'Doe',
+  email: 'john@doe.com',
+  phone_number: {
+    number: '90090909',
+    country: 'BJ'
+  }
+});
+```
+
+```php PHP
+/* Replace YOUR_SECRETE_API_KEY with your secret API key */
+\FedaPay\FedaPay::setApiKey("YOUR_SECRETE_API_KEY");
+/* Specify whether you want to run your query in test or live mode */
+\FedaPay\FedaPay::setEnvironment('sandbox'); //or setEnvironment('live');
+/* Create customer */
+\FedaPay\Customer::create(array(
+  "firstname" => "John",
+  "lastname" => "Doe",
+  "email" => "John.doe@gmail.com",
+  "phone_number" => [
+    "number" => "+22966666600",
+    "country" => 'bj' // 'bj' Benin code
+  ]
+));
+```
+
+```ruby Ruby
+require 'fedapay';
+# configure FedaPay library
+FedaPay.api_key = '' # Your secret api key
+FedaPay.environment = '' # sandbox or live
+phone = {
+  country: 'bj',
+  number: '66000001'
+};
+customer = FedaPay::Customer.create(
+  firstname: 'firstname',
+  lastname: 'lastname',
+  email: 'email@test.com',
+  phone_number: phone
+);
+```
+</CodeGroup>
+
+<Tip>
+### Points importants
+- Assurez-vous de remplacer **VOTRE_CLE_API_SECRETE** par votre clé API secrète.
+- Le lien d'API peut changer selon l'environnement. Utilisez **https://api.fedapay.com/v1/customers** pour l'environnement live.
+</Tip>
+
+
+
+
+
