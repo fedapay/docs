@@ -25,18 +25,25 @@ La création d'une opération de collecte est une étape essentielle pour recevo
 
     ```bash  Exemple de requête API (en cURL) :
     curl -X POST \
-https://sandbox-api.fedapay.com/v1/customers \
+https://sandbox-api.fedapay.com/v1/transactions \
 -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
 -H 'Content-Type: application/json' \
 -d '{
-      "firstname" : "John",
-      "lastname" : "Doe",
-      "email" : "John.doe@gmail.com",
-      "phone_number" : {
-        "number" : "+22966666600",
-        "country" : "bj"
-      }
-    }'   
+      "description" : "Transaction for john.doe@example.com",
+      "amount" : 2000,
+      "currency" : {"iso" : "XOF"},
+      "callback_url" : "https://maplateforme.com/callback",
+      "customer" : {
+          "firstname" : "John",
+          "lastname" : "Doe",
+          "email" : "john.doe@example.com",
+          "phone_number" : {
+              "number" : "+22997808080",
+              "country" : "bj"
+          }
+        }
+    }'
+
     ```
   </Step>
 </Steps>
