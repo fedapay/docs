@@ -84,5 +84,113 @@ customer = FedaPay::Customer.create(
 
 ## Suivi des transactions des clients
 
+Une fois vos clients créés, il est possible de gérer leurs informations et d’effectuer des modifications ou des suppressions en fonction des besoins.
 
+### Récupérer la liste des clients
 
+Vous pouvez obtenir la liste complète des clients enregistrés sur votre compte FedaPay en envoyant une simple requête à l’API. Cela permet d’avoir un aperçu de tous les clients disponibles, de consulter leurs détails et de suivre leurs transactions.
+
+#### Exemple de requête pour récupérer les clients 
+
+<CodeGroup>
+```javascript Node
+const { FedaPay, Customer } = require('fedapay');
+/* Replace YOUR_SECRETE_API_KEY with your real API key */
+FedaPay.setApiKey("YOUR_SECRETE_API_KEY");
+/* Specify whether you want to run your query in test or live mode */
+FedaPay.setEnvironment('sandbox'); //or setEnvironment('live');
+/* Show customers */
+const customer = await Customer.all( params = {}, headers = {} );
+```
+
+```php PHP
+\FedaPay\Fedapay::setApiKey(MY_API_KEY);
+/**
+* @var \FedaPay\FedaPayObject
+*/
+$response = \FedaPay\Customer::all();
+$customers = $response->customers;
+$meta = $response->meta;
+```
+
+```ruby Ruby
+require 'fedapay';
+# configure FedaPay library
+FedaPay.api_key = '' # Your secret api key
+FedaPay.environment = '' # sandbox or live
+customers = FedaPay::Customer.list;
+```
+</CodeGroup>
+
+### Mise à jour des informations client
+
+Il peut arriver que vous ayez besoin de mettre à jour les informations d’un client (par exemple, une adresse email ou un numéro de téléphone incorrect). Pour ce faire, vous devez fournir l'identifiant du client et les nouvelles informations.
+
+#### Exemple de mise à jour 
+
+<CodeGroup>
+```javascript Node
+const { FedaPay, Customer } = require('fedapay');
+/* Replace YOUR_SECRETE_API_KEY with your real API key */
+FedaPay.setApiKey("YOUR_SECRETE_API_KEY");
+/* Specify whether you want to run your query in test or live mode */
+FedaPay.setEnvironment('sandbox'); //or setEnvironment('live');
+/* Modify customer */
+const customer = await Customer.update(ID, params = {}, headers = {});
+```
+
+```php PHP
+\FedaPay\Fedapay::setApiKey(MY_API_KEY);
+$customer = \FedaPay\Customer::retrieve(ID);
+$customer->firstname = "Eric";
+$customer->save();
+// Or
+$customer = \FedaPay\Customer::update(ID, [
+"firstname" => "Eric"
+]);
+```
+
+```ruby Ruby
+require 'fedapay';
+# configure FedaPay library
+FedaPay.api_key = '' # Your secret api key
+FedaPay.environment = '' # sandbox or live
+customer.firstname = 'My Firstname';
+customer.save;
+# or use this method below
+customer.save fistname: 'My Firstname', lastname: 'My Lastname';
+# Update a customer by id
+customer = FedaPay::Customer.update ID, email: 'myemail@test.com';
+```
+</CodeGroup>
+
+### Suppression d’un client
+
+Si un client n'est plus actif ou que vous souhaitez supprimer ses données de votre compte FedaPay, vous pouvez utiliser une requête API pour retirer ses informations.
+
+#### Exemple de suppression 
+
+<CodeGroup>
+```javascript Node
+const { FedaPay, Customer } = require('fedapay');
+/* Replace YOUR_SECRETE_API_KEY with your real API key */
+FedaPay.setApiKey("YOUR_SECRETE_API_KEY");
+/* Specify whether you want to run your query in test or live mode */
+FedaPay.setEnvironment('sandbox'); //or setEnvironment('live');
+/* Delete customer */
+const customer = await Customer.delete(ID, params = {}, headers = {});
+```
+
+```php PHP
+\FedaPay\Fedapay::setApiKey(MY_API_KEY);
+\FedaPay\Customer::delete(ID);
+```
+
+```ruby Ruby
+require 'fedapay';
+# configure FedaPay library
+FedaPay.api_key = '' # Your secret api key
+FedaPay.environment = '' # sandbox or live
+customer.delete;
+```
+</CodeGroup>
