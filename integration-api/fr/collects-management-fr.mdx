@@ -2,8 +2,29 @@
 title: 'Gestion des Collectes (Transactions) et Dépôts'
 ---
 
-Cette section couvre les principales étapes de création et de gestion des Collectes sur la plateforme FedaPay, ainsi que la validation des paiements et les remboursements. L'objectif est de permettre une gestion fluide des Collectes via l'API FedaPay, tout en assurant un suivi transparent et sécurisé pour vos clients.
+Cette section couvre les principales étapes de création et de gestion des opérations de collectes sur la plateforme FedaPay, ainsi que la validation des paiements et les remboursements. L'objectif est de permettre une gestion fluide des transactions via l'API FedaPay, tout en assurant un suivi transparent et sécurisé pour vos clients.
 
-## Création d'une Collecte
+## Création d'une opération de collectes (transaction)
 
-La création d'une Collecte est une étape essentielle pour collecter des paiements via FedaPay. Voici les étapes clés à suivre :
+La création d'une opération de collecte est une étape essentielle pour recevoir des paiements via FedaPay. Voici les étapes clés à suivre :
+
+<Steps>
+  <Step title="Requête de création de la Collecte">
+    Pour créer une opération de collectes, il est nécessaire d'envoyer une requête via l'API de FedaPay. Cette requête doit contenir des informations importantes sur la collecte et le client. Voici les paramètres essentiels à inclure :
+    - **description** : une brève description de l'objet de la collecte.
+    - **amount** : le montant de la collecte. Notez que ce montant doit toujours être un nombre entier.
+    - **currency** : la devise à utiliser pour la collecte. Référez-vous au tableau des devises disponibles et spécifiez l'ISO ou le numéro ISO.
+    - **callback_url** : un lien de retour pour rediriger le client après le paiement.
+    - **customer** : les informations du client, telles que nom, prénom, e-mail et numéro de téléphone.
+
+    <Note>**Astuce** : Si le client n'est pas encore enregistré, vous pouvez créer le client au même moment que la transaction en fournissant ses informations complètes.</Note>
+
+  </Step>
+  <Step title="Second Step">
+    These are instructions or content that only pertain to the second step.
+  </Step>
+  <Step title="Third Step">
+    These are instructions or content that only pertain to the third step.
+  </Step>
+</Steps>
+
