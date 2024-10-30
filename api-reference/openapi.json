@@ -2355,7 +2355,7 @@
       }
     }
     },
-  "/webhooks/{id}": {
+  "/events/{id}": {
       "get": {
       "summary": "Get a event",
        "security": [
