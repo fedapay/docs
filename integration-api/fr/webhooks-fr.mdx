@@ -46,4 +46,23 @@ La gestion des événements vous aide à :
 
 ## Introduction aux Webhooks
 
+Les **Webhooks** sont des notifications automatiques que FedaPay envoie à votre application ou site web lorsque des événements importants se produisent sur votre compte. Par exemple, vous pouvez recevoir un webhook lorsqu'une transaction est réussie ou contestée.
+
+Ces notifications sont particulièrement utiles car elles vous permettent de rester informé en temps réel, sans avoir à vérifier manuellement ce qui se passe sur votre compte FedaPay.
+
+### Pourquoi utiliser des Webhooks ?
+
+Les Webhooks sont essentiels pour être alerté rapidement des actions importantes sur votre compte, comme :
+
+- Des paiements réussis ou échoués.
+- Des remboursements.
+- Des transactions contestées.
+
+### Comment fonctionnent les Webhooks ?
+
+Chaque fois qu'un événement se produit (par exemple, un paiement accepté), FedaPay crée un **objet événement (Event)**. Cet objet contient toutes les informations pertinentes sur l'événement, comme le type d'événement (paiement réussi) et les détails associés.
+
+Ensuite, FedaPay envoie cet objet à l'URL de votre choix (appelée **point de terminaison**) via une requête HTTP. C’est comme si FedaPay vous envoyait un message pour vous informer de ce qui s’est passé.
+
+## Configuration des Webhooks
 
