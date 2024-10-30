@@ -9,11 +9,11 @@ Cette section couvre les principales étapes de création et de gestion des opé
 La création d'une opération de collecte est une étape essentielle pour recevoir des paiements via FedaPay. Voici les étapes clés à suivre :
 
 <Steps>
-  <Step title="Requête de création de la Collecte">
-    Pour créer une opération de collectes, il est nécessaire d'envoyer une requête via l'API de FedaPay. Cette requête doit contenir des informations importantes sur la collecte et le client. Voici les paramètres essentiels à inclure :
-    - **description** : une brève description de l'objet de la collecte.
-    - **amount** : le montant de la collecte. Notez que ce montant doit toujours être un nombre entier.
-    - **currency** : la devise à utiliser pour la collecte. Référez-vous au tableau des devises disponibles et spécifiez l'ISO ou le numéro ISO.
+  <Step title="Requête de création de la transaction">
+    Pour créer une opération de collectes, il est nécessaire d'envoyer une requête via l'API de FedaPay. Cette requête doit contenir des informations importantes sur la transaction (collecte) et le client. Voici les paramètres essentiels à inclure :
+    - **description** : une brève description de l'objet de la transaction.
+    - **amount** : le montant de la transaction. Notez que ce montant doit toujours être un nombre entier.
+    - **currency** : la devise à utiliser pour la transaction. Référez-vous au tableau des devises disponibles et spécifiez l'ISO ou le numéro ISO.
     - **callback_url** : un lien de retour pour rediriger le client après le paiement.
     - **customer** : les informations du client, telles que nom, prénom, e-mail et numéro de téléphone.
 
@@ -21,7 +21,7 @@ La création d'une opération de collecte est une étape essentielle pour recevo
 
   </Step>
   <Step title="Génération du lien de paiement et du token">
-    Une fois la requête de création envoyée, FedaPay retourne un identifiant unique (**ID**) pour la collecte. Vous devez ensuite envoyer une requête avec cet identifiant pour générer un lien de paiement sécurisé et un token unique.
+    Une fois la requête de création envoyée, FedaPay retourne un identifiant unique (ID) pour la transaction. Vous devez ensuite envoyer une requête avec cet identifiant pour générer un lien de paiement sécurisé et un token unique.
 
     ```bash  Exemple de requête API (en cURL) :
     curl -X POST \
@@ -43,8 +43,18 @@ https://sandbox-api.fedapay.com/v1/transactions \
           }
         }
     }'
-
     ```
   </Step>
 </Steps>
 
+## Validation et confirmation des paiements
+
+Après avoir généré le lien de paiement, redirigez le client vers la page sécurisée de FedaPay où il pourra finaliser la collecte.
+
+1. Redirection vers la page de paiement
+
+Le lien généré redirige automatiquement le client vers une page de paiement sécurisée pour effectuer le règlement. Après la validation du paiement, si vous avez fourni un callback_url, le client sera redirigé vers la page de votre choix avec des paramètres (id et statut) renseignant sur l'état de la collecte.
+
+2. Récupération du statut de la collecte
+
+Pour une sécurité optimale, il est recommandé d'envoyer une nouvelle requête API afin de confirmer le statut réel de la collecte, même si un statut est renvoyé dans l'URL.
