@@ -2355,9 +2355,9 @@
       }
     }
     },
-  "/events/{id}": {
+  "/webhooks/{id}": {
       "get": {
-      "summary": "Get a event",
+      "summary": "Get a webhook",
        "security": [
           {
             "bearerAuth": []
