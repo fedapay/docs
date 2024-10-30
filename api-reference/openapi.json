@@ -19,7 +19,7 @@
     }
   },
   "paths": {
-        "/customers": {
+    "/customers": {
       "post": {
         "summary": "Create a customer",
         "security": [
@@ -159,7 +159,9 @@
             "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\nphone = {\n  country: 'bj',\n  number: '66000001'\n};\ncustomer = FedaPay::Customer.create(\n  firstname: 'firstname',\n  lastname: 'lastname',\n  email: 'email@test.com',\n  phone_number: phone\n);"
           }
         ]
-      },
+      }
+    },
+    "/customers/search": {
       "get": {
         "summary": "Search your customers",
         "security": [
