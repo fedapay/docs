@@ -82,3 +82,25 @@ Ensuite, FedaPay envoie cet objet à l'URL de votre choix (appelée **point de t
     - **Consulter les détails** : Vous pouvez voir toutes les informations sur le Webhook en question (URL, événements suivis, etc.).
   </Step>
 </Steps>
+
+## Vérification des signatures des Webhooks
+
+Pour garantir que les notifications que vous recevez proviennent bien de FedaPay (et non d'une tierce partie), FedaPay **signe** chaque événement envoyé à votre URL.
+
+### Comment vérifier la signature ?
+
+1. Lorsqu'un Webhook est envoyé, FedaPay inclut une signature dans l'en-tête de la requête. Cette signature est nommée **X-FEDAPAY-SIGNATURE**.
+
+2. Pour vérifier que le message est authentique, vous devez utiliser la clé secrète de votre Webhook. Vous pouvez la récupérer dans les paramètres de votre tableau de bord.
+
+3. Utilisez cette clé secrète pour vérifier la signature et vous assurer que le Webhook a bien été envoyé par FedaPay.
+
+### Outils pour vérifier les signatures
+
+Nous vous recommandons d’utiliser les **bibliothèques officielles** de FedaPay (disponibles en PHP, Node.js, etc.) pour faciliter la vérification des signatures. Ces bibliothèques font le travail pour vous et vous signalent immédiatement si la signature n’est pas correcte.
+
+Les Webhooks sont un moyen pratique et efficace de rester informé des événements importants sur votre compte FedaPay. En les configurant correctement, vous pouvez automatiser vos actions et suivre de près toutes les transactions effectuées via votre plateforme.
+
+N'oubliez pas de vérifier la signature des Webhooks pour garantir leur sécurité et authenticité.
+
+
