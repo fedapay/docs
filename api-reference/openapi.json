@@ -2416,6 +2416,37 @@
                           }
                         }
                       }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "entity": {
+                          "type": "object"
+                        },
+                        "object_id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "account_id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "created_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updated_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
                     }
                   ]
                 }
