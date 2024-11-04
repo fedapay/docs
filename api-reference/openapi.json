@@ -2551,7 +2551,7 @@
         }
       }
     },
-    "/balances/{id}": {
+    "/balances": {
       "get": {
         "summary": "Retrieve or list balances",
         "description": "Retrieve a single balance by ID or list all balances.",
