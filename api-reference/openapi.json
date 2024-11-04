@@ -2456,8 +2456,8 @@
     },
     "/events": {
       "get": {
-        "summary": "Get a event",
-        "description": "Retrieve a single event by ID or list all events.",
+        "summary": "Get all events",
+        "description": "get the list of all events.",
         "parameters": [
           {
             "in": "query",
