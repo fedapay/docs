@@ -2359,6 +2359,11 @@
       "get": {
         "summary": "Get a event",
         "description": "Retrieve a single event by ID or list all events.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -2458,16 +2463,9 @@
       "get": {
         "summary": "Get all events",
         "description": "get the list of all events.",
-        "parameters": [
+        "security": [
           {
-            "in": "query",
-            "name": "id",
-            "schema": {
-              "type": "integer",
-              "format": "int64",
-              "description": "The ID of the event to retrieve."
-            },
-            "description": "Retrieve a single event by ID."
+            "bearerAuth": []
           }
         ],
         "responses": {
