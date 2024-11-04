@@ -2550,6 +2550,27 @@
           }
         }
       }
+    },
+    "/logs/{id}": {
+        "get": {
+            "summary": "Get a log",
+            "security": [
+                {
+                    "bearerAuth": []
+                }
+            ],
+            "parameters": [
+                {
+                    "in": "path",
+                    "name" : "id",
+                    "schema": {
+                        "type": "integer"
+                    },
+                    "required": true,
+                    "description": "Log ID"
+                }
+            ]
+        }
     }
   }
 }
