@@ -2550,22 +2550,6 @@
           }
         }
       }
-    },
-    "/logs/{id}": {
-    "get": {
-        "summary": "Retrieve or list logs",
-        "parameters": [
-                {
-                    "in": "query",
-                    "name": "id",
-                    "schema": {
-                    "type": "integer",
-                    "format": "int64"
-                    },
-                    "description": "ID of the log to retrieve. If not provided, returns all logs."
-                }
-            ]
-        }
     }
   }
 }
