@@ -2361,7 +2361,7 @@
         "description": "Retrieve a single event by ID or list all events.",
         "parameters": [
           {
-            "in": "query",
+            "in": "path",
             "name": "id",
             "schema": {
               "type": "integer",
