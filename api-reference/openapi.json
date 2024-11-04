@@ -2552,88 +2552,20 @@
       }
     },
     "/logs/{id}": {
-  "get": {
-    "summary": "Retrieve or list logs",
-    "description": "Retrieve a single log by ID or list all logs.",
-    "parameters": [
-      {
-        "in": "query",
-        "name": "id",
-        "schema": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "description": "ID of the log to retrieve. If not provided, returns all logs."
-      }
-    ],
-    "responses": {
-      "200": {
-        "description": "Successful operation",
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
+    "get": {
+        "summary": "Retrieve or list logs",
+        "parameters": [
+                {
+                    "in": "query",
+                    "name": "id",
+                    "schema": {
                     "type": "integer",
                     "format": "int64"
-                  },
-                  "method": {
-                    "type": "string"
-                  },
-                  "url": {
-                    "type": "string"
-                  },
-                  "status": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "ip_address": {
-                    "type": "string"
-                  },
-                  "version": {
-                    "type": "string"
-                  },
-                  "source": {
-                    "type": "string"
-                  },
-                  "query": {
-                    "type": "string"
-                  },
-                  "body": {
-                    "type": "string"
-                  },
-                  "response": {
-                    "type": "string"
-                  },
-                  "account_id": {
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "created_at": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "updated_at": {
-                    "type": "string",
-                    "format": "date-time"
-                  }
+                    },
+                    "description": "ID of the log to retrieve. If not provided, returns all logs."
                 }
-              }
-            }
-          }
+            ]
         }
-      },
-      "400": {
-        "description": "Invalid request"
-      },
-      "404": {
-        "description": "Log not found"
-      }
     }
-  }
-}
   }
 }
