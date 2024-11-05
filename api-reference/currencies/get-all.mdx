@@ -1,4 +1,47 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: 'Retrieve and List Balances'
+api: 'GET https://sandbox-api.fedapay.com/v1'
+description: 'This endpoint retrieves a specific balance or lists all balances'
 ---
+
+## Retrieve and List Balances
+
+Ce point d'API permet de récupérer les informations d'une devise spécifique ou de lister toutes les devises disponibles.
+
+### Endpoint
+
+```http
+GET /currencies
+```
+<ParamField name="id" type="integer"> Identifiant unique de la devise. </ParamField> <ParamField name="name" type="string"> Nom de la devise. </ParamField> <ParamField name="modes" type="array"> Modes associés à la devise. </ParamField> <ParamField name="prefix" type="string"> Préfixe de la devise. </ParamField> <ParamField name="suffix" type="string"> Suffixe de la devise. </ParamField> <ParamField name="account_id" type="integer"> Identifiant du compte associé à la devise. </ParamField> <ParamField name="created_at" type="datetime"> Date et heure de création de la devise. </ParamField> <ParamField name="updated_at" type="datetime"> Date et heure de la dernière mise à jour de la devise. </ParamField> <ParamField name="default" type="boolean"> Indique si la devise est définie comme devise par défaut. </ParamField>
+
+<ResponseExample>
+
+```json Response
+[
+  {
+    "id": 1,
+    "name": "USD",
+    "modes": ["online", "offline"],
+    "prefix": "$",
+    "suffix": "",
+    "account_id": 123,
+    "created_at": "2024-01-01T00:00:00Z",
+    "updated_at": "2024-01-10T00:00:00Z",
+    "default": true
+  },
+  {
+    "id": 2,
+    "name": "EUR",
+    "modes": ["online"],
+    "prefix": "€",
+    "suffix": "",
+    "account_id": 456,
+    "created_at": "2024-01-05T00:00:00Z",
+    "updated_at": "2024-01-12T00:00:00Z",
+    "default": false
+  }
+]
+```
+
+</ResponseExample>
