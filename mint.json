@@ -38,7 +38,6 @@
   "versions": ["fr", "en"],
   "navigation": [
     {
-      "group": "Introduction",
       "pages": [
         "introduction/fr/fedapay-fr",
         "introduction/fr/keyconcepts-fr",
@@ -47,7 +46,6 @@
       "version": "fr"
     },
     {
-      "group": "Introduction",
       "pages": [
         "introduction/en/fedapay-en",
         "introduction/en/keyconcepts-en",
