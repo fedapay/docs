@@ -1,18 +1,32 @@
 ---
 title: 'Retrieve and List Balances'
-api: 'GET https://sandbox-api.fedapay.com/currencies/{id}'
-description: 'This endpoint retrieves a specific balance or lists all balances'
+api: 'GET https://sandbox-api.fedapay.com/v1/currencies/{id}'
+description: 'This endpoint retrieves a specific balance or lists all balances.'
 ---
 
 ## Retrieve and List Balances
 
-Ce point d'API permet de récupérer les informations d'une devise spécifique ou de lister toutes les devises disponibles.
+Ce point d'API permet de récupérer les informations d'une devise spécifique en utilisant l'identifiant de la devise ou de lister toutes les devises disponibles.
 
-### Endpoint
+### Sécurité
 
-```http
-GET /currencies
+Cette requête utilise l'authentification `Bearer` avec le format `JWT`. Assurez-vous d'inclure un jeton d'accès valide dans l'en-tête `Authorization` sous la forme `Bearer <token>`.
+
+```json
+"bearerAuth": {
+  "type": "http",
+  "scheme": "bearer",
+  "bearerFormat": "JWT"
+}
 ```
+
+Authorization: Bearer `<votre_token_jwt>`
+
+GET /currencies/{id}
+
+<ParamField name="id" type="integer" required="true"> Identifiant unique de la devise. Ce paramètre est requis pour récupérer une devise spécifique. </ParamField>
+
+
 <ParamField name="id" type="integer"> Identifiant unique de la devise. </ParamField> <ParamField name="name" type="string"> Nom de la devise. </ParamField> <ParamField name="modes" type="array"> Modes associés à la devise. </ParamField> <ParamField name="prefix" type="string"> Préfixe de la devise. </ParamField> <ParamField name="suffix" type="string"> Suffixe de la devise. </ParamField> <ParamField name="account_id" type="integer"> Identifiant du compte associé à la devise. </ParamField> <ParamField name="created_at" type="datetime"> Date et heure de création de la devise. </ParamField> <ParamField name="updated_at" type="datetime"> Date et heure de la dernière mise à jour de la devise. </ParamField> <ParamField name="default" type="boolean"> Indique si la devise est définie comme devise par défaut. </ParamField>
 
 <ResponseExample>
