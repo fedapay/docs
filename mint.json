@@ -81,6 +81,7 @@
       "group": "API Documentation",
       "pages": [
         "api-reference/introduction",
+        "api-reference/endpoint/crtr",
         {
          
           "group":"Customers",
