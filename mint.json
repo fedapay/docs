@@ -95,6 +95,22 @@
             "integration-api/en/webhooks-en"
           ],
           "version": "en"
+        },
+        {
+          "group": "Librairies JS et Plugin",
+          "pages": [
+            "librairies/fr/checkoutjs-fr",
+            "librairies/fr/plugin-fr"
+          ],
+          "version": "fr"
+        },
+        {
+          "group": "JS Librairies and Plugin",
+          "pages": [
+            "librairies/en/checkoutjs-en",
+            "librairies/en/plugin-en"
+          ],
+          "version": "en"
         }
       ]
     },
