@@ -75,10 +75,11 @@
         {
           "group": "Intégration API",
           "pages": [
-            "integration-api/fr/api-authentication-fr",
-            "integration-api/fr/sending-requests-fr",
-            "integration-api/fr/collects-management-fr",
+            "integration-api/fr/librairies-fr",
+            "integration-api/fr/authentication-fr",
             "integration-api/fr/customer-management-fr",
+            "integration-api/fr/collects-management-fr",
+            "integration-api/fr/sending-requests-fr",
             "integration-api/fr/webhooks-fr"
           ],
           "version": "fr"
@@ -86,10 +87,11 @@
         {
           "group": "API integration",
           "pages": [
-            "integration-api/en/api-authentication-en",
-            "integration-api/en/sending-requests-en",
-            "integration-api/en/collects-management-en",
+            "integration-api/en/librairies-en",
+            "integration-api/en/authentication-en",
             "integration-api/en/customer-management-en",
+            "integration-api/en/collects-management-en",
+            "integration-api/en/sending-requests-en",
             "integration-api/en/webhooks-en"
           ],
           "version": "en"
