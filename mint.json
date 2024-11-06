@@ -59,6 +59,7 @@
           "version": "en"
         },
         {
+          "group": "Méthodes de Paiement",
           "pages": [
             "payment-methods/fr/payment-methods-fr"
           ],
