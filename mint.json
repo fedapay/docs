@@ -42,7 +42,7 @@
       "pages": [
         "introduction/fr/fedapay-fr",
         "introduction/fr/keyconcepts-fr",
-        "introduction/fr/firststep-fr"
+        "introduction/fr/quickstart-fr"
       ],
       "version": "fr"
     },
@@ -51,7 +51,7 @@
       "pages": [
         "introduction/en/fedapay-en",
         "introduction/en/keyconcepts-en",
-        "introduction/en/firststep-en"
+        "introduction/en/quickstart-en"
       ],
       "version": "en"
     },
