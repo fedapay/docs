@@ -99,16 +99,16 @@
         {
           "group": "Librairies JS et Plugin",
           "pages": [
-            "librairies/fr/checkoutjs-fr",
-            "librairies/fr/plugin-fr"
+            "libraries/fr/checkoutjs-fr",
+            "libraries/fr/plugin-fr"
           ],
           "version": "fr"
         },
         {
           "group": "JS Librairies and Plugin",
           "pages": [
-            "librairies/en/checkoutjs-en",
-            "librairies/en/plugin-en"
+            "libraries/en/checkoutjs-en",
+            "libraries/en/plugin-en"
           ],
           "version": "en"
         }
