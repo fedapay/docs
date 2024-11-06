@@ -41,45 +41,45 @@
       "group": "Documentation",
       "pages": [
         {
-      "group": "Introduction",
-      "pages": [
-        "introduction/fr/fedapay-fr",
-        "introduction/fr/keyconcepts-fr",
-        "introduction/fr/quickstart-fr"
-      ],
-      "version": "fr"
-    },
-    {
-      "group": "Introduction",
-      "pages": [
-        "introduction/en/fedapay-en",
-        "introduction/en/keyconcepts-en",
-        "introduction/en/quickstart-en"
-      ],
-      "version": "en"
-    },
-    {
-      "group": "Intégration API",
-      "pages": [
-        "integration-api/fr/api-authentication-fr",
-        "integration-api/fr/sending-requests-fr",
-        "integration-api/fr/collects-management-fr",
-        "integration-api/fr/customer-management-fr",
-        "integration-api/fr/webhooks-fr"
-      ],
-      "version": "fr"
-    },
-    {
-      "group": "Intégration API",
-      "pages": [
-        "integration-api/en/api-authentication-en",
-        "integration-api/en/sending-requests-en",
-        "integration-api/en/collects-management-en",
-        "integration-api/en/customer-management-en",
-        "integration-api/en/webhooks-en"
-      ],
-      "version": "en"
-    }
+          "group": "Introduction",
+          "pages": [
+            "introduction/fr/fedapay-fr",
+            "introduction/fr/keyconcepts-fr",
+            "introduction/fr/quickstart-fr"
+            ],
+          "version": "fr"
+        },
+        {
+          "group": "Introduction",
+          "pages": [
+            "introduction/en/fedapay-en",
+            "introduction/en/keyconcepts-en",
+            "introduction/en/quickstart-en"
+          ],
+          "version": "en"
+        },
+        {
+          "group": "Intégration API",
+          "pages": [
+            "integration-api/fr/api-authentication-fr",
+            "integration-api/fr/sending-requests-fr",
+            "integration-api/fr/collects-management-fr",
+            "integration-api/fr/customer-management-fr",
+            "integration-api/fr/webhooks-fr"
+          ],
+          "version": "fr"
+        },
+        {
+          "group": "API integration",
+          "pages": [
+            "integration-api/en/api-authentication-en",
+            "integration-api/en/sending-requests-en",
+            "integration-api/en/collects-management-en",
+            "integration-api/en/customer-management-en",
+            "integration-api/en/webhooks-en"
+          ],
+          "version": "en"
+        }
       ]
     },
     {
