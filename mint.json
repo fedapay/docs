@@ -59,11 +59,18 @@
           "version": "en"
         },
         {
-          "group": "Payment Methods",
+          "group": "Méthodes de Paiement",
           "pages": [
             "payment-methods/fr/payment-methods-fr"
           ],
           "version": "fr"
+        },
+        {
+          "group": "Payment Methods",
+          "pages": [
+            "payment-methods/en/payment-methods-en"
+          ],
+          "version": "en"
         },
         {
           "group": "Intégration API",
