@@ -38,6 +38,9 @@
   "versions": ["fr", "en"],
   "navigation": [
     {
+      "group": "Documentation",
+      "pages": [
+        {
       "group": "Introduction",
       "pages": [
         "introduction/fr/fedapay-fr",
@@ -76,6 +79,8 @@
         "integration-api/en/webhooks-en"
       ],
       "version": "en"
+    }
+      ]
     },
     {
       "group": "API Documentation",
