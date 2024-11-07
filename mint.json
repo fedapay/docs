@@ -111,6 +111,20 @@
             "libraries/en/plugin-en"
           ],
           "version": "en"
+        },
+        {
+          "group": "Tableau de bord",
+          "pages": [
+            "dashboard/fr/dashboard-fr"
+          ],
+          "version": "fr"
+        },
+        {
+          "group": "Dashboard",
+          "pages": [
+            "dashboard/en/dashboard-en"
+          ],
+          "version": "en"
         }
       ]
     },
