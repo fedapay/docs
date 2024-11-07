@@ -141,6 +141,24 @@
             "security/en/fraud-security-en"
           ],
           "version": "en"
+        },
+        {
+          "group": "Support et FAQ",
+          "pages": [
+            "support/fr/question-fr",
+            "support/fr/contact-fr",
+            "support/fr/community-fr"
+          ],
+          "version": "fr"
+        },
+        {
+          "group": "Support and FAQ",
+          "pages": [
+            "support/en/question-en",
+            "support/en/contact-en",
+            "support/en/community-en"
+          ],
+          "version": "en"
         }
       ]
     },
