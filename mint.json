@@ -135,7 +135,7 @@
           "version": "fr"
         },
         {
-          "group": "Dashboard",
+          "group": "Security",
           "pages": [
             "security/en/best-practices-en",
             "security/en/fraud-security-en"
