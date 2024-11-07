@@ -125,6 +125,22 @@
             "dashboard/en/dashboard-en"
           ],
           "version": "en"
+        },
+        {
+          "group": "Sécurité",
+          "pages": [
+            "security/fr/best-practices-fr",
+            "security/fr/fraud-security-fr"
+          ],
+          "version": "fr"
+        },
+        {
+          "group": "Dashboard",
+          "pages": [
+            "security/en/best-practices-en",
+            "security/en/fraud-security-en"
+          ],
+          "version": "en"
         }
       ]
     },
