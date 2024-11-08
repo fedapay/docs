@@ -21,3 +21,30 @@ L'API de FedaPay prend en charge deux modes de collecte distincts :
 
 **Mode test** : pour simuler des transactions et tester votre intégration sans effectuer de paiements réels.
 **Mode live** : une fois votre intégration validée, vous pouvez passer en production pour gérer de véritables transactions.
+
+Les objets créés en mode test (clients, transactions) sont totalement distincts de ceux créés en mode live. Il n'y a donc pas de risque de mélanger les données des deux environnements.
+
+#### Voici les étapes à suivre pour intégrer FedaPay à votre application et commencer à effectuer des opérations en toute sécurité :
+
+<Steps>
+  <Step title="Obtenir vos clés API">
+    Chaque compte FedaPay est associé à deux clés API :
+    - **Clé de test** : pour effectuer des requêtes en mode test.
+
+    - **Clé live** : pour gérer les transactions réelles.
+
+    Ces clés sont essentielles pour que FedaPay authentifie vos requêtes. Sans clé ou avec une clé incorrecte, vos requêtes échoueront.
+
+    Vous pouvez récupérer vos clés API depuis le **tableau de bord** de votre compte FedaPay.
+  </Step>
+
+  <Step title="Installer une librairie de FedaPay"></Step>
+
+  <Step title="Faire un test de requête API">
+  </Step>
+</Steps>
+
+Une fois que vous avez obtenu vos clés et installé la librairie, il est temps d’effectuer un test pour valider votre intégration.
+
+<Info>Voici un exemple de requête pour créer une opération de collecte de test au niveau de [L'API Reference](/api-reference/introduction)
+</Info>
