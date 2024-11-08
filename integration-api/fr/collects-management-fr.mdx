@@ -118,3 +118,32 @@ Chaque collecte passe par différents statuts :
 ## Gestion des dépôts
 
 Un dépôt est une opération qui permet de transférer de l'argent directement à partir de votre balance vers le compte d'un client. Cette fonctionnalité est conçue pour les entreprises qui ont besoin de gérer des paiements vers des clients spécifiques. 
+
+### Étapes pour la Création d’un Dépôt
+
+La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque dépôt passe par différents processus qui doivent être respectés pour garantir le bon déroulement du transfert.
+
+
+<Steps>
+  <Step title="Requête de Création d'un Dépôt">
+    Pour commencer, vous devez envoyer une requête de création de dépôt via notre API. Les informations essentielles à fournir lors de cette requête incluent :
+
+    - amount : Le montant du dépôt, toujours indiqué en nombre entier.
+    - currency : La devise à utiliser pour le dépôt. Vous pouvez indiquer le code ISO de la devise choisie (par exemple, XOF pour le franc CFA).
+    - customer : Le client concerné par le dépôt. Si le client n'existe pas encore dans votre base de données, vous pouvez le créer en même temps que le dépôt en fournissant les informations suivantes : nom, prénom, adresse e-mail, et numéro de téléphone.
+
+    <Info>
+    [Code API pour la création d’un dépôt]():
+
+    Un exemple de code est disponible pour simplifier la création d’un dépôt via l'API. Assurez-vous de remplacer **VOTRE_CLE_API_PRIVEE** par votre clé privée sandbox ou live.
+    </Info>
+
+
+  </Step>
+  <Step title="Second Step">
+    These are instructions or content that only pertain to the second step.
+  </Step>
+  <Step title="Third Step">
+    These are instructions or content that only pertain to the third step.
+  </Step>
+</Steps>
