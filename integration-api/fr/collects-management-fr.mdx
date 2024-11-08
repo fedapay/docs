@@ -10,5 +10,26 @@ L'API de FedaPay permet d’intégrer facilement des solutions de paiement sécu
 
 Les étapes de configuration d’une collecte se divisent en plusieurs processus essentiels.
 
+<Steps>
+  <Step title=" Initialisation de la Collecte : Création d'une Requête">
+    La première étape consiste à envoyer une requête de création de collecte via l’API. Cette requête nécessite certains paramètres obligatoires :
 
+    - **description** : une brève description de l’objet de la collecte
+    - **amount** : le montant, toujours en nombre entier
+    - **currency** : la devise, indiquée par son numéro ou code ISO (référez-vous au Tableau des Devises FedaPay pour les détails)
+    - **callback_url** : un lien de retour facultatif pour rediriger le client après le paiement
+    - **customer** : le client concerné par la collecte
+
+    Si le client n’est pas encore enregistré dans votre système, vous pouvez créer simultanément son profil en ajoutant des informations comme le nom, prénom, email, et numéro de téléphone.
+
+    <Info>[Exemple de requête pour créer une collecte](/api-reference/transactions/create)</Info>
+
+  </Step>
+  <Step title="Second Step">
+    These are instructions or content that only pertain to the second step.
+  </Step>
+  <Step title="Third Step">
+    These are instructions or content that only pertain to the third step.
+  </Step>
+</Steps>
 
