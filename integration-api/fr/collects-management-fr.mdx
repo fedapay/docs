@@ -101,3 +101,14 @@ Pour vérifier le statut final d’une collecte, surtout lors d’un paiement sa
 
 - Envoyez une requête pour obtenir les détails de la collecte.
 - **Implémentez un webhook** pour recevoir des notifications automatiques. [Consultez la section Webhooks pour plus de détails](/integration-api/fr/webhooks-fr).
+
+### Cycle de Vie d’une Collecte : Les Statuts
+
+Chaque collecte passe par différents statuts :
+
+- **pending** : En attente (statut par défaut à la création)
+- **approved** : Approuvée (paiement réussi)
+- **declined** : Déclinée (solde insuffisant ou autre problème de paiement)
+- **canceled** : Annulée (interruption volontaire ou accidentelle par le client)
+- **refunded** : Remboursée (somme reversée au client)
+- **transferred** : Transférée (montant transféré sur le compte marchand)
