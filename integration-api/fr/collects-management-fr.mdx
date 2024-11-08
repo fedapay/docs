@@ -133,7 +133,7 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
     - customer : Le client concerné par le dépôt. Si le client n'existe pas encore dans votre base de données, vous pouvez le créer en même temps que le dépôt en fournissant les informations suivantes : nom, prénom, adresse e-mail, et numéro de téléphone.
 
     <Info>
-    [Code API pour la création d’un dépôt](/api-reference/payouts/create):
+    [Code API pour la création d’un dépôt](/api-reference/payouts/create)
 
     Un exemple de code est disponible pour simplifier la création d’un dépôt via l'API. Assurez-vous de remplacer **VOTRE_CLE_API_PRIVEE** par votre clé privée sandbox ou live.
     </Info>
@@ -147,13 +147,19 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
     - Planifier l'envoi pour plus tard
 
     <Info>
-    [Code API pour l’envoi du dépôt](/api-reference/payouts/update-start) :
+    [Code API pour l’envoi du dépôt](/api-reference/payouts/update-start)
 
     Utilisez le code PHP, Node.js ou Ruby pour envoyer le dépôt en remplaçant **VOTRE_CLE_API_PRIVEE** par votre clé privée.
     </Info>
 
   </Step>
-  <Step title="Third Step">
-    These are instructions or content that only pertain to the third step.
+  <Step title="Récupération des Détails d'un Dépôt">
+    Une fois le dépôt créé et/ou envoyé, vous pouvez consulter ses détails pour obtenir des informations spécifiques, telles que le statut ou l’historique du dépôt.
+
+    <Info>
+    [Code API pour récupérer les détails d'un dépôt](/api-reference/payouts/update-start)
+
+   Récupérez les informations d’un dépôt spécifique en utilisant son identifiant unique (ID). Remplacez ID dans l'URL par l'identifiant du dépôt que vous souhaitez consulter.
+    </Info>
   </Step>
 </Steps>
