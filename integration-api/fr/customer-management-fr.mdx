@@ -42,7 +42,7 @@ const customer = await Customer.create({
 });
 ```
 
-```php PHP
+```Php PHP
 /* Replace YOUR_SECRETE_API_KEY with your secret API key */
 \FedaPay\FedaPay::setApiKey("YOUR_SECRETE_API_KEY");
 /* Specify whether you want to run your query in test or live mode */
@@ -78,14 +78,16 @@ customer = FedaPay::Customer.create(
 </CodeGroup>
 
 <Tip>
+
 ### Points importants
+
 - Assurez-vous de remplacer **VOTRE_CLE_API_SECRETE** par votre clé API secrète.
 - Le lien d'API peut changer selon l'environnement. Utilisez **https://api.fedapay.com/v1/customers** pour l'environnement live.
 </Tip>
 
 ## Suivi des transactions des clients
 
-Une fois vos clients créés, il est possible de gérer leurs informations et d’effectuer des modifications ou des suppressions en fonction des besoins.
+Une fois vos clients créés, il est possible de contrôler leurs informations et d’effectuer des modifications ou des suppressions en fonction des besoins.
 
 ### Récupérer la liste des clients
 
