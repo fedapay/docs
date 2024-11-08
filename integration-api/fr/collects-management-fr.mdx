@@ -62,8 +62,17 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
   <Step title="Redirection vers la Page de Paiement">
     Ce lien redirige votre client vers une page de paiement sécurisée, où il pourra finaliser la collecte. Si vous avez spécifié un **callback_url**, votre client sera redirigé automatiquement à l’issue du paiement.
   </Step>
-  <Step title="Third Step">
-    These are instructions or content that only pertain to the third step.
+  <Step title="Utilisation du Lien de Retour (Callback URL)">
+    Le **callback_url** permet de rediriger le client vers une page spécifique à la fin du paiement, avec le statut et l'ID de la collecte en paramètres. Par exemple :
+
+    - **Paiement approuvé** : `https://www.monsite.com/?id=258&status=approved`
+    - **Paiement annulé** : `https://www.monsite.com/?id=259&status=canceled`
+
+  <Warning>
+  **Attention** : Pour des raisons de sécurité, ne vous fiez pas au statut renvoyé par l'URL. 
+  Effectuez toujours une vérification directe auprès de l’API pour obtenir le statut réel.
+</Warning>
+
   </Step>
   <Step title="Third Step">
     These are instructions or content that only pertain to the third step.
