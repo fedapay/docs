@@ -1,4 +1,49 @@
 ---
-title: 'Key concepts'
-description: 'Description of your new file.'
+title: 'Key Concepts'
 ---
+
+### API Key
+
+**The API key** is like a secret password that allows your website or application to communicate securely with FedaPay. When you create a FedaPay account, you receive a set of keys: a private key and a public key.
+
+  - **Private Key**: This key must be kept strictly confidential and is used to authenticate all sensitive actions, such as transactions and fund management on your account. The private key is essential for direct integration of FedaPay into your systems, ensuring secure communication.
+
+  - **Public Key**: This key is used for less critical actions, such as displaying information or initiating payments. For example, it allows you to integrate ready-made solutions.
+  
+These two keys enable your system to communicate securely and reliably with FedaPay.
+
+### Customer
+
+**A customer** is an individual or business that pays you for a product or service you offer. With FedaPay, you have the ability to track and manage your customers' information, including their names, email addresses, phone numbers, and transaction history.
+
+### Payment
+
+**A payment** is the act of transferring funds from a customer to the merchant in exchange for a good or service. This can be done through various means, such as credit card or mobile money. From the merchant’s perspective, a payment is the receipt of funds that completes a transaction, ensuring the purchase is settled.
+
+### Transaction
+
+**A transaction** refers specifically to a financial exchange between a customer and a merchant, often represented by a payment. Each time a customer pays for a product or service, a transaction is recorded.
+
+### Webhooks
+
+**Webhooks** are automated notifications that FedaPay sends to your website to inform you that an action, such as a successful payment or a refund, has occurred. It is important to note that the events your system must "listen" to are predefined by the merchant. This means the merchant decides which actions trigger notifications. Webhooks allow your system to automatically respond to events, simplifying transaction management.
+
+### Payout
+
+**A payout** is a transfer made from the merchant's FedaPay account to the customer's mobile money account. This allows the merchant to transfer available funds directly to a customer, facilitating payments or refunds in a simple and secure manner.
+
+### Collect
+
+**A collect** refers to the entire process of receiving money, typically in the context of a sale or service. A collect involves tracking the payments you are expecting from your customers.
+
+### Dashboard
+
+**The dashboard** is the online interface where you can manage all your transactions, view your payments, and much more. It is your control center for everything related to FedaPay.
+
+### Library
+
+**A library** is a set of tools that simplifies the integration of FedaPay into your website or application. By using a FedaPay library for languages like PHP or JavaScript, you can easily manage payments without having to code everything from scratch.
+
+### API Response
+
+This is the message that FedaPay sends back to you after you make a request via the API (e.g., to create a transaction). It informs you whether the operation was successful or not and provides details such as the payment status.
