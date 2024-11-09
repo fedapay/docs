@@ -1,4 +1,43 @@
 ---
-title: 'Bonne pratique fr'
-description: 'Description of your new file.'
+title: 'Bonnes pratiques'
 ---
+
+La sécurité des transactions et la protection des données clients sont essentielles pour maintenir la confiance de vos utilisateurs et garantir l'intégrité de votre plateforme de paiement. Voici un guide complet pour renforcer la sécurité de vos applications et respecter les meilleures pratiques en matière de stockage de données sensibles.
+
+## Sécurisation des Applications
+
+En plus des mesures de sécurité intégrées par FedaPay, il est important que chaque utilisateur de notre service renforce la sécurité de son application ou de sa plateforme. La mise en place de protocoles tels que **TLS/HTTPS** et le respect de bonnes pratiques de cryptage sont cruciaux pour protéger les données de vos clients.
+
+### Utilisation du TLS/HTTPS pour la Transmission des Données
+
+**TLS (Transport Layer Security)** est le protocole qui garantit la sécurité des communications entre le navigateur du client et votre serveur. Initialement, SSL (Secure Sockets Layer) remplissait cette fonction, mais il a été remplacé par TLS pour une meilleure sécurité.
+
+### Pourquoi utiliser TLS/HTTPS ?
+
+- **Chiffrement des Données** : TLS chiffre toutes les informations échangées entre le client et le serveur, assurant que les données sensibles ne sont pas interceptées par des tiers.
+- **Authentification du Serveur** : TLS vérifie que le client communique bien avec le serveur authentique et non avec un imposteur.
+
+<Note>
+**Exemple :** Les pages de paiement doivent obligatoirement utiliser TLS 1.2 ou une version plus récente. Ce protocole sécurise le flux de données et renforce la confiance des clients, ce qui peut même contribuer à améliorer les taux de conversion.
+</Note>
+
+### Mise en Place de TLS/HTTPS
+
+<Steps>
+  <Step title="Acquisition d'un Certificat Numérique">
+    Un certificat numérique, délivré par une autorité de certification (CA), est nécessaire pour configurer TLS. Ce certificat garantit aux utilisateurs l’authenticité de votre serveur.
+
+    **Options de certificats :**
+
+    - [Let’s Encrypt](https://letsencrypt.org/) : Gratuit
+    - [DigiCert](https://www.digicert.com/) : Payant, recommandé pour des options avancées
+    - [NameCheap](https://www.namecheap.com/) : Offrant des certificats adaptés aux petites et moyennes entreprises
+
+  </Step>
+  <Step title="Installation et Configuration">
+    Une fois le certificat obtenu, configurez votre serveur pour l’utiliser. Consultez les guides d’installation de l’autorité de certification que vous avez choisie pour garantir une configuration correcte.
+  </Step>
+  <Step title="Vérification de la Configuration">
+    Utilisez des outils tels que le SSL Labs Server Test pour vous assurer que votre configuration TLS est sécurisée.
+  </Step>
+</Steps>
