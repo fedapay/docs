@@ -2,11 +2,11 @@
 title: 'Envoi de requêtes'
 ---
 
-L'intégration de la solution de paiement FedaPay repose sur l'envoi de requêtes HTTPS à ses serveurs. Pour vous assurer que votre plateforme fonctionne correctement en mode test comme en production, il est essentiel de comprendre comment ces requêtes doivent être structurées et quelles réponses vous pouvez attendre.
+L'intégration de la solution de paiement de FedaPay repose sur l'envoi de requêtes HTTPS à ses serveurs. Pour vous assurer que votre plateforme fonctionne correctement en mode test comme en production, il est essentiel de comprendre comment ces requêtes doivent être structurées et à quelles réponses vous pouvez attendre.
 
 ## Structure des requêtes HTTPS
 
-Lorsque vous interagissez avec l'API FedaPay, vos requêtes HTTPS doivent suivre une structure spécifique pour être traitées correctement. FedaPay fournit deux environnements : un environnement de test et un environnement live. Chaque environnement a son propre ensemble de clés API (test et live), et chaque clé API doit être utilisée en fonction de l'environnement dans lequel vous opérez.
+Lorsque vous interagissez avec l'API de FedaPay, vos requêtes HTTPS doivent suivre une structure spécifique pour être traitées correctement. FedaPay fournit deux environnements : un environnement de test et un environnement live. Chaque environnement a son propre ensemble de clés API (test et live), et chaque clé API doit être utilisée en fonction de l'environnement dans lequel vous opérez.
 
 ### Méthodes HTTPS supportées
 
@@ -45,7 +45,8 @@ Authorization: Bearer VOTRE_CLÉ_API
 
 
   1. Mode Test
-    Avant de passer en mode Live, il est essentiel de tester votre intégration en mode test. Ce mode vous permet de simuler différentes opérations de paiement sans effectuer de transactions réelles. Vous devez créer un compte test, et utiliser les clés API test pour adresser vos requêtes à l'environnement de test.
+
+    Avant de passer en mode Live, il est recommandé de tester votre intégration en mode test. Ce mode vous permet de simuler différentes opérations de paiement sans effectuer de transactions réelles. Vous devez créer un compte test, et utiliser les clés API test pour adresser vos requêtes à l'environnement de test.
 
     - **Clés API Test** : Ces clés ne peuvent être utilisées que sur le serveur de test.
     - **Transactions de test** : Simulez des transactions avec des cartes et des numéros de téléphone fictifs pour voir comment votre système réagit.
@@ -57,7 +58,7 @@ Authorization: Bearer VOTRE_CLÉ_API
 
 ###  Numéros de test pour les cartes et le mobile money
 
-Pour tester votre intégration, FedaPay vous fournit des numéros de carte et des numéros de téléphone pour simuler des paiements réussis ou échoués. Vous devez utiliser ces numéros en mode test uniquement.
+Pour tester votre intégration, FedaPay vous fournit des numéros de carte et des numéros de téléphone pour simuler des paiements réussis ou échoués. **Vous devez utiliser ces numéros en mode test uniquement**.
 
 <Tabs>
     <Tab title="Numéros de carte de test">
