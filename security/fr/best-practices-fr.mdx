@@ -41,3 +41,32 @@ En plus des mesures de sécurité intégrées par FedaPay, il est important que 
     Utilisez des outils tels que le SSL Labs Server Test pour vous assurer que votre configuration TLS est sécurisée.
   </Step>
 </Steps>
+
+## Sécurité des Comptes : Chiffrement des Mots de Passe et Gestion des Identifiants
+
+La protection des mots de passe utilisateurs est essentielle pour sécuriser vos comptes et protéger vos clients contre les accès non autorisés.
+
+### Importance du Chiffrement des Mots de Passe
+
+Stocker les mots de passe en texte clair dans une base de données est une pratique risquée et fortement déconseillée. Utilisez un hachage pour garantir la confidentialité des mots de passe et protéger vos utilisateurs contre les attaques.
+
+<Note>
+**Exemple :** Dans un système multi-niveaux où chaque utilisateur a des privilèges distincts, un accès non autorisé peut compromettre la sécurité des informations sensibles (ex. : un technicien ne devrait pas avoir le même accès qu’un directeur).
+</Note>
+
+### Protection par Hachage et Salage des Mots de Passe
+
+1. **Utilisation de “Salts”** : Un salt (ou graine) est une clé ajoutée au mot de passe avant le hachage. Cela rend chaque hachage unique, même pour des mots de passe identiques.
+
+2. **Hachage des Mots de Passe :** Utilisez des algorithmes de hachage tels que **SHA-256** au lieu de MD5 ou SHA1, qui sont aujourd’hui vulnérables.
+
+<Note>
+**Exemple :** Lorsqu’un utilisateur crée un compte, générez un salt unique, combinez-le avec le mot de passe, puis hachez le résultat. En stockant le hash et le salt, vous complexifiez considérablement les attaques par rainbow tables.
+</Note>
+
+### Recommandations pour le Choix du Mot de Passe
+
+- Utilisez un mot de passe fort d'au moins 8 caractères incluant lettres majuscules, minuscules, chiffres, et symboles.
+- Ne réutilisez pas le même mot de passe pour plusieurs comptes.
+- Modifiez régulièrement vos mots de passe pour minimiser les risques.
+
