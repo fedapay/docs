@@ -1,4 +1,185 @@
 ---
-title: 'Gestion de collectes EN'
-description: 'Description of your new file.'
+title: 'Collects and Payouts Management'
 ---
+
+## Collects Management
+
+The FedaPay API makes it easy to integrate secure payment solutions into your website or application. This guide will explain in detail how to set up and manage the collection of payments using the API, from the initial creation to the finalization process, including advanced features like no-redirect payments. Whether you are a developer or a product manager, you will find everything you need to use FedaPay effectively.
+
+### Steps to Create and Manage a Payment Collect
+
+The configuration steps of a payment collect are divided into several essential processes.
+
+<Steps>
+  <Step title=" Initialization of the Collect: Creating a Request">
+    The first step is to send a request to create a collect via the API. This request requires certain mandatory parameters:
+
+    - **description**: a brief description of the purpose of the collect
+    - **amount**: the amount, always as an integer
+    - **currency**: the currency, indicated by its number or ISO code (refer to the FedaPay Currency Table for details)
+    - **callback_url**: an optional return link to redirect the client after payment
+    - **customer**: the client related to the collect
+
+    If the client is not yet registered in your system, you can simultaneously create their profile by adding details such as first name, last name, email, and phone number.
+
+    <Info>
+    [Example request to create a collect](/api-reference/transactions/create)
+
+    Replace **YOUR_SECRET_API_KEY** with your API key and use the appropriate server URL (**sandbox** or **live**).
+
+    If the client is already registered, simply use their ID or email to associate them with the collect.
+    </Info>
+
+  </Step>
+  <Step title="Generating the Token and Payment Link">
+    Once the request is sent, the API returns a unique identifier for the collect. Use this identifier to request a payment link and token to redirect the client to the secure payment page.
+
+    <CodeGroup>
+
+    ```java cURL
+    curl -X POST \
+    https://sandbox-api.fedapay.com/v1/transactions/ID/token \
+    -H 'Authorization: Bearer YOUR_SECRET_API_KEY' \
+    -H 'Content-Type: application/json'
+    ```
+
+    ```PHP PHP
+    $transaction = \FedaPay\Transaction::create(array(...))
+    $token = $transaction->generateToken();
+    return header('Location: ' . $token->url);
+    ```
+
+    ```javaScript NodeJS
+    const transaction = await Transaction.create({...})
+    const token = await transaction.generateToken();
+    return redirect(token.url);
+    ```
+    </CodeGroup>
+
+    The generated link can be used to redirect users to the FedaPay payment page.
+
+  </Step>
+  <Step title="Redirecting to the Payment Page">
+    This link redirects your client to a secure payment page, where they can finalize the collect. If you specified a **callback_url**, your client will be automatically redirected after the payment.
+  </Step>
+  <Step title="Using the Return Link (Callback URL)">
+    The **callback_url** allows you to redirect the client to a specific page at the end of the payment, with the status and collect ID as parameters. For example:
+
+    - **Payment approved**: `https://www.mysite.com/?id=258&status=approved`
+    - **Payment canceled**: `https://www.mysite.com/?id=259&status=canceled`
+
+  <Note>
+  **Warning**: For security reasons, do not rely on the status returned by the URL.
+  Always verify the real status directly from the API.
+  </Note>
+
+  </Step>
+  <Step title=" Retrieving the Details of a Collect">
+    To retrieve the complete information of a collect, make a request using the collect's ID.
+
+    <Info>[Example request to retrieve the details of a collect](/api-reference/transactions/get-by-id)</Info>
+
+  </Step>
+</Steps>
+
+### No-Redirect Payments
+
+To offer a smooth experience without redirection, you can integrate the payment form directly into your application for specific methods (MTN Benin, Moov Benin, Moov Togo, and MTN Côte d'Ivoire). This mode can be useful for e-commerce sites wishing to keep the user on their platform throughout the process.
+
+**Sending a mobile payment without redirection**:
+
+1. **Create a collect** as described above, then generate the token.
+2. [Use one of the specific methods](/payment-methods/en/payment-methods-en) to process the payment.
+
+<Warning>
+**Note**: The no-redirect payment does not support all operators. For other payment methods like Orange and bank cards, prefer the redirect mode.
+</Warning>
+
+### Automatically Checking the Status of a Collect
+
+To check the final status of a collect, especially during a no-redirect payment:
+
+- Send a request to get the collect details.
+- **Implement a webhook** to receive automatic notifications. [Refer to the Webhooks section for more details](/integration-api/en/webhooks-en).
+
+### Collect Lifecycle: Statuses
+
+Each collect goes through different statuses:
+
+- **pending**: Waiting (default status at creation)
+- **approved**: Approved (successful payment)
+- **declined**: Declined (insufficient balance or other payment issues)
+- **canceled**: Canceled (voluntary or accidental interruption by the client)
+- **refunded**: Refunded (amount returned to the client)
+- **transferred**: Transferred (amount transferred to the merchant's account)
+
+<Note>To check the real-time status, visit the FedaPay dashboard under the Collects section or use the API to verify with the collect ID.</Note>
+
+## Payouts Management
+
+A payout is an operation that allows you to transfer money directly from your balance to a client's account. This feature is designed for businesses that need to manage payments to specific clients.
+
+### Steps to Create a Payout
+
+Creating a payout via the API involves several steps. Each payout goes through different processes that must be followed to ensure the smooth execution of the transfer.
+
+<Steps>
+  <Step title="Requesting a Payout Creation">
+    To start, you need to send a payout creation request via our API. The essential information to provide includes:
+
+    - amount: The payout amount, always specified as an integer.
+    - currency: The currency to be used for the payout. You can specify the ISO code of the chosen currency (e.g., XOF for CFA Franc).
+    - customer: The client related to the payout. If the client does not yet exist in your database, you can create them simultaneously by providing their first name, last name, email, and phone number.
+
+    <Info>
+    [API Code for creating a payout](/api-reference/payouts/create)
+
+    An example code is available to simplify creating a payout via the API. Make sure to replace **YOUR_PRIVATE_API_KEY** with your private sandbox or live key.
+    </Info>
+
+  </Step>
+  <Step title="Sending the Payout">
+    After creating a payout, it will be marked as "pending". You must then proceed with sending it. You have two options:
+
+    - Send the payout immediately
+    - Schedule the payout for later
+
+    <Info>
+    [API Code for sending the payout](/api-reference/payouts/update-start)
+
+    Use the PHP, Node.js, or Ruby code to send the payout by replacing **YOUR_PRIVATE_API_KEY** with your private key.
+    </Info>
+
+  </Step>
+  <Step title="Retrieving the Details of a Payout">
+    Once the payout is created and/or sent, you can view its details to get specific information, such as the status or payout history.
+
+    <Info>
+    [API Code for retrieving payout details](/api-reference/payouts/get-by-id)
+
+    Retrieve the information of a specific payout using its unique identifier (ID). Replace **ID** in the URL with the ID of the payout you want to view.
+    </Info>
+  </Step>
+</Steps>
+
+### Payout Lifecycle
+
+When a payout is created, it goes through several statuses:
+
+- **pending**: Initial status after the payout is created.
+- **started**: The payout has been validated, and sending is starting.
+- **processing**: The payout is in progress and being sent to the recipient.
+- **sent**: The payout has been successfully sent to the recipient.
+- **failed**: The payout sending failed due to various reasons (technical error, issue with the payout method, etc.).
+
+You can track the status of your payouts in real-time from the FedaPay dashboard under the Payouts menu.
+
+### Available Payout Methods
+
+Currently, [supported payout methods](/payment-methods/en/payment-methods-en) are available in several countries across the sub-region.
+
+These methods make it easy to send funds to different West African countries.
+
+### Support
+
+If you have any questions or encounter issues with payouts, feel free to contact our technical support at: `support@fedapay.com`
