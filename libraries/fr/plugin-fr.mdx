@@ -370,8 +370,42 @@ _**![Vidéo tutoriel : Regardez la vidéo d'intégration ici.]**_
     - Copiez le contenu du dossier **callback/** dans **modules/gateways/callback/**.
 
   </Step>
-  <Step title="Second Step">
-    These are instructions or content that only pertain to the second step.
+  <Step title="Configuration du plugin dans WHMCS">
+    Une fois les fichiers du plugin installés, suivez les étapes ci-dessous pour configurer FedaPay dans WHMCS :
+
+    **Étape 1 : Accéder aux paramètres de paiement**
+
+    - Dans votre tableau de bord WHMCS, allez dans **Setup** > **Payments** > **Payment Gateways**.
+
+    _**![(Image montrant comment accéder aux paramètres)]**_
+
+    - Cliquez sur l'onglet **All Payment Gateways** pour voir la liste complète des passerelles de paiement disponibles.
+
+    _**![(Image montrant la liste des passerelles de paiement)]**_
+
+    - Dans la liste, sélectionnez **FedaPay** pour l'activer.
+
+    _**![(Image montrant la sélection de FedaPay)]**_
+
+    **Étape 2 : Activer et configurer FedaPay**
+
+    - Cochez la case **Show on Order Form** pour permettre à vos clients de voir FedaPay sur le formulaire de commande.
+
+    - Si vous êtes en mode test, cochez la case **Sandbox Mode**. Sinon, laissez cette case décochée pour les transactions réelles.
+
+    _**![(Image montrant les options d'activation de FedaPay)]**_
+
+    **Étape 3 : Récupérer et entrer vos clés API**
+
+    Connectez-vous à vos comptes FedaPay Sandbox (test) et FedaPay Live (réel).
+    Copiez les clés API secrètes pour chaque mode :
+    sk_sandbox pour le mode test.
+    sk_live pour le mode réel.
+    (Image montrant où récupérer les clés API)
+    Collez ces clés dans les champs correspondants dans WHMCS.
+    Étape 4 : Enregistrer les modifications
+    Cliquez sur Enregistrer pour sauvegarder vos modifications.
+
   </Step>
   <Step title="Third Step">
     These are instructions or content that only pertain to the third step.
