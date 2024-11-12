@@ -5,7 +5,7 @@
     "dark": "https://docs.fedapay.com/assets/feda-logo-blue-321eee300a4d16670cbaf7d5be77f632632781529e018009a77b7aaffdfb9a4e.svg",
     "light": "https://docs.fedapay.com/assets/feda-logo-blue-321eee300a4d16670cbaf7d5be77f632632781529e018009a77b7aaffdfb9a4e.svg"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "https://res.cloudinary.com/dvilp6td2/image/upload/v1730220259/images_wyvd3n.png",
   "colors": {
     "primary":"#0055ff",
     "light":"#00d5ff",
