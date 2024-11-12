@@ -8,25 +8,27 @@ Welcome to our guide for navigating the FedaPay dashboard. This guide helps you 
 
 Upon logging in, you’ll be greeted by an overview of your activity. This page presents **charts** with key statistics:
 
-- **Gross Collects Volume**: Total amount collected.
-- **Number of Refunds**: Total number of refunds processed.
-- **Successful Collects**: Volume of successfully completed transactions.
+* **Gross Collects Volume**: Total amount collected.
+
+* **Number of Refunds**: Total number of refunds processed.
+
+* **Successful Collects**: Volume of successfully completed transactions.
 
 You can adjust the data by selecting a specific time period (day, week, month, year) to analyze trends.
-
 
 **Payment Information**
 
 The home page also provides insights into your payments. You can view:
 
-- **Payment Volume by Method**: Compare payment methods across different periods (yesterday, last 7 days, last month, last year).
-- **Number of Payments by Method**: Display the number of payments by each method, adjusting the time periods as needed.
+* **Payment Volume by Method**: Compare payment methods across different periods (yesterday, last 7 days, last month, last year).
+
+* **Number of Payments by Method**: Display the number of payments by each method, adjusting the time periods as needed.
 
 ### Clients: Managing and Tracking Client History
 
 The client management section simplifies handling your clients. You can:
 
-* **Add a Client:** Click on the **New Client** button, fill in the form (name, email, phone number), and click "Create." 
+* **Add a Client:** Click on the **New Client** button, fill in the form (name, email, phone number), and click "Create."
 
 ![Add customer form](https://res.cloudinary.com/dvilp6td2/image/upload/v1731331900/add_customer_form_wlxqeb.png)
 
@@ -116,13 +118,13 @@ The **Payment Page** section is for creating customized payment pages for your p
 
 Advanced options allow you to set a custom link, success message, return link, or additional information to collect. Customize the description with options like:
 
-- Create your own template
+* Create your own template
 
-- Events and tickets
+* Events and tickets
 
-- Accept donations
+* Accept donations
 
-- Sell products and services
+* Sell products and services
 
 Use the **Filter** button to sort pages by name, description, or custom link.
 
@@ -146,45 +148,43 @@ To add a payout, you have two options:
 
 1. **Single Payment**
 
-   * Cliquez sur **Ajouter un dépôt**.
+   * Click **Add a Payout**.
 
-   * Indiquez le b**énéficiaire** et le **montant** à transférer.
+   * Enter the recipient and amount to transfer.
 
-   * Validez en cliquant sur **Ajouter**.
+   * Confirm by clicking **Add**.
 
-2. **Paiement multiple**
+2. **Multiple Payments**
 
-   * Idéal pour gérer plusieurs dépôts vers un même destinataire ou différents destinataires, à la même date ou à des dates différentes.
+   * Ideal for managing several deposits to one or more recipients, on the same or different dates.
 
-   * Préparez un fichier CSV contenant les informations des dépôts, avec les colonnes suivantes :
+   * Prepare a CSV file containing the payout information with the following columns: First Name, Last Name, Email, Phone Number, Amount.
 
-     * Nom, prénom, e-mail, numéro de téléphone, montant.
+   * Download a sample file [here](https://dev-api.fedapay.com/assets/payouts_sample_fr.csv).
 
-   * Téléchargez un exemple de fichier [ici](https://dev-api.fedapay.com/assets/payouts_sample_fr.csv).
+   * Click **Import CSV** and select your file to load the list of payouts.
 
-   * Une fois le fichier CSV rempli, cliquez sur **Importer un CSV** et sélectionnez votre fichier pour charger la liste des dépôts.
+**Sending Payouts**
 
-**Envoi de Dépôt**
+Once payouts are imported, they will appear with the status **Pending**. Use the filters to display only the payouts pending sending.
 
-Une fois les dépôts importés, ils apparaîtront avec le statut **En attente**. Utilisez les filtres pour afficher uniquement les dépôts en attente d'envoi.
+***Sending Payout Options***
 
-***Options d'Envoi de Dépôt***
+1. Single Send
 
-1. Envoi unique
+   * Click **Send** next to a specific payout.
 
-   * Cliquez sur **Envoyer** à côté d'un dépôt spécifique.
-
-   * Choisissez entre **Envoyer maintenant** ou **Programmer l'envoi** à une date et heure spécifiques.
+   * Choose **Send Now** or **Schedule Send** for a specific date and time.
 
 \[Image montrant les options d'envoi "Envoyer maintenant" et "Programmer l'envoi du paiement"]
 
-1. Envoi multiple
+2. Multiple Send
 
-* Sélectionnez plusieurs dépôts en cochant les cases correspondantes ou cochez **Tout sélectionner** pour inclure tous les dépôts d'une page.
+* Select multiple payouts by checking the corresponding boxes or check **Select All** to include all payouts on the page.
 
 * Cliquez sur **Envoyer** pour initier l'envoi des dépôts sélectionnés.
 
-1. Vous aurez les options suivantes pour les dépôts sélectionnés :
+3. Vous aurez les options suivantes pour les dépôts sélectionnés :
 
 * **Envoyer maintenant** : pour un envoi immédiat.
 
