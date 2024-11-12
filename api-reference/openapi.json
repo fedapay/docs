@@ -570,6 +570,52 @@
         ]
       }
     },
+    "/transactions/{id}/token": {
+      "post": {
+        "summary": "Get payment link",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Transaction ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Payment link generated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string",
+                      "description": "The generated payment token."
+                    },
+                    "url": {
+                      "type": "string",
+                      "description": "The payment link URL."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Transaction not found."
+          }
+        }
+      }
+    },
     "/transactions/{id}": {
       "get": {
         "summary": "Get a transaction",
