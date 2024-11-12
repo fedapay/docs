@@ -238,6 +238,13 @@
       ]
     }
   ],
+  "anchors": [
+    {
+      "name": "API Reference",
+      "openapi": "/openapi-transaction.json",
+      "url": "api-reference",
+    }
+  ],
   "footerSocials": {
     "x": "https://x.com/fedapay",
     "github": "https://github.com/fedapay",
