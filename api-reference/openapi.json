@@ -572,7 +572,7 @@
     },
     "/transactions/{id}/token": {
       "post": {
-        "summary": "Get payment link",
+        "summary": "Get the payment link for a transaction",
         "security": [
           {
             "bearerAuth": []
