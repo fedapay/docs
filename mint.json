@@ -238,6 +238,7 @@
       ]
     }
   ],
+  "openapi": "/openapi-transaction.json",
   "footerSocials": {
     "x": "https://x.com/fedapay",
     "github": "https://github.com/fedapay",
