@@ -1,1 +1,161 @@
-qsedrftgyhujikolp
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Customer API",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://sandbox-api.fedapay.com/v1"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "paths": {
+    "/customers": {
+      "post": {
+        "summary": "Create a customer",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Customer's email address."
+                  },
+                  "phone_number": {
+                    "type": "object",
+                    "description": "Customer's phone number.",
+                    "properties": {
+                      "number": {
+                        "type": "integer",
+                        "description": "Phone number without national prefix."
+                      },
+                      "country": {
+                        "type": "string",
+                        "description": "Country code."
+                      }
+                    }
+                  },
+                  "firstname": {
+                    "type": "string",
+                    "description": "Customer's first name."
+                  },
+                  "lastname": {
+                    "type": "string",
+                    "description": "Customer's last name."
+                  }
+                },
+                "anyOf": [
+                  {
+                    "required": ["email"]
+                  },
+                  {
+                    "required": ["phone_number"]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Customer created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Customer ID."
+                    },
+                    "firstname": {
+                      "type": "string",
+                      "description": "Customer's first name."
+                    },
+                    "lastname": {
+                      "type": "string",
+                      "description": "Customer's last name."
+                    },
+                    "full_name": {
+                      "type": "string",
+                      "description": "Customer's full name."
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email",
+                      "description": "Customer's email address."
+                    },
+                    "account_id": {
+                      "type": "integer",
+                      "description": "ID of the customer's account."
+                    },
+                    "phone_number_id": {
+                      "type": "integer",
+                      "description": "ID of the customer's phone number."
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of customer creation."
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of last customer update."
+                    },
+                    "deleted_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of customer deletion (if applicable)."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body."
+          },
+          "422": {
+            "description": "Validation error."
+          },
+          "401": {
+            "description": "Unauthorized. Provide a valid secret key."
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Create customer */\nconst customer = await Customer.create({\n  firstname: 'John',\n  lastname: 'Doe',\n  email: 'john@doe.com',\n  phone_number: {\n    number: '90090909',\n    country: 'BJ'\n  }\n});"
+          },
+          {
+            "lang": "PHP",
+            "source": "/* Replace YOUR_SECRETE_API_KEY with your secret API key */\n\\FedaPay\\FedaPay::setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\n\\FedaPay\\FedaPay::setEnvironment('sandbox'); //or setEnvironment('live');\n/* Create customer */\n\\FedaPay\\Customer::create(array(\n  \"firstname\" => \"John\",\n  \"lastname\" => \"Doe\",\n  \"email\" => \"John.doe@gmail.com\",\n  \"phone_number\" => [\n    \"number\" => \"+22966666600\",\n    \"country\" => 'bj' // 'bj' Benin code\n  ]\n));"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\nphone = {\n  country: 'bj',\n  number: '66000001'\n};\ncustomer = FedaPay::Customer.create(\n  firstname: 'firstname',\n  lastname: 'lastname',\n  email: 'email@test.com',\n  phone_number: phone\n);"
+          }
+        ]
+      }
+    }
+  }
+}
