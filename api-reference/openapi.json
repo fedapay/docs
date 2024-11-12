@@ -156,6 +156,95 @@
           }
         ]
       }
+    },
+    "/customers/search": {
+      "get": {
+        "summary": "Search your customers",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of customers.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "Customer ID."
+                      },
+                      "firstname": {
+                        "type": "string",
+                        "description": "Customer's first name."
+                      },
+                      "lastname": {
+                        "type": "string",
+                        "description": "Customer's last name."
+                      },
+                      "full_name": {
+                        "type": "string",
+                        "description": "Customer's full name."
+                      },
+                      "email": {
+                        "type": "string",
+                        "format": "email",
+                        "description": "Customer's email address."
+                      },
+                      "account_id": {
+                        "type": "integer",
+                        "description": "ID of the customer's account."
+                      },
+                      "phone_number_id": {
+                        "type": "integer",
+                        "description": "ID of the customer's phone number."
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of customer creation."
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of last customer update."
+                      },
+                      "deleted_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of customer deletion (if applicable)."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. Provide a valid secret key."
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show customers */\nconst customer = await Customer.all( params = {}, headers = {} );"
+          },
+          {
+            "lang": "PHP",
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n/**\n* @var \\FedaPay\\FedaPayObject\n*/\n$response = \\FedaPay\\Customer::all();\n$customers = $response->customers;\n$meta = $response->meta;"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\ncustomers = FedaPay::Customer.list;"
+          }
+        ]
+      }
     }
   }
 }
