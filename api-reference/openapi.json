@@ -533,6 +533,228 @@
         ]
       }
     },
+    "/payouts": {
+      "post": {
+        "summary": "Create a payout",
+        "description": "This endpoint creates a new payout.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "integer",
+                    "description": "Amount of the payout."
+                  },
+                  "currency": {
+                    "type": "object",
+                    "description": "Currency information.",
+                    "properties": {
+                      "iso": {
+                        "type": "string",
+                        "description": "The ISO code of the currency (e.g., XOF)."
+                      }
+                    },
+                    "required": ["iso"]
+                  },
+                  "customer": {
+                    "type": "object",
+                    "description": "Customer information.",
+                    "properties": {
+                      "firstname": {
+                        "type": "string",
+                        "description": "Customer's first name."
+                      },
+                      "lastname": {
+                        "type": "string",
+                        "description": "Customer's last name."
+                      },
+                      "email": {
+                        "type": "string",
+                        "format": "email",
+                        "description": "Customer's email address."
+                      },
+                      "phone_number": {
+                        "type": "object",
+                        "description": "Customer's phone number.",
+                        "properties": {
+                          "number": {
+                            "type": "string",
+                            "description": "Phone number without national prefix."
+                          },
+                          "country": {
+                            "type": "string",
+                            "description": "Country code."
+                          }
+                        },
+                        "required": ["number", "country"]
+                      }
+                    },
+                    "required": ["firstname", "lastname"]
+                  },
+                  "mode": {
+                    "type": "string",
+                    "description": "Payout mode (e.g., 'bank_transfer', 'mobile_money')."
+                  }
+                },
+                "required": ["amount", "currency", "customer", "mode"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Payout created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Payout ID."
+                    },
+                    "reference": {
+                      "type": "string",
+                      "description": "Payout reference."
+                    },
+                    "amount": {
+                      "type": "integer",
+                      "description": "Payout amount."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Payout status (e.g., 'pending', 'scheduled', 'sent', 'failed')."
+                    },
+                    "customer_id": {
+                      "type": "integer",
+                      "description": "Customer ID associated with the payout."
+                    },
+                    "currency_id": {
+                      "type": "integer",
+                      "description": "Currency ID associated with the payout."
+                    },
+                    "mode": {
+                      "type": "string",
+                      "description": "Payout mode."
+                    },
+                    "last_error_code": {
+                      "type": "string",
+                      "description": "Last error code encountered during the payout."
+                    },
+                    "commission": {
+                      "type": "integer",
+                      "description": "Payout commission."
+                    },
+                    "fees": {
+                      "type": "integer",
+                      "description": "Payout fees."
+                    },
+                    "fixed_commission": {
+                      "type": "integer",
+                      "description": "Fixed commission applied to the payout."
+                    },
+                    "amount_transferred": {
+                      "type": "integer",
+                      "description": "Amount transferred to the beneficiary."
+                    },
+                    "amount_debited": {
+                      "type": "integer",
+                      "description": "Amount debited from the payer."
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of payout creation."
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of last payout update."
+                    },
+                    "scheduled_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time the payout is scheduled."
+                    },
+                    "sent_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time the payout was sent."
+                    },
+                    "failed_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time the payout failed."
+                    },
+                    "deleted_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of payout deletion."
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "description": "Additional metadata."
+                    },
+                    "custom_metadata": {
+                      "type": "object",
+                      "description": "Custom metadata."
+                    },
+                    "payment_method_id": {
+                      "type": "integer",
+                      "description": "Payment method ID."
+                    },
+                    "transaction_key": {
+                      "type": "string",
+                      "description": "Unique transaction key."
+                    },
+                    "merchant_reference": {
+                      "type": "string",
+                      "description": "Merchant reference."
+                    },
+                    "account_id": {
+                      "type": "integer",
+                      "description": "Account ID."
+                    },
+                    "balance_id": {
+                      "type": "integer",
+                      "description": "Balance ID."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body."
+          },
+          "422": {
+            "description": "Validation error."
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "source": "const { FedaPay, Payout } = require('fedapay');\nFedaPay.setApiKey('YOUR_API_KEY');\nFedaPay.setEnvironment('sandbox');\nconst payout = await Payout.create(params = {}, headers = {});"
+          },
+          {
+            "lang": "PHP",
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n\\FedaPay\\Payout::create([\"amount\" => 2000, \"currency\" => {\"iso\": \"XOF\"}]);"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay';\nFedaPay.api_key = '';\nFedaPay.environment = 'sandbox';\ncurrency = { iso: 'XOF' };\npayout = FedaPay::Payout.create(amount: 1000, currency: currency);"
+          }
+        ]
+      }
+    },
     "/transactions": {
       "post": {
         "summary": "Create a transaction",
