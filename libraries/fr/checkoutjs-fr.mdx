@@ -222,3 +222,24 @@ _**Modifier l'apparence et ajouter des détails supplémentaires**_
 - _**Classe CSS du bouton** : `data-button-class`_
 - _**Image et description du widget** : `data-widget-image, data-widget-description`_
 
+## Méthode avec une balise form pour une intégration avancée
+
+Checkout.js permet également l’intégration avec une balise form pour envoyer des données spécifiques après paiement.
+
+```javascript
+<!--
+Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou live.
+-->
+<form action="index.php" method="POST">
+ <input type="hidden" name="field" value="test">
+ <script
+   src="https://cdn.fedapay.com/checkout.js?v=1.1.7"
+   data-public-key="VOTRE_CLE_API_PUBLIQUE"
+   data-button-text="Payer 1000"
+   data-button-class="button-class"
+   data-transaction-amount="1000"
+   data-transaction-description="Description de la transaction"
+   data-currency-iso="XOF">
+ </script>
+</form>
+```
