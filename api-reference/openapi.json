@@ -1494,24 +1494,27 @@
     },
     "/events/{id}": {
       "get": {
-        "summary": "Retrieve a single event or list all events",
+        "summary": "Get a event",
         "description": "Retrieves a single event by ID or lists all events.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
-            "in": "query",
+            "in": "path",
             "name": "id",
             "schema": {
               "type": "integer",
-              "format": "int64",
-              "description": "Event ID. If provided, retrieves a single event."
             },
-            "style": "form",
-            "explode": true
+            "required": true,
+            "description": "Event ID."
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "Event retrieved successfully.",
             "content": {
               "application/json": {
                 "schema": {
