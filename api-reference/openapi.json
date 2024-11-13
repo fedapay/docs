@@ -345,6 +345,148 @@
           }
         ]
       },
+      "put": {
+        "summary": "Update a customer",
+        "description": "Update the details of an existing customer using their ID.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Customer ID."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Customer's email address."
+                  },
+                  "phone_number": {
+                    "type": "object",
+                    "description": "Customer's phone number.",
+                    "properties": {
+                      "number": {
+                        "type": "integer",
+                        "description": "Phone number without national prefix."
+                      },
+                      "country": {
+                        "type": "string",
+                        "description": "Country code."
+                      }
+                    }
+                  },
+                  "firstname": {
+                    "type": "string",
+                    "description": "Customer's first name."
+                  },
+                  "lastname": {
+                    "type": "string",
+                    "description": "Customer's last name."
+                  }
+                },
+                "required": ["firstname", "lastname"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Customer updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Customer ID."
+                    },
+                    "firstname": {
+                      "type": "string",
+                      "description": "Customer's first name."
+                    },
+                    "lastname": {
+                      "type": "string",
+                      "description": "Customer's last name."
+                    },
+                    "full_name": {
+                      "type": "string",
+                      "description": "Customer's full name."
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email",
+                      "description": "Customer's email address."
+                    },
+                    "account_id": {
+                      "type": "integer",
+                      "description": "ID of the customer's account."
+                    },
+                    "phone_number_id": {
+                      "type": "integer",
+                      "description": "ID of the customer's phone number."
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of customer creation."
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of last customer update."
+                    },
+                    "deleted_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of customer deletion (if applicable)."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body."
+          },
+          "404": {
+            "description": "Customer not found."
+          },
+          "401": {
+            "description": "Unauthorized. Provide a valid secret key."
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const { FedaPay, Customer } = require('fedapay');\nFedaPay.setApiKey('YOUR_SECRETE_API_KEY');\nFedaPay.setEnvironment('sandbox');\nconst customer = await Customer.update(ID, {\n  firstname: 'Jane',\n  lastname: 'Doe',\n  email: 'jane@doe.com',\n  phone_number: {\n    number: '91010101',\n    country: 'BJ'\n  }\n});"
+          },
+          {
+            "lang": "PHP",
+            "source": "\\FedaPay\\FedaPay::setApiKey('YOUR_SECRETE_API_KEY');\n\\FedaPay\\FedaPay::setEnvironment('sandbox');\n$response = \\FedaPay\\Customer::update(ID, [\n  'firstname' => 'Jane',\n  'lastname' => 'Doe',\n  'email' => 'jane@doe.com',\n  'phone_number' => [\n    'number' => '91010101',\n    'country' => 'BJ'\n  ]\n]);"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay';\nFedaPay.api_key = 'YOUR_SECRETE_API_KEY';\nFedaPay.environment = 'sandbox';\ncustomer = FedaPay::Customer.update(ID, {\n  firstname: 'Jane',\n  lastname: 'Doe',\n  email: 'jane@doe.com',\n  phone_number: {\n    country: 'BJ',\n    number: '91010101'\n  }\n});"
+          }
+        ]
+      },
       "delete": {
         "summary": "Delete a customer",
         "security": [
