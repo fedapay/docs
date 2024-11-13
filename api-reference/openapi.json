@@ -1492,7 +1492,7 @@
         ]
       }
     },
-    "/events": {
+    "/events/{id}": {
       "get": {
         "summary": "Retrieve a single event or list all events",
         "description": "Retrieves a single event by ID or lists all events.",
