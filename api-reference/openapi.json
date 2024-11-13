@@ -907,6 +907,202 @@
         ]
       }
     },
+    "/payouts/start": {
+      "put": {
+        "summary": "Search start",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Payout ID",
+                      "example": 1
+                    },
+                    "scheduled_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time the payout is scheduled to be sent.",
+                      "example": "2024-10-23T14:30:00Z"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Payouts started successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "Payout ID.",
+                        "example": 1
+                      },
+                      "reference": {
+                        "type": "string",
+                        "description": "Payout reference.",
+                        "example": "PAYOUT-123456"
+                      },
+                      "amount": {
+                        "type": "integer",
+                        "description": "Payout amount.",
+                        "example": 1000
+                      },
+                      "status": {
+                        "type": "string",
+                        "description": "Payout status (e.g., 'pending', 'scheduled', 'sent', 'failed').",
+                        "example": "sent"
+                      },
+                      "customer_id": {
+                        "type": "integer",
+                        "description": "Customer ID associated with the payout.",
+                        "example": 42
+                      },
+                      "currency_id": {
+                        "type": "integer",
+                        "description": "Currency ID associated with the payout.",
+                        "example": 840
+                      },
+                      "mode": {
+                        "type": "string",
+                        "description": "Payout mode.",
+                        "example": "automatic"
+                      },
+                      "last_error_code": {
+                        "type": "string",
+                        "description": "Last error code encountered during the payout.",
+                        "example": "NO_ERROR"
+                      },
+                      "commission": {
+                        "type": "integer",
+                        "description": "Payout commission.",
+                        "example": 50
+                      },
+                      "fees": {
+                        "type": "integer",
+                        "description": "Payout fees.",
+                        "example": 5
+                      },
+                      "fixed_commission": {
+                        "type": "integer",
+                        "description": "Fixed commission applied to the payout.",
+                        "example": 10
+                      },
+                      "amount_transferred": {
+                        "type": "integer",
+                        "description": "Amount transferred to the beneficiary.",
+                        "example": 935
+                      },
+                      "amount_debited": {
+                        "type": "integer",
+                        "description": "Amount debited from the payer.",
+                        "example": 1000
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of payout creation.",
+                        "example": "2024-10-23T14:00:00Z"
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of last payout update.",
+                        "example": "2024-10-23T14:00:00Z"
+                      },
+                      "scheduled_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time the payout is scheduled to be sent.",
+                        "example": "2024-10-23T14:30:00Z"
+                      },
+                      "sent_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time the payout was sent.",
+                        "example": "2024-10-23T14:31:00Z"
+                      },
+                      "failed_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time the payout failed.",
+                        "example": "2024-10-23T14:32:00Z"
+                      },
+                      "deleted_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of payout deletion.",
+                        "example": "2024-10-23T14:33:00Z"
+                      },
+                      "metadata": {
+                        "type": "object",
+                        "description": "Additional metadata related to the payout."
+                      },
+                      "custom_metadata": {
+                        "type": "object",
+                        "description": "Custom metadata associated with the payout."
+                      },
+                      "payment_method_id": {
+                        "type": "integer",
+                        "description": "Payment method ID used for the payout.",
+                        "example": 1
+                      },
+                      "transaction_key": {
+                        "type": "string",
+                        "description": "Unique key associated with the payout.",
+                        "example": "TRANSACTION-XYZ"
+                      },
+                      "merchant_reference": {
+                        "type": "string",
+                        "description": "Merchant reference provided for the payout.",
+                        "example": "MERCHANT-456"
+                      },
+                      "account_id": {
+                        "type": "integer",
+                        "description": "Account ID associated with the payout.",
+                        "example": 5
+                      },
+                      "balance_id": {
+                        "type": "integer",
+                        "description": "Balance ID associated with the payout.",
+                        "example": 10
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body."
+          },
+          "422": {
+            "description": "Validation error."
+          },
+          "404": {
+            "description": "Payout not found."
+          }
+        }
+      }
+    },
     "/transactions": {
       "post": {
         "summary": "Create a transaction",
