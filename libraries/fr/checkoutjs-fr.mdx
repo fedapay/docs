@@ -8,19 +8,37 @@ Checkout.js est un outil conçu pour faciliter l'intégration d'un formulaire de
 
 ***Avant de commencer, visionnez cette vidéo qui présente le mode d’intégration de Checkout.js*** :
 
-<iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/NswxFnyrzR8"
-  title="Intégrer un formulaire de paiement sur votre site avec Feda Checkout"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NswxFnyrzR8" title="Intégrer un formulaire de paiement sur votre site avec Feda Checkout" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
 
 ## Méthodes d'intégration de Checkout.js
 
 Checkout.js offre plusieurs options d'intégration pour répondre à différents besoins. Vous pouvez ajouter un bouton de paiement simple, plusieurs boutons de collecte, ou même intégrer le formulaire de paiement directement sur votre site pour éviter les redirections.
+
+<Tabs>
+  <Tab title="JavaScript">
+      <!--
+Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou live.
+-->
+    ```
+      <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Intégrer Feda Checkout à mon site</title>
+  <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+</head>
+<body>
+  <button id="pay-btn">Payer 100 FCFA</button>
+  <script type="text/javascript">
+      FedaPay.init('#pay-btn', { public_key: 'VOTRE_CLE_API_PUBLIQUE' });
+  </script>
+</body>
+</html>
+    ```
+  </Tab>
+</Tabs>
+
 
 <Steps>
   <Step title="Ajouter un bouton de paiement simple à votre page">
