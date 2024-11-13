@@ -391,6 +391,137 @@
         ]
       }
     },
+    "/transactions": {
+      "post": {
+        "summary": "Create a transaction",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "type": "string",
+                    "description": "Description of the transaction."
+                  },
+                  "amount": {
+                    "type": "integer",
+                    "description": "Amount of the transaction."
+                  },
+                  "currency": {
+                    "type": "object",
+                    "description": "Currency information.",
+                    "properties": {
+                      "iso": {
+                        "type": "string",
+                        "description": "The ISO code of the currency (e.g., XOF)."
+                      }
+                    }
+                  },
+                  "callback_url": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "URL to receive transaction updates."
+                  },
+                  "mode": {
+                    "type": "string",
+                    "description": "Transaction mode (e.g., 'mtn_open', 'moov')."
+                  },
+                  "metadata": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Additional metadata related to the transaction."
+                  },
+                  "customer_id": {
+                    "type": "integer",
+                    "description": "Customer ID associated with the transaction."
+                  },
+                  "fees": {
+                    "type": "integer",
+                    "description": "Transaction fees."
+                  }
+                },
+                "required": ["description", "amount", "currency"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Transaction created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Transaction ID."
+                    },
+                    "reference": {
+                      "type": "string",
+                      "description": "Transaction reference."
+                    },
+                    "amount": {
+                      "type": "integer",
+                      "description": "Transaction amount."
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "Transaction description."
+                    },
+                    "callback_url": {
+                      "type": "string",
+                      "description": "Transaction callback URL."
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Transaction status (e.g., 'pending', 'approved', 'canceled')."
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of transaction creation."
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time of last transaction update."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body."
+          },
+          "422": {
+            "description": "Validation error."
+          },
+          "401": {
+            "description": "Unauthorized. Provide a valid secret key."
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const { FedaPay, Transaction } = require('fedapay');\nFedaPay.setApiKey('YOUR_SECRETE_API_KEY');\nFedaPay.setEnvironment('sandbox');\nconst transaction = await Transaction.create({\n  description: 'Payment for order #1234',\n  amount: 1000,\n  currency: { iso: 'XOF' },\n  callback_url: 'https://example.com/callback',\n  mode: 'mtn_open',\n  customer_id: 1\n});"
+          },
+          {
+            "lang": "PHP",
+            "source": "\\FedaPay\\Fedapay::setApiKey('YOUR_API_KEY');\n\\FedaPay\\Fedapay::setEnvironment('sandbox');\n$transaction = \\FedaPay\\Transaction::create([\n  'description' => 'Payment for order #1234',\n  'amount' => 1000,\n  'currency' => ['iso' => 'XOF'],\n  'callback_url' => 'https://example.com/callback',\n  'mode' => 'mtn_open',\n  'customer_id' => 1\n]);"
+          }
+        ]
+      }
+    },
     "/transactions/search": {
       "get": {
         "summary": "Search your transactions",
