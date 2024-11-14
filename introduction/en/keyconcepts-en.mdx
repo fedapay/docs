@@ -1,49 +1,49 @@
 ---
-title: 'Key Concepts'
+title: 'Concepts clés'
 ---
 
-### API Key
+### Clé API
 
-**The API key** is like a secret password that allows your website or application to communicate securely with FedaPay. When you create a FedaPay account, you receive a set of keys: a private key and a public key.
+**La clé API** est comme un mot de passe secret qui permet à votre site web ou application de communiquer de manière sécurisée avec FedaPay. Lorsque vous créez un compte FedaPay, vous obtenez un jeu de clés : une clé privée et une clé publique.
 
-  - **Private Key**: This key must be kept strictly confidential and is used to authenticate all sensitive actions, such as transactions and fund management on your account. The private key is essential for direct integration of FedaPay into your systems, ensuring secure communication.
+* **Clé privée** : Elle doit être strictement confidentielle et est utilisée pour authentifier toutes les actions sensibles, comme les transactions et la gestion des fonds sur votre compte. La clé privée est essentielle pour l'intégration directe de FedaPay dans vos systèmes, garantissant une communication sécurisée.
 
-  - **Public Key**: This key is used for less critical actions, such as displaying information or initiating payments. For example, it allows you to integrate ready-made solutions.
-  
-These two keys enable your system to communicate securely and reliably with FedaPay.
+* **Clé publique** : Elle est utilisée pour des actions moins critiques, comme afficher des informations ou initier des paiements. Cette clé permet, par exemple, d'intégrer des solutions prêtes à l'emploi .
 
-### Customer
+Ces deux clés permettent à votre système de communiquer avec FedaPay de manière sécurisée et fiable.
 
-**A customer** is an individual or business that pays you for a product or service you offer. With FedaPay, you have the ability to track and manage your customers' information, including their names, email addresses, phone numbers, and transaction history.
+### Client
 
-### Payment
+**Un client** est une personne ou une entreprise qui vous paie pour un produit ou un service que vous proposez. Avec FedaPay, vous avez la possibilité de suivre et de gérer les informations de vos clients, notamment leurs noms, adresses e-mail, numéros de téléphone, et l'historique de leurs transactions.
 
-**A payment** is the act of transferring funds from a customer to the merchant in exchange for a good or service. This can be done through various means, such as credit card or mobile money. From the merchant’s perspective, a payment is the receipt of funds that completes a transaction, ensuring the purchase is settled.
+### Paiement
+
+**Un paiement** est l'acte par lequel un client transfère des fonds au commerçant en échange d'un bien ou d'un service. Cela peut se faire par différents moyens, tels que la carte de crédit, le mobile money. Du point de vue du marchand, un paiement est la réception de fonds qui conclut une transaction, garantissant ainsi le règlement de l'achat.
 
 ### Transaction
 
-**A transaction** refers specifically to a financial exchange between a customer and a merchant, often represented by a payment. Each time a customer pays for a product or service, a transaction is recorded.
+**Une transaction** désigne spécifiquement un échange financier entre un client et un commerçant, souvent matérialisé par un paiement. Chaque fois qu'un client paie pour un produit ou service, une transaction est enregistrée.
 
 ### Webhooks
 
-**Webhooks** are automated notifications that FedaPay sends to your website to inform you that an action, such as a successful payment or a refund, has occurred. It is important to note that the events your system must "listen" to are predefined by the merchant. This means the merchant decides which actions trigger notifications. Webhooks allow your system to automatically respond to events, simplifying transaction management.
+**Les Webhooks** sont des notifications automatiques que FedaPay envoie à votre site web pour vous informer qu'une action, comme un paiement réussi ou un remboursement, a eu lieu. Il est important de noter que les événements que votre système doit "écouter" sont choisis préalablement par le marchand. Cela signifie que le marchand détermine quelles actions déclenchent des notifications. Les Webhooks permettent à votre système de réagir automatiquement aux événements, simplifiant ainsi la gestion des transactions.
 
-### Payout
+### Dépôt
 
-**A payout** is a transfer made from the merchant's FedaPay account to the customer's mobile money account. This allows the merchant to transfer available funds directly to a customer, facilitating payments or refunds in a simple and secure manner.
+**Un dépôt** C'est un versement effectué depuis le compte FedaPay du marchand vers le compte mobile money du client. Cela permet au marchand de transférer des fonds disponibles sur son compte FedaPay directement vers un client, facilitant ainsi les paiements ou remboursements de manière simple et sécurisée.
 
-### Collect
+### Collecte
 
-**A collect** refers to the entire process of receiving money, typically in the context of a sale or service. A collect involves tracking the payments you are expecting from your customers.
+**Une collecte** fait référence à l'ensemble du processus de réception d'argent, généralement dans le cadre d'une vente ou d'un service. Une collecte implique le suivi des paiements que vous attendez de vos clients.
 
-### Dashboard
+### Tableau de bord (Dashboard)
 
-**The dashboard** is the online interface where you can manage all your transactions, view your payments, and much more. It is your control center for everything related to FedaPay.
+**Le tableau de bord** est l'interface en ligne où vous pouvez gérer toutes vos transactions, visualiser vos paiements et bien plus encore. C’est votre centre de contrôle pour tout ce qui concerne FedaPay.
 
-### Library
+### Librairie
 
-**A library** is a set of tools that simplifies the integration of FedaPay into your website or application. By using a FedaPay library for languages like PHP or JavaScript, you can easily manage payments without having to code everything from scratch.
+**Une librairie** est un ensemble d'outils qui simplifie l'intégration de FedaPay à votre site web ou application. En utilisant une librairie FedaPay pour des langages comme PHP ou JavaScript, vous pouvez gérer facilement les paiements sans avoir à tout programmer de zéro.
 
-### API Response
+### Réponse API
 
-This is the message that FedaPay sends back to you after you make a request via the API (e.g., to create a transaction). It informs you whether the operation was successful or not and provides details such as the payment status.
+C'est le message que FedaPay vous renvoie après que vous ayez fait une demande via l'API (par exemple, pour créer une transaction). Il vous informe si l'opération a réussi ou non, et fournit des détails comme l’état du paiement.
