@@ -46,9 +46,9 @@ Vous devez inclure votre clé API dans l'en-tête HTTP de chaque requête. Selon
 
 Authorization: Bearer VOTRE\_CLÉ\_API
 
-### Mode Test vs Mode Live
+## Mode Test vs Mode Live
 
-#### Mode Test
+### Mode Test
 
 Avant de passer en mode Live, il est recommandé de tester votre intégration en mode test. Ce mode vous permet de simuler différentes opérations de paiement sans effectuer de transactions réelles. Vous devez créer un compte test, et utiliser les clés API test pour adresser vos requêtes à l'environnement de test.
 
@@ -56,10 +56,11 @@ Avant de passer en mode Live, il est recommandé de tester votre intégration en
 
 * **Transactions de test** : Simulez des transactions avec des cartes et des numéros de téléphone fictifs pour voir comment votre système réagit.
 
-#### Mode Live
-   Une fois que vous avez validé vos tests, vous pouvez passer en production en utilisant vos clés API live. Ce mode permet de réaliser des transactions réelles avec vos clients.
+### Mode Live
 
-### Numéros de test pour les cartes et le mobile money
+Une fois que vous avez validé vos tests, vous pouvez passer en production en utilisant vos clés API live. Ce mode permet de réaliser des transactions réelles avec vos clients.
+
+## Numéros de test pour les cartes et le mobile money
 
 Pour tester votre intégration, FedaPay vous fournit des numéros de carte et des numéros de téléphone pour simuler des paiements réussis ou échoués. **Vous devez utiliser ces numéros en mode test uniquement**.
 
@@ -81,19 +82,19 @@ Pour tester votre intégration, FedaPay vous fournit des numéros de carte et de
   </Tab>
 </Tabs>
 
-### Réponses de l'API
+## Réponses de l'API
 
 Chaque requête que vous envoyez à l'API FedaPay reçoit une réponse, que vous soyez en mode test ou live. Ces réponses sont formatées en JSON et contiennent des informations importantes sur le résultat de votre requête.
 
-#### Réponse réussie (200)
+### Réponse réussie (200)
 
 Une réponse réussie est généralement un code HTTP 200. Elle inclut les détails de la ressource créée ou consultée.
 
-#### Réponse en cas d'erreur
+### Réponse en cas d'erreur
 
 Si une erreur survient (mauvaise clé API, requête mal formée, etc.), l'API renvoie un code d’erreur spécifique (par exemple, 400, 401, 404, 500).
 
-### Gestion des erreurs
+## Gestion des erreurs
 
 Pour une gestion optimale de vos transactions, voici quelques pratiques recommandées en cas d’erreurs :
 
