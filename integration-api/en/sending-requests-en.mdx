@@ -1,12 +1,12 @@
 ---
-title: 'Envoi de requêtes'
+title: 'Sending requests'
 ---
 
-L'intégration de la solution de paiement de FedaPay repose sur l'envoi de requêtes HTTPS à ses serveurs. Pour vous assurer que votre plateforme fonctionne correctement en mode test comme en production, il est essentiel de comprendre comment ces requêtes doivent être structurées et à quelles réponses vous pouvez attendre.
+The integration of FedaPay's payment solution relies on sending HTTPS requests to its servers. To ensure that your platform functions correctly in both test and production mode, it's essential to understand how these requests should be structured, and what responses you can expect.
 
-## Structure des requêtes HTTPS
+## HTTPS request structure
 
-Lorsque vous interagissez avec l'API de FedaPay, vos requêtes HTTPS doivent suivre une structure spécifique pour être traitées correctement. FedaPay fournit deux environnements : un environnement de test et un environnement live. Chaque environnement a son propre ensemble de clés API (test et live), et chaque clé API doit être utilisée en fonction de l'environnement dans lequel vous opérez.
+When you interact with the FedaPay API, your HTTPS requests must follow a specific structure to be processed correctly. FedaPay provides two environments: a test environment and a live environment. Each environment has its own set of API keys (test and live), and each API key must be used according to the environment in which you are operating.
 
 ### Méthodes HTTPS supportées
 
