@@ -8,7 +8,7 @@ The integration of FedaPay's payment solution relies on sending HTTPS requests t
 
 When you interact with the FedaPay API, your HTTPS requests must follow a specific structure to be processed correctly. FedaPay provides two environments: a test environment and a live environment. Each environment has its own set of API keys (test and live), and each API key must be used according to the environment in which you are operating.
 
-####  HTTPS methods supported
+### HTTPS methods supported
 
 The FedaPay API supports several HTTP methods, the main ones being :
 
@@ -20,7 +20,7 @@ The FedaPay API supports several HTTP methods, the main ones being :
 
 * **DELETE** : Used to delete an existing resource (e.g. cancel a transaction).
 
-####  URL des serveurs
+### URL des serveurs
 
 <Tabs>
   <Tab title="Serveur de test">
@@ -40,15 +40,15 @@ The FedaPay API supports several HTTP methods, the main ones being :
   </Tab>
 </Tabs>
 
-#### Authentification
+### Authentification
 
 Vous devez inclure votre clé API dans l'en-tête HTTP de chaque requête. Selon que vous êtes en mode test ou live, vous utiliserez l'une des deux clés :
 
 Authorization: Bearer VOTRE\_CLÉ\_API
 
-#### Mode Test vs Mode Live
+### Mode Test vs Mode Live
 
-1. Mode Test
+#### Mode Test
 
 Avant de passer en mode Live, il est recommandé de tester votre intégration en mode test. Ce mode vous permet de simuler différentes opérations de paiement sans effectuer de transactions réelles. Vous devez créer un compte test, et utiliser les clés API test pour adresser vos requêtes à l'environnement de test.
 
@@ -56,10 +56,10 @@ Avant de passer en mode Live, il est recommandé de tester votre intégration en
 
 * **Transactions de test** : Simulez des transactions avec des cartes et des numéros de téléphone fictifs pour voir comment votre système réagit.
 
-1. Mode Live
+#### Mode Live
    Une fois que vous avez validé vos tests, vous pouvez passer en production en utilisant vos clés API live. Ce mode permet de réaliser des transactions réelles avec vos clients.
 
-## Numéros de test pour les cartes et le mobile money
+### Numéros de test pour les cartes et le mobile money
 
 Pour tester votre intégration, FedaPay vous fournit des numéros de carte et des numéros de téléphone pour simuler des paiements réussis ou échoués. **Vous devez utiliser ces numéros en mode test uniquement**.
 
