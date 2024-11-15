@@ -40,25 +40,25 @@ The FedaPay API supports several HTTP methods, the main ones being :
   </Tab>
 </Tabs>
 
-### Authentification
+### Authentication
 
-Vous devez inclure votre clé API dans l'en-tête HTTP de chaque requête. Selon que vous êtes en mode test ou live, vous utiliserez l'une des deux clés :
+You must include your API key in the HTTP header of each request. Depending on whether you're in test or live mode, you'll use one of two keys:
 
-Authorization: Bearer VOTRE\_CLÉ\_API
+Authorization: Bearer VOTRE_CLÉ_API
 
-## Mode Test vs Mode Live
+## Test Mode vs Live Mode
 
-### Mode Test
+### Test mode 
 
-Avant de passer en mode Live, il est recommandé de tester votre intégration en mode test. Ce mode vous permet de simuler différentes opérations de paiement sans effectuer de transactions réelles. Vous devez créer un compte test, et utiliser les clés API test pour adresser vos requêtes à l'environnement de test.
+Before switching to Live mode, we recommend that you test your integration in test mode. This mode allows you to simulate various payment operations without carrying out any real transactions. You need to create a test account, and use the test API keys to address your requests to the test environment.
 
-* **Clés API Test** : Ces clés ne peuvent être utilisées que sur le serveur de test.
+* **Test API keys**: These keys can only be used on the test server.
 
-* **Transactions de test** : Simulez des transactions avec des cartes et des numéros de téléphone fictifs pour voir comment votre système réagit.
+* **Test transactions**: Simulate transactions with fictitious cards and phone numbers to see how your system reacts.
 
-### Mode Live
+### Live mode 
 
-Une fois que vous avez validé vos tests, vous pouvez passer en production en utilisant vos clés API live. Ce mode permet de réaliser des transactions réelles avec vos clients.
+Once you've validated your tests, you can go live with your API keys. This mode enables you to carry out real transactions with your customers.
 
 ## Numéros de test pour les cartes et le mobile money
 
