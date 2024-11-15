@@ -8,19 +8,19 @@ The integration of FedaPay's payment solution relies on sending HTTPS requests t
 
 When you interact with the FedaPay API, your HTTPS requests must follow a specific structure to be processed correctly. FedaPay provides two environments: a test environment and a live environment. Each environment has its own set of API keys (test and live), and each API key must be used according to the environment in which you are operating.
 
-### Méthodes HTTPS supportées
+#### HTTPS methods supported
 
-L'API FedaPay supporte plusieurs méthodes HTTP, dont les principales sont :
+The FedaPay API supports several HTTP methods, the main ones being :
 
-* **POST** : Pour envoyer des données et créer de nouvelles ressources (par exemple, une nouvelle transaction).
+* **POST** : To send data and create new resources (e.g. a new transaction).
 
-* **GET** : Pour récupérer des informations ou des ressources existantes (par exemple, les détails d’une transaction).
+* **GET** : To retrieve existing information or resources (e.g. transaction details).
 
-* **PUT** : Utilisé pour mettre à jour une ressource existante avec de nouvelles informations (par exemple, mettre à jour les détails d'une transaction).
+* **PUT** :  Used to update an existing resource with new information (for example, to update transaction details).
 
-* **DELETE** : Utilisé pour supprimer une ressource existante (par exemple, annuler une transaction).
+* **DELETE** : Used to delete an existing resource (e.g. cancel a transaction).
 
-### URL des serveurs
+#### URL des serveurs
 
 <Tabs>
   <Tab title="Serveur de test">
