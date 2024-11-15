@@ -74,32 +74,32 @@ Authenticating requests with the FedaPay API is a crucial step to ensure the sec
 
 Each FedaPay account has two sets of API keys for different environments:
 
-1. **Clés de test** : Utilisées dans les environnements de développement pour simuler des transactions sans répercussions financières. Elles vous permettent de vérifier que votre intégration fonctionne correctement.
+1. **Test Keys**: Used in development environments to simulate transactions without financial impact. They allow you to verify that your integration works properly.
 
-2. **Clés en live** : Utilisées dans l'environnement de production pour gérer les transactions réelles.
+2. **Live Keys**: Used in production environments to handle real transactions.
 
-Il est essentiel de ne pas mélanger ces deux modes de clés (clés de test et clés en live). Les objets (comme les collectes et les clients) créés en mode test ne peuvent pas être manipulés en mode live, et vice-versa.
+It’s important not to mix these keys; objects (like transactions and customers) created in Test Mode cannot be accessed or manipulated in Live Mode, and vice versa.
 
-En outre, il existe deux types de clés API dans chaque mode :
+Additionally, there are two types of API keys in each mode:
 
-* **Clé publique** : Utilisée pour identifier votre compte FedaPay dans des environnements front-end (comme les applications mobiles ou les interfaces JavaScript). Elle ne donne pas accès à des actions critiques, mais permet de créer des tokens.
+* **Public Key**: Used to identify your FedaPay account in front-end environments (such as mobile applications or JavaScript interfaces). It doesn’t grant access to critical actions but enables token creation.
 
-* **Clé secrète** : Doit rester confidentielle. Cette clé donne accès à toutes les fonctionnalités de l'API et permet d'exécuter des actions sensibles comme la création de transactions ou l'émission de remboursements. Assurez-vous de ne jamais exposer cette clé dans des environnements publics.
+* **Secret Key**: Must remain confidential. This key provides access to all API functions and allows sensitive actions like creating transactions or issuing refunds. Ensure that this key is never exposed in public environments.
 
-#### Obtenir vos Clés API
+#### Obtaining Your API Keys
 
-Vos clés API sont accessibles depuis votre tableau de bord FedaPay :
+You can access your API keys from your FedaPay dashboard:
 
-* Pour les tests, utilisez uniquement les **clés de test**. Cela permet de sécuriser vos clients réels en évitant toute modification accidentelle de leurs données pendant vos phases de développement.
+* For testing, use only the **Test Keys** to protect your real customers’ data during development.
 
-* En production, passez aux **clés en live** une fois votre intégration validée.
+* In production, switch to **Live Keys** once your integration is validated.
 
-#### Sécurisation des Clés API
+#### Securing API Keys
 
-La sécurité des clés API est primordiale pour protéger vos transactions et les informations de vos clients. Voici quelques bonnes pratiques à suivre :
+The security of your API keys is paramount for protecting your transactions and customer information. Here are some best practices to follow:
 
-* **Confidentialité des clés secrètes** : Ne partagez jamais vos clés secrètes et limitez leur accès uniquement aux systèmes et aux utilisateurs qui en ont besoin.
+* **Keep Secret Keys Confidential**: Never share your secret keys and limit their access only to the systems and users that need them.
 
-* **Stockage sécurisé** : Assurez-vous que vos clés API ne sont jamais incluses dans des systèmes de contrôle de version (comme Git), ou dans des fichiers qui pourraient être accessibles publiquement.
+* **Secure Storage**: Ensure that your API keys are never included in version control systems (such as Git) or in files that could be publicly accessible.
 
-* **Régénération des clés** : Si vous soupçonnez qu'une de vos clés API a été compromise, régénérez-la immédiatement depuis le tableau de bord FedaPay. La clé compromise sera rendue inutilisable, et une nouvelle sera générée.
+* **Key Rotation**: If you suspect an API key has been compromised, immediately regenerate it from the FedaPay dashboard. The compromised key will be disabled, and a new one will be issued.
