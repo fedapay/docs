@@ -1,30 +1,30 @@
 ---
-title: 'Gestion des Clients'
+title: 'Customer Management'
 ---
 
-La **gestion des clients** est une étape essentielle pour effectuer des transactions via la plateforme FedaPay. Chaque transaction est liée à un client, c’est pourquoi vous devez enregistrer et gérer vos clients dans le système avant de pouvoir initier une transaction.
+**Managing customers** is an essential step when conducting transactions via the FedaPay platform. Each transaction is linked to a customer, so you must register and manage your customers in the system before initiating any transactions.
 
-## Création des clients
+## Creating Customers
 
-La création d’un client dans FedaPay se fait via une requête API qui permet d'ajouter les informations nécessaires sur votre client. Ces données sont utilisées lors des transactions pour identifier clairement l'utilisateur.
+Creating a customer in FedaPay is done via an API request, allowing you to add the necessary information about your customer. This data is used during transactions to clearly identify the user.
 
-### Paramètres nécessaires
+### Required Parameters
 
-Lors de la création d’un client, vous devez fournir les informations suivantes :
+ When creating a customer, you need to provide the following information:
 
-* **Prénom (firstname)** : le prénom du client.
+* **First Name (firstname)**: The customer’s first name.
 
-* **Nom (lastname)** : le nom de famille du client.
+* **Last Name (lastname)**: The customer’s last name.
 
-* **Email (email)** : l’adresse email du client, qui servira pour toute communication et confirmation.
+* **Email (email)**: The customer's email address, which will be used for all communications and confirmations.
 
-* **Numéro de téléphone (phone\_number)** : facultatif, mais utile pour des transactions avec certains services (doit inclure l’indicatif du pays, ex. +229 pour le Bénin).
+* **Phone Number (phone_number)**: Optional, but helpful for certain transactions (must include the country code, e.g., +229 for Benin).
 
-Ces informations sont obligatoires à l'exception du numéro de téléphone, mais il est conseillé de les fournir pour améliorer le suivi des interactions avec le client et les paiements.
+These details, except for the phone number, are mandatory. However, it is recommended to provide all information to enhance the tracking of customer interactions and payments.
 
-### Exemple de requête API pour la création d’un client
+### Example API Request for Creating a Customer
 
-Vous pouvez ajouter un nouveau client en envoyant une requête à l’API FedaPay. Voici des exemples dans différents langages de programmation :
+To add a new customer, send a request to the FedaPay API. Below are examples in various programming languages:
 
 <CodeGroup>
   ```javascript Node
@@ -81,7 +81,7 @@ Vous pouvez ajouter un nouveau client en envoyant une requête à l’API FedaPa
 </CodeGroup>
 
 <Tip>
-  ### Points importants
+  ### Important Points
 
   * Assurez-vous de remplacer **VOTRE\_CLE\_API\_SECRETE** par votre clé API secrète.
 
