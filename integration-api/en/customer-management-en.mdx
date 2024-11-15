@@ -88,15 +88,15 @@ To add a new customer, send a request to the FedaPay API. Below are examples in 
   * The API endpoint may vary depending on the environment. Use **https://api.fedapay.com/v1/customers** for the live environment.
 </Tip>
 
-## Suivi des transactions des clients
+## Tracking Customer Transactions
 
-Une fois vos clients créés, il est possible de contrôler leurs informations et d’effectuer des modifications ou des suppressions en fonction des besoins.
+Once your customers are created, you can monitor their information and make updates or deletions as needed.
 
-### Récupérer la liste des clients
+### Retrieve the List of Customers
 
-Vous pouvez obtenir la liste complète des clients enregistrés sur votre compte FedaPay en envoyant une simple requête à l’API. Cela permet d’avoir un aperçu de tous les clients disponibles, de consulter leurs détails et de suivre leurs transactions.
+To get a complete list of customers registered on your FedaPay account, send a simple request to the API. This allows you to view all available customers, review their details, and track their transactions.
 
-#### Exemple de requête pour récupérer les clients
+**Exemple de requête pour récupérer les clients**
 
 <CodeGroup>
   ```javascript Node
@@ -132,7 +132,7 @@ Vous pouvez obtenir la liste complète des clients enregistrés sur votre compte
 
 Il peut arriver que vous ayez besoin de mettre à jour les informations d’un client (par exemple, une adresse email ou un numéro de téléphone incorrect). Pour ce faire, vous devez fournir l'identifiant du client et les nouvelles informations.
 
-#### Exemple de mise à jour
+**Exemple de mise à jour**
 
 <CodeGroup>
   ```javascript Node
