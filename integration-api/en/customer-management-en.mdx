@@ -10,7 +10,7 @@ Creating a customer in FedaPay is done via an API request, allowing you to add t
 
 ### Required Parameters
 
- When creating a customer, you need to provide the following information:
+When creating a customer, you need to provide the following information:
 
 * **First Name (firstname)**: The customer’s first name.
 
@@ -18,11 +18,11 @@ Creating a customer in FedaPay is done via an API request, allowing you to add t
 
 * **Email (email)**: The customer's email address, which will be used for all communications and confirmations.
 
-* **Phone Number (phone_number)**: Optional, but helpful for certain transactions (must include the country code, e.g., +229 for Benin).
+* **Phone Number (phone\_number)**: Optional, but helpful for certain transactions (must include the country code, e.g., +229 for Benin).
 
 These details, except for the phone number, are mandatory. However, it is recommended to provide all information to enhance the tracking of customer interactions and payments.
 
-### Example API Request for Creating a Customer
+**Example API Request for Creating a Customer**
 
 To add a new customer, send a request to the FedaPay API. Below are examples in various programming languages:
 
@@ -83,7 +83,7 @@ To add a new customer, send a request to the FedaPay API. Below are examples in 
 <Tip>
   ### Important Points
 
-  * Be sure to replace **YOUR_SECRET_API_KEY** with your actual secret API key.
+  * Be sure to replace **YOUR\_SECRET\_API\_KEY** with your actual secret API key.
 
   * The API endpoint may vary depending on the environment. Use **https://api.fedapay.com/v1/customers** for the live environment.
 </Tip>
