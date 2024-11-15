@@ -1,44 +1,48 @@
 ---
-title: 'Collects and Payouts Management'
+title: 'Gestion des Collectes et Dépôts'
 ---
 
-## Collects Management
+## Gestion des Collectes
 
-The FedaPay API makes it easy to integrate secure payment solutions into your website or application. This guide will explain in detail how to set up and manage the collection of payments using the API, from the initial creation to the finalization process, including advanced features like no-redirect payments. Whether you are a developer or a product manager, you will find everything you need to use FedaPay effectively.
+L'API de FedaPay permet d’intégrer facilement des solutions de paiement sécurisées dans votre site web ou application. Ce guide vous expliquera en détail comment configurer et gérer la collecte de paiements à l’aide de l’API, de la création initiale à la finalisation du processus, en passant par les fonctionnalités avancées comme les paiements sans redirection. Que vous soyez développeur ou responsable de produits, vous trouverez ici tout le nécessaire pour utiliser FedaPay de manière optimale.
 
-### Steps to Create and Manage a Payment Collect
+### Étapes pour Créer et Gérer une Collecte de Paiement
 
-The configuration steps of a payment collect are divided into several essential processes.
+Les étapes de configuration d’une collecte se divisent en plusieurs processus essentiels.
 
 <Steps>
-  <Step title=" Initialization of the Collect: Creating a Request">
-    The first step is to send a request to create a collect via the API. This request requires certain mandatory parameters:
+  <Step title=" Initialisation de la Collecte : Création d'une Requête">
+    La première étape consiste à envoyer une requête de création de collecte via l’API. Cette requête nécessite certains paramètres obligatoires :
 
-    * **description**: a brief description of the purpose of the collect
-    * **amount**: the amount, always as an integer
-    * **currency**: the currency, indicated by its number or ISO code (refer to the FedaPay Currency Table for details)
-    * **callback\_url**: an optional return link to redirect the client after payment
-    * **customer**: the client related to the collect
+    * **description** : une brève description de l’objet de la collecte
 
-    If the client is not yet registered in your system, you can simultaneously create their profile by adding details such as first name, last name, email, and phone number.
+    * **amount** : le montant, toujours en nombre entier
+
+    * **currency** : la devise, indiquée par son numéro ou code ISO (référez-vous au Tableau des Devises FedaPay pour les détails)
+
+    * **callback\_url** : un lien de retour facultatif pour rediriger le client après le paiement
+
+    * **customer** : le client concerné par la collecte
+
+    Si le client n’est pas encore enregistré dans votre système, vous pouvez créer simultanément son profil en ajoutant des informations comme le nom, prénom, email, et numéro de téléphone.
 
     <Info>
-      [Example request to create a collect](/api-reference/transactions/create)
+      [Exemple de requête pour créer une collecte](/api-reference/transactions/create)
 
-      Replace **YOUR\_SECRET\_API\_KEY** with your API key and use the appropriate server URL (**sandbox** or **live**).
+      Remplacez **VOTRE\_CLE\_API\_SECRETE** par votre clé API et utilisez l’URL du serveur approprié (**sandbox** ou **live**).
 
-      If the client is already registered, simply use their ID or email to associate them with the collect.
+      Si le client est déjà enregistré, utilisez simplement son ID ou email pour l’associer à la collecte.
     </Info>
   </Step>
 
-  <Step title="Generating the Token and Payment Link">
-    Once the request is sent, the API returns a unique identifier for the collect. Use this identifier to request a payment link and token to redirect the client to the secure payment page.
+  <Step title="Génération du Token et du Lien de Paiement">
+    Une fois la requête envoyée, l'API renvoie un identifiant unique pour la collecte. Utilisez cet identifiant pour demander un lien et un token de paiement pour rediriger le client vers la page de paiement sécurisée.
 
     <CodeGroup>
       ```java cURL
       curl -X POST \
       https://sandbox-api.fedapay.com/v1/transactions/ID/token \
-      -H 'Authorization: Bearer YOUR_SECRET_API_KEY' \
+      -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
       -H 'Content-Type: application/json'
       ```
 
@@ -55,130 +59,145 @@ The configuration steps of a payment collect are divided into several essential 
       ```
     </CodeGroup>
 
-    The generated link can be used to redirect users to the FedaPay payment page.
+    Le lien ainsi généré peut être utilisé pour rediriger les utilisateurs vers la page de paiement de FedaPay.
   </Step>
 
-  <Step title="Redirecting to the Payment Page">
-    This link redirects your client to a secure payment page, where they can finalize the collect. If you specified a **callback\_url**, your client will be automatically redirected after the payment.
+  <Step title="Redirection vers la Page de Paiement">
+    Ce lien redirige votre client vers une page de paiement sécurisée, où il pourra finaliser la collecte. Si vous avez spécifié un **callback\_url**, votre client sera redirigé automatiquement à l’issue du paiement.
   </Step>
 
-  <Step title="Using the Return Link (Callback URL)">
-    The **callback\_url** allows you to redirect the client to a specific page at the end of the payment, with the status and collect ID as parameters. For example:
+  <Step title="Utilisation du Lien de Retour (Callback URL)">
+    Le **callback\_url** permet de rediriger le client vers une page spécifique à la fin du paiement, avec le statut et l'ID de la collecte en paramètres. Par exemple :
 
-    * **Payment approved**: `https://www.mysite.com/?id=258&status=approved`
-    * **Payment canceled**: `https://www.mysite.com/?id=259&status=canceled`
+    * **Paiement approuvé** : `https://www.monsite.com/?id=258&status=approved`
+
+    * **Paiement annulé** : `https://www.monsite.com/?id=259&status=canceled`
 
     <Warning>
-      **Warning**: For security reasons, do not rely on the status returned by the URL.
-      Always verify the real status directly from the API.
+      **Attention** : Pour des raisons de sécurité, ne vous fiez pas au statut renvoyé par l'URL.
+      Effectuez toujours une vérification directe auprès de l’API pour obtenir le statut réel.
     </Warning>
   </Step>
 
-  <Step title=" Retrieving the Details of a Collect">
-    To retrieve the complete information of a collect, make a request using the collect's ID.
+  <Step title=" Récupération des Détails d’une Collecte">
+    Pour récupérer les informations complètes d’une collecte, effectuez une requête avec l'ID de cette collecte.
 
-    <Info>[Example request to retrieve the details of a collect](/api-reference/transactions/get-by-id)</Info>
+    <Info>[Exemple de requête pour récupérer les détails d’une collecte](/api-reference/transactions/get-by-id)</Info>
   </Step>
 </Steps>
 
-### No-Redirect Payments
+### Paiements sans Redirection
 
-To offer a smooth experience without redirection, you can integrate the payment form directly into your application for specific methods (MTN Benin, Moov Benin, Moov Togo, and MTN Côte d'Ivoire). This mode can be useful for e-commerce sites wishing to keep the user on their platform throughout the process.
+Pour offrir une expérience fluide sans redirection, vous pouvez intégrer le formulaire de paiement directement dans votre application pour certaines méthodes spécifiques (MTN Bénin, Moov Bénin, Moov Togo, et MTN Côte d'Ivoire). Ce mode peut s’avérer utile pour des sites e-commerce souhaitant garder l’utilisateur sur leur plateforme tout au long du processus.
 
-**Sending a mobile payment without redirection**:
+**Envoi d’un paiement mobile sans redirection** :
 
-1. **Create a collect** as described above, then generate the token.
-2. [Use one of the specific methods](/payment-methods/en/payment-methods-en) to process the payment.
+1. **Créer une collecte** comme décrit précédemment, puis générer le token.
+
+2. [Utilisez une des méthodes spécifiques suivantes](/payment-methods/fr/payment-methods-fr) pour traiter le paiement
 
 <Note>
-  **Note**: The no-redirect payment does not support all operators. For other payment methods like Orange and bank cards, prefer the redirect mode.
+  **Remarque** : Le paiement sans redirection ne prend pas en charge tous les opérateurs. Pour les autres moyens de paiement comme Orange et les cartes bancaires, préférez le mode de redirection.
 </Note>
 
-### Automatically Checking the Status of a Collect
+### Récupération Automatique du Statut d’une Collecte
 
-To check the final status of a collect, especially during a no-redirect payment:
+Pour vérifier le statut final d’une collecte, surtout lors d’un paiement sans redirection :
 
-* Send a request to get the collect details.
-* **Implement a webhook** to receive automatic notifications. [Refer to the Webhooks section for more details](/integration-api/en/webhooks-en).
+* Envoyez une requête pour obtenir les détails de la collecte.
 
-### Collect Lifecycle: Statuses
+* **Implémentez un webhook** pour recevoir des notifications automatiques. [Consultez la section Webhooks pour plus de détails](/integration-api/fr/webhooks-fr).
 
-Each collect goes through different statuses:
+### Cycle de Vie d’une Collecte : Les Statuts
 
-* **pending**: Waiting (default status at creation)
-* **approved**: Approved (successful payment)
-* **declined**: Declined (insufficient balance or other payment issues)
-* **canceled**: Canceled (voluntary or accidental interruption by the client)
-* **refunded**: Refunded (amount returned to the client)
-* **transferred**: Transferred (amount transferred to the merchant's account)
+Chaque collecte passe par différents statuts :
 
-<Note>To check the real-time status, visit the FedaPay dashboard under the Collects section or use the API to verify with the collect ID.</Note>
+* **pending** : En attente (statut par défaut à la création)
 
-## Payouts Management
+* **approved** : Approuvée (paiement réussi)
 
-A payout is an operation that allows you to transfer money directly from your balance to a client's account. This feature is designed for businesses that need to manage payments to specific clients.
+* **declined** : Déclinée (solde insuffisant ou autre problème de paiement)
 
-### Steps to Create a Payout
+* **canceled** : Annulée (interruption volontaire ou accidentelle par le client)
 
-Creating a payout via the API involves several steps. Each payout goes through different processes that must be followed to ensure the smooth execution of the transfer.
+* **refunded** : Remboursée (somme reversée au client)
+
+* **transferred** : Transférée (montant transféré sur le compte marchand)
+
+<Note>Pour consulter le statut en temps réel, rendez-vous dans le tableau de bord FedaPay sous la section Collectes ou utilisez l’API pour vérifier avec l'ID de la collecte.</Note>
+
+## Gestion des dépôts
+
+Un dépôt est une opération qui permet de transférer de l'argent directement à partir de votre balance vers le compte d'un client. Cette fonctionnalité est conçue pour les entreprises qui ont besoin de gérer des paiements vers des clients spécifiques.
+
+### Étapes pour la Création d’un Dépôt
+
+La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque dépôt passe par différents processus qui doivent être respectés pour garantir le bon déroulement du transfert.
 
 <Steps>
-  <Step title="Requesting a Payout Creation">
-    To start, you need to send a payout creation request via our API. The essential information to provide includes:
+  <Step title="Requête de Création d'un Dépôt">
+    Pour commencer, vous devez envoyer une requête de création de dépôt via notre API. Les informations essentielles à fournir lors de cette requête incluent :
 
-    * amount: The payout amount, always specified as an integer.
-    * currency: The currency to be used for the payout. You can specify the ISO code of the chosen currency (e.g., XOF for CFA Franc).
-    * customer: The client related to the payout. If the client does not yet exist in your database, you can create them simultaneously by providing their first name, last name, email, and phone number.
+    * amount : Le montant du dépôt, toujours indiqué en nombre entier.
+
+    * currency : La devise à utiliser pour le dépôt. Vous pouvez indiquer le code ISO de la devise choisie (par exemple, XOF pour le franc CFA).
+
+    * customer : Le client concerné par le dépôt. Si le client n'existe pas encore dans votre base de données, vous pouvez le créer en même temps que le dépôt en fournissant les informations suivantes : nom, prénom, adresse e-mail, et numéro de téléphone.
 
     <Info>
-      [API Code for creating a payout](/api-reference/payouts/create)
+      [Code API pour la création d’un dépôt](/api-reference/payouts/create)
 
-      An example code is available to simplify creating a payout via the API. Make sure to replace **YOUR\_PRIVATE\_API\_KEY** with your private sandbox or live key.
+      Un exemple de code est disponible pour simplifier la création d’un dépôt via l'API. Assurez-vous de remplacer **VOTRE\_CLE\_API\_PRIVEE** par votre clé privée sandbox ou live.
     </Info>
   </Step>
 
-  <Step title="Sending the Payout">
-    After creating a payout, it will be marked as "pending". You must then proceed with sending it. You have two options:
+  <Step title="Envoi du Dépôt">
+    Après avoir créé un dépôt, il sera marqué comme "en attente". Vous devez ensuite procéder à son envoi. Deux options s’offrent à vous :
 
-    * Send the payout immediately
-    * Schedule the payout for later
+    * Envoyer le dépôt immédiatement
+
+    * Planifier l'envoi pour plus tard
 
     <Info>
-      [API Code for sending the payout](/api-reference/payouts/update-start)
+      [Code API pour l’envoi du dépôt](/api-reference/payouts/update-start)
 
-      Use the PHP, Node.js, or Ruby code to send the payout by replacing **YOUR\_PRIVATE\_API\_KEY** with your private key.
+      Utilisez le code PHP, Node.js ou Ruby pour envoyer le dépôt en remplaçant **VOTRE\_CLE\_API\_PRIVEE** par votre clé privée.
     </Info>
   </Step>
 
-  <Step title="Retrieving the Details of a Payout">
-    Once the payout is created and/or sent, you can view its details to get specific information, such as the status or payout history.
+  <Step title="Récupération des Détails d'un Dépôt">
+    Une fois le dépôt créé et/ou envoyé, vous pouvez consulter ses détails pour obtenir des informations spécifiques, telles que le statut ou l’historique du dépôt.
 
     <Info>
-      [API Code for retrieving payout details](/api-reference/payouts/get-by-id)
+      [Code API pour récupérer les détails d'un dépôt](/api-reference/payouts/get-by-id)
 
-      Retrieve the information of a specific payout using its unique identifier (ID). Replace **ID** in the URL with the ID of the payout you want to view.
+      Récupérez les informations d’un dépôt spécifique en utilisant son identifiant unique (ID). Remplacez **ID** dans l'URL par l'identifiant du dépôt que vous souhaitez consulter.
     </Info>
   </Step>
 </Steps>
 
-### Payout Lifecycle
+### Cycle de Vie des Dépôts
 
-When a payout is created, it goes through several statuses:
+Lorsqu'un dépôt est créé, il passe par plusieurs statuts :
 
-* **pending**: Initial status after the payout is created.
-* **started**: The payout has been validated, and sending is starting.
-* **processing**: The payout is in progress and being sent to the recipient.
-* **sent**: The payout has been successfully sent to the recipient.
-* **failed**: The payout sending failed due to various reasons (technical error, issue with the payout method, etc.).
+* **pending (En attente)** : Statut initial après la création du dépôt.
 
-You can track the status of your payouts in real-time from the FedaPay dashboard under the Payouts menu.
+* **started (Démarré)** : Le dépôt a été validé et l’envoi est en cours de démarrage.
 
-### Available Payout Methods
+* **processing (En cours d'envoi)** : Le dépôt est en cours de traitement et d’envoi vers le destinataire.
 
-Currently, [supported payout methods](/payment-methods/en/payment-methods-en) are available in several countries across the sub-region.
+* **sent (Envoyé)** : Le dépôt a été envoyé avec succès au destinataire.
 
-These methods make it easy to send funds to different West African countries.
+* **failed (Échoué)** : L’envoi du dépôt a échoué, pour des raisons qui peuvent varier (erreur technique, problème avec la méthode de versement, etc.).
+
+Vous pouvez suivre l'évolution du statut de vos dépôts à partir du tableau de bord FedaPay dans le menu Dépots.
+
+### Méthodes de Versement Disponibles
+
+Actuellement, [les méthodes de versement](/payment-methods/fr/payment-methods-fr) prises en charge pour les dépôts sont disponibles dans plusieurs pays de la sous-région
+
+Ces méthodes permettent d'envoyer facilement des fonds vers différents pays d'Afrique de l'Ouest.
 
 ### Support
 
-If you have any questions or encounter issues with payouts, feel free to contact our technical support at: [`support@fedapay.com`](mailto:support@fedapay.com)
+Si vous avez des questions ou rencontrez des difficultés avec les dépôts, n'hésitez pas à contacter notre support technique à l’adresse : [`support@fedapay.com`](mailto:support@fedapay.com)
