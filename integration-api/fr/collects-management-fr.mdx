@@ -29,7 +29,7 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
     <Info>
       [Exemple de requête pour créer une collecte](/api-reference/transactions/create)
 
-      Remplacez **YOUR_SECRETE_API_KEY** par votre clé API et utilisez l’URL du serveur approprié (**sandbox** ou **live**).
+      Remplacez **YOUR\_SECRETE\_API\_KEY** par votre clé API et utilisez l’URL du serveur approprié (**sandbox** ou **live**).
 
       Si le client est déjà enregistré, utilisez simplement son ID ou email pour l’associer à la collecte.
     </Info>
@@ -138,16 +138,16 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
   <Step title="Requête de Création d'un Dépôt">
     Pour commencer, vous devez envoyer une requête de création de dépôt via notre API. Les informations essentielles à fournir lors de cette requête incluent :
 
-    * amount : Le montant du dépôt, toujours indiqué en nombre entier.
+    * **amount** : Le montant du dépôt, toujours indiqué en nombre entier.
 
-    * currency : La devise à utiliser pour le dépôt. Vous pouvez indiquer le code ISO de la devise choisie (par exemple, XOF pour le franc CFA).
+    * **currency** : La devise à utiliser pour le dépôt. Vous pouvez indiquer le code ISO de la devise choisie (par exemple, XOF pour le franc CFA).
 
-    * customer : Le client concerné par le dépôt. Si le client n'existe pas encore dans votre base de données, vous pouvez le créer en même temps que le dépôt en fournissant les informations suivantes : nom, prénom, adresse e-mail, et numéro de téléphone.
+    * **customer** : Le client concerné par le dépôt. Si le client n'existe pas encore dans votre base de données, vous pouvez le créer en même temps que le dépôt en fournissant les informations suivantes : nom, prénom, adresse e-mail, et numéro de téléphone.
 
     <Info>
       [Code API pour la création d’un dépôt](/api-reference/payouts/create)
 
-      Un exemple de code est disponible pour simplifier la création d’un dépôt via l'API. Assurez-vous de remplacer **YOUR_SECRETE_API_KEY** par votre clé privée sandbox ou live.
+      Un exemple de code est disponible pour simplifier la création d’un dépôt via l'API. Assurez-vous de remplacer **YOUR\_SECRETE\_API\_KEY** par votre clé privée sandbox ou live.
     </Info>
   </Step>
 
@@ -161,7 +161,7 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
     <Info>
       [Code API pour l’envoi du dépôt](/api-reference/payouts/update-start)
 
-      Utilisez le code PHP, Node.js ou Ruby pour envoyer le dépôt en remplaçant **YOUR_SECRETE_API_KEY** par votre clé privée.
+      Utilisez le code PHP, Node.js ou Ruby pour envoyer le dépôt en remplaçant **YOUR\_SECRETE\_API\_KEY** par votre clé privée.
     </Info>
   </Step>
 
