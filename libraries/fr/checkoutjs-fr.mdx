@@ -129,9 +129,7 @@ Checkout.js offre plusieurs options d'intégration pour répondre à différents
   </Step>
 
   <Step
-    title="Déclencher la collecte avec un événement
-"
-  >
+    title="Déclencher la collecte avec un événement">
     Si vous souhaitez déclencher la collecte par un événement spécifique, utilisez JavaScript pour activer le formulaire de paiement sur demande.
 
     ```javascript
@@ -266,146 +264,186 @@ Une fois le code intégré, assurez-vous de connecter votre compte FedaPay pour 
 
 ## Méthode de la classe FedaPay et attributs de configuration
 
-_**Checkout.js propose des options pour initialiser le composant de collecte avec plusieurs configurations :**_
+***Checkout.js propose des options pour initialiser le composant de collecte avec plusieurs configurations :***
 
 <AccordionGroup>
   <Accordion title="public_key">
-  - **Attribut HTML**: `data-public-key`
-  - **Type**: _string_
-  - **Description**: La clé public FedaPay
+    * **Attribut HTML**: `data-public-key`
+
+    * **Type**: *string*
+
+    * **Description**: La clé public FedaPay
   </Accordion>
 
   <Accordion title="environment">
-  - **Attribut HTML**: `data-environment`
-  - **Type**: _string_
-  - **Description**: L'environnement FedaPay. Les valeurs possibles sont **live et sandbox**. 
+    * **Attribut HTML**: `data-environment`
+
+    * **Type**: *string*
+
+    * **Description**: L'environnement FedaPay. Les valeurs possibles sont **live et sandbox**.
   </Accordion>
 
   <Accordion title="trigger">
-  - **Attribut HTML**: `data-trigger`
-  - **Type**: _string_
-  - **Description**: Le type d'événément qui déclenche l'ouverture de la boîte de dialogue de paiement. La valeur par défaut est **click**.
+    * **Attribut HTML**: `data-trigger`
+
+    * **Type**: *string*
+
+    * **Description**: Le type d'événément qui déclenche l'ouverture de la boîte de dialogue de paiement. La valeur par défaut est **click**.
   </Accordion>
 
   <Accordion title="locale">
-  - **Attribut HTML**: `data-locale`
-  - **Type**: _string_
-  - **Description**: La langue de l'interface de paiement. La valeur par défaut est **fr**.
+    * **Attribut HTML**: `data-locale`
+
+    * **Type**: *string*
+
+    * **Description**: La langue de l'interface de paiement. La valeur par défaut est **fr**.
   </Accordion>
 
   <Accordion title="transaction.id">
-  - **Attribut HTML**: `data-transaction-id`
-  - **Type**: _integer_
-  - **Description**: Si vous avez déjà créé la transaction, vous pouvez spécifier l'id de la collecte.
+    * **Attribut HTML**: `data-transaction-id`
+
+    * **Type**: *integer*
+
+    * **Description**: Si vous avez déjà créé la transaction, vous pouvez spécifier l'id de la collecte.
   </Accordion>
 
   <Accordion title="transaction.amount">
-  - **Attribut HTML**: `data-transaction-amount`
-  - **Type**: _integer_
-  - **Description**: Le montant de la transaction. La valeur par défaut est **100**.
+    * **Attribut HTML**: `data-transaction-amount`
+
+    * **Type**: *integer*
+
+    * **Description**: Le montant de la transaction. La valeur par défaut est **100**.
   </Accordion>
 
   <Accordion title="transaction.description">
-  - **Attribut HTML**: `data-transaction-description`
-  - **Type**: _string_
-  - **Description**: La description de la transaction.
+    * **Attribut HTML**: `data-transaction-description`
+
+    * **Type**: *string*
+
+    * **Description**: La description de la transaction.
   </Accordion>
 
   <Accordion title="transaction.custom_metadata">
-  - **Attribut HTML**: `data-transaction-custom_metadata`
-  - **Type**: _object_
-  - **Description**: Objet metadata de la transaction.
-    
-    **Exemple JS:**
+    * **Attribut HTML**: `data-transaction-custom_metadata`
 
-    ```
-      {
-        transaction:{
-          custom_metadata:{
-            foo: 'bar'
+    * **Type**: *object*
+
+    * **Description**: Objet metadata de la transaction.
+
+      **Exemple JS:**
+
+      ```
+        {
+          transaction:{
+            custom_metadata:{
+              foo: 'bar'
+            }
           }
         }
-      }
-    ```
+      ```
 
-    **Exemple HTML**
+      **Exemple HTML**
 
-    ```
-    <button data-transaction-custom_metadata-foo="bar"></>
-    ```
+      ```
+      <button data-transaction-custom_metadata-foo="bar"></>
+      ```
   </Accordion>
 
   <Accordion title="customer.email">
-  - **Attribut HTML**: `data-customer-email`
-  - **Type**: _string_
-  - **Description**: L'email du client
+    * **Attribut HTML**: `data-customer-email`
+
+    * **Type**: *string*
+
+    * **Description**: L'email du client
   </Accordion>
 
   <Accordion title="customer.firstname">
-  - **Attribut HTML**: `data-customer-firstname`
-  - **Type**: _string_
-  - **Description**: Le prénom du client
+    * **Attribut HTML**: `data-customer-firstname`
+
+    * **Type**: *string*
+
+    * **Description**: Le prénom du client
   </Accordion>
 
   <Accordion title="customer.lastname">
-  - **Attribut HTML**: `data-customer-lastname`
-  - **Type**: _string_
-  - **Description**: Le nom du client
+    * **Attribut HTML**: `data-customer-lastname`
+
+    * **Type**: *string*
+
+    * **Description**: Le nom du client
   </Accordion>
 
   <Accordion title="customer.phone_number.number">
-  - **Attribut HTML**: `data-customer-phone_number-number`
-  - **Type**: _string_
-  - **Description**: Le numéro de téléphone du client
+    * **Attribut HTML**: `data-customer-phone_number-number`
+
+    * **Type**: *string*
+
+    * **Description**: Le numéro de téléphone du client
   </Accordion>
 
   <Accordion title="customer.phone_number.country">
-  - **Attribut HTML**: `data-customer-phone_number-country`
-  - **Type**: _string_
-  - **Description**: Le pays du téléphone du client
+    * **Attribut HTML**: `data-customer-phone_number-country`
+
+    * **Type**: *string*
+
+    * **Description**: Le pays du téléphone du client
   </Accordion>
 
   <Accordion title="customer.currency.iso">
-  - **Attribut HTML**: `data-currency-iso`
-  - **Type**: _string_
-  - **Description**: Le code iso de la devise. La valeur par défaut est **XOF**
+    * **Attribut HTML**: `data-currency-iso`
+
+    * **Type**: *string*
+
+    * **Description**: Le code iso de la devise. La valeur par défaut est **XOF**
   </Accordion>
 
   <Accordion title="customer.currency.code">
-  - **Attribut HTML**: `data-currency-code`
-  - **Type**: _string_
-  - **Description**: Le code de la devise
+    * **Attribut HTML**: `data-currency-code`
+
+    * **Type**: *string*
+
+    * **Description**: Le code de la devise
   </Accordion>
 
   <Accordion title="button.text">
-  - **Attribut HTML**: `data-button-text`
-  - **Type**: _string_
-  - **Description**: Le text à afficher sur le bontton de paiement.
+    * **Attribut HTML**: `data-button-text`
+
+    * **Type**: *string*
+
+    * **Description**: Le text à afficher sur le bontton de paiement.
   </Accordion>
 
   <Accordion title="button.class">
-  - **Attribut HTML**: `data-button-class`
-  - **Type**: _string_
-  - **Description**: La class css du bontton de paiement.
+    * **Attribut HTML**: `data-button-class`
+
+    * **Type**: *string*
+
+    * **Description**: La class css du bontton de paiement.
   </Accordion>
 
   <Accordion title="form_selector">
-  - **Attribut HTML**: `data-form_selector`
-  - **Type**: _string_
-  - **Description**: outre passer le selecteur de selecteur de la base formulaire. Si celui ci est bien indiqué, il sera utilisé pour trouver le formulaire à soumettre après paiement
+    * **Attribut HTML**: `data-form_selector`
+
+    * **Type**: *string*
+
+    * **Description**: outre passer le selecteur de selecteur de la base formulaire. Si celui ci est bien indiqué, il sera utilisé pour trouver le formulaire à soumettre après paiement
   </Accordion>
 
   <Accordion title="submit_form_on_failed">
-  - **Attribut HTML**: `data-submit_form_on_failed`
-  - **Type**: _boolean_
-  - **Description**: Indique si le formulaire (Lorsque le bouton de paiement ou l'élément embarqué a un parent direct qui est un formulaire) doit être soumis ou non lorsque le paiement échoue.
+    * **Attribut HTML**: `data-submit_form_on_failed`
+
+    * **Type**: *boolean*
+
+    * **Description**: Indique si le formulaire (Lorsque le bouton de paiement ou l'élément embarqué a un parent direct qui est un formulaire) doit être soumis ou non lorsque le paiement échoue.
   </Accordion>
 
   <Accordion title="onComplete">
-  - **Type**: 
-    ```
-      function{ reason: number, transaction: object }
-    ```
-  - **Description**: La fonction de retour lorsque la boîte de dialogue est fermée. Cette fonction prend deux arguments. Le premier est la raison de fermeture de la boîte de dialogue. Il peut être égal à FedaPay.CHECKOUT_COMPLETED (lorsque le paiement est complet) ou FedaPay.DIALOG_DISMISSED (lorsque la boîte de dialogue est fermée par l'utilisateur). Le deuxième argument est l'object transaction créé lors du paiement.
+    * **Type**:
+
+      ```
+        function{ reason: number, transaction: object }
+      ```
+
+    * **Description**: La fonction de retour lorsque la boîte de dialogue est fermée. Cette fonction prend deux arguments. Le premier est la raison de fermeture de la boîte de dialogue. Il peut être égal à FedaPay.CHECKOUT\_COMPLETED (lorsque le paiement est complet) ou FedaPay.DIALOG\_DISMISSED (lorsque la boîte de dialogue est fermée par l'utilisateur). Le deuxième argument est l'object transaction créé lors du paiement.
   </Accordion>
 </AccordionGroup>
