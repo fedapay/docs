@@ -129,24 +129,24 @@ Each collection passes through various statuses:
 
 A payout is an operation that allows you to transfer money directly from your balance to a customer’s account. This feature is designed for businesses that need to handle payments to specific clients.
 
-### Étapes pour la Création d’un Dépôt
+### Steps to Create a Payout
 
-La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque dépôt passe par différents processus qui doivent être respectés pour garantir le bon déroulement du transfert.
+Creating a payout through the API involves several steps. Each payout follows processes that must be respected to ensure smooth transfer.
 
 <Steps>
-  <Step title="Requête de Création d'un Dépôt">
-    Pour commencer, vous devez envoyer une requête de création de dépôt via notre API. Les informations essentielles à fournir lors de cette requête incluent :
+  <Step title="Payout Creation Request">
+To begin, you need to send a request to create a payout via our API. The essential information required in the request includes:
 
-    * amount : Le montant du dépôt, toujours indiqué en nombre entier.
+    * amount : The amount for the payout, always in whole numbers.
 
-    * currency : La devise à utiliser pour le dépôt. Vous pouvez indiquer le code ISO de la devise choisie (par exemple, XOF pour le franc CFA).
+    * currency : The currency to be used for the payout. You can indicate the ISO code of the chosen currency (e.g., XOF for CFA francs).
 
-    * customer : Le client concerné par le dépôt. Si le client n'existe pas encore dans votre base de données, vous pouvez le créer en même temps que le dépôt en fournissant les informations suivantes : nom, prénom, adresse e-mail, et numéro de téléphone.
+    * customer : The customer receiving the payout. If the customer is not yet in your database, you can create them at the same time by providing details such as name, email, and phone number.
 
     <Info>
-      [Code API pour la création d’un dépôt](/api-reference/payouts/create)
+      [API code to create a payout](/api-reference/payouts/create)
 
-      Un exemple de code est disponible pour simplifier la création d’un dépôt via l'API. Assurez-vous de remplacer **VOTRE\_CLE\_API\_PRIVEE** par votre clé privée sandbox ou live.
+      Sample code is available to simplify the creation of a repository via the API. Be sure to replace **YOUR_CLEE_API\_PRIVEE** with your sandbox or live private key.
     </Info>
   </Step>
 
