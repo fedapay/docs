@@ -15,6 +15,7 @@ En plus des mesures de sécurité intégrées par FedaPay, il est important que 
 ### Pourquoi utiliser TLS/HTTPS ?
 
 * **Chiffrement des Données** : TLS chiffre toutes les informations échangées entre le client et le serveur, assurant que les données sensibles ne sont pas interceptées par des tiers.
+
 * **Authentification du Serveur** : TLS vérifie que le client communique bien avec le serveur authentique et non avec un imposteur.
 
 <Note>
@@ -30,7 +31,9 @@ En plus des mesures de sécurité intégrées par FedaPay, il est important que 
     **Options de certificats :**
 
     * [Let’s Encrypt](https://letsencrypt.org/) : Gratuit
+
     * [DigiCert](https://www.digicert.com/) : Payant, recommandé pour des options avancées
+
     * [NameCheap](https://www.namecheap.com/) : Offrant des certificats adaptés aux petites et moyennes entreprises
   </Step>
 
@@ -58,7 +61,8 @@ Stocker les mots de passe en texte clair dans une base de données est une prati
 ### Protection par Hachage et Salage des Mots de Passe
 
 1. **Utilisation de “Salts”** : Un salt (ou graine) est une clé ajoutée au mot de passe avant le hachage. Cela rend chaque hachage unique, même pour des mots de passe identiques.
-2. **Hachage des Mots de Passe :** Utilisez des algorithmes de hachage tels que **SHA-256** au lieu de MD5 ou SHA1, qui sont aujourd’hui vulnérables.
+
+2. **Hachage des Mots de Passe :** Utilisez des algorithmes de hachage tels que **SHA-256** au lieu de **MD5** ou **SHA1**, qui sont aujourd’hui vulnérables.
 
 <Note>
   **Exemple :** Lorsqu’un utilisateur crée un compte, générez un salt unique, combinez-le avec le mot de passe, puis hachez le résultat. En stockant le hash et le salt, vous complexifiez considérablement les attaques par rainbow tables.
@@ -67,7 +71,9 @@ Stocker les mots de passe en texte clair dans une base de données est une prati
 ### Recommandations pour le Choix du Mot de Passe
 
 * Utilisez un mot de passe fort d'au moins 8 caractères incluant lettres majuscules, minuscules, chiffres, et symboles.
+
 * Ne réutilisez pas le même mot de passe pour plusieurs comptes.
+
 * Modifiez régulièrement vos mots de passe pour minimiser les risques.
 
 ## Mise en Place de Questions Secrètes pour une Sécurité Renforcée
@@ -77,6 +83,7 @@ Les questions secrètes sont un moyen de protection supplémentaire pour vérifi
 ### Comment Choisir des Questions Secrètes
 
 * Choisissez des questions dont les réponses sont difficiles à deviner et uniquement connues par l’utilisateur.
+
 * Conservez une option pour mettre à jour les questions secrètes via le tableau de bord pour une sécurité supplémentaire.
 
 <Note>
@@ -86,7 +93,9 @@ Les questions secrètes sont un moyen de protection supplémentaire pour vérifi
 ## Bonnes Pratiques Supplémentaires
 
 1. **Ne jamais partager vos identifiants** : Évitez de communiquer votre mot de passe à qui que ce soit.
+
 2. **Utiliser des Authentifications Multifactorielle (MFA)** : Intégrer une solution de double authentification renforce significativement la sécurité des comptes.
+
 3. **Surveillance des Comptes** : Activez des notifications de connexion pour alerter les utilisateurs en cas d’accès suspect.
 
 ## Conseils de Sécurité pour Protéger Votre Compte Marchand FedaPay
@@ -96,11 +105,13 @@ La sécurité de votre compte marchand est essentielle pour éviter les accès n
 ### Créez un Mot de Passe Sécurisé
 
 * Choisissez un mot de passe d’au moins 8 caractères, intégrant chiffres, lettres majuscules et minuscules. Un mot de passe complexe est plus difficile à deviner.
+
 * Évitez de réutiliser le même mot de passe pour plusieurs comptes. En cas de fuite d’informations sur un autre service, un mot de passe unique pour chaque compte limitera les risques d’accès à votre compte FedaPay.
 
 ### Gardez Votre Mot de Passe Confidentiel
 
 * Ne jamais partagez votre mot de passe avec autrui, même avec des personnes de confiance.
+
 * Si vous devez conserver votre mot de passe, utilisez un gestionnaire de mots de passe sécurisé.
 
 ### Protégez Vos Appareils
@@ -110,7 +121,9 @@ Assurez-vous que vos ordinateurs, tablettes et smartphones sont protégés par u
 ### Restez Vigilant Face aux Emails Non Sollicités
 
 * Méfiez-vous des courriels et spams inattendus. Ne cliquez jamais sur des liens ou pièces jointes provenant de sources inconnues.
+
 * Évitez de répondre aux emails demandant de confirmer des informations sensibles, comme vos identifiants ou vos informations financières.
+
 * Supprimez immédiatement tout email qui vous promet un gain ou une sélection pour un concours auquel vous n’avez jamais participé.
 
 ## Politique de Gestion des Fraudes
@@ -120,8 +133,11 @@ Malgré les mesures de sécurité, des incidents de fraude peuvent survenir. Fed
 ### Exemples de Fraudes Possibles
 
 * **Transactions non autorisées** : Un accès frauduleux a permis de réaliser des transactions depuis le compte d’un client.
+
 * **Responsabilité déclinée** : Un client affirme ne pas être responsable d’un achat réalisé via votre site.
+
 * **Problème de livraison** : Le client n’a pas reçu son achat dans les délais convenus.
+
 * **Produit défectueux** : Un client insatisfait d’un produit ou service, car celui-ci est défectueux, demande un remboursement.
 
 ### Notre Engagement de Protection
