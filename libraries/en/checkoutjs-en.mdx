@@ -209,33 +209,33 @@ To allow collections of different amounts, you can integrate multiple payment bu
   </Step>
 </Steps>
 
-## Personnalisation de l'interface et options avancées
+## Customization of the Interface and Advanced Options
 
-Checkout.js permet de personnaliser les éléments visuels de votre formulaire pour qu’il corresponde à l’identité de votre plateforme. Vous pouvez notamment définir la couleur de l’arrière-plan, le texte du bouton de paiement, ou ajouter un logo.
+Checkout.js allows you to customize the visual elements of your form to match your platform’s identity. You can define the background color, the payment button text, or add a logo.
 
-***Modifier l'apparence et ajouter des détails supplémentaires***
+***Modify the appearance and add extra details:***
 
-* ***Clé publique** : `data-public-key`*
+* ***Public key** : `data-public-key`*
 
-* ***Montant de la collecte** : `data-transaction-amount`*
+* ***Collection amount** : `data-transaction-amount`*
 
-* ***Description de la collecte** : `data-transaction-description`*
+* ***Collection description** : `data-transaction-description`*
 
-* ***Devise** : `data-currency-iso`*
+* ***Currency** : `data-currency-iso`*
 
-* ***Texte du bouton** : `data-button-text`*
+* ***Button text** : `data-button-text`*
 
-* ***Classe CSS du bouton** : `data-button-class`*
+* ***Button CSS class** : `data-button-class`*
 
-* ***Image et description du widget** : `data-widget-image, data-widget-description`*
+* ***Widget image and description** : `data-widget-image, data-widget-description`*
 
-## Méthode avec une balise form pour une intégration avancée
+## Method with a form tag for advanced integration
 
-Checkout.js permet également l’intégration avec une balise form pour envoyer des données spécifiques après paiement.
+Checkout.js also allows integration with a form tag to send specific data after payment.
 
 ```javascript
 <!--
-Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou live.
+Replace VOTRE_CLE_API_PUBLIQUE by the public key of your sandbox or live account.
 -->
 <form action="index.php" method="POST">
  <input type="hidden" name="field" value="test">
