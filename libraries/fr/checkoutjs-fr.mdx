@@ -293,28 +293,40 @@ _**Checkout.js propose des options pour initialiser le composant de collecte ave
   - **Description**: La langue de l'interface de paiement. La valeur par défaut est **fr**.
   </Accordion>
 
-  <Accordion title="">
-  - **Attribut HTML**:
-  - **Type**:
-  - **Description**:
+  <Accordion title="transaction.id">
+  - **Attribut HTML**: `data-transaction-id`
+  - **Type**: _integer_
+  - **Description**: Si vous avez déjà créé la transaction, vous pouvez spécifier l'id de la collecte.
   </Accordion>
 
-  <Accordion title="">
-  - **Attribut HTML**:
-  - **Type**:
-  - **Description**:
+  <Accordion title="transaction.amount">
+  - **Attribut HTML**: `data-transaction-amount`
+  - **Type**: _integer_
+  - **Description**: Le montant de la transaction. La valeur par défaut est **100**.
   </Accordion>
 
-  <Accordion title="">
-  - **Attribut HTML**:
-  - **Type**:
-  - **Description**:
+  <Accordion title="transaction.description">
+  - **Attribut HTML**: `data-transaction-description`
+  - **Type**: _string_
+  - **Description**: La description de la transaction.
   </Accordion>
 
-  <Accordion title="">
-  - **Attribut HTML**:
-  - **Type**:
-  - **Description**:
+  <Accordion title="transaction.custom_metadata">
+  - **Attribut HTML**: `data-transaction-custom_metadata`
+  - **Type**: _object_
+  - **Description**: Objet metadata de la transaction.
+    
+    **Exemple JS:**
+
+    ```
+      {
+        transaction:{
+          custom_metadata:{
+            foo: 'bar'
+          }
+        }
+      }
+    ```
   </Accordion>
 
   <Accordion title="">
