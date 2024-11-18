@@ -100,11 +100,11 @@ Then, FedaPay sends this object to your chosen URL (called an **endpoint**) via 
   </Step>
 </Steps>
 
-## Vérification des signatures des Webhooks
+## Webhook Signature Verification
 
-Pour garantir que les notifications que vous recevez proviennent bien de FedaPay (et non d'une tierce partie), FedaPay **signe** chaque événement envoyé à votre URL.
+To ensure that the notifications you receive are indeed from FedaPay (and not from a third party), FedaPay **signs** each event sent to your URL.
 
-### Comment vérifier la signature ?
+### How to Verify the Signature ?
 
 1. Lorsqu'un Webhook est envoyé, FedaPay inclut une signature dans l'en-tête de la requête. Cette signature est nommée **X-FEDAPAY-SIGNATURE**.
 
