@@ -29,7 +29,7 @@ The steps to set up a collect are broken down into several key processes.
     <Info>
       [Example request to create a collect](/api-reference/transactions/create)
 
-      Replace **YOUR_SECRETE_API_KEY** with your API key and use the URL of the appropriate server (**sandbox** or **live**).
+      Replace **YOUR\_SECRETE\_API\_KEY** with your API key and use the URL of the appropriate server (**sandbox** or **live**).
 
       If the customer is already registered, simply use their ID or email to associate them with the collect.
     </Info>
@@ -146,19 +146,19 @@ Creating a payout through the API involves several steps. Each payout follows pr
     <Info>
       [API code to create a payout](/api-reference/payouts/create)
 
-      Sample code is available to simplify the creation of a repository via the API. Be sure to replace **YOUR_SECRETE_API_KEY** with your sandbox or live private key.
+      Sample code is available to simplify the creation of a repository via the API. Be sure to replace **YOUR\_SECRETE\_API\_KEY** with your sandbox or live private key.
     </Info>
   </Step>
 
-  <Step title="Envoi du Dépôt">
-    Après avoir créé un dépôt, il sera marqué comme "en attente". Vous devez ensuite procéder à son envoi. Deux options s’offrent à vous :
+  <Step title="Sending the Payout">
+    Once a payout has been created, it will be marked as **pending**. You then need to proceed with sending the payout. Two options are available:
 
-    * Envoyer le dépôt immédiatement
+    * Send the payout immediately.
 
-    * Planifier l'envoi pour plus tard
+    * Schedule the payout for later.
 
     <Info>
-      [Code API pour l’envoi du dépôt](/api-reference/payouts/update-start)
+      [API code to send the payout](/api-reference/payouts/update-start)
 
       Utilisez le code PHP, Node.js ou Ruby pour envoyer le dépôt en remplaçant **VOTRE\_CLE\_API\_PRIVEE** par votre clé privée.
     </Info>
