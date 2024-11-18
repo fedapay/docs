@@ -68,25 +68,25 @@ Webhooks are essential for quickly being alerted to important actions on your ac
 
 ### How Do Webhooks Work ?
 
-Chaque fois qu'un événement se produit (par exemple, un paiement accepté), FedaPay crée un **objet événement (Event)**. Cet objet contient toutes les informations pertinentes sur l'événement, comme le type d'événement (paiement réussi) et les détails associés.
+Each time an event occurs (e.g., a successful payment), FedaPay creates an **event object**. This object contains all relevant information about the event, such as the event type (successful payment) and the associated details.
 
-Ensuite, FedaPay envoie cet objet à l'URL de votre choix (appelée **point de terminaison**) via une requête HTTP. C’est comme si FedaPay vous envoyait un message pour vous informer de ce qui s’est passé.
+Then, FedaPay sends this object to your chosen URL (called an **endpoint**) via an HTTP request. It's like FedaPay sending you a message to inform you of what just happened.
 
-## Configuration des Webhooks
+## Configuring Webhooks
 
 <Steps>
-  <Step title="Créer un Webhook">
-    Pour recevoir des Webhooks, vous devez configurer une URL sur votre site qui pourra recevoir ces notifications. Voici comment faire :
+  <Step title="Create a Webhook">
+    To receive webhooks, you need to configure a URL on your site that will receive these notifications. Here's how to do it:
 
-    1. Connectez-vous à votre compte FedaPay et accédez à la section **Webhooks** de votre tableau de bord.
+    1. Log in to your FedaPay account and go to the **Webhooks** section of your dashboard.
 
-    2. Cliquez sur **Créer un Webhook**.
+    2. Click **Create a Webhook**.
 
-    3. Entrez l'URL de votre site où vous souhaitez recevoir les notifications. Il est important que cette page soit prête à recevoir des notifications de FedaPay.
+    3. Enter the URL of your site where you want to receive the notifications. It's important that this page is ready to receive FedaPay notifications.
 
-    4. Sélectionnez les types d'événements pour lesquels vous voulez être notifié (par exemple : paiements réussis, remboursements).
+    4. Select the types of events you want to be notified about (e.g: successful payments, refunds).
 
-    5. Cliquez sur **Créer**.
+    5. Click **Create**.
   </Step>
 
   <Step title="Gérer vos Webhooks">
