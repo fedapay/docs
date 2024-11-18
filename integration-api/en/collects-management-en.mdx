@@ -10,29 +10,28 @@ The FedaPay API allows you to easily integrate secure payment solutions into you
 
 The steps to set up a collect are broken down into several key processes.
 
-
 <Steps>
-  <Step title=" Initialisation de la Collecte : Création d'une Requête">
-    La première étape consiste à envoyer une requête de création de collecte via l’API. Cette requête nécessite certains paramètres obligatoires :
+  <Step title="Collect Initialization: Creating a Request">
+    The first step is to send a request to create a collect via the API. This request requires certain mandatory parameters:
 
-    * **description** : une brève description de l’objet de la collecte
+    * **description**: A brief description of the collect’s purpose
 
-    * **amount** : le montant, toujours en nombre entier
+    * **amount**: The amount, always in whole numbers
 
-    * **currency** : la devise, indiquée par son numéro ou code ISO (référez-vous au Tableau des Devises FedaPay pour les détails)
+    * **currency**: The currency, indicated by its ISO code or number (refer to the FedaPay Currency Table for details)
 
-    * **callback\_url** : un lien de retour facultatif pour rediriger le client après le paiement
+    * **callback_url**: An optional link to redirect the customer after payment
 
-    * **customer** : le client concerné par la collecte
+    * **customer**: The customer related to the collect
 
-    Si le client n’est pas encore enregistré dans votre système, vous pouvez créer simultanément son profil en ajoutant des informations comme le nom, prénom, email, et numéro de téléphone.
+    If the customer is not yet registered in your system, you can create their profile by adding details such as name, email, and phone number.
 
     <Info>
-      [Exemple de requête pour créer une collecte](/api-reference/transactions/create)
+      [Example request to create a collect](/api-reference/transactions/create)
 
-      Remplacez **VOTRE\_CLE\_API\_SECRETE** par votre clé API et utilisez l’URL du serveur approprié (**sandbox** ou **live**).
+      Replace **VOTRE\_CLE\_API\_SECRETE** with your API key and use the URL of the appropriate server (**sandbox** or **live**).
 
-      Si le client est déjà enregistré, utilisez simplement son ID ou email pour l’associer à la collecte.
+      If the customer is already registered, simply use their ID or email to associate them with the collect.
     </Info>
   </Step>
 
