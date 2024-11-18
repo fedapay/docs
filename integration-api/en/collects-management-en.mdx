@@ -175,21 +175,20 @@ Creating a payout through the API involves several steps. Each payout follows pr
   </Step>
 </Steps>
 
-### Cycle de Vie des Dépôts
+### Payout Lifecycle
 
-Lorsqu'un dépôt est créé, il passe par plusieurs statuts :
+When a payout is created, it moves through several statuses:
 
-* **pending (En attente)** : Statut initial après la création du dépôt.
+* **pending** : Pending (initial status after payout creation).
 
-* **started (Démarré)** : Le dépôt a été validé et l’envoi est en cours de démarrage.
+* **started** : The payout has been validated and is in the process of being initiated.
 
-* **processing (En cours d'envoi)** : Le dépôt est en cours de traitement et d’envoi vers le destinataire.
+* **processing** : The payout is being processed and sent to the recipient.
 
-* **sent (Envoyé)** : Le dépôt a été envoyé avec succès au destinataire.
+* **sent** : The payout has been successfully sent to the recipient.
+* **failed** : The payout failed due to issues such as technical error or method-related problems.
 
-* **failed (Échoué)** : L’envoi du dépôt a échoué, pour des raisons qui peuvent varier (erreur technique, problème avec la méthode de versement, etc.).
-
-Vous pouvez suivre l'évolution du statut de vos dépôts à partir du tableau de bord FedaPay dans le menu Dépots.
+You can track the status of your payouts from the FedaPay dashboard under the **Payouts** section.
 
 ### Méthodes de Versement Disponibles
 
