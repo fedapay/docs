@@ -425,7 +425,7 @@ Once the code is integrated, make sure to connect your FedaPay account to author
 
     * **Type**: *string*
 
-    * **Description**: outre passer le selecteur de selecteur de la base formulaire. Si celui ci est bien indiqué, il sera utilisé pour trouver le formulaire à soumettre après paiement
+    * **Description**: override the form base selector. If this is specified, it will be used to find the form to be submitted after payment.
   </Accordion>
 
   <Accordion title="submit_form_on_failed">
@@ -433,7 +433,7 @@ Once the code is integrated, make sure to connect your FedaPay account to author
 
     * **Type**: *boolean*
 
-    * **Description**: Indique si le formulaire (Lorsque le bouton de paiement ou l'élément embarqué a un parent direct qui est un formulaire) doit être soumis ou non lorsque le paiement échoue.
+    * **Description**: Indicates whether the form (when the payment button or embedded element has a direct parent that is a form) should be submitted or not when the payment fails.
   </Accordion>
 
   <Accordion title="onComplete">
@@ -443,6 +443,6 @@ Once the code is integrated, make sure to connect your FedaPay account to author
         function{ reason: number, transaction: object }
       ```
 
-    * **Description**: La fonction de retour lorsque la boîte de dialogue est fermée. Cette fonction prend deux arguments. Le premier est la raison de fermeture de la boîte de dialogue. Il peut être égal à FedaPay.CHECKOUT\_COMPLETED (lorsque le paiement est complet) ou FedaPay.DIALOG\_DISMISSED (lorsque la boîte de dialogue est fermée par l'utilisateur). Le deuxième argument est l'object transaction créé lors du paiement.
+    * **Description**: The return function when the dialog box is closed. This function takes two arguments. The first is the reason for closing the dialog box. It can be equal to FedaPay.CHECKOUT\_COMPLETED (when the payment is complete) or FedaPay.DIALOG\_DISMISSED (when the dialog box is closed by the user). The second argument is the transaction object created during payment.
   </Accordion>
 </AccordionGroup>
