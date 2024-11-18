@@ -18,25 +18,23 @@ Transactions on FedaPay follow a lifecycle, and each stage in this lifecycle gen
 
    * **transaction.approved** : The transaction has been approved, meaning the payment has been validated.
 
-   * **transaction.created du client** : Lorsqu’un nouveau client est ajouté à votre compte, cela génère l’événement **customer.created** .
+   * **transaction.declined** : The payment failed or was rejected.
 
-   * **eclined** : Le paiement a échoué ou a été refusé.
+   * **transaction.canceled** : The transaction was canceled before it was finalized.
 
-   * **transaction.canceled** : La transaction a été annulée avant sa finalisation.
+   * **transaction.transferred** : The funds from the transaction have been transferred to the designated account (e.g., bank account or mobile money).
 
-   * **transaction.transferred** : Les fonds de la transaction ont été transférés au compte prévu (par exemple, vers un compte bancaire ou mobile money).
+3. Each time a status changes, a new event is generated to keep you informed. For example, once a transaction is updated, the **transaction.updated** event is triggered.
 
-3. À chaque changement de statut, un nouvel événement est généré pour vous tenir informé. Par exemple, dès qu'une transaction est mise à jour, l’événement **transaction.updated** est déclenché.
+### Customer Lifecycle
 
-### Cycle de vie des clients
+Customers can also have specific events:
 
-Les clients peuvent également faire l'objet d'événements spécifiques :
+* **customer.updated** : The customer’s profile has been modified (e.g., their name or email address).
 
-* **customer.updated** : Le profil du client a été modifié (par exemple, son nom ou son adresse e-mail).
+* **customer.deleted** : The customer has been deleted from your account.
 
-* **customer.deleted** : Le client a été supprimé de votre compte.
-
-### Comment utiliser les événements ?
+### How to Use Events?
 
 Chaque événement contient des informations détaillées sur ce qui vient de se passer. Vous pouvez consulter tous ces événements dans la section **Événements** de votre tableau de bord FedaPay. Cela vous permet d'avoir un historique complet de toutes les actions importantes sur votre compte.
 
