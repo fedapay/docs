@@ -269,38 +269,34 @@ Une fois le code intégré, assurez-vous de connecter votre compte FedaPay pour 
 _**Checkout.js propose des options pour initialiser le composant de collecte avec plusieurs configurations :**_
 
 <AccordionGroup>
-  <Accordion title="FAQ without Icon">
-    You can put other components inside Accordions.
-
-    ```java HelloWorld.java
-    class HelloWorld {
-        public static void main(String[] args) {
-            System.out.println("Hello, World!");
-        }
-    }
-    ```
-
+  <Accordion title="public_key">
+  - **Attribut HTML**: `data-public-key`
+  - **Type**: _string_
+  - **Description**: La clé public FedaPay
   </Accordion>
 
-  <Accordion title="FAQ with Icon" icon="alien-8bit">
-    Check out the [Accordion](/content/components/accordions) docs for all the supported props.
+  <Accordion title="environment">
+  - **Attribut HTML**: `data-environment`
+  - **Type**: _string_
+  - **Description**: L'environnement FedaPay. Les valeurs possibles sont **live et sandbox**. 
   </Accordion>
 
-  <Accordion title="FAQ without Icon">
-    Check out the [Accordion](/content/components/accordions) docs for all the supported props.
-  </Accordion>
-  <Accordion title="FAQ with Icon" icon="alien-8bit">
-    Check out the [Accordion](/content/components/accordions) docs for all the supported props.
-  </Accordion>
-
-  <Accordion title="FAQ without Icon">
-    Check out the [Accordion](/content/components/accordions) docs for all the supported props.
-  </Accordion>
-  <Accordion title="FAQ with Icon" icon="alien-8bit">
-    Check out the [Accordion](/content/components/accordions) docs for all the supported props.
+  <Accordion title="trigger">
+  - **Attribut HTML**: `data-trigger`
+  - **Type**: _string_
+  - **Description**: Le type d'événément qui déclenche l'ouverture de la boîte de dialogue de paiement. La valeur par défaut est **click**.
   </Accordion>
 
-  <Accordion title="FAQ without Icon">
-    Check out the [Accordion](/content/components/accordions) docs for all the supported props.
+  <Accordion title="">
+  - **Attribut HTML**:
+  - **Type**:
+  - **Description**:
   </Accordion>
+
+  <Accordion title="">
+  - **Attribut HTML**:
+  - **Type**:
+  - **Description**:
+  </Accordion>
+
 </AccordionGroup>
