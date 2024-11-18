@@ -14,71 +14,75 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
   <Step title=" Initialisation de la Collecte : Création d'une Requête">
     La première étape consiste à envoyer une requête de création de collecte via l’API. Cette requête nécessite certains paramètres obligatoires :
 
-    - **description** : une brève description de l’objet de la collecte
-    - **amount** : le montant, toujours en nombre entier
-    - **currency** : la devise, indiquée par son numéro ou code ISO (référez-vous au Tableau des Devises FedaPay pour les détails)
-    - **callback_url** : un lien de retour facultatif pour rediriger le client après le paiement
-    - **customer** : le client concerné par la collecte
+    * **description** : une brève description de l’objet de la collecte
+
+    * **amount** : le montant, toujours en nombre entier
+
+    * **currency** : la devise, indiquée par son numéro ou code ISO (référez-vous au Tableau des Devises FedaPay pour les détails)
+
+    * **callback\_url** : un lien de retour facultatif pour rediriger le client après le paiement
+
+    * **customer** : le client concerné par la collecte
 
     Si le client n’est pas encore enregistré dans votre système, vous pouvez créer simultanément son profil en ajoutant des informations comme le nom, prénom, email, et numéro de téléphone.
 
     <Info>
-    [Exemple de requête pour créer une collecte](/api-reference/transactions/create)
+      [Exemple de requête pour créer une collecte](/api-reference/transactions/create)
 
-    Remplacez **VOTRE_CLE_API_SECRETE** par votre clé API et utilisez l’URL du serveur approprié (**sandbox** ou **live**).
-    
-    Si le client est déjà enregistré, utilisez simplement son ID ou email pour l’associer à la collecte.
+      Remplacez **YOUR_SECRETE_API_KEY** par votre clé API et utilisez l’URL du serveur approprié (**sandbox** ou **live**).
+
+      Si le client est déjà enregistré, utilisez simplement son ID ou email pour l’associer à la collecte.
     </Info>
-
   </Step>
+
   <Step title="Génération du Token et du Lien de Paiement">
     Une fois la requête envoyée, l'API renvoie un identifiant unique pour la collecte. Utilisez cet identifiant pour demander un lien et un token de paiement pour rediriger le client vers la page de paiement sécurisée.
 
     <CodeGroup>
+      ```java cURL
+      curl -X POST \
+      https://sandbox-api.fedapay.com/v1/transactions/ID/token \
+      -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+      -H 'Content-Type: application/json'
+      ```
 
-    ```java cURL
-    curl -X POST \
-    https://sandbox-api.fedapay.com/v1/transactions/ID/token \
-    -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
-    -H 'Content-Type: application/json'
-    ```
+      ```PHP PHP
+      $transaction = \FedaPay\Transaction::create(array(...))
+      $token = $transaction->generateToken();
+      return header('Location: ' . $token->url);
+      ```
 
-    ```PHP PHP
-    $transaction = \FedaPay\Transaction::create(array(...))
-    $token = $transaction->generateToken();
-    return header('Location: ' . $token->url);
-    ```
-
-    ```javaScript NodeJS
-    const transaction = await Transaction.create({...})
-    const token = await transaction.generateToken();
-    return redirect(token.url);
-    ```
+      ```javaScript NodeJS
+      const transaction = await Transaction.create({...})
+      const token = await transaction.generateToken();
+      return redirect(token.url);
+      ```
     </CodeGroup>
 
     Le lien ainsi généré peut être utilisé pour rediriger les utilisateurs vers la page de paiement de FedaPay.
-
   </Step>
+
   <Step title="Redirection vers la Page de Paiement">
-    Ce lien redirige votre client vers une page de paiement sécurisée, où il pourra finaliser la collecte. Si vous avez spécifié un **callback_url**, votre client sera redirigé automatiquement à l’issue du paiement.
+    Ce lien redirige votre client vers une page de paiement sécurisée, où il pourra finaliser la collecte. Si vous avez spécifié un **callback\_url**, votre client sera redirigé automatiquement à l’issue du paiement.
   </Step>
+
   <Step title="Utilisation du Lien de Retour (Callback URL)">
-    Le **callback_url** permet de rediriger le client vers une page spécifique à la fin du paiement, avec le statut et l'ID de la collecte en paramètres. Par exemple :
+    Le **callback\_url** permet de rediriger le client vers une page spécifique à la fin du paiement, avec le statut et l'ID de la collecte en paramètres. Par exemple :
 
-    - **Paiement approuvé** : `https://www.monsite.com/?id=258&status=approved`
-    - **Paiement annulé** : `https://www.monsite.com/?id=259&status=canceled`
+    * **Paiement approuvé** : `https://www.monsite.com/?id=258&status=approved`
 
-  <Warning>
-  **Attention** : Pour des raisons de sécurité, ne vous fiez pas au statut renvoyé par l'URL. 
-  Effectuez toujours une vérification directe auprès de l’API pour obtenir le statut réel.
-  </Warning>
+    * **Paiement annulé** : `https://www.monsite.com/?id=259&status=canceled`
 
+    <Warning>
+      **Attention** : Pour des raisons de sécurité, ne vous fiez pas au statut renvoyé par l'URL.
+      Effectuez toujours une vérification directe auprès de l’API pour obtenir le statut réel.
+    </Warning>
   </Step>
+
   <Step title=" Récupération des Détails d’une Collecte">
     Pour récupérer les informations complètes d’une collecte, effectuez une requête avec l'ID de cette collecte.
 
     <Info>[Exemple de requête pour récupérer les détails d’une collecte](/api-reference/transactions/get-by-id)</Info>
-
   </Step>
 </Steps>
 
@@ -89,77 +93,85 @@ Pour offrir une expérience fluide sans redirection, vous pouvez intégrer le fo
 **Envoi d’un paiement mobile sans redirection** :
 
 1. **Créer une collecte** comme décrit précédemment, puis générer le token.
+
 2. [Utilisez une des méthodes spécifiques suivantes](/payment-methods/fr/payment-methods-fr) pour traiter le paiement
 
 <Note>
-**Remarque** : Le paiement sans redirection ne prend pas en charge tous les opérateurs. Pour les autres moyens de paiement comme Orange et les cartes bancaires, préférez le mode de redirection.
+  **Remarque** : Le paiement sans redirection ne prend pas en charge tous les opérateurs. Pour les autres moyens de paiement comme Orange et les cartes bancaires, préférez le mode de redirection.
 </Note>
 
 ### Récupération Automatique du Statut d’une Collecte
 
 Pour vérifier le statut final d’une collecte, surtout lors d’un paiement sans redirection :
 
-- Envoyez une requête pour obtenir les détails de la collecte.
-- **Implémentez un webhook** pour recevoir des notifications automatiques. [Consultez la section Webhooks pour plus de détails](/integration-api/fr/webhooks-fr).
+* Envoyez une requête pour obtenir les détails de la collecte.
+
+* **Implémentez un webhook** pour recevoir des notifications automatiques. [Consultez la section Webhooks pour plus de détails](/integration-api/fr/webhooks-fr).
 
 ### Cycle de Vie d’une Collecte : Les Statuts
 
 Chaque collecte passe par différents statuts :
 
-- **pending** : En attente (statut par défaut à la création)
-- **approved** : Approuvée (paiement réussi)
-- **declined** : Déclinée (solde insuffisant ou autre problème de paiement)
-- **canceled** : Annulée (interruption volontaire ou accidentelle par le client)
-- **refunded** : Remboursée (somme reversée au client)
-- **transferred** : Transférée (montant transféré sur le compte marchand)
+* **pending** : En attente (statut par défaut à la création)
+
+* **approved** : Approuvée (paiement réussi)
+
+* **declined** : Déclinée (solde insuffisant ou autre problème de paiement)
+
+* **canceled** : Annulée (interruption volontaire ou accidentelle par le client)
+
+* **refunded** : Remboursée (somme reversée au client)
+
+* **transferred** : Transférée (montant transféré sur le compte marchand)
 
 <Note>Pour consulter le statut en temps réel, rendez-vous dans le tableau de bord FedaPay sous la section Collectes ou utilisez l’API pour vérifier avec l'ID de la collecte.</Note>
 
 ## Gestion des dépôts
 
-Un dépôt est une opération qui permet de transférer de l'argent directement à partir de votre balance vers le compte d'un client. Cette fonctionnalité est conçue pour les entreprises qui ont besoin de gérer des paiements vers des clients spécifiques. 
+Un dépôt est une opération qui permet de transférer de l'argent directement à partir de votre balance vers le compte d'un client. Cette fonctionnalité est conçue pour les entreprises qui ont besoin de gérer des paiements vers des clients spécifiques.
 
 ### Étapes pour la Création d’un Dépôt
 
 La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque dépôt passe par différents processus qui doivent être respectés pour garantir le bon déroulement du transfert.
 
-
 <Steps>
   <Step title="Requête de Création d'un Dépôt">
     Pour commencer, vous devez envoyer une requête de création de dépôt via notre API. Les informations essentielles à fournir lors de cette requête incluent :
 
-    - amount : Le montant du dépôt, toujours indiqué en nombre entier.
-    - currency : La devise à utiliser pour le dépôt. Vous pouvez indiquer le code ISO de la devise choisie (par exemple, XOF pour le franc CFA).
-    - customer : Le client concerné par le dépôt. Si le client n'existe pas encore dans votre base de données, vous pouvez le créer en même temps que le dépôt en fournissant les informations suivantes : nom, prénom, adresse e-mail, et numéro de téléphone.
+    * amount : Le montant du dépôt, toujours indiqué en nombre entier.
+
+    * currency : La devise à utiliser pour le dépôt. Vous pouvez indiquer le code ISO de la devise choisie (par exemple, XOF pour le franc CFA).
+
+    * customer : Le client concerné par le dépôt. Si le client n'existe pas encore dans votre base de données, vous pouvez le créer en même temps que le dépôt en fournissant les informations suivantes : nom, prénom, adresse e-mail, et numéro de téléphone.
 
     <Info>
-    [Code API pour la création d’un dépôt](/api-reference/payouts/create)
+      [Code API pour la création d’un dépôt](/api-reference/payouts/create)
 
-    Un exemple de code est disponible pour simplifier la création d’un dépôt via l'API. Assurez-vous de remplacer **VOTRE_CLE_API_PRIVEE** par votre clé privée sandbox ou live.
+      Un exemple de code est disponible pour simplifier la création d’un dépôt via l'API. Assurez-vous de remplacer **YOUR_SECRETE_API_KEY** par votre clé privée sandbox ou live.
     </Info>
-
-
   </Step>
+
   <Step title="Envoi du Dépôt">
     Après avoir créé un dépôt, il sera marqué comme "en attente". Vous devez ensuite procéder à son envoi. Deux options s’offrent à vous :
 
-    - Envoyer le dépôt immédiatement
-    - Planifier l'envoi pour plus tard
+    * Envoyer le dépôt immédiatement
+
+    * Planifier l'envoi pour plus tard
 
     <Info>
-    [Code API pour l’envoi du dépôt](/api-reference/payouts/update-start)
+      [Code API pour l’envoi du dépôt](/api-reference/payouts/update-start)
 
-    Utilisez le code PHP, Node.js ou Ruby pour envoyer le dépôt en remplaçant **VOTRE_CLE_API_PRIVEE** par votre clé privée.
+      Utilisez le code PHP, Node.js ou Ruby pour envoyer le dépôt en remplaçant **YOUR_SECRETE_API_KEY** par votre clé privée.
     </Info>
-
   </Step>
+
   <Step title="Récupération des Détails d'un Dépôt">
     Une fois le dépôt créé et/ou envoyé, vous pouvez consulter ses détails pour obtenir des informations spécifiques, telles que le statut ou l’historique du dépôt.
 
     <Info>
-    [Code API pour récupérer les détails d'un dépôt](/api-reference/payouts/get-by-id)
+      [Code API pour récupérer les détails d'un dépôt](/api-reference/payouts/get-by-id)
 
-   Récupérez les informations d’un dépôt spécifique en utilisant son identifiant unique (ID). Remplacez **ID** dans l'URL par l'identifiant du dépôt que vous souhaitez consulter.
+      Récupérez les informations d’un dépôt spécifique en utilisant son identifiant unique (ID). Remplacez **ID** dans l'URL par l'identifiant du dépôt que vous souhaitez consulter.
     </Info>
   </Step>
 </Steps>
@@ -168,11 +180,15 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
 
 Lorsqu'un dépôt est créé, il passe par plusieurs statuts :
 
-- **pending (En attente)** : Statut initial après la création du dépôt.
-- **started (Démarré)** : Le dépôt a été validé et l’envoi est en cours de démarrage.
-- **processing (En cours d'envoi)** : Le dépôt est en cours de traitement et d’envoi vers le destinataire.
-- **sent (Envoyé)** : Le dépôt a été envoyé avec succès au destinataire.
-- **failed (Échoué)** : L’envoi du dépôt a échoué, pour des raisons qui peuvent varier (erreur technique, problème avec la méthode de versement, etc.).
+* **pending (En attente)** : Statut initial après la création du dépôt.
+
+* **started (Démarré)** : Le dépôt a été validé et l’envoi est en cours de démarrage.
+
+* **processing (En cours d'envoi)** : Le dépôt est en cours de traitement et d’envoi vers le destinataire.
+
+* **sent (Envoyé)** : Le dépôt a été envoyé avec succès au destinataire.
+
+* **failed (Échoué)** : L’envoi du dépôt a échoué, pour des raisons qui peuvent varier (erreur technique, problème avec la méthode de versement, etc.).
 
 Vous pouvez suivre l'évolution du statut de vos dépôts à partir du tableau de bord FedaPay dans le menu Dépots.
 
@@ -182,6 +198,6 @@ Actuellement, [les méthodes de versement](/payment-methods/fr/payment-methods-f
 
 Ces méthodes permettent d'envoyer facilement des fonds vers différents pays d'Afrique de l'Ouest.
 
-### Support 
+### Support
 
-Si vous avez des questions ou rencontrez des difficultés avec les dépôts, n'hésitez pas à contacter notre support technique à l’adresse : `support@fedapay.com`
+Si vous avez des questions ou rencontrez des difficultés avec les dépôts, n'hésitez pas à contacter notre support technique à l’adresse : [`support@fedapay.com`](mailto:support@fedapay.com)
