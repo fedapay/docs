@@ -106,13 +106,13 @@ To ensure that the notifications you receive are indeed from FedaPay (and not fr
 
 ### How to Verify the Signature ?
 
-1. Lorsqu'un Webhook est envoyé, FedaPay inclut une signature dans l'en-tête de la requête. Cette signature est nommée **X-FEDAPAY-SIGNATURE**.
+1. When a webhook is sent, FedaPay includes a signature in the request header. This signature is named **X-FEDAPAY-SIGNATURE**.
 
-2. Pour vérifier que le message est authentique, vous devez utiliser la clé secrète de votre Webhook. Vous pouvez la récupérer dans les paramètres de votre tableau de bord.
+2. To verify that the message is authentic, you need to use your webhook's secret key. You can retrieve this key from the settings in your dashboard.
 
-3. Utilisez cette clé secrète pour vérifier la signature et vous assurer que le Webhook a bien été envoyé par FedaPay.
+3. Use this secret key to verify the signature and ensure that the webhook was indeed sent by FedaPay.
 
-### Outils pour vérifier les signatures
+### Tools to Verify Signatures
 
 Nous vous recommandons d’utiliser les **bibliothèques officielles** de FedaPay (disponibles en PHP, Node.js, etc.) pour faciliter la vérification des signatures. Ces bibliothèques font le travail pour vous et vous signalent immédiatement si la signature n’est pas correcte.
 
