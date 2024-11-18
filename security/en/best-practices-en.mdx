@@ -58,11 +58,11 @@ Storing passwords in plain text within a database is a risky practice and highly
   **Example**: In a multi-level system where each user has distinct privileges, unauthorized access could compromise sensitive information (e.g., a technician should not have the same access level as a director).
 </Note>
 
-### Protection par Hachage et Salage des Mots de Passe
+### Hashing and Salting Passwords
 
-1. **Utilisation de “Salts”** : Un salt (ou graine) est une clé ajoutée au mot de passe avant le hachage. Cela rend chaque hachage unique, même pour des mots de passe identiques.
+1. **Using “Salts” :** A salt is a key added to the password before hashing, making each hash unique even for identical passwords.
 
-2. **Hachage des Mots de Passe :** Utilisez des algorithmes de hachage tels que **SHA-256** au lieu de MD5 ou SHA1, qui sont aujourd’hui vulnérables.
+2. **Password Hashing :** Utilisez des algorithmes de hachage tels que **SHA-256** au lieu de **MD5** ou **SHA1**, qui sont aujourd’hui vulnérables.
 
 <Note>
   **Exemple :** Lorsqu’un utilisateur crée un compte, générez un salt unique, combinez-le avec le mot de passe, puis hachez le résultat. En stockant le hash et le salt, vous complexifiez considérablement les attaques par rainbow tables.
