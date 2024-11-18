@@ -401,9 +401,8 @@ _**Checkout.js propose des options pour initialiser le composant de collecte ave
   - **Description**: Indique si le formulaire (Lorsque le bouton de paiement ou l'élément embarqué a un parent direct qui est un formulaire) doit être soumis ou non lorsque le paiement échoue.
   </Accordion>
 
-  <Accordion title="">
-  - **Attribut HTML**:
-  - **Type**:
-  - **Description**:
+  <Accordion title="onComplete">
+  - **Type**: _function({ reason: number, transaction: object })_
+  - **Description**: La fonction de retour lorsque la boîte de dialogue est fermée. Cette fonction prend deux arguments. Le premier est la raison de fermeture de la boîte de dialogue. Il peut être égal à FedaPay.CHECKOUT_COMPLETED (lorsque le paiement est complet) ou FedaPay.DIALOG_DISMISSED (lorsque la boîte de dialogue est fermée par l'utilisateur). Le deuxième argument est l'object transaction créé lors du paiement.
   </Accordion>
 </AccordionGroup>
