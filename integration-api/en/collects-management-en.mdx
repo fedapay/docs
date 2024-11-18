@@ -20,7 +20,7 @@ The steps to set up a collect are broken down into several key processes.
 
     * **currency**: The currency, indicated by its ISO code or number (refer to the FedaPay Currency Table for details)
 
-    * **callback_url**: An optional link to redirect the customer after payment
+    * **callback\_url**: An optional link to redirect the customer after payment
 
     * **customer**: The customer related to the collect
 
@@ -29,7 +29,7 @@ The steps to set up a collect are broken down into several key processes.
     <Info>
       [Example request to create a collect](/api-reference/transactions/create)
 
-      Replace **VOTRE\_CLE\_API\_SECRETE** with your API key and use the URL of the appropriate server (**sandbox** or **live**).
+      Replace **YOUR_SECRETE_API_KEY** with your API key and use the URL of the appropriate server (**sandbox** or **live**).
 
       If the customer is already registered, simply use their ID or email to associate them with the collect.
     </Info>
@@ -63,11 +63,11 @@ The steps to set up a collect are broken down into several key processes.
   </Step>
 
   <Step title="Redirect to Payment Page">
-     This link redirects your customer to a secure payment page where they can complete the collect. If you’ve specified a **callback_url**, the customer will automatically be redirected once the payment is complete.
+    This link redirects your customer to a secure payment page where they can complete the collect. If you’ve specified a **callback\_url**, the customer will automatically be redirected once the payment is complete.
   </Step>
 
   <Step title="Using the Return Link (Callback URL)">
-    The **callback_url** is used to redirect the customer to a specific page after the payment, with the status and collect ID as parameters. For example:
+    The **callback\_url** is used to redirect the customer to a specific page after the payment, with the status and collect ID as parameters. For example:
 
     * **Payment approved** : `https://www.monsite.com/?id=258&status=approved`
 
@@ -135,7 +135,7 @@ Creating a payout through the API involves several steps. Each payout follows pr
 
 <Steps>
   <Step title="Payout Creation Request">
-To begin, you need to send a request to create a payout via our API. The essential information required in the request includes:
+    To begin, you need to send a request to create a payout via our API. The essential information required in the request includes:
 
     * amount : The amount for the payout, always in whole numbers.
 
