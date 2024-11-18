@@ -62,27 +62,26 @@ The steps to set up a collect are broken down into several key processes.
     The generated link can be used to redirect users to FedaPay's secure payment page.
   </Step>
 
-  <Step title="Redirection vers la Page de Paiement">
-    Ce lien redirige votre client vers une page de paiement sécurisée, où il pourra finaliser la collecte. Si vous avez spécifié un **callback\_url**, votre client sera redirigé automatiquement à l’issue du paiement.
+  <Step title="Redirect to Payment Page">
+     This link redirects your customer to a secure payment page where they can complete the collect. If you’ve specified a **callback_url**, the customer will automatically be redirected once the payment is complete.
   </Step>
 
-  <Step title="Utilisation du Lien de Retour (Callback URL)">
-    Le **callback\_url** permet de rediriger le client vers une page spécifique à la fin du paiement, avec le statut et l'ID de la collecte en paramètres. Par exemple :
+  <Step title="Using the Return Link (Callback URL)">
+    The **callback_url** is used to redirect the customer to a specific page after the payment, with the status and collect ID as parameters. For example:
 
-    * **Paiement approuvé** : `https://www.monsite.com/?id=258&status=approved`
+    * **Payment approved** : `https://www.monsite.com/?id=258&status=approved`
 
-    * **Paiement annulé** : `https://www.monsite.com/?id=259&status=canceled`
+    * **Payment canceled** : `https://www.monsite.com/?id=259&status=canceled`
 
     <Warning>
-      **Attention** : Pour des raisons de sécurité, ne vous fiez pas au statut renvoyé par l'URL.
-      Effectuez toujours une vérification directe auprès de l’API pour obtenir le statut réel.
+      **Note**: For security reasons, do not rely solely on the status provided in the URL. Always perform a direct check with the API to get the actual status.
     </Warning>
   </Step>
 
-  <Step title=" Récupération des Détails d’une Collecte">
-    Pour récupérer les informations complètes d’une collecte, effectuez une requête avec l'ID de cette collecte.
+  <Step title="Retrieve Collect Details">
+    To retrieve complete information for a collect, you can send a request using its collection ID.
 
-    <Info>[Exemple de requête pour récupérer les détails d’une collecte](/api-reference/transactions/get-by-id)</Info>
+    <Info>[Example request to retrieve collection details](/api-reference/transactions/get-by-id)</Info>
   </Step>
 </Steps>
 
