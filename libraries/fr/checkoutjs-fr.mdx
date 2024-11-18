@@ -14,197 +14,201 @@ Checkout.js est un outil conçu pour faciliter l'intégration d'un formulaire de
 
 Checkout.js offre plusieurs options d'intégration pour répondre à différents besoins. Vous pouvez ajouter un bouton de paiement simple, plusieurs boutons de collecte, ou même intégrer le formulaire de paiement directement sur votre site pour éviter les redirections.
 
-
 <Steps>
   <Step title="Ajouter un bouton de paiement simple à votre page">
     Commencez par ajouter un bouton simple sur votre page pour déclencher la        collecte. Ce bouton permettra à l’utilisateur d’accéder à un formulaire de      paiement où il pourra finaliser la transaction.
 
     ```javascript
-  <!--
-Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou live.
--->
+    <!--
+    Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou live.
+    -->
 
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Intégrer Feda Checkout à mon site</title>
-  <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
-</head>
-<body>
-  <button id="pay-btn">Payer 100 FCFA</button>
-  <script type="text/javascript">
+    <!doctype html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Intégrer Feda Checkout à mon site</title>
+    <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+    </head>
+    <body>
+    <button id="pay-btn">Payer 100 FCFA</button>
+    <script type="text/javascript">
       FedaPay.init('#pay-btn', { public_key: 'VOTRE_CLE_API_PUBLIQUE' });
-  </script>
-</body>
-</html>
-```
+    </script>
+    </body>
+    </html>
+    ```
 
-<Info>
-**Démo :
-  
-Cliquez sur le bouton pour tester
+    <Info>
+      \*\*Démo :
 
-(Insérer un bouton démo)**
-</Info>
+      Cliquez sur le bouton pour tester
+
+      (Insérer un bouton démo)\*\*
+    </Info>
   </Step>
 
   <Step title="Personnaliser le formulaire de paiement">
     Vous pouvez personnaliser les détails de la collecte (montant, description, noms et adresse e-mail du client) pour adapter le formulaire de paiement à votre plateforme.
 
-```javascript
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Intégrer Feda Checkout à mon site</title>
-  <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
-</head>
-<body>
-  <button id="pay-btn">Payer 1000 FCFA</button>
-  <script type="text/javascript">
-      FedaPay.init('#pay-btn', {
-        public_key: 'VOTRE_CLE_API_PUBLIQUE',
-        transaction: {
-          amount: 1000,
-          description: 'Acheter mon produit'
-        },
-        customer: {
-          email: 'johndoe@gmail.com',
-          lastname: 'Doe',
-          firstname: 'John',
-        }
-      });
-  </script>
-</body>
-</html>
-```
+    ```javascript
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+      <title>Intégrer Feda Checkout à mon site</title>
+      <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+    </head>
+    <body>
+      <button id="pay-btn">Payer 1000 FCFA</button>
+      <script type="text/javascript">
+          FedaPay.init('#pay-btn', {
+            public_key: 'VOTRE_CLE_API_PUBLIQUE',
+            transaction: {
+              amount: 1000,
+              description: 'Acheter mon produit'
+            },
+            customer: {
+              email: 'johndoe@gmail.com',
+              lastname: 'Doe',
+              firstname: 'John',
+            }
+          });
+      </script>
+    </body>
+    </html>
+    ```
 
-<Info>
-  **Démo Personnalisée :
-  
-Bouton de paiement personnalisé avec des informations supplémentaires sur l’utilisateur
+    <Info>
+      \*\*Démo Personnalisée :
 
-(Insérer un bouton démo : Payer 1000 FCFA)
-</Info>
+      Bouton de paiement personnalisé avec des informations supplémentaires sur l’utilisateur
+
+      (Insérer un bouton démo : Payer 1000 FCFA)
+    </Info>
   </Step>
 
   <Step title="Ajouter plusieurs boutons de paiement sur une même page">
     Pour permettre des collectes de différents montants, vous pouvez intégrer plusieurs boutons de paiement sur la même page.
 
-```javascript
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Intégrer Feda Checkout à mon site</title>
-  <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
-</head>
-<body>
-  <button class="pay-btn"
-  data-transaction-amount="1000"
-  data-transaction-description="Acheter mon produit"
-  data-customer-email="johndoe@gmail.com"
-  data-customer-lastname="Doe">Payer 1000 FCFA</button>
+    ```javascript
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+      <title>Intégrer Feda Checkout à mon site</title>
+      <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+    </head>
+    <body>
+      <button class="pay-btn"
+      data-transaction-amount="1000"
+      data-transaction-description="Acheter mon produit"
+      data-customer-email="johndoe@gmail.com"
+      data-customer-lastname="Doe">Payer 1000 FCFA</button>
 
-  <button class="pay-btn"
-  data-transaction-amount="2000"
-  data-transaction-description="Acheter mon produit"
-  data-customer-email="janetay@gmail.com"
-  data-customer-lastname="Tay">Payer 2000 FCFA</button>
-  <script type="text/javascript">
-      FedaPay.init('.pay-btn', { public_key: 'VOTRE_CLE_API_PUBLIQUE' });
-  </script>
-</body>
-</html>
-```
-<Info>
-Démo :
-  
-(Insérer les boutons : Payer 1000 FCFA, Payer 2000 FCFA)
-</Info>
+      <button class="pay-btn"
+      data-transaction-amount="2000"
+      data-transaction-description="Acheter mon produit"
+      data-customer-email="janetay@gmail.com"
+      data-customer-lastname="Tay">Payer 2000 FCFA</button>
+      <script type="text/javascript">
+          FedaPay.init('.pay-btn', { public_key: 'VOTRE_CLE_API_PUBLIQUE' });
+      </script>
+    </body>
+    </html>
+    ```
+
+    <Info>
+      Démo :
+
+      (Insérer les boutons : Payer 1000 FCFA, Payer 2000 FCFA)
+    </Info>
   </Step>
 
-  <Step title="Déclencher la collecte avec un événement
-">
+  <Step
+    title="Déclencher la collecte avec un événement
+"
+  >
     Si vous souhaitez déclencher la collecte par un événement spécifique, utilisez JavaScript pour activer le formulaire de paiement sur demande.
 
-```javascript
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Intégrer Feda Checkout à mon site</title>
-  <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
-</head>
-<body>
-  <button id="pay-btn"
-  data-transaction-amount="1000"
-  data-transaction-description="Acheter mon produit"
-  data-customer-email="johndoe@gmail.com"
-  data-customer-lastname="Doe"
-  >Payer 1000 FCFA</button>
+    ```javascript
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+      <title>Intégrer Feda Checkout à mon site</title>
+      <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+    </head>
+    <body>
+      <button id="pay-btn"
+      data-transaction-amount="1000"
+      data-transaction-description="Acheter mon produit"
+      data-customer-email="johndoe@gmail.com"
+      data-customer-lastname="Doe"
+      >Payer 1000 FCFA</button>
 
-  <script type="text/javascript">
-    let widget =  FedaPay.init({
-      public_key: 'VOTRE_CLE_API_PUBLIQUE'
-    });
-    let btn = document.getElementById('pay-btn');
-    btn.addEventListener('click', () => {
-      widget.open();
-    });
-  </script>
-</body>
-</html>
-```
-<Info>
-  Démo Événement :
-  
-(Bouton de démo : Payer 1000 FCFA)
-</Info>
+      <script type="text/javascript">
+        let widget =  FedaPay.init({
+          public_key: 'VOTRE_CLE_API_PUBLIQUE'
+        });
+        let btn = document.getElementById('pay-btn');
+        btn.addEventListener('click', () => {
+          widget.open();
+        });
+      </script>
+    </body>
+    </html>
+    ```
+
+    <Info>
+      Démo Événement :
+
+      (Bouton de démo : Payer 1000 FCFA)
+    </Info>
   </Step>
 
   <Step title="Intégration embarquée : Paiement sans redirection">
     Pour une expérience utilisateur optimisée, vous pouvez intégrer le formulaire de collecte directement sur votre site, sans rediriger l'utilisateur.
 
-```javascript
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Intégrer Feda Checkout à mon site</title>
-  <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
-</head>
-<body>
-  <div id="embed" style="width: 500px; height: 420px"></div>
+    ```javascript
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+      <title>Intégrer Feda Checkout à mon site</title>
+      <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+    </head>
+    <body>
+      <div id="embed" style="width: 500px; height: 420px"></div>
 
-  <script type="text/javascript">
-      FedaPay.init({
-        public_key: 'VOTRE_CLE_API_PUBLIQUE',
-        transaction: {
-          amount: 1000,
-          description: 'Acheter mon produit'
-        },
-        customer: {
-          email: 'johndoe@gmail.com',
-          lastname: 'Doe',
-        },
-        container: '#embed'
-     });
-  </script>
-</body>
-</html>
-```
-<Info>
-  Démo Intégrée :
-  
-(Insérer ici un bouton de démo avec paiement intégré)
-</Info>
+      <script type="text/javascript">
+          FedaPay.init({
+            public_key: 'VOTRE_CLE_API_PUBLIQUE',
+            transaction: {
+              amount: 1000,
+              description: 'Acheter mon produit'
+            },
+            customer: {
+              email: 'johndoe@gmail.com',
+              lastname: 'Doe',
+            },
+            container: '#embed'
+         });
+      </script>
+    </body>
+    </html>
+    ```
+
+    <Info>
+      Démo Intégrée :
+
+      (Insérer ici un bouton de démo avec paiement intégré)
+    </Info>
   </Step>
 </Steps>
 
@@ -212,15 +216,21 @@ Démo :
 
 Checkout.js permet de personnaliser les éléments visuels de votre formulaire pour qu’il corresponde à l’identité de votre plateforme. Vous pouvez notamment définir la couleur de l’arrière-plan, le texte du bouton de paiement, ou ajouter un logo.
 
-_**Modifier l'apparence et ajouter des détails supplémentaires**_
+***Modifier l'apparence et ajouter des détails supplémentaires***
 
-  - _**Clé publique** : `data-public-key`_
-  - _**Montant de la collecte** : `data-transaction-amount`_
-  - _**Description de la collecte** : `data-transaction-description`_
-  - _**Devise** : `data-currency-iso`_
-  - _**Texte du bouton** : `data-button-text`_
-  - _**Classe CSS du bouton** : `data-button-class`_
-  - _**Image et description du widget** : `data-widget-image, data-widget-description`_
+* ***Clé publique** : `data-public-key`*
+
+* ***Montant de la collecte** : `data-transaction-amount`*
+
+* ***Description de la collecte** : `data-transaction-description`*
+
+* ***Devise** : `data-currency-iso`*
+
+* ***Texte du bouton** : `data-button-text`*
+
+* ***Classe CSS du bouton** : `data-button-class`*
+
+* ***Image et description du widget** : `data-widget-image, data-widget-description`*
 
 ## Méthode avec une balise form pour une intégration avancée
 
@@ -243,12 +253,61 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
  </script>
 </form>
 ```
+
 **Connecter votre compte FedaPay**
 
 Une fois le code intégré, assurez-vous de connecter votre compte FedaPay pour autoriser la création des clients et des collectes. Cette étape est cruciale pour sécuriser votre intégration.
 
 <Note>
-_**Accédez aux Préférences ici :**_
+  ***Accédez aux Préférences ici :***
 
-[Préférences de votre compte FedaPay](https://live.fedapay.com/login?redirect_uri=%2Fsettings%2Fpreferences)
+  [Préférences de votre compte FedaPay](https://live.fedapay.com/login?redirect_uri=%2Fsettings%2Fpreferences)
 </Note>
+
+<Tabs>
+  <Tab title="First Tab">
+    ☝️ Welcome to the content that you can only see inside the first Tab.
+  </Tab>
+  <Tab title="Second Tab">
+    ✌️ Here's content that's only inside the second Tab.
+  </Tab>
+  <Tab title="Third Tab">
+    💪 Here's content that's only inside the third Tab.
+  </Tab>
+  <Tab title="First Tab">
+    ☝️ Welcome to the content that you can only see inside the first Tab.
+  </Tab>
+  <Tab title="Second Tab">
+    ✌️ Here's content that's only inside the second Tab.
+  </Tab>
+  <Tab title="Third Tab">
+    💪 Here's content that's only inside the third Tab.
+  </Tab>
+  <Tab title="First Tab">
+    ☝️ Welcome to the content that you can only see inside the first Tab.
+  </Tab>
+  <Tab title="Second Tab">
+    ✌️ Here's content that's only inside the second Tab.
+  </Tab>
+  <Tab title="Third Tab">
+    💪 Here's content that's only inside the third Tab.
+  </Tab>
+  <Tab title="First Tab">
+    ☝️ Welcome to the content that you can only see inside the first Tab.
+  </Tab>
+  <Tab title="Second Tab">
+    ✌️ Here's content that's only inside the second Tab.
+  </Tab>
+  <Tab title="Third Tab">
+    💪 Here's content that's only inside the third Tab.
+  </Tab>
+  <Tab title="First Tab">
+    ☝️ Welcome to the content that you can only see inside the first Tab.
+  </Tab>
+  <Tab title="Second Tab">
+    ✌️ Here's content that's only inside the second Tab.
+  </Tab>
+  <Tab title="Third Tab">
+    💪 Here's content that's only inside the third Tab.
+  </Tab>
+</Tabs>
