@@ -65,7 +65,7 @@ Storing passwords in plain text within a database is a risky practice and highly
 2. **Password Hashing :** Utilisez des algorithmes de hachage tels que **SHA-256** au lieu de **MD5** ou **SHA1**, qui sont aujourd’hui vulnérables.
 
 <Note>
-  **Exemple :** Lorsqu’un utilisateur crée un compte, générez un salt unique, combinez-le avec le mot de passe, puis hachez le résultat. En stockant le hash et le salt, vous complexifiez considérablement les attaques par rainbow tables.
+  **Example**: When a user creates an account, generate a unique salt, combine it with the password, and then hash the result. Storing the hash and salt together makes rainbow table attacks much more difficult.
 </Note>
 
 ### Recommandations pour le Choix du Mot de Passe
