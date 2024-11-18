@@ -1,20 +1,20 @@
 ---
-title: 'Webhooks et Evénements'
+title: 'Webhooks and Events'
 ---
 
-## Gestion des événements
+## Event Management
 
-Les événements sont des actions importantes qui se produisent dans votre compte FedaPay, comme la création d'une transaction ou la mise à jour d'un client. Comprendre comment fonctionnent ces événements vous permet de mieux gérer vos transactions et d’offrir une meilleure expérience à vos clients.
+Events are important actions that occur within your FedaPay account, such as the creation of a transaction or an update to a customer. Understanding how these events work allows you to better manage your transactions and provide a better experience for your customers.
 
-Chaque fois qu'un événement se produit, FedaPay le signale en temps réel via des **notifications d'événements**. Ces notifications peuvent être utilisées pour suivre et réagir à ce qui se passe dans votre compte, comme lorsqu'un paiement est approuvé ou un client est modifié.
+Whenever an event occurs, FedaPay notifies you in real-time through **event notifications**. These notifications can be used to track and react to what is happening within your account, such as when a payment is approved or when a customer is updated.
 
-### Cycle de vie des transactions
+### Transaction Lifecycle
 
-Les transactions sur FedaPay suivent un cycle de vie, et chaque étape de ce cycle génère un événement particulier. Voici comment ça se passe :
+Transactions on FedaPay follow a lifecycle, and each stage in this lifecycle generates a specific event. Here's how it works:
 
-1. **Création de la transaction** : Une fois que le client est créé, vous pouvez lui attribuer une transaction. Cela déclenche l'événement **transaction.created**.
+1. **Transaction Creation** :  Once the customer is created, you can assign a transaction to them. This triggers the **transaction.created** event.
 
-2. Suivi des transactions : Une transaction peut évoluer de plusieurs façons :
+2. **Tracking Transactions** : Une transaction peut évoluer de plusieurs façons :
 
    * **transaction.approved** : La transaction a été approuvée, ce qui signifie que le paiement a été validé.
 
