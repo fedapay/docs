@@ -1,4 +1,460 @@
 ---
-title: 'Plugin en'
-description: 'Description of your new file.'
+title: 'Plugins FedaPay'
 ---
+
+## WooCommerce
+
+Intégrer FedaPay à votre boutique WooCommerce est simple grâce à notre plugin dédié pour WordPress. Suivez ce guide pour installer et configurer le plugin afin de commencer à accepter des paiements en ligne rapidement.
+
+<Steps>
+  <Step title="Télécharger et installer le plugin">
+    Vous pouvez télécharger le plugin FedaPay :
+
+    * Directement depuis ce [Lien](https://wordpress.org/plugins/woo-gateway-fedapay/)
+
+    * Ou depuis votre tableau de bord WordPress, en allant dans **Extensions** > **Ajouter** et en recherchant **"FedaPay WooCommerce"**.
+
+    ![Image montrant le plugin dans WordPress](https://res.cloudinary.com/dvilp6td2/image/upload/v1731408081/plugin-WordPress_pv4rcu.png)
+  </Step>
+
+  <Step title="Activer le plugin">
+    Une fois le plugin installé, activez-le en cliquant sur **Activer**. Ensuite, dirigez-vous vers les paramètres de WooCommerce pour finaliser la configuration.
+  </Step>
+
+  <Step title="Accéder aux paramètres de WooCommerce">
+    Pour configurer FedaPay, allez dans le tableau de bord WordPress puis cliquez sur :
+
+    * **WooCommerce**
+
+    * **Réglages**
+
+    * **Paiements**
+
+    Dans cette section, vous verrez tous les moyens de paiement disponibles. Tout en bas, vous trouverez **FedaPay**.
+
+    ![Image montrant les paramètres de votre boutique WooCommerce](https://res.cloudinary.com/dvilp6td2/image/upload/v1731408081/reglage-woocommerce_trdani.png)
+  </Step>
+
+  <Step title="Configurer la passerelle FedaPay">
+    Cliquez sur **Configuration** à côté de FedaPay pour ouvrir les options de configuration.
+
+    Voici les principaux paramètres à configurer :
+
+    * **Activer FedaPay**: Cochez cette option pour activer FedaPay et recevoir des paiements en direct.
+
+    * **Mode Test (sandbox)** : Cochez cette case uniquement si vous effectuez des tests. Laissez-la décochée lorsque vous passez en mode live pour accepter les paiements réels.
+
+    ![Image montrant l'interface de configuration de FedaPay](https://res.cloudinary.com/dvilp6td2/image/upload/v1731408081/configuration-woocommerce-fedapay_aa6k5c.png)
+  </Step>
+
+  <Step title="Récupérer et entrer vos clés API">
+    Pour utiliser FedaPay, vous devez entrer vos clés API (privées) pour les environnements test et live. Voici comment les récupérer :
+
+    1. Connectez-vous à votre compte FedaPay.
+
+    2. Accédez à votre **tableau de bord** FedaPay.
+
+    3. Trouvez les clés API de vos comptes **Sandbox** (test) et **Live** (production).
+
+       * La clé privée pour le mode **live** commence par **sk\_live**.
+
+       * La clé privée pour le mode **sandbox** (test) commence par **sk\_sandbox**.
+
+    Copiez ces clés et collez-les dans les champs correspondants dans les paramètres WooCommerce.
+
+    ![Image montrant les clés API](https://res.cloudinary.com/dvilp6td2/image/upload/v1731408081/cle-woocommerce-fedapay_nwyzog.png)
+  </Step>
+
+  <Step title="Enregistrer les modifications">
+    Une fois les clés API correctement entrées, cliquez sur **Enregistrer les modifications** pour finaliser la configuration.
+  </Step>
+
+  <Step title="Passerelle de paiement prête">
+    Félicitations, votre passerelle FedaPay est maintenant configurée et prête à être utilisée pour accepter les paiements de vos clients directement depuis votre boutique WooCommerce !
+
+    ![Image montrant la passerelle de paiement active dans WooCommerce](https://res.cloudinary.com/dvilp6td2/image/upload/v1731408081/passerelle-activer_ekwa2d.png)
+  </Step>
+</Steps>
+
+Avec ces étapes simples, vous pouvez maintenant profiter des paiements en ligne rapides et sécurisés grâce à FedaPay sur votre boutique WooCommerce.
+
+## Prestashop
+
+Intégrer FedaPay à votre boutique PrestaShop est simple grâce à notre plugin dédié. Suivez ce guide pour installer et configurer rapidement FedaPay afin de commencer à accepter des paiements en ligne en toute simplicité.
+
+<Steps>
+  <Step title="Télécharger et installer le plugin">
+    Vous pouvez télécharger le plugin FedaPay pour PrestaShop en cliquant [ici](https://www.fedapay.com/produit/plugin-fedapay-pour-prestashop/?v=ddd70bbaf5be).
+
+    ![Image du plugin](https://res.cloudinary.com/dvilp6td2/image/upload/v1731415086/prestashop-logo_bkbdkv.png)
+
+    **Étapes d'installation :**
+
+    1. Accédez à votre tableau de bord PrestaShop.
+
+    2. Cliquez sur **Modules** > **Module Manager**.
+
+       ![mode prestashop](https://res.cloudinary.com/dvilp6td2/image/upload/v1731415087/module_prestshop_pnsvri.png)
+
+    3. Cliquez sur **Installer un module**.
+
+    ![Image montrant comment accéder à l'installation des modules](https://res.cloudinary.com/dvilp6td2/image/upload/v1731415087/install_module_prestashop_lmzhw2.png)
+
+    4. Téléversez le fichier du plugin que vous avez téléchargé.
+
+       ![Image montrant où téléverser le plugin](https://res.cloudinary.com/dvilp6td2/image/upload/v1731415086/televerser_module_prestashop_dz1zv9.png)
+
+    Une fois le plugin téléversé, l'installation démarre automatiquement. Vous recevrez une notification de succès dès que l’installation sera terminée.
+
+    ![Image de confirmation d'installation](https://res.cloudinary.com/dvilp6td2/image/upload/v1731415087/confirme-install_prestashop_tj1d0g.png)
+  </Step>
+
+  <Step title="Configurer le plugin FedaPay">
+    Après l'installation, cliquez sur **Configurer** pour accéder aux paramètres de FedaPay.
+
+    ![Image montrant le bouton de configuration](https://res.cloudinary.com/dvilp6td2/image/upload/v1731416102/config_prestashop_habjbp.png)
+
+    Vous pouvez configurer le plugin pour fonctionner en mode test (sandbox) ou en mode live selon vos besoins :
+
+    **Mode Test (Sandbox) :**
+
+    * Connectez-vous à votre compte **FedaPay Sandbox**.
+
+    * Allez dans le menu **API** et copiez la clé secrète de test (sk\_sandbox).
+
+    * Collez cette clé dans le champ correspondant sur PrestaShop.
+
+      ![Image montrant la configuration en sandbox](https://res.cloudinary.com/dvilp6td2/image/upload/v1731416101/config_prestashop_sandbox_uaexbx.png)
+
+    **Mode Live :**
+
+    * Connectez-vous à votre compte **FedaPay Live**.
+
+    * Allez dans le menu **API** et copiez la clé secrète live (sk\_live).
+
+    * Collez cette clé dans le champ correspondant sur PrestaShop.
+
+      ![Image montrant la configuration en live](https://res.cloudinary.com/dvilp6td2/image/upload/v1731416102/config_prestashop_live_wpj2k1.png)
+  </Step>
+
+  <Step title="Configurer la devise (FCFA)">
+    FedaPay prend en charge uniquement le **FCFA** pour le moment. Vous devez donc configurer cette devise par défaut dans PrestaShop.
+
+    **Étapes pour ajouter le FCFA :**
+
+    1. Allez dans **International** > **Localization**.
+
+       ![Image montrant l'accès à la localisation](https://res.cloudinary.com/dvilp6td2/image/upload/v1731415087/module_prestshop_pnsvri.png)
+
+    2. Cliquez sur l'onglet **Currencies**.
+
+    ![Image montrant l'onglet currencies](https://res.cloudinary.com/dvilp6td2/image/upload/v1731417650/currencie_prestashop_motwd3.png)
+
+    3. Cliquez sur **Ajouter une devise**.
+       ![Image montrant l'ajout d'une devise](https://res.cloudinary.com/dvilp6td2/image/upload/v1731417650/ajout-devise_prestashop_yqzlmc.png)
+
+    4. Choisissez **FCFA** dans la liste déroulante.
+
+    5. Définissez le taux de conversion en Euro (si nécessaire).
+
+    ![Image montrant le taux de conversion](https://res.cloudinary.com/dvilp6td2/image/upload/v1731417650/choisi-fcfa_prestashop_o2kaba.png)
+
+    Une fois que vous avez ajouté le **FCFA**, il apparaîtra dans la liste des devises de votre boutique.
+
+    ![Image montrant le FCFA dans la liste des devises](https://res.cloudinary.com/dvilp6td2/image/upload/v1731417650/ajout-devise_prestashop_yqzlmc.png)
+
+    **Définir le FCFA comme devise par défaut :**
+
+    1. Retournez dans **Localisation**.
+
+    2. Faites défiler la page jusqu'aux paramètres des devises.
+
+    3. Choisissez le FCFA comme devise par défaut.
+
+    ![Image montrant comment définir le FCFA par défaut](https://res.cloudinary.com/dvilp6td2/image/upload/v1731417650/localisation_prestashop_du8mgw.png)
+  </Step>
+
+  <Step title="Finaliser la configuration">
+    Une fois toutes les étapes précédentes terminées, votre boutique PrestaShop est configurée pour accepter les paiements via FedaPay.
+  </Step>
+</Steps>
+
+## OpenCart
+
+Intégrer FedaPay à votre boutique OpenCart est facile grâce à notre plugin. Suivez ces étapes simples pour installer et configurer FedaPay et commencer à accepter les paiements.
+
+<Steps>
+  <Step title="Télécharger et installer le plugin">
+    Téléchargez le plugin FedaPay pour OpenCart en cliquant [ici](https://www.fedapay.com/produit/plugin-fedapay-pour-opencart/?v=ddd70bbaf5be).
+
+    ![Image du plugin](https://res.cloudinary.com/dvilp6td2/image/upload/v1731419530/opencart_sqnhxr.png)
+
+    **Étapes d'installation :**
+
+    1. Accédez à votre **tableau de bord OpenCart**.
+
+    2. Cliquez sur **Extensions** > **Installer**.
+       ![Image montrant le menu Extensions](https://res.cloudinary.com/dvilp6td2/image/upload/v1731419529/extension_opencart_egb2iy.png)
+
+    3. Cliquez sur le bouton **Upload** pour téléverser le plugin que vous avez téléchargé.
+
+    ![Image montrant l'interface de téléchargement du plugin](https://res.cloudinary.com/dvilp6td2/image/upload/v1731419527/Upload_opencart_e0xvnp.png)
+
+    <Note>
+      **Important** : Ne changez pas le nom du fichier du plugin (fedapay.ocmod.zip) lors du téléversement, sinon l'installation échouera.
+    </Note>
+
+    4. Une fois l'ajout terminé, cliquez sur le sous-menu **Extensions** pour voir la liste des extensions disponibles.
+
+    ![Image montrant la liste des extensions](https://res.cloudinary.com/dvilp6td2/image/upload/v1731419525/sous-menu_extension_opencart_xkaf42.png)
+
+    5. Filtrez par catégorie **Payments** (Paiements).
+
+    ![image montrant le filtre des extension](https://res.cloudinary.com/dvilp6td2/image/upload/v1731419924/filter-extension_opencart_ad1srr.png)
+
+    6. Trouvez **FedaPay** dans la liste des moyens de paiement.
+
+    ![Image montrant le filtre et la liste des moyens de paiement](https://res.cloudinary.com/dvilp6td2/image/upload/v1731419528/fedapay_opencart_teuxpk.png)
+
+    7. Cliquez sur le bouton vert pour installer FedaPay.
+
+       ![Image montrant le bouton d'installation](https://res.cloudinary.com/dvilp6td2/image/upload/v1731419528/active-fedapay_opencart_fynw66.png)
+  </Step>
+
+  <Step title="Configurer le plugin FedaPay">
+    Une fois installé, vous devez configurer FedaPay pour qu'il fonctionne avec votre boutique.
+
+    1. Cliquez sur le bouton bleu **Configurer** pour accéder aux réglages de FedaPay.
+
+    ![Image montrant l'accès aux réglages](https://res.cloudinary.com/dvilp6td2/image/upload/v1731420713/acces-reglage_opencart_obinib.png)
+
+    2. Activez FedaPay en passant le \**Status* de "Disabled" à "Enabled".
+
+    ![image montrant le status](https://res.cloudinary.com/dvilp6td2/image/upload/v1731420713/active-status_opencart_kuxupa.png)
+
+    3. Choisissez l'environnement selon vos besoins :
+
+       * **Sandbox** si vous voulez tester avec un compte test.
+
+       * **Live** pour commencer à accepter des paiements réels avec votre compte FedaPay.
+
+       ![Image montrant la sélection de l'environnement](https://res.cloudinary.com/dvilp6td2/image/upload/v1731420712/selection-environement_opencart_yuffpa.png)
+
+    4. Selon l'environnement choisi, copiez et collez la **clé API secrète** de votre compte FedaPay.
+
+       * Si vous avez choisi **Sandbox**, copiez la clé API de votre compte FedaPay Sandbox.
+
+       * Si vous avez choisi **Live**, copiez la clé API de votre compte FedaPay Live.
+
+    ![Image montrant où coller la clé API](https://res.cloudinary.com/dvilp6td2/image/upload/v1731420712/api_opencart_zv8hzz.png)
+
+    5. **Sort Order** : Ce champ vous permet de définir l'ordre d'affichage de FedaPay si vous avez plusieurs options de paiement. Remplissez ce champ selon vos préférences.
+
+    6. Cliquez sur le bouton de sauvegarde en haut à droite pour enregistrer vos réglages.
+
+    ![Image montrant le bouton de sauvegarde](https://res.cloudinary.com/dvilp6td2/image/upload/v1731420712/enregistrer_opencart_fc7izj.png)
+  </Step>
+
+  <Step title="Ajouter et configurer la devise FCFA">
+    FedaPay supporte uniquement le **FCFA** comme devise. Vous devez donc l'ajouter et la définir comme devise par défaut.
+
+    **Étapes pour ajouter le FCFA :**
+
+    1. Cliquez sur **System** > **Localisation** > **Currencies**.
+
+       ![Image montrant le chemin pour accéder aux devises](https://res.cloudinary.com/dvilp6td2/image/upload/v1731421730/devise_opencart_qlqgoo.png)
+
+    2. Cliquez sur le bouton bleu **Ajouter une devise**.
+
+       ![Image montrant l'ajout d'une nouvelle devise](https://res.cloudinary.com/dvilp6td2/image/upload/v1731421731/ajouter-devise_opencart_twnopw.png)
+
+    3. Remplissez les informations pour le **FCFA** (nom, symbole, taux de conversion) et sauvegardez.
+
+       ![Image montrant les informations à remplir pour le FCFA](https://res.cloudinary.com/dvilp6td2/image/upload/v1731421729/sauvegarder-devise_opencart_vcgq7o.png)
+
+    **Définir le FCFA comme devise par défaut :**
+
+    1. Allez dans **System** > **Settings**.
+
+    ![Image montrant le chemin vers les paramètres](https://res.cloudinary.com/dvilp6td2/image/upload/v1731421730/parametre_opencart_kxathp.png)
+
+    2. Cliquez sur le bouton d'édition pour accéder aux paramètres de votre boutique.
+
+    ![Image montrant le bouton d'édition](https://res.cloudinary.com/dvilp6td2/image/upload/v1731421730/modifier-devise_opencart_dk6qbb.png)
+
+    3. Allez dans l'onglet **Local**, puis dans l'option **Currency**, sélectionnez **FCFA** dans la liste des devises.
+
+    ![Image montrant comment définir le FCFA comme devise par défaut](https://res.cloudinary.com/dvilp6td2/image/upload/v1731421729/save_opencart_ao8cec.png)
+
+    4. Cliquez sur **Sauvegarder**.
+  </Step>
+
+  <Step title="Terminer l'intégration">
+    Votre boutique OpenCart est maintenant prête à accepter les paiements via FedaPay !
+  </Step>
+</Steps>
+
+## Configuration du plugin Feda Give pour WordPress
+
+Grâce à **Feda Give**, vous pouvez facilement collecter des dons via Mobile Money et cartes de crédit sur votre site WordPress. Suivez ce guide simple pour installer et configurer le plugin.
+
+<Steps>
+  <Step title="Télécharger et installer les plugins nécessaires">
+    Avant de commencer, assurez-vous d'installer deux plugins essentiels :
+
+    1. **Give** – le plugin principal pour gérer les dons, que vous pouvez télécharger gratuitement [ici](https://wordpress.org/plugins/give/?utm_source=give\&utm_medium=marketing\&utm_campaign=download).
+
+    2. **Feda Give** – le plugin de paiement FedaPay pour les dons, disponible [ici](https://www.fedapay.com/produit/feda-give/?v=ddd70bbaf5be).
+  </Step>
+
+  <Step title="Configurer le plugin Give">
+    Une fois les deux plugins installés et activés, suivez ces étapes :
+
+    1. **Accédez aux paramètres de Give** en allant dans **Dons** > **Paramètres** dans le tableau de bord WordPress.
+
+    ![Image montrant l'accès aux paramètres](https://res.cloudinary.com/dvilp6td2/image/upload/v1731423661/parametre_fedagive_dc3ge3.png)
+
+    2. Définir la devise cliquez sur l'onglet **Devise** dans les paramètres généraux.
+
+    3. Définissez FCFA (XOF) comme devise par défaut, car Feda Give ne supporte que cette devise pour le moment.
+
+    ![Image montrant l'onglet Devise et la sélection du FCFA](https://res.cloudinary.com/dvilp6td2/image/upload/v1731423661/devise_fedagive_fl3veq.png)
+
+    ![Image montrant l'onglet Devise et la sélection du FCFA](https://res.cloudinary.com/dvilp6td2/image/upload/v1731423662/devise1_fedagive_zzkq3q.png)
+
+    4. Enregistrez les modifications.
+  </Step>
+
+  <Step title="Activer la passerelle FedaPay">
+    Après avoir configuré la devise, activez FedaPay comme passerelle de paiement :
+
+    1. Cliquez sur l'onglet **Passerelles de paiements** dans les paramètres de Give.
+
+    2. Cochez la case à côté de **FedaPay** pour l'activer.
+
+    3. Cliquez sur la section **FedaPay** qui apparaît après activation.
+
+    ![Image montrant l'activation de FedaPay](https://res.cloudinary.com/dvilp6td2/image/upload/v1731423661/passerelle_fedagive_xpkuik.png)
+  </Step>
+
+  <Step title="Configurer vos clés API FedaPay">
+    Pour que FedaPay fonctionne correctement, vous devez connecter vos comptes FedaPay en utilisant vos **clés API secrètes**.
+
+    1. Connectez-vous à vos comptes **FedaPay Sandbox** et **Live** pour récupérer les clés API secrètes.
+
+       * **sk\_sandbox** pour votre compte test.
+
+       * **sk\_live** pour votre compte réel (live).
+
+    ![Image montrant où récupérer les clés API](https://res.cloudinary.com/dvilp6td2/image/upload/v1731423662/api-cle_fedagive_r21vol.png)
+
+    2. Copiez et collez la clé API secrète **test** dans le champ correspondant lorsque vous utilisez le mode test.
+
+    3. Faites de même avec la clé API secrète **live** pour recevoir de vrais dons une fois que vous êtes prêt à passer en mode réel.
+
+    <Note>**Remarque** : Utilisez la clé test lorsque le mode test est activé pour éviter de recevoir des paiements réels.</Note>
+
+    ![Image montrant le mode test activé](https://res.cloudinary.com/dvilp6td2/image/upload/v1731423662/active_fedagive_wxj3ia.png)
+
+    4. Enregistrez vos modifications.
+  </Step>
+
+  <Step title="Créer un formulaire de dons">
+    Une fois la configuration terminée, vous êtes prêt à créer votre formulaire de dons.
+
+    1. Cliquez sur **Dons** > **Ajouter un formulaire** pour créer un formulaire de collecte de dons via Give.
+
+    ![Image montrant l'ajout d'un formulaire](https://res.cloudinary.com/dvilp6td2/image/upload/v1731423661/formulaire_fedagive_emyycl.png)
+
+    2. Personnalisez votre formulaire en fonction de vos besoins.
+
+    Votre intégration de **Feda Give** est maintenant complète ! Vous pouvez désormais collecter des dons via Mobile Money et cartes de crédit sur votre site WordPress.
+  </Step>
+</Steps>
+
+## Configuration du plugin WHMCS pour FedaPay
+
+**WHMCS** est un système d'automatisation d'hébergement web simple à utiliser. Si vous gérez un site d'hébergement web avec WHMCS, **FedaPay** propose un plugin d'intégration pour collecter des paiements en toute simplicité. Voici comment l'installer et le configurer.
+
+<Steps>
+  <Step title="Installation du plugin">
+    Avant de commencer, suivez ces étapes simples pour installer le plugin :
+
+    1. **Créez un compte FedaPay** en vous inscrivant [ici](https://live.fedapay.com/register).
+
+    2. **Téléchargez le plugin WHMCS** pour FedaPay disponible sur GitHub [ici](https://github.com/fedapay/whmcs-fedapay).
+
+    3. Une fois téléchargé, vous devrez **copier les fichiers** dans les dossiers de votre système WHMCS.
+
+    **Structure des fichiers à copier :**
+
+    ```
+    modules/fedapay/
+      callback/fedapay.php
+      fedapay-php/
+      fedapay.php
+    ```
+
+    * Copiez le dossier **fedapay-php/** et le fichier **fedapay.php** dans le dossier **modules/gateways/** de votre installation WHMCS.
+
+    * Copiez le contenu du dossier **callback/** dans **modules/gateways/callback/**.
+  </Step>
+
+  <Step title="Configuration du plugin dans WHMCS">
+    Une fois les fichiers du plugin installés, suivez les étapes ci-dessous pour configurer FedaPay dans WHMCS :
+
+    **Étape 1 : Accéder aux paramètres de paiement**
+
+    * Dans votre tableau de bord WHMCS, allez dans **Setup** > **Payments** > **Payment Gateways**.
+
+      ![Image montrant comment accéder aux paramètres](https://res.cloudinary.com/dvilp6td2/image/upload/v1731424814/parametre_whmcs_arsgwi.png)
+
+      ![Image montrant comment accéder aux paramètres](https://res.cloudinary.com/dvilp6td2/image/upload/v1731424815/parametre1_whmcs_dn2k5h.png)
+
+    * Cliquez sur l'onglet **All Payment Gateways** pour voir la liste complète des passerelles de paiement disponibles.
+
+      ![Image montrant la liste des passerelles de paiement](https://res.cloudinary.com/dvilp6td2/image/upload/v1731424816/liste-passerelle_whmcs_l1y7oi.png)
+
+    * Dans la liste, sélectionnez **FedaPay** pour l'activer.
+
+    **Étape 2 : Activer et configurer FedaPay**
+
+    * Cochez la case **Show on Order Form** pour permettre à vos clients de voir FedaPay sur le formulaire de commande.
+
+    * Si vous êtes en mode test, cochez la case **Sandbox Mode**. Sinon, laissez cette case décochée pour les transactions réelles.
+
+    **Étape 3 : Récupérer et entrer vos clés API**
+
+    * Connectez-vous à vos comptes **FedaPay Sandbox** (test) et **FedaPay Live** (réel).
+
+    * Copiez les **clés API secrètes** pour chaque mode :
+
+      * **sk\_sandbox** pour le mode test.
+
+      * **sk\_live** pour le mode réel.
+
+      ![Image montrant où récupérer les clés API](https://res.cloudinary.com/dvilp6td2/image/upload/v1731424816/active-fedapay_whmcs_krvp0l.png)
+
+    * Collez ces clés dans les champs correspondants dans WHMCS.
+
+    **Étape 4 : Enregistrer les modifications**
+
+    Cliquez sur **Enregistrer** pour sauvegarder vos modifications.
+  </Step>
+
+  <Step title="Ajouter la devise XOF (FCFA)">
+    Pour permettre à vos clients de payer en **FCFA (XOF)**, vous devez ajouter cette devise dans WHMCS.
+
+    * Dans le menu **Payments**, cliquez sur **Currencies**.
+
+    * Modifiez la devise par défaut ou ajoutez **XOF** comme nouvelle devise.
+
+      ![Image montrant l'ajout de la devise XOF](https://res.cloudinary.com/dvilp6td2/image/upload/v1731424816/ajout-devise_whmcs_ro5idt.png)
+
+      ![Image montrant l'ajout de la devise XOF](https://res.cloudinary.com/dvilp6td2/image/upload/v1731424816/ajout1-devise_whmcs_b85kby.png)
+  </Step>
+
+  <Step title="Finaliser la configuration">
+    Vous avez maintenant terminé la configuration de FedaPay pour WHMCS. Votre passerelle de paiement est prête à recevoir des paiements via Mobile Money et cartes de crédit.
+  </Step>
+</Steps>
