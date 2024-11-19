@@ -1682,8 +1682,8 @@
               }
             }
           },
-          "404": {
-            "description": "Event not found"
+          "401": {
+            "description": "Unauthorized. Provide a valid secret key"
           }
         },
         "x-codeSamples": [
