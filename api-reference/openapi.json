@@ -1897,15 +1897,15 @@
           {
             "lang": "JavaScript",
             "label": "Node",
-            "source": "const { FedaPay, Currencie } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show currencies */\nconst currencie = await Currencie.all( params = {}, headers = {} );"
+            "source": "const { FedaPay, Currency } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show currencies */\nconst currency = await Currency.all( params = {}, headers = {} );"
           },
           {
             "lang": "PHP",
-            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n/**\n* @var \\FedaPay\\FedaPayObject\n*/\n$response = \\FedaPay\\Currencie::all();\n$currencies = $response->currencies;\n$meta = $response->meta;"
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n/**\n* @var \\FedaPay\\FedaPayObject\n*/\n$response = \\FedaPay\\Currency::all();\n$currencies = $response->currencies;\n$meta = $response->meta;"
           },
           {
             "lang": "Ruby",
-            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\ncurrencies = FedaPay::Currencie.list;"
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\ncurrencies = FedaPay::Currency.list;"
           }
         ]
       }
