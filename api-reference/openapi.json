@@ -1623,6 +1623,86 @@
         ]
       }
     },
+    "/events": {
+      "get": {
+        "summary": "Get all events",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of events",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "Event ID."
+                      },
+                      "type": {
+                        "type": "string",
+                        "description": "Event type"
+                      },
+                      "entity": {
+                        "type": "object",
+                        "description": "Event entity"
+                      },
+                      "object_id": {
+                        "type": "integer",
+                        "description": "Object ID associated with the event"
+                      },
+                      "account_id": {
+                        "type": "integer",
+                        "description": "Account ID associated with the event"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of event creation."
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of last event update."
+                      },
+                      "deleted_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of customer deletion (if applicable)."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Event not found"
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const { FedaPay, Event } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show events */\nconst event = await Event.all( params = {}, headers = {} );"
+          },
+          {
+            "lang": "PHP",
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n/**\n* @var \\FedaPay\\FedaPayObject\n*/\n$response = \\FedaPay\\Event::all();\n$events = $response->events;\n$meta = $response->meta;"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\nevents = FedaPay::Event.list;"
+          }
+        ]
+      }
+    },
     "/transactions/search": {
       "get": {
         "summary": "Search your transactions",
