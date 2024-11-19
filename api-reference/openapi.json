@@ -2010,6 +2010,105 @@
         ]
       }
     },
+    "/logs": {
+      "get": {
+        "summary": "Get all logs",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of logs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "Log ID."
+                      },
+                      "method": {
+                        "type": "string",
+                        "description": "HTTP method used for the request."
+                      },
+                      "url": {
+                        "type": "string",
+                        "description": "URL of the request."
+                      },
+                      "status": {
+                        "type": "integer",
+                        "description": "HTTP status code returned by the request."
+                      },
+                      "ip_address": {
+                        "type": "string",
+                        "description": "IP address of the request."
+                      },
+                      "version": {
+                        "type": "string",
+                        "description": "Version of the API used for the request."
+                      },
+                      "source": {
+                        "type": "string",
+                        "description": "Source of the request."
+                      },
+                      "query": {
+                        "type": "string",
+                        "description": "Query parameters of the request."
+                      },
+                      "body": {
+                        "type": "string",
+                        "description": "Body of the request."
+                      },
+                      "response": {
+                        "type": "string",
+                        "description": "Response body of the request."
+                      },
+                      "account_id": {
+                        "type": "integer",
+                        "description": "ID of the log's account."
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of log creation."
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of last log update."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. Provide a valid secret key."
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const { FedaPay, Logs } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show logs */\nconst log = await Log.all( params = {}, headers = {} );"
+          },
+          {
+            "lang": "PHP",
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n/**\n* @var \\FedaPay\\FedaPayObject\n*/\n$response = \\FedaPay\\Log::all();\n$logs = $response->logs;\n$meta = $response->meta;"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\nlogs = FedaPay::Log.list;"
+          }
+        ]
+      }
+    },
     "/transactions": {
       "post": {
         "summary": "Create a transaction",
