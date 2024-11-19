@@ -1798,6 +1798,92 @@
         ]
       }
     },
+    "/balances/{id}": {
+      "get": {
+        "summary": "Get a balance",
+        "description": "Retrieves a single balance by ID",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Balance ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of balance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "Balance ID."
+                      },
+                      "amount": {
+                        "type": "integer",
+                        "description": "Balance amount."
+                      },
+                      "mode": {
+                        "type": "string",
+                        "description": "Balance mode"
+                      },
+                      "account_id": {
+                        "type": "integer",
+                        "description": "Account ID associated with the balance"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of balance creation."
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of last balance update."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "balance not found."
+          },
+          "401": {
+            "description": "Unauthorized. Provide a valid secret key."
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const { FedaPay, Balance } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show balance */\nconst balance = await Balance.retrieve( ID, params = {}, headers = {} );"
+          },
+          {
+            "lang": "PHP",
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n/**\n* @var \\FedaPay\\FedaPayObject\n*/\n$response = \\FedaPay\\Balance::retrieve(ID);\n$balances = $response->balances;\n$meta = $response->meta;"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\nbalances = FedaPay::Balance.retrieve(ID);"
+          }
+        ]
+      }
+    },
     "/transactions/search": {
       "get": {
         "summary": "Search your transactions",
