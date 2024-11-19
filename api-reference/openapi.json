@@ -1826,7 +1826,7 @@
     },
     "/currencies": {
       "get": {
-        "summary": "Search your currencies",
+        "summary": "Get all currencies",
         "security": [
           {
             "bearerAuth": []
