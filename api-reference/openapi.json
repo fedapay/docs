@@ -2305,6 +2305,103 @@
         ]
       }
     },
+    "/webhooks/{id}": {
+      "get": {
+        "summary": "Get a webhook",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Webhook ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of webhook",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "Webhook ID."
+                      },
+                      "url": {
+                        "type": "string",
+                        "description": "URL of the request."
+                      },
+                      "enabled": {
+                        "type": "boolean",
+                        "description": "Indicates whether the webhook is active."
+                      },
+                      "ssl_verify": {
+                        "type": "boolean",
+                        "description": "Indicates whether SSL verification is enabled for the webhook."
+                      },
+                      "disable_on_error": {
+                        "type": "boolean",
+                        "description": "the webhook will be disabled after encountering an error."
+                      },
+                      "account_id": {
+                        "type": "integer",
+                        "description": "ID of the webhook account"
+                      },
+                      "http_headers": {
+                        "type": "boolean",
+                        "description": "Indicates whether custom HTTP headers are used"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of webhook creation"
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of last webhook update"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Webhook not found."
+          },
+          "401": {
+            "description": "Unauthorized. Provide a valid secret key."
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const { FedaPay, Webhook } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show webhook */\nconst webhook = await Webhook.retrieve( ID, params = {}, headers = {} );"
+          },
+          {
+            "lang": "PHP",
+            "source": "\\FedaPay\\Fedapay::setApiKey(MY_API_KEY);\n/**\n* @var \\FedaPay\\FedaPayObject\n*/\n$response = \\FedaPay\\Webhook::retrieve(ID);\n$webhooks = $response->webhooks;\n$meta = $response->meta;"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\nwebhooks = FedaPay::Webhook.retrieve(ID);"
+          }
+        ]
+      }
+    },
     "/transactions": {
       "post": {
         "summary": "Create a transaction",
