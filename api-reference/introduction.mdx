@@ -17,10 +17,21 @@ FedaPay offers a range of functionalities tailored to meet the needs of diverse 
 - **Logs**: Debug and track API activity.
 - **Webhooks**: Enable seamless communication between your application and FedaPay's services.
 
+## API Structure
 
+FedaPay's API is RESTful, designed for simplicity and efficiency. The endpoints are predictable, making it easy to implement and scale. Each section in this reference corresponds to a key API feature, guiding you through its functionality with code examples, expected responses, and error-handling tips.
 
+### Authentication
 
+To ensure the security of your transactions, all API endpoints require **Bearer token authentication**. Your API keys grant access to your account's data, so keep them secure. Use the appropriate environment (sandbox or live) for development or production needs.
 
+```json
+"security": [
+  {
+    "bearerAuth": []
+  }
+]
+```
 
 
 
