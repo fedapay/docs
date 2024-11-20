@@ -909,7 +909,7 @@
     },
     "/payouts/start": {
       "put": {
-        "summary": "Search start",
+        "summary": "Start payout",
         "security": [
           {
             "bearerAuth": []
