@@ -2440,10 +2440,6 @@
                     "format": "uri",
                     "description": "URL to receive transaction updates."
                   },
-                  "mode": {
-                    "type": "string",
-                    "description": "Transaction mode (e.g., 'mtn_open', 'moov')."
-                  },
                   "metadata": {
                     "type": "object",
                     "additionalProperties": true,
