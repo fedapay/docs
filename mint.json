@@ -5,7 +5,7 @@
     "dark": "https://res.cloudinary.com/dvilp6td2/image/upload/v1732196591/Logo-Fedapay-dark-resize_omzf9g.png",
     "light": "https://res.cloudinary.com/dvilp6td2/image/upload/v1732196591/Logo-Fedapay-light-resize_ub1uhn.png"
   },
-  "favicon": "https://res.cloudinary.com/dvilp6td2/image/upload/v1730220259/images_wyvd3n.png",
+  "favicon":"https://res.cloudinary.com/dvilp6td2/image/upload/v1730220259/images_wyvd3n.png",
   "colors": {
     "primary":"#0055ff",
     "light":"#00d5ff",
