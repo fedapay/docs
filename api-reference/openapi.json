@@ -2983,10 +2983,6 @@
                   "status": {
                     "type": "string",
                     "description": "Transaction status (e.g., 'pending', 'approved', 'canceled')."
-                  },
-                  "mode": {
-                    "type": "string",
-                    "description": "Transaction mode (e.g., 'standard', 'mobile_money')."
                   }
                 }
               }
@@ -3032,10 +3028,6 @@
                     "currency_id": {
                       "type": "integer",
                       "description": "Currency ID associated with the transaction."
-                    },
-                    "mode": {
-                      "type": "string",
-                      "description": "Transaction mode."
                     },
                     "metadata": {
                       "type": "object",
