@@ -123,12 +123,11 @@ $mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
 $transaction->sendNowWithToken($mode, $token);
 ```
 
-```java HelloWorld.java
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
+```javascript Node.js
+const transaction = await Transaction.create(...);
+const token = transaction.generateToken().token;
+const mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
+await transaction.sendNowWithToken(mode, token);
 ```
 
 </CodeGroup>
