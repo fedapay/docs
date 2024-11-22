@@ -135,20 +135,20 @@ await transaction.sendNowWithToken(mode, token);
 <Warning>
 **Important Notes :**
   
- Remplacez **METHODE_PAIEMENT** par la méthode de paiement choisie (par exemple **mtn_benin**, **moov_benin**, etc.).
+Replace **METHODE_PAIEMENT** with the chosen payment method (e.g., **mtn_benin**, **moov_benin**, etc.).
  
-**VOTRE_CLE_API_SECRETE** doit être remplacée par votre clé API secrète (en mode **sandbox** pour les tests ou en mode **live** pour les transactions en production).
+**VOTRE_CLE_API_SECRETE** must be replaced with your secret API key (in sandbox mode for testing or live mode for production transactions).
 
-Lorsque vous êtes prêt à passer en production, remplacez l'URL de **sandbox** par l'URL en mode **Live** :
+When you're ready to go live, replace the **sandbox** URL with the **Live** URL :
 
 - **Sandbox** : `https://sandbox-api.fedapay.com`
 - **Live** : `https://api.fedapay.com/v1/transactions/ID`
 
-_**Important** : Veillez à tester minutieusement vos intégrations dans l'environnement **sandbox** avant de les déployer en production_
+_**Important**: Make sure to thoroughly test your integrations in the sandbox environment before deploying them to production._
 </Warning>
 
 <Note>
-  **Remarque** : Le paiement sans redirection ne prend pas en charge tous les opérateurs. Consulter la section Méthodes de Paiement(Redirection vers *Méthodes de Paiement**) pour en savoir un peu plus.
+   **Note**: Payments without redirection do not support all operators. Refer to the **Payment Methods** section for more details on supported methods.
 </Note>
 
 ### Automatic Retrieval of Collect Status
