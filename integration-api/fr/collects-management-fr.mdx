@@ -102,54 +102,54 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
   <Step title=" Déclencher le paiement">
     Une fois que vous avez le token de paiement, vous devez envoyer une requête à l'API FedaPay pour traiter le paiement. La requête se fait en utilisant une des [méthodes de paiement](/payment-methods/fr/payment-methods-fr) spécifiques
 
-    _**Voici un exemple de code pour envoyer un paiement mobile sans redirection**_
+    ***Voici un exemple de code pour envoyer un paiement mobile sans redirection***
 
     <CodeGroup>
+      ```java curl
+      curl -X POST \
+      https://sandbox-api.fedapay.com/v1/METHODE_PAIEMENT \
+      -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+      -H 'Content-Type: application/json'
+      -d '{
+        "token" : "TOKEN_DE_PAIEMENT"
+      }'
+      ```
 
-```java curl
-curl -X POST \
-https://sandbox-api.fedapay.com/v1/METHODE_PAIEMENT \
--H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
--H 'Content-Type: application/json'
--d '{
-  "token" : "TOKEN_DE_PAIEMENT"
-}'
-```
+      ```php PHP
+      $transaction = \FedaPay\Transaction::create(...);
+      $token = $transaction->generateToken()->token;
+      $mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
+      $transaction->sendNowWithToken($mode, $token);
+      ```
 
-```php PHP
-$transaction = \FedaPay\Transaction::create(...);
-$token = $transaction->generateToken()->token;
-$mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
-$transaction->sendNowWithToken($mode, $token);
-```
-
-```javascript Node.js
-const transaction = await Transaction.create(...);
-const token = transaction.generateToken().token;
-const mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
-await transaction.sendNowWithToken(mode, token);
-```
-</CodeGroup>
+      ```javascript Node.js
+      const transaction = await Transaction.create(...);
+      const token = transaction.generateToken().token;
+      const mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
+      await transaction.sendNowWithToken(mode, token);
+      ```
+    </CodeGroup>
   </Step>
 </Steps>
 
 <Warning>
-**Attention :**
-  
- Remplacez **METHODE_PAIEMENT** par la méthode de paiement choisie (par exemple **mtn_benin**, **moov_benin**, etc.).
- 
-**VOTRE_CLE_API_SECRETE** doit être remplacée par votre clé API secrète (en mode **sandbox** pour les tests ou en mode **live** pour les transactions en production).
+  **Attention :**
 
-Lorsque vous êtes prêt à passer en production, remplacez l'URL de **sandbox** par l'URL en mode **Live** :
+  Remplacez **METHODE\_PAIEMENT** par la méthode de paiement choisie (par exemple **mtn\_benin**, **moov\_benin**, etc.).
 
-- **Sandbox** : `https://sandbox-api.fedapay.com`
-- **Live** : `https://api.fedapay.com/v1/transactions/ID`
+  **VOTRE\_CLE\_API\_SECRETE** doit être remplacée par votre clé API secrète (en mode **sandbox** pour les tests ou en mode **live** pour les transactions en production).
 
-_**Important** : Veillez à tester minutieusement vos intégrations dans l'environnement **sandbox** avant de les déployer en production_
+  Lorsque vous êtes prêt à passer en production, remplacez l'URL de **sandbox** par l'URL en mode **Live** :
+
+  * **Sandbox** : `https://sandbox-api.fedapay.com`
+
+  * **Live** : `https://api.fedapay.com/v1/transactions/ID`
+
+  ***Important** : Veillez à tester minutieusement vos intégrations dans l'environnement **sandbox** avant de les déployer en production*
 </Warning>
 
 <Note>
-  **Remarque** : Le paiement sans redirection ne prend pas en charge tous les opérateurs. Consulter la section Méthodes de Paiement(Redirection vers *Méthodes de Paiement**) pour en savoir un peu plus.
+  **Remarque** : Le paiement sans redirection ne prend pas en charge tous les opérateurs. Consulter la section Méthodes de Paiement(Redirection vers *Méthodes de Paiement*\*) pour en savoir un peu plus.
 </Note>
 
 ### Récupération Automatique du Statut d’une Collecte
@@ -176,7 +176,7 @@ Chaque collecte passe par différents statuts :
 
 * **transferred** : Transférée (montant transféré sur le compte marchand)
 
-<Note>Pour consulter le statut en temps réel, rendez-vous dans le tableau de bord FedaPay sous la section Collectes ou utilisez l’API pour vérifier avec l'ID de la collecte.</Note>
+<Note>Pour consulter le statut en temps réel, rendez-vous dans le tableau de bord FedaPay sous la section **Collectes** ou utilisez l’API pour vérifier avec l'ID de la collecte.</Note>
 
 ## Gestion des dépôts
 
