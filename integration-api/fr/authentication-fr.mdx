@@ -5,22 +5,28 @@ title: 'Authentification'
 L'API de FedaPay vous permet d'intégrer facilement des solutions de paiement sur votre site web ou application. Elle vous offre des outils puissants pour gérer les transactions, suivre les paiements et interagir avec les clients de manière fluide et sécurisée, que vous soyez développeur ou chef d'entreprise.
 
 Pour vous aider à profiter pleinement de nos services, l'intégration de FedaPay dans votre plateforme se déroule en trois étapes principales :
+
 1. **Obtenez vos clés API** pour authentifier vos requêtes.
+
 2. **Installez une librairie API** pour interagir avec FedaPay.
+
 3. **Effectuez un test de requête API** pour valider l'intégration.
 
 ## Aperçu de l'API FedaPay
 
 La solution de FedaPay vous permet de :
 
-- **Créer des transactions** : gérez vos paiements et suivez leur statut.
-- **Administrer les clients** : enregistrez les informations de vos clients pour des paiements récurrents ou des suivis faciles.
-- **Configurer des notifications** : recevez des alertes en temps réel sur les changements d'état des transactions.
+* **Créer des transactions** : gérez vos paiements et suivez leur statut.
+
+* **Administrer les clients** : enregistrez les informations de vos clients pour des paiements récurrents ou des suivis faciles.
+
+* **Configurer des notifications** : recevez des alertes en temps réel sur les changements d'état des transactions.
 
 L'API de FedaPay prend en charge deux modes de collecte distincts :
 
-- **Mode test** : pour simuler des transactions et tester votre intégration sans effectuer de paiements réels.
-- **Mode live** : une fois votre intégration validée, vous pouvez passer en production pour gérer de véritables transactions.
+* **Mode test** : pour simuler des transactions et tester votre intégration sans effectuer de paiements réels.
+
+* **Mode live** : une fois votre intégration validée, vous pouvez passer en production pour gérer de véritables transactions.
 
 Les objets créés en mode test (clients, transactions) sont totalement distincts de ceux créés en mode live. Il n'y a donc pas de risque de mélanger les données des deux environnements.
 
@@ -29,32 +35,35 @@ Les objets créés en mode test (clients, transactions) sont totalement distinct
 <Steps>
   <Step title="Obtenir vos clés API">
     Chaque compte FedaPay est associé à deux clés API :
-    - **Clé de test** : pour effectuer des requêtes en mode test.
 
-    - **Clé live** : pour gérer les transactions réelles.
+    * **Clé de test** : pour effectuer des requêtes en mode test.
+
+    * **Clé live** : pour gérer les transactions réelles.
 
     Ces clés sont essentielles pour que FedaPay authentifie vos requêtes. Sans clé ou avec une clé incorrecte, vos requêtes échoueront.
 
     Vous pouvez récupérer vos clés API depuis le **tableau de bord** de votre compte FedaPay.
   </Step>
 
-  <Step title="Installer une librairie de FedaPay"></Step>
+  <Step title="Installer une librairie de FedaPay" />
 
-  <Step title="Faire un test de requête API">
-  </Step>
+  <Step title="Faire un test de requête API" />
 </Steps>
 
 Une fois que vous avez obtenu vos clés et installé la librairie, il est temps d’effectuer un test pour valider votre intégration.
 
-<Info>Voici un exemple de requête pour créer une opération de collecte de test au niveau de [L'API Reference](/api-reference/introduction)</Info>
+<Info>Voici un exemple de requête pour créer une opération de collecte de test au niveau de [L'API Reference](/api-reference/transactions/create)</Info>
 
-FedaPay répondra avec un objet transaction contenant les détails de l'opération. 
+FedaPay répondra avec un objet transaction contenant les détails de l'opération.
 
 ## Guide rapide d'intégration
 
 1. **Créer un compte** sur FedaPay (test ou live).
+
 2. **Obtenez vos clés API** depuis votre tableau de bord.
+
 3. **Installez la librairie** correspondant à votre environnement de développement (PHP, Node.js, etc.).
+
 4. **Effectuez une première requête** pour créer une transaction test et vérifier que tout fonctionne.
 
 ## Authentification de l’ API de FedaPay
@@ -66,26 +75,31 @@ L'authentification via l'API de FedaPay est une étape clé pour assurer la séc
 Chaque compte FedaPay est fourni avec deux modes de clés API :
 
 1. **Clés de test** : Utilisées dans les environnements de développement pour simuler des transactions sans répercussions financières. Elles vous permettent de vérifier que votre intégration fonctionne correctement.
+
 2. **Clés en live** : Utilisées dans l'environnement de production pour gérer les transactions réelles.
 
 Il est essentiel de ne pas mélanger ces deux modes de clés (clés de test et clés en live). Les objets (comme les collectes et les clients) créés en mode test ne peuvent pas être manipulés en mode live, et vice-versa.
 
 En outre, il existe deux types de clés API dans chaque mode :
 
-- **Clé publique** : Utilisée pour identifier votre compte FedaPay dans des environnements front-end (comme les applications mobiles ou les interfaces JavaScript). Elle ne donne pas accès à des actions critiques, mais permet de créer des tokens.
-- **Clé secrète** : Doit rester confidentielle. Cette clé donne accès à toutes les fonctionnalités de l'API et permet d'exécuter des actions sensibles comme la création de transactions ou l'émission de remboursements. Assurez-vous de ne jamais exposer cette clé dans des environnements publics.
+* **Clé publique** : Utilisée pour identifier votre compte FedaPay dans des environnements front-end (comme les applications mobiles ou les interfaces JavaScript). Elle ne donne pas accès à des actions critiques, mais permet de créer des tokens.
+
+* **Clé secrète** : Doit rester confidentielle. Cette clé donne accès à toutes les fonctionnalités de l'API et permet d'exécuter des actions sensibles comme la création de transactions ou l'émission de remboursements. Assurez-vous de ne jamais exposer cette clé dans des environnements publics.
 
 #### Obtenir vos Clés API
 
 Vos clés API sont accessibles depuis votre tableau de bord FedaPay :
 
-- Pour les tests, utilisez uniquement les **clés de test**. Cela permet de sécuriser vos clients réels en évitant toute modification accidentelle de leurs données pendant vos phases de développement.
-- En production, passez aux **clés en live** une fois votre intégration validée.
+* Pour les tests, utilisez uniquement les **clés de test**. Cela permet de sécuriser vos clients réels en évitant toute modification accidentelle de leurs données pendant vos phases de développement.
+
+* En production, passez aux **clés en live** une fois votre intégration validée.
 
 #### Sécurisation des Clés API
 
 La sécurité des clés API est primordiale pour protéger vos transactions et les informations de vos clients. Voici quelques bonnes pratiques à suivre :
 
-- **Confidentialité des clés secrètes** : Ne partagez jamais vos clés secrètes et limitez leur accès uniquement aux systèmes et aux utilisateurs qui en ont besoin.
-- **Stockage sécurisé** : Assurez-vous que vos clés API ne sont jamais incluses dans des systèmes de contrôle de version (comme Git), ou dans des fichiers qui pourraient être accessibles publiquement.
-- **Régénération des clés** : Si vous soupçonnez qu'une de vos clés API a été compromise, régénérez-la immédiatement depuis le tableau de bord FedaPay. La clé compromise sera rendue inutilisable, et une nouvelle sera générée.
+* **Confidentialité des clés secrètes** : Ne partagez jamais vos clés secrètes et limitez leur accès uniquement aux systèmes et aux utilisateurs qui en ont besoin.
+
+* **Stockage sécurisé** : Assurez-vous que vos clés API ne sont jamais incluses dans des systèmes de contrôle de version (comme Git), ou dans des fichiers qui pourraient être accessibles publiquement.
+
+* **Régénération des clés** : Si vous soupçonnez qu'une de vos clés API a été compromise, régénérez-la immédiatement depuis le tableau de bord FedaPay. La clé compromise sera rendue inutilisable, et une nouvelle sera générée.
