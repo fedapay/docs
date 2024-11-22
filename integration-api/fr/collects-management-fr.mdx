@@ -88,13 +88,27 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
 
 ### Paiements sans Redirection
 
-Pour offrir une expérience fluide sans redirection, vous pouvez intégrer le formulaire de paiement directement dans votre application pour certaines méthodes spécifiques (MTN Bénin, Moov Bénin, Moov Togo, et MTN Côte d'Ivoire). Ce mode peut s’avérer utile pour des sites e-commerce souhaitant garder l’utilisateur sur leur plateforme tout au long du processus.
+Pour offrir une expérience fluide sans redirection, vous pouvez intégrer directement le formulaire de paiement dans votre application pour certaines méthodes spécifiques (MTN Bénin, Moov Bénin, Moov Togo, et MTN Côte d’Ivoire). Ce mode de paiement est particulièrement utile pour les sites e-commerce qui souhaitent garder l'utilisateur sur leur plateforme tout au long du processus, sans redirection vers une autre page.
 
-**Envoi d’un paiement mobile sans redirection** :
+**Envoi d’un Paiement Mobile Sans Redirection** 
 
-1. **Créer une collecte** comme décrit précédemment, puis générer le token.
+Le processus de paiement mobile sans redirection se divise en deux étapes principales dans l'environnement **Live** ou **Sandbox** :
 
-2. [Utilisez une des méthodes spécifiques suivantes](/payment-methods/fr/payment-methods-fr) pour traiter le paiement
+<Steps>
+  <Step title="Créer une collecte de paiement">
+    La première étape consiste à créer une collecte via l'API de FedaPay. Cela génère un **token** qui est nécessaire pour effectuer la transaction.
+  </Step>
+  
+  <Step title=" Déclencher le paiement">
+    Une fois que vous avez le token de paiement, vous devez envoyer une requête à l'API FedaPay pour traiter le paiement. La requête se fait en utilisant une des méthodes de paiement spécifiques
+  </Step>
+  
+  <Step title="Third Step">
+    These are instructions or content that only pertain to the third step.
+  </Step>
+</Steps>
+
+
 
 <Note>
   **Remarque** : Le paiement sans redirection ne prend pas en charge tous les opérateurs. Pour les autres moyens de paiement comme Orange et les cartes bancaires, préférez le mode de redirection.
