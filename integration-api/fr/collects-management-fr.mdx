@@ -133,6 +133,20 @@ await transaction.sendNowWithToken(mode, token);
   </Step>
 </Steps>
 
+<Warning>
+**Attention : **
+  
+ Remplacez **METHODE_PAIEMENT** par la méthode de paiement choisie (par exemple **mtn_benin**, **moov_benin**, etc.).
+ 
+**VOTRE_CLE_API_SECRETE** doit être remplacée par votre clé API secrète (en mode **sandbox** pour les tests ou en mode **live** pour les transactions en production).
+
+Lorsque vous êtes prêt à passer en production, remplacez l'URL de sandbox par l'URL en mode Live :
+
+Sandbox : https://sandbox-api.fedapay.com
+Live : https://api.fedapay.com/v1/transactions/ID
+Important : Veillez à tester minutieusement vos intégrations dans l'environnement sandbox avant de les déployer en production
+</Warning>
+
 <Note>
   **Remarque** : Le paiement sans redirection ne prend pas en charge tous les opérateurs. Pour les autres moyens de paiement comme Orange et les cartes bancaires, préférez le mode de redirection.
 </Note>
