@@ -9,7 +9,7 @@
   "colors": {
     "primary":"#0055ff",
     "light":"#00d5ff",
-    "dark":"#00d5ff",
+    "dark":"#0055ff",
     "background": {
       "dark": "#121212",
       "light": "#ffffff"
