@@ -87,18 +87,18 @@ The steps to set up a collect are broken down into several key processes.
 
 ### Payments Without Redirection
 
-Pour offrir une expérience fluide sans redirection, vous pouvez intégrer directement le formulaire de paiement dans votre application pour certaines méthodes spécifiques (MTN Bénin, Moov Bénin, Moov Togo, et MTN Côte d’Ivoire). Ce mode de paiement est particulièrement utile pour les sites e-commerce qui souhaitent garder l'utilisateur sur leur plateforme tout au long du processus, sans redirection vers une autre page.
+To provide a smooth experience without redirection, you can directly integrate the payment form into your application for specific methods (MTN Benin, Moov Benin, Moov Togo, and MTN Côte d'Ivoire). This payment mode is especially useful for e-commerce sites that want to keep users on their platform throughout the process, without redirecting them to another page.
 
-**Envoi d’un Paiement Mobile Sans Redirection**
+**Sending a Mobile Payment Without Redirection**
 
-Le processus de paiement mobile sans redirection se divise en deux étapes principales dans l'environnement **Live** ou **Sandbox** :
+The mobile payment process without redirection is divided into two main steps in either the **Live** or **Sandbox** environment:
 
 <Steps>
-  <Step title="Créer une collecte de paiement">
-    La première étape consiste à créer une collecte via l'API de FedaPay. Cela génère un **token** qui est nécessaire pour effectuer la transaction.
+  <Step title="Create a Payment Collection">
+    The first step is to create a collection via the FedaPay API. This generates a **token** required to complete the transaction.
   </Step>
 
-  <Step title=" Déclencher le paiement">
+  <Step title="Trigger the Payment">
     Une fois que vous avez le token de paiement, vous devez envoyer une requête à l'API FedaPay pour traiter le paiement. La requête se fait en utilisant une des [méthodes de paiement](/payment-methods/fr/payment-methods-fr) spécifiques
 
     _**Voici un exemple de code pour envoyer un paiement mobile sans redirection**_
