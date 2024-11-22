@@ -116,8 +116,11 @@ https://sandbox-api.fedapay.com/v1/METHODE_PAIEMENT \
 }'
 ```
 
-```python hello_world.py
-print('Hello World!')
+```php PHP
+$transaction = \FedaPay\Transaction::create(...);
+$token = $transaction->generateToken()->token;
+$mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
+$transaction->sendNowWithToken($mode, $token);
 ```
 
 ```java HelloWorld.java
