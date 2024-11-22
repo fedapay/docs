@@ -101,7 +101,7 @@ The mobile payment process without redirection is divided into two main steps in
   <Step title="Trigger the Payment">
     Once you have the payment token, you need to send a request to the FedaPay API to process the payment. The request is made using one of the specific [payment methods ](/payment-methods/en/payment-methods-en)
 
-    _**Voici un exemple de code pour envoyer un paiement mobile sans redirection**_
+    _**Here is an example code to send a mobile payment without redirection**_
 
     <CodeGroup>
 
@@ -133,7 +133,7 @@ await transaction.sendNowWithToken(mode, token);
 </Steps>
 
 <Warning>
-**Attention :**
+**Important Notes :**
   
  Remplacez **METHODE_PAIEMENT** par la méthode de paiement choisie (par exemple **mtn_benin**, **moov_benin**, etc.).
  
