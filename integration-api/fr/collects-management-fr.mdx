@@ -106,8 +106,14 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
 
     <CodeGroup>
 
-```javascript helloWorld.js
-console.log("Hello World");
+```curl curl
+curl -X POST \
+https://sandbox-api.fedapay.com/v1/METHODE_PAIEMENT \
+-H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+-H 'Content-Type: application/json'
+-d '{
+  "token" : "TOKEN_DE_PAIEMENT"
+}'
 ```
 
 ```python hello_world.py
