@@ -85,18 +85,70 @@ The steps to set up a collect are broken down into several key processes.
   </Step>
 </Steps>
 
-### Redirection-Free Payments
+### Paiements sans Redirection
 
-To provide a seamless experience without redirection, you can integrate the payment form directly into your app for certain methods (MTN Benin, Moov Benin, Moov Togo, and MTN Côte d'Ivoire). This option can be useful for e-commerce websites wishing to keep users on their platform throughout the process.
+Pour offrir une expérience fluide sans redirection, vous pouvez intégrer directement le formulaire de paiement dans votre application pour certaines méthodes spécifiques (MTN Bénin, Moov Bénin, Moov Togo, et MTN Côte d’Ivoire). Ce mode de paiement est particulièrement utile pour les sites e-commerce qui souhaitent garder l'utilisateur sur leur plateforme tout au long du processus, sans redirection vers une autre page.
 
-**Sending a mobile payment without redirection:** :
+**Envoi d’un Paiement Mobile Sans Redirection**
 
-1. **Create the collect** as described previously, then generate the token.
+Le processus de paiement mobile sans redirection se divise en deux étapes principales dans l'environnement **Live** ou **Sandbox** :
 
-2. [Use one of the specific methods outlined](/payment-methods/en/payment-methods-en) to process the payment
+<Steps>
+  <Step title="Créer une collecte de paiement">
+    La première étape consiste à créer une collecte via l'API de FedaPay. Cela génère un **token** qui est nécessaire pour effectuer la transaction.
+  </Step>
+
+  <Step title=" Déclencher le paiement">
+    Une fois que vous avez le token de paiement, vous devez envoyer une requête à l'API FedaPay pour traiter le paiement. La requête se fait en utilisant une des [méthodes de paiement](/payment-methods/fr/payment-methods-fr) spécifiques
+
+    _**Voici un exemple de code pour envoyer un paiement mobile sans redirection**_
+
+    <CodeGroup>
+
+```java curl
+curl -X POST \
+https://sandbox-api.fedapay.com/v1/METHODE_PAIEMENT \
+-H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+-H 'Content-Type: application/json'
+-d '{
+  "token" : "TOKEN_DE_PAIEMENT"
+}'
+```
+
+```php PHP
+$transaction = \FedaPay\Transaction::create(...);
+$token = $transaction->generateToken()->token;
+$mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
+$transaction->sendNowWithToken($mode, $token);
+```
+
+```javascript Node.js
+const transaction = await Transaction.create(...);
+const token = transaction.generateToken().token;
+const mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
+await transaction.sendNowWithToken(mode, token);
+```
+</CodeGroup>
+  </Step>
+</Steps>
+
+<Warning>
+**Attention :**
+  
+ Remplacez **METHODE_PAIEMENT** par la méthode de paiement choisie (par exemple **mtn_benin**, **moov_benin**, etc.).
+ 
+**VOTRE_CLE_API_SECRETE** doit être remplacée par votre clé API secrète (en mode **sandbox** pour les tests ou en mode **live** pour les transactions en production).
+
+Lorsque vous êtes prêt à passer en production, remplacez l'URL de **sandbox** par l'URL en mode **Live** :
+
+- **Sandbox** : `https://sandbox-api.fedapay.com`
+- **Live** : `https://api.fedapay.com/v1/transactions/ID`
+
+_**Important** : Veillez à tester minutieusement vos intégrations dans l'environnement **sandbox** avant de les déployer en production_
+</Warning>
 
 <Note>
-  **Note**: Redirection-free payments are not supported for all operators. For other payment methods, such as Orange and bank cards, prefer the redirection method.
+  **Remarque** : Le paiement sans redirection ne prend pas en charge tous les opérateurs. Consulter la section Méthodes de Paiement(Redirection vers *Méthodes de Paiement**) pour en savoir un peu plus.
 </Note>
 
 ### Automatic Retrieval of Collect Status
@@ -160,7 +212,7 @@ Creating a payout through the API involves several steps. Each payout follows pr
     <Info>
       [API code to send the payout](/api-reference/payouts/update-start)
 
-      Use PHP, Node.js or Ruby code to send the repository, replacing **YOUR_SECRETE_API_KEY** with your private key.
+      Use PHP, Node.js or Ruby code to send the repository, replacing **YOUR\_SECRETE\_API\_KEY** with your private key.
     </Info>
   </Step>
 
@@ -186,6 +238,7 @@ When a payout is created, it moves through several statuses:
 * **processing** : The payout is being processed and sent to the recipient.
 
 * **sent** : The payout has been successfully sent to the recipient.
+
 * **failed** : The payout failed due to issues such as technical error or method-related problems.
 
 You can track the status of your payouts from the FedaPay dashboard under the **Payouts** section.
