@@ -32,7 +32,7 @@ The FedaPay API supports several HTTP methods, the main ones being :
   </Tab>
 
   <Tab title="Live server">
-   Used to process real transactions.
+    Used to process real transactions.
 
     ```bash
       https://api.fedapay.com
@@ -44,11 +44,11 @@ The FedaPay API supports several HTTP methods, the main ones being :
 
 You must include your API key in the HTTP header of each request. Depending on whether you're in test or live mode, you'll use one of two keys:
 
-Authorization: Bearer VOTRE_CLÉ_API
+Authorization: Bearer YOUR_API_KEY
 
 ## Test Mode vs Live Mode
 
-### Test mode 
+### Test mode
 
 Before switching to Live mode, we recommend that you test your integration in test mode. This mode allows you to simulate various payment operations without carrying out any real transactions. You need to create a test account, and use the test API keys to address your requests to the test environment.
 
@@ -56,11 +56,11 @@ Before switching to Live mode, we recommend that you test your integration in te
 
 * **Test transactions**: Simulate transactions with fictitious cards and phone numbers to see how your system reacts.
 
-### Live mode 
+### Live mode
 
 Once you've validated your tests, you can go live with your API keys. This mode enables you to carry out real transactions with your customers.
 
-##  Test numbers for cards and mobile money
+## Test numbers for cards and mobile money
 
 To test your integration, FedaPay provides you with card numbers and telephone numbers to simulate successful and failed payments. **You should use these numbers in test mode only**.
 
@@ -94,16 +94,16 @@ A successful response is usually an HTTP 200 code, and includes details of the r
 
 If an error occurs (wrong API key, ill-formed request, etc.), the API returns a specific error code (for example, 400, 401, 404, 500).
 
-##  Error management
+## Error management
 
 For optimum management of your transactions, here are a few recommended practices in the event of errors:
 
-- **400 Bad Request**: Check that your parameters are properly formatted and comply with API specifications.
+* **400 Bad Request**: Check that your parameters are properly formatted and comply with API specifications.
 
-- **401 Unauthorized**: Make sure you're using the correct API key (test or live) and that it's valid.
+* **401 Unauthorized**: Make sure you're using the correct API key (test or live) and that it's valid.
 
-- **404 Not Found**: Check that the URL you are using is correct and that the resource exists.
+* **404 Not Found**: Check that the URL you are using is correct and that the resource exists.
 
-- **500 Internal Server Error**: These errors originate from the FedaPay API. If they persist, please contact support.
+* **500 Internal Server Error**: These errors originate from the FedaPay API. If they persist, please contact support.
 
 Rigorously testing your integration with FedaPay before going live is essential to ensure smooth operation. Use the appropriate API keys, follow the request structure and take into account API responses to ensure successful integration.
