@@ -2451,6 +2451,39 @@
                   "customer": {
                     "type": "object",
                     "description": "Customer associated with the transaction."
+                    "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Customer ID if already exists"
+                      },
+                      "email": {
+                        "type": "string",
+                        "format": "email",
+                        "description": "Customer's email address."
+                      },
+                      "firstname": {
+                        "type": "string",
+                        "description": "Customer's last name."
+                      },
+                      "lastname": {
+                        "type": "string",
+                        "description": "Customer's last name."
+                      },
+                      "phone_number": {
+                        "type": "object",
+                        "description": "Customer's phone number.",
+                        "properties": {
+                          "number": {
+                            "type": "integer",
+                            "description": "Phone number without national prefix."
+                          },
+                          "country": {
+                            "type": "string",
+                            "description": "Country code."
+                          }
+                        }
+                      }
+                    }
                   },
                   "fees": {
                     "type": "integer",
