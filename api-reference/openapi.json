@@ -2448,9 +2448,9 @@
                     "additionalProperties": true,
                     "description": "Additional metadata related to the transaction."
                   },
-                  "customer_id": {
-                    "type": "integer",
-                    "description": "Customer ID associated with the transaction."
+                  "customer": {
+                    "type": "object",
+                    "description": "Customer associated with the transaction."
                   },
                   "fees": {
                     "type": "integer",
