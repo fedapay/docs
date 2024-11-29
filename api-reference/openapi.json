@@ -2450,9 +2450,9 @@
                   },
                   "customer": {
                     "type": "object",
-                    "description": "Customer associated with the transaction."
+                    "description": "Customer associated with the transaction.",
                     "properties": {
-                    "id": {
+                      "id": {
                         "type": "integer",
                         "description": "Customer ID if already exists"
                       },
@@ -2556,11 +2556,15 @@
           {
             "lang": "JavaScript",
             "label": "Node",
-            "source": "const { FedaPay, Transaction } = require('fedapay');\nFedaPay.setApiKey('YOUR_SECRETE_API_KEY');\nFedaPay.setEnvironment('sandbox');\nconst transaction = await Transaction.create({\n  description: 'Payment for order #1234',\n  amount: 1000,\n  currency: { iso: 'XOF' },\n  callback_url: 'https://example.com/callback',\n  mode: 'mtn_open',\n  customer_id: 1\n});"
+            "source": "const { FedaPay, Transaction } = require('fedapay');\nFedaPay.setApiKey('YOUR_SECRET_API_KEY');\nFedaPay.setEnvironment('sandbox');\nconst transaction = await Transaction.create({\n  description: 'Payment for order #1234',\n  amount: 1000,\n  currency: { iso: 'XOF' },\n  callback_url: 'https://example.com/callback',\n  mode: 'mtn_open',\n  customer: { id: 1 }\n});"
           },
           {
             "lang": "PHP",
-            "source": "\\FedaPay\\Fedapay::setApiKey('YOUR_API_KEY');\n\\FedaPay\\Fedapay::setEnvironment('sandbox');\n$transaction = \\FedaPay\\Transaction::create([\n  'description' => 'Payment for order #1234',\n  'amount' => 1000,\n  'currency' => ['iso' => 'XOF'],\n  'callback_url' => 'https://example.com/callback',\n  'mode' => 'mtn_open',\n  'customer_id' => 1\n]);"
+            "source": "\\FedaPay\\Fedapay::setApiKey('YOUR_API_KEY');\n\\FedaPay\\Fedapay::setEnvironment('sandbox');\n$transaction = \\FedaPay\\Transaction::create([\n  'description' => 'Payment for order #1234',\n  'amount' => 1000,\n  'currency' => ['iso' => 'XOF'],\n  'callback_url' => 'https://example.com/callback',\n  'mode' => 'mtn_open',\n  'customer' => ['id' => 1]\n]);"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay'\n\nFedaPay.api_key = 'YOUR_SECRET_API_KEY'\nFedaPay.environment = 'sandbox'\n\ntransaction = FedaPay::Transaction.create(\n  amount: 1000,\n  currency: { iso: 'XOF' },\n  customer: { id: 1 },\n  description: 'Payment for order #1234',\n  callback_url: 'https://example.com/callback',\n  mode: 'mtn_open'\n)\n\nputs \"Transaction successfully created : #{transaction.inspect}\""
           }
         ]
       }
