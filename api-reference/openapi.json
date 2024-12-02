@@ -163,40 +163,9 @@
     "/customers/search": {
       "get": {
         "summary": "Search your customers",
-        "description": "",
         "security": [
           {
             "bearerAuth": []
-          }
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "email",
-            "description": "Filter customers by email address.",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "email"
-            }
-          },
-          {
-            "in": "path",
-            "name": "firstname",
-            "description": "Filter customers by first name.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "lastname",
-            "description": "Filter customers by last name.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {
