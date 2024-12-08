@@ -21,6 +21,10 @@
   
   "topbarLinks": [
     {
+      "name": "v1",
+      "url": "https://docs-v1.fedapay.com"
+    },
+    {
       "name": "Support",
       "url": "https://www.fedapay.com/contact/?v=ddd70bbaf5be"
     }
