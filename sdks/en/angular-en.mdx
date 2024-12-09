@@ -1,4 +1,81 @@
 ---
-title: 'Angular en'
-description: 'Description of your new file.'
+title: 'Angular SDK'
 ---
+
+**The Angular SDK from FedaPay** allows for seamless integration of payment functionalities into robust front-end applications. It simplifies API interactions and enables quick implementation of secure payment solutions.
+
+### Installation
+
+***Add the library to your project using npm***
+
+```typescript
+npm install fedapay-angular --save
+```
+
+### Use Case
+
+This use case demonstrates how to easily integrate and configure the FedaPay payment button and widget in an Angular application to securely handle online transactions.
+
+```typescript
+import { Component } from '@angular/core';
+import { CheckoutOptions } from 'fedapay-angular';
+
+@Component({
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+    checkoutButtonOptions: CheckoutOptions = {
+        transaction: {
+            amount: 100,
+            description: 'Airtime'
+        },
+        currency: {
+            iso: 'XOF'
+        },
+        button: {
+            class: 'btn btn-primary',
+            text: 'Payer 100 FCFA'
+        },
+        onComplete(resp) {
+            const FedaPay = window['FedaPay'];
+            if (resp.reason === FedaPay.DIALOG_DISMISSED) {
+                alert('Vous avez fermé la boite de dialogue');
+            } else {
+                alert('Transaction terminée: ' + resp.reason);
+            }
+
+            console.log(resp.transaction);
+        }
+    };
+
+    checkoutEmbedOptions: CheckoutOptions = {
+        transaction: {
+            amount: 100,
+            description: 'Airtime'
+        },
+        currency: {
+            iso: 'XOF'
+        }
+    };
+}
+```
+
+<Note>
+  ***Explore additional examples on  [the FedaPay Angular SDK GitHub repository](https://github.com/FedaPay/fedapay-angular).***
+
+  Ensure you use the appropriate public key based on your environment :
+
+  * For **the sandbox** (test) environment, use the public key from your sandbox account.
+    For **the live** (production) environment, use the public key from your live account.
+
+  When integrating FedaPay into an Angular application, make sure the global **FedaPay** object is properly loaded in the browser before using callbacks like **onComplete**.
+If you encounter issues, verify that the FedaPay script is included in the **angular.json** file under the **scripts** section. For example:
+
+  ```typescript
+  "scripts": [
+    "node_modules/fedapay-angular/dist/fedapay.js"
+  ]
+  ```
+</Note>
