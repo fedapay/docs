@@ -216,12 +216,12 @@
     {
       "group": "SDKs",
       "pages": [
-        "sdks/fr/overview",
+        "sdks/fr/overview-fr",
         {
-          "group": "Webhooks",
+          "group": "front-end",
           "pages": [
-            "api-reference/webhooks/get-by-id",
-            "api-reference/webhooks/get-all"
+            "sdks/fr/reactjs-fr",
+            "sdks/fr/angular-fr"
           ]
         }
       ]
