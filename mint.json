@@ -215,12 +215,26 @@
     },
     {
       "group": "SDKs",
-      "pages": ["sdks/fr/overview-fr", "sdks/fr/ruby-fr"],
+      "pages": [
+        "sdks/fr/overview-fr",
+        "sdks/fr/angular-fr",
+        "sdks/fr/reactjs-fr",
+        "sdks/fr/php-fr",
+        "sdks/fr/nodejs-fr",
+        "sdks/fr/ruby-fr"
+      ],
       "version": "fr"
     },
     {
       "group": "SDKs",
-      "pages": ["sdks/en/overview-en", "sdks/en/ruby-en"],
+      "pages": [
+        "sdks/en/overview-en",
+        "sdks/en/angular-en",
+        "sdks/en/reactjs-en",
+        "sdks/en/php-en",
+        "sdks/en/nodejs-en",
+        "sdks/en/ruby-en"
+      ],
       "version": "en"
     }
   ],
