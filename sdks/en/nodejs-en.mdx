@@ -1,4 +1,55 @@
 ---
-title: 'nodejs en'
-description: 'Description of your new file.'
+title: 'Node.js SDK'
 ---
+
+**The FedaPay Node.js library** simplifies payment management for server-side JavaScript applications, making it ideal for REST APIs and Node.js projects.
+
+### Installation
+
+***Use npm to install the library :***
+
+```javascript
+npm install fedapay --save
+```
+
+### Use Case
+
+#### example of creating a customer
+
+```javascript
+const { FedaPay, Customer } = require('fedapay');
+/* Replace YOUR_SECRETE_API_KEY with your real API key */
+FedaPay.setApiKey("YOUR_SECRETE_API_KEY");
+/* Specify whether you want to run your query in test or live mode */
+FedaPay.setEnvironment('sandbox'); //or setEnvironment('live');
+/* Create customer */
+const customer = await Customer.create({
+  firstname: 'John',
+  lastname: 'Doe',
+  email: 'john@doe.com',
+  phone_number: {
+	number: '90090909',
+	country: 'BJ'
+  }
+});
+```
+
+#### example of creating a transaction
+
+```javascript
+const { FedaPay, Transaction } = require('fedapay');
+FedaPay.setApiKey('YOUR_SECRET_API_KEY');
+FedaPay.setEnvironment('sandbox');
+const transaction = await Transaction.create({
+  description: 'Payment for order #1234',
+  amount: 1000,
+  currency: { iso: 'XOF' },
+  callback_url: 'https://example.com/callback',
+  mode: 'mtn_open',
+  customer: { id: 1 }
+});
+```
+
+<Note>
+  **Explore [the FedaPay Node.js SDK GitHub repository](https://github.com/FedaPay/fedapay-node) and [the API Reference](https://docs.fedapay.com/api-reference/) for more examples and details.**
+</Note>
