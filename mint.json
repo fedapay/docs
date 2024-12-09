@@ -217,11 +217,11 @@
       "group": "SDKs",
       "pages": [
         "sdks/fr/overview-fr",
-        "sdks/fr/angular-fr",
-        "sdks/fr/reactjs-fr",
         "sdks/fr/php-fr",
         "sdks/fr/nodejs-fr",
         "sdks/fr/ruby-fr"
+        "sdks/fr/reactjs-fr",
+        "sdks/fr/angular-fr",
       ],
       "version": "fr"
     },
@@ -229,11 +229,11 @@
       "group": "SDKs",
       "pages": [
         "sdks/en/overview-en",
-        "sdks/en/angular-en",
-        "sdks/en/reactjs-en",
         "sdks/en/php-en",
         "sdks/en/nodejs-en",
         "sdks/en/ruby-en"
+        "sdks/en/reactjs-en",
+        "sdks/en/angular-en",
       ],
       "version": "en"
     }
