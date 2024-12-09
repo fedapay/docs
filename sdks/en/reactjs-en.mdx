@@ -1,4 +1,96 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: 'React.js SDK'
 ---
+
+**The React.js library** from FedaPay enables quick and seamless payment integration into interactive user interfaces, making it ideal for modern projects.
+
+### Installation
+
+***Add the library to your project using npm:***
+
+```javascript
+npm install fedapay-reactjs --save
+```
+
+### Use Case
+
+This use case demonstrates how to integrate the FedaPay payment button and widget into a React application using the **fedapay-reactjs** library.
+
+```javascript
+import React, { Component } from 'react';
+import { FedaCheckoutButton, FedaCheckoutContainer } from 'fedapay-reactjs';
+
+export default class App extends Component {
+  PUBLIC_KEY = 'pk_sandbox_XXXXXX';
+
+  checkoutButtonOptions = {
+    public_key: this.PUBLIC_KEY,
+    transaction: {
+      amount: 100,
+      description: 'Airtime'
+    },
+    currency: {
+      iso: 'XOF'
+    },
+    button: {
+      class: 'btn btn-primary',
+      text: 'Payer 100 FCFA'
+    },
+    onComplete(resp) {
+      const FedaPay = window['FedaPay'];
+      if (resp.reason === FedaPay.DIALOG_DISMISSED) {
+        alert('Vous avez fermé la boite de dialogue');
+      } else {
+        alert('Transaction terminée: ' + resp.reason);
+      }
+
+      console.log(resp.transaction);
+    }
+  };
+
+  checkoutEmbedOptions = {
+    public_key: this.PUBLIC_KEY,
+    transaction: {
+      amount: 100,
+      description: 'Airtime'
+    },
+    currency: {
+      iso: 'XOF'
+    }
+  };
+
+  render() {
+    return (
+      <div>
+        <FedaCheckoutButton options={ this.checkoutButtonOptions } />
+        <FedaCheckoutContainer options={ this.checkoutEmbedOptions }
+          style={ { height: 500, width: 500, backgroundColor: '#eee' } } />
+      </div>
+    )
+  }
+}
+```
+
+<Note>
+  ***Find more details and examples in [the FedaPay React.js SDK GitHub repository](https://github.com/FedaPay/fedapay-reactjs).***
+
+  Note:
+
+  Ensure you use the appropriate public key based on your environment:
+
+  * For the **sandbox environment** (test), use the public key of your sandbox account.
+
+  * For the **live environment** (production), use the public key of your live account.
+
+  In a React application, directly manipulating the global **FedaPay object** can lead to errors if the component mounts or unmounts before the transaction is completed. To avoid this:
+
+  * Add checks to properly handle the component lifecycle.
+
+  * Ensure the FedaPay script is included via a CDN in the main HTML file (commonly **public/index.html**) if required.
+
+  ***Example of inclusion in public/index.html :***
+
+  ```javascript
+  <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+  ```
+</Note>
