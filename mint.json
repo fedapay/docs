@@ -214,10 +214,8 @@
       ]
     },
     {
-      "group":"SDKs",
-      "pages":[
-        "sdks/fr/overview"
-      ]
+      "group": "SDKs",
+      "pages": ["sdks/fr/overview"]
     }
   ],
   "footerSocials": {
