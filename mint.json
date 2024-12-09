@@ -223,6 +223,13 @@
           ]
         }
       ]
+    },
+    {
+      "group": "SDKs",
+      "pages": [
+        "sdks/fr/overview"
+      ],
+      "version": "fr"
     }
   ],
   "footerSocials": {
