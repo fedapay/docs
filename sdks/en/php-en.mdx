@@ -1,4 +1,55 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: 'PHP SDK'
 ---
+
+The FedaPay PHP library provides a seamless integration with back-end applications developed in PHP, offering tools to manage transactions and interact with the FedaPay API. It is compatible with popular frameworks such as Laravel and Symfony.
+
+### Installation
+
+To install the FedaPay PHP library using Composer, run the following command :
+
+```Php
+composer require fedapay/fedapay-php
+```
+
+### Use Case :
+
+#### example implementation for creating a customer :
+
+```php
+/* Replace YOUR_SECRET_API_KEY with your secret API key */
+\FedaPay\FedaPay::setApiKey("YOUR_SECRET_API_KEY");
+
+/* Specify whether you want to run your query in test or live mode */
+\FedaPay\FedaPay::setEnvironment('sandbox'); // or setEnvironment('live');
+
+/* Create customer */
+\FedaPay\Customer::create([
+  "firstname" => "John",
+  "lastname" => "Doe",
+  "email" => "John.doe@gmail.com",
+  "phone_number" => [
+	"number" => "+22966666600",
+	"country" => 'bj' // 'bj' is the country code for Benin
+  ]
+]);
+```
+
+#### example for creating a transaction :
+
+```php
+\FedaPay\Fedapay::setApiKey('YOUR_API_KEY');
+\FedaPay\Fedapay::setEnvironment('sandbox');
+$transaction = \FedaPay\Transaction::create([
+  'description' => 'Payment for order #1234',
+  'amount' => 1000,
+  'currency' => ['iso' => 'XOF'],
+  'callback_url' => 'https://example.com/callback',
+  'mode' => 'mtn_open',
+  'customer' => ['id' => 1]
+]);
+```
+
+<Note>
+  **Explore [the FedaPay PHP SDK GitHub repository](https://github.com/FedaPay/fedapay-php) and [the API Reference](https://docs.fedapay.com/api-reference/) for additional examples and details.**
+</Note>

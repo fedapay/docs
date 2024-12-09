@@ -2,11 +2,9 @@
 title: 'PHP SDK'
 ---
 
-
 La Librairie  PHP de FedaPay permet une intégration fluide avec des applications back-end développées en PHP, offrant des outils pour gérer les transactions et interagir avec l'API FedaPay. Compatible avec les frameworks populaires tels que Laravel et Symfony.
 
 ### Installation
-
 
 Pour installer la librairie FedaPay avec Composer, utilisez la commande suivante :
 
@@ -14,9 +12,9 @@ Pour installer la librairie FedaPay avec Composer, utilisez la commande suivante
 composer require fedapay/fedapay-php
 ```
 
-### Cas d'usage : 
+### Cas d'usage :
 
-#### un exemple d'implémentation pour créer un client :
+#### exemple d'implémentation pour créer un client :
 
 ```php
 /* Remplacez YOUR_SECRETE_API_KEY par votre clé API secrète */
@@ -35,7 +33,7 @@ composer require fedapay/fedapay-php
 ));
 ```
 
-#### exemple d’implémentation pour créer une transaction : 
+#### exemple d’implémentation pour créer une transaction :
 
 ```php
 \FedaPay\Fedapay::setApiKey('YOUR_API_KEY');
@@ -51,6 +49,5 @@ $transaction = \FedaPay\Transaction::create([
 ```
 
 <Note>
-**Explorez [le dépôt GitHub PHP  de FedaPay](https://github.com/FedaPay/fedapay-php) et [la Référence API](https://docs.fedapay.com/api-reference/) pour des exemples supplémentaires.**
+  **Explorez [le dépôt GitHub PHP  de FedaPay](https://github.com/FedaPay/fedapay-php) et [la Référence API](https://docs.fedapay.com/api-reference/) pour des exemples supplémentaires.**
 </Note>
-
