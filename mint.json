@@ -219,7 +219,7 @@
         "sdks/fr/overview-fr",
         "sdks/fr/php-fr",
         "sdks/fr/nodejs-fr",
-        "sdks/fr/ruby-fr"
+        "sdks/fr/ruby-fr",
         "sdks/fr/reactjs-fr",
         "sdks/fr/angular-fr"
       ],
@@ -231,7 +231,7 @@
         "sdks/en/overview-en",
         "sdks/en/php-en",
         "sdks/en/nodejs-en",
-        "sdks/en/ruby-en"
+        "sdks/en/ruby-en",
         "sdks/en/reactjs-en",
         "sdks/en/angular-en"
       ],
