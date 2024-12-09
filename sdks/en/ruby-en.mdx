@@ -1,4 +1,58 @@
 ---
-title: 'ruby en'
-description: 'Description of your new file.'
+title: 'Ruby SDK'
 ---
+
+FedaPay provides an integrated **Ruby library** to interact with its API, especially useful for projects built with Ruby on Rails.
+
+### Installation
+
+***Add the following gem to your Gemfile***
+
+```ruby
+$ gem install fedapay-ruby
+```
+
+### Use Case
+
+#### example for creating a customer
+
+```ruby
+require 'fedapay';
+# configure FedaPay library
+FedaPay.api_key = '' # Your secret api key
+FedaPay.environment = '' # sandbox or live
+phone = {
+  country: 'bj',
+  number: '66000001'
+};
+customer = FedaPay::Customer.create(
+  firstname: 'firstname',
+  lastname: 'lastname',
+  email: 'email@test.com',
+  phone_number: phone
+);
+```
+
+#### example for Creating a Transaction
+
+```ruby
+require 'fedapay'
+
+FedaPay.api_key = 'YOUR_SECRET_API_KEY'
+FedaPay.environment = 'sandbox'
+
+transaction = FedaPay::Transaction.create(
+  amount: 1000,
+  currency: { iso: 'XOF' },
+  customer: { id: 1 },
+  description: 'Payment for order #1234',
+  callback_url: 'https://example.com/callback',
+  mode: 'mtn_open'
+)
+
+puts "Transaction successfully created : #{transaction.inspect}"
+```
+
+<Note>
+  **Explore [the  GitHub repository for FedaPay Ruby](https://github.com/FedaPay/fedapay-ruby) and [the API Reference](https://docs.fedapay.com/api-reference/) for additional use cases.**
+</Note>
