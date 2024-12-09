@@ -214,18 +214,13 @@
       ]
     },
     {
-      "group": "SDKs",
-      "pages": [
-        {
-          "path": "sdks/fr/overview-fr",
-          "version": "fr"
-        },
-        {
-          "path": "sdks/fr/ruby-fr",
-          "version": "fr"
-        }
-      ]
-    }
+  "group": "SDKs",
+  "pages": [
+    "sdks/fr/overview-fr",
+    "sdks/fr/ruby-fr"
+  ],
+  "version": "fr"
+}
   ],
   "footerSocials": {
     "x": "https://x.com/fedapay",
