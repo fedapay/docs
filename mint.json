@@ -5,11 +5,11 @@
     "dark": "https://res.cloudinary.com/dvilp6td2/image/upload/v1732196591/Logo-Fedapay-dark-resize_omzf9g.png",
     "light": "https://res.cloudinary.com/dvilp6td2/image/upload/v1732196591/Logo-Fedapay-light-resize_ub1uhn.png"
   },
-"favicon":"/favicon.svg",
+  "favicon": "/favicon.svg",
   "colors": {
-    "primary":"#0055ff",
-    "light":"#00d5ff",
-    "dark":"#0055ff",
+    "primary": "#0055ff",
+    "light": "#00d5ff",
+    "dark": "#0055ff",
     "background": {
       "dark": "#121212",
       "light": "#ffffff"
@@ -18,7 +18,7 @@
   "metadata": {
     "og:image": "https://novu.co/images/social-preview.jpg"
   },
-  
+
   "topbarLinks": [
     {
       "name": "v1",
@@ -51,7 +51,7 @@
             "introduction/fr/keyconcepts-fr",
             "introduction/fr/compte-fr",
             "introduction/fr/quickstart-fr"
-            ],
+          ],
           "version": "fr"
         },
         {
@@ -66,16 +66,12 @@
         },
         {
           "group": "Méthodes de Paiement",
-          "pages": [
-            "payment-methods/fr/payment-methods-fr"
-          ],
+          "pages": ["payment-methods/fr/payment-methods-fr"],
           "version": "fr"
         },
         {
           "group": "Payment Methods",
-          "pages": [
-            "payment-methods/en/payment-methods-en"
-          ],
+          "pages": ["payment-methods/en/payment-methods-en"],
           "version": "en"
         },
         {
@@ -104,32 +100,22 @@
         },
         {
           "group": "Librairies JS et Plugin",
-          "pages": [
-            "libraries/fr/checkoutjs-fr",
-            "libraries/fr/plugin-fr"
-          ],
+          "pages": ["libraries/fr/checkoutjs-fr", "libraries/fr/plugin-fr"],
           "version": "fr"
         },
         {
           "group": "JS Librairies and Plugin",
-          "pages": [
-            "libraries/en/checkoutjs-en",
-            "libraries/en/plugin-en"
-          ],
+          "pages": ["libraries/en/checkoutjs-en", "libraries/en/plugin-en"],
           "version": "en"
         },
         {
           "group": "Tableau de bord",
-          "pages": [
-            "dashboard/fr/dashboard-fr"
-          ],
+          "pages": ["dashboard/fr/dashboard-fr"],
           "version": "fr"
         },
         {
           "group": "Dashboard",
-          "pages": [
-            "dashboard/en/dashboard-en"
-          ],
+          "pages": ["dashboard/en/dashboard-en"],
           "version": "en"
         },
         {
@@ -155,14 +141,13 @@
       "pages": [
         "api-reference/introduction",
         {
-         
-          "group":"Customers",
-            "pages": [
-              "api-reference/customers/get-by-id",
-              "api-reference/customers/create",
-              "api-reference/customers/update",
-              "api-reference/customers/delete",
-              "api-reference/customers/get-all"
+          "group": "Customers",
+          "pages": [
+            "api-reference/customers/get-by-id",
+            "api-reference/customers/create",
+            "api-reference/customers/update",
+            "api-reference/customers/delete",
+            "api-reference/customers/get-all"
           ]
         },
         {
@@ -223,13 +208,6 @@
           ]
         }
       ]
-    },
-    {
-      "group": "SDKs",
-      "pages": [
-        "sdks/fr/overview"
-      ],
-      "version": "fr"
     }
   ],
   "footerSocials": {
