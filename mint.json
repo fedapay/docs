@@ -215,7 +215,16 @@
     },
     {
       "group": "SDKs",
-      "pages": ["sdks/fr/overview"]
+      "pages": [
+        "sdks/fr/overview",
+        {
+          "group": "Webhooks",
+          "pages": [
+            "api-reference/webhooks/get-by-id",
+            "api-reference/webhooks/get-all"
+          ]
+        }
+      ]
     }
   ],
   "footerSocials": {
