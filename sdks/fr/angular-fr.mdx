@@ -8,7 +8,7 @@ title: 'Angular SDK'
 
 _**Ajoutez la librairie avec npm**_
 
-```angular
+```typescript
 npm install fedapay-angular --save
 ```
 
@@ -16,7 +16,7 @@ npm install fedapay-angular --save
 
 Ce cas d'usage illustre comment intégrer et configurer facilement le bouton et le widget de paiement FedaPay dans une application Angular pour gérer des transactions sécurisées en ligne.
 
-```angular
+```typescript
 import { Component } from '@angular/core';
 import { CheckoutOptions } from 'fedapay-angular';
 
@@ -71,7 +71,7 @@ Pour l'environnement **live** (production), utilisez la clé publique de votre c
 
 Lors de l'intégration de FedaPay dans une application Angular, assurez-vous que l'objet global **FedaPay** est correctement chargé dans le navigateur avant d'utiliser des callbacks comme **onComplete**. Si vous rencontrez des problèmes, vérifiez que le script FedaPay est inclus dans le fichier **angular.json** sous la section **scripts**. Par exemple :
 
-```angular
+```typescript
 "scripts": [
   "node_modules/fedapay-angular/dist/fedapay.js"
 ]
