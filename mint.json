@@ -217,13 +217,27 @@
       "group": "SDKs",
       "pages": [
         {
-          "group": "SDKs (FR)",
-          "pages": ["sdks/fr/overview-fr", "sdks/fr/ruby-fr", "sdks/fr/php-fr"],
+          "path": "sdks/fr/overview-fr",
           "version": "fr"
         },
         {
-          "group": "SDKs (EN)",
-          "pages": ["sdks/en/overview-en", "sdks/en/ruby-en", "sdks/en/php-en"],
+          "path": "sdks/fr/ruby-fr",
+          "version": "fr"
+        },
+        {
+          "path": "sdks/fr/php-fr",
+          "version": "fr"
+        },
+        {
+          "path": "sdks/en/overview-en",
+          "version": "en"
+        },
+        {
+          "path": "sdks/en/ruby-en",
+          "version": "en"
+        },
+        {
+          "path": "sdks/en/php-en",
           "version": "en"
         }
       ]
