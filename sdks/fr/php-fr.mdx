@@ -19,11 +19,11 @@ composer require fedapay/fedapay-php
 #### un exemple d'implémentation pour créer un client :
 
 ```php
-/* Replace YOUR_SECRETE_API_KEY with your secret API key */
+/* Remplacez YOUR_SECRETE_API_KEY par votre clé API secrète */
 \FedaPay\FedaPay::setApiKey("YOUR_SECRETE_API_KEY");
-/* Specify whether you want to run your query in test or live mode */
+/* Indiquez si vous souhaitez exécuter votre requête en mode test ou en live */
 \FedaPay\FedaPay::setEnvironment('sandbox'); //or setEnvironment('live');
-/* Create customer */
+/* Créer un client */
 \FedaPay\Customer::create(array(
   "firstname" => "John",
   "lastname" => "Doe",
@@ -37,7 +37,7 @@ composer require fedapay/fedapay-php
 
 #### exemple d’implémentation pour créer une transaction : 
 
-```
+```php
 \FedaPay\Fedapay::setApiKey('YOUR_API_KEY');
 \FedaPay\Fedapay::setEnvironment('sandbox');
 $transaction = \FedaPay\Transaction::create([
