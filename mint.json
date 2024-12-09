@@ -216,13 +216,15 @@
     {
       "group": "SDKs",
       "pages": [
-        "sdks/fr/overview-fr",
         {
-          "group": "front-end",
-          "pages": [
-            "sdks/fr/reactjs-fr",
-            "sdks/fr/angular-fr"
-          ]
+          "group": "SDKs (FR)",
+          "pages": ["sdks/fr/overview-fr", "sdks/fr/ruby-fr", "sdks/fr/php-fr"],
+          "version": "fr"
+        },
+        {
+          "group": "SDKs (EN)",
+          "pages": ["sdks/en/overview-en", "sdks/en/ruby-en", "sdks/en/php-en"],
+          "version": "en"
         }
       ]
     }
