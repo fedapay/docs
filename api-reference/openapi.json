@@ -171,7 +171,7 @@
         "parameters": [
           {
             "name": "email",
-            "in": "path",
+            "in": "query",
             "description": "Filter by customer's email address.",
             "required": false,
             "schema": {
@@ -181,7 +181,7 @@
           },
           {
             "name": "firstname",
-            "in": "path",
+            "in": "query",
             "description": "Filter by customer's first name.",
             "required": false,
             "schema": {
@@ -190,7 +190,7 @@
           },
           {
             "name": "lastname",
-            "in": "path",
+            "in": "query",
             "description": "Filter by customer's last name.",
             "required": false,
             "schema": {
