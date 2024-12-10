@@ -168,6 +168,36 @@
             "bearerAuth": []
           }
         ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "Filter by customer's email address.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "email"
+            }
+          },
+          {
+            "name": "firstname",
+            "in": "query",
+            "description": "Filter by customer's first name.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lastname",
+            "in": "query",
+            "description": "Filter by customer's last name.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "List of customers.",
