@@ -173,7 +173,6 @@
             "name": "transaction",
             "in": "path",
             "description": "Filter the customers by email, first name, last name",
-            "required": true,
             "schema": {
               "type": "object",
               "properties": {
