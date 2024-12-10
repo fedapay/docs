@@ -170,31 +170,27 @@
         ],
         "parameters": [
           {
-            "name": "email",
+            "name": "transaction",
             "in": "query",
-            "description": "Filter by customer's email address.",
+            "description": "Filter the customers by email, first name, last name",
             "required": false,
             "schema": {
-              "type": "string",
-              "format": "email"
-            }
-          },
-          {
-            "name": "firstname",
-            "in": "query",
-            "description": "Filter by customer's first name.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "lastname",
-            "in": "query",
-            "description": "Filter by customer's last name.",
-            "required": false,
-            "schema": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "format": "email",
+                  "description": "Customer's email address."
+                },
+                "firstname": {
+                  "type": "string",
+                  "description": "Customer's first name."
+                },
+                "lastname": {
+                  "type": "string",
+                  "description": "Customer's last name."
+                }
+              }
             }
           }
         ],
