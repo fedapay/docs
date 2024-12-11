@@ -131,7 +131,34 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
   <Step title=" Récupération des Détails d’une Collecte">
     Pour récupérer les informations complètes d’une collecte, effectuez une requête avec l'ID de cette collecte.
 
-    <Info>[Exemple de requête pour récupérer les détails d’une collecte](/api-reference/transactions/get-by-id)</Info>
+    #### Exemple de requête pour récupérer les détails d’une collecte
+
+  <CodeGroup>
+```javascript NodeJs
+const { FedaPay, Transaction } = require('fedapay');
+/* Replace YOUR_SECRETE_API_KEY with your real API key */
+FedaPay.setApiKey("YOUR_SECRETE_API_KEY");
+/* Specify whether you want to run your query in test mode or live mode */
+FedaPay.setEnvironment('sandbox'); //or setEnvironment('live');
+/* Show customers */
+const transaction = await Transaction.retrieve(ID, params = {}, headers = {});
+```
+
+```php PHP
+\FedaPay\Fedapay::setApiKey(MY_API_KEY);
+$customer = \FedaPay\Transaction::retrieve(ID, params = {}, header = {});
+```
+
+```Ruby Ruby
+require 'fedapay';
+# configure FedaPay library
+FedaPay.api_key = '' # Your secret api key
+FedaPay.environment = '' # sandbox or live
+transactions = FedaPay::Transaction.retrieve(ID);
+```
+</CodeGroup>
+
+    <Info>[Retrouvez plus d’informations dans notre Reference API](/api-reference/transactions/get-by-id)</Info>
   </Step>
 </Steps>
 
