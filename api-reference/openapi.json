@@ -744,6 +744,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
+            "label": "Node",
             "source": "const { FedaPay, Payout } = require('fedapay');\nFedaPay.setApiKey('YOUR_API_KEY');\nFedaPay.setEnvironment('sandbox');\nconst payout = await Payout.create(params = {}, headers = {});"
           },
           {
