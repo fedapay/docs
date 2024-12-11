@@ -1,8 +1,6 @@
 ---
-title: 'Collects and Payouts Management'
+title: 'Collects Management'
 ---
-
-## Collects Management
 
 The FedaPay API allows you to easily integrate secure payment solutions into your website or application. This guide will walk you through the process of setting up and managing payment collects using the API, from the initial creation to the finalization, including advanced features such as redirection-free payments. Whether you are a developer or a product manager, you'll find everything you need to optimally use FedaPay.
 
@@ -252,79 +250,3 @@ Each collection passes through various statuses:
 * **transferred** : Transferred (amount moved to the merchant account)
 
 <Note>To view the real-time status, visit the FedaPay dashboard under the **Collects** section or use the API to check using the collect ID.</Note>
-
-## Payouts Management
-
-A payout is an operation that allows you to transfer money directly from your balance to a customer’s account. This feature is designed for businesses that need to handle payments to specific clients.
-
-### Steps to Create a Payout
-
-Creating a payout through the API involves several steps. Each payout follows processes that must be respected to ensure smooth transfer.
-
-<Steps>
-  <Step title="Payout Creation Request">
-    To begin, you need to send a request to create a payout via our API. The essential information required in the request includes:
-
-    * **amount** : The amount for the payout, always in whole numbers.
-
-    * **currency** : The currency to be used for the payout. You can indicate the ISO code of the chosen currency (e.g., XOF for CFA francs).
-
-    * **customer** : The customer receiving the payout. If the customer is not yet in your database, you can create them at the same time by providing details such as name, email, and phone number.
-
-    <Info>
-      [API code to create a payout](/api-reference/payouts/create)
-
-      Sample code is available to simplify the creation of a repository via the API. Be sure to replace **YOUR\_SECRETE\_API\_KEY** with your sandbox or live private key.
-    </Info>
-  </Step>
-
-  <Step title="Sending the Payout">
-    Once a payout has been created, it will be marked as **pending**. You then need to proceed with sending the payout. Two options are available:
-
-    * Send the payout immediately.
-
-    * Schedule the payout for later.
-
-    <Info>
-      [API code to send the payout](/api-reference/payouts/update-start)
-
-      Use PHP, Node.js or Ruby code to send the repository, replacing **YOUR\_SECRETE\_API\_KEY** with your private key.
-    </Info>
-  </Step>
-
-  <Step title="Retrieve Payout Details">
-    After creating and/or sending the payout, you can view its details to obtain specific information, such as status or payout history.
-
-    <Info>
-      [API code to retrieve payout details](/api-reference/payouts/get-by-id)
-
-      Retrieve information on a specific repository using its unique identifier (ID). Replace **ID** in the URL with the ID of the repository you wish to consult.
-    </Info>
-  </Step>
-</Steps>
-
-### Payout Lifecycle
-
-When a payout is created, it moves through several statuses:
-
-* **pending** : Pending (initial status after payout creation).
-
-* **started** : The payout has been validated and is in the process of being initiated.
-
-* **processing** : The payout is being processed and sent to the recipient.
-
-* **sent** : The payout has been successfully sent to the recipient.
-
-* **failed** : The payout failed due to issues such as technical error or method-related problems.
-
-You can track the status of your payouts from the FedaPay dashboard under the **Payouts** section.
-
-### Available Payout Methods
-
-Currently, [the available payout methods](/payment-methods/en/payment-methods-en) for sending funds to different countries in West Africa are supported
-
-These methods make it easy to send money to various countries in the region.
-
-### Support
-
-If you have any questions or encounter difficulties with payouts, feel free to contact our support team at: [`support@fedapay.com`](mailto:support@fedapay.com)
