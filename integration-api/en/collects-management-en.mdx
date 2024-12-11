@@ -130,7 +130,34 @@ The steps to set up a collect are broken down into several key processes.
   <Step title="Retrieve Collect Details">
     To retrieve complete information for a collect, you can send a request using its collection ID.
 
-    <Info>[Example request to retrieve collection details](/api-reference/transactions/get-by-id)</Info>
+    #### Example query to retrieve details of a collects
+
+    <CodeGroup>
+      ```javascript NodeJs
+      const { FedaPay, Transaction } = require('fedapay');
+      /* Replace YOUR_SECRETE_API_KEY with your real API key */
+      FedaPay.setApiKey("YOUR_SECRETE_API_KEY");
+      /* Specify whether you want to run your query in test mode or live mode */
+      FedaPay.setEnvironment('sandbox'); //or setEnvironment('live');
+      /* Show customers */
+      const transaction = await Transaction.retrieve(ID, params = {}, headers = {});
+      ```
+
+      ```php PHP
+      \FedaPay\Fedapay::setApiKey(MY_API_KEY);
+      $customer = \FedaPay\Transaction::retrieve(ID, params = {}, header = {});
+      ```
+
+      ```Ruby Ruby
+      require 'fedapay';
+      # configure FedaPay library
+      FedaPay.api_key = '' # Your secret api key
+      FedaPay.environment = '' # sandbox or live
+      transactions = FedaPay::Transaction.retrieve(ID);
+      ```
+    </CodeGroup>
+
+    <Info>[Find more information in our API Reference](/api-reference/transactions/get-by-id)</Info>
   </Step>
 </Steps>
 
