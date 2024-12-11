@@ -85,6 +85,7 @@
             "integration-api/fr/authentication-fr",
             "integration-api/fr/customer-management-fr",
             "integration-api/fr/collects-management-fr",
+            "integration-api/fr/payouts-management-fr",
             "integration-api/fr/sending-requests-fr",
             "integration-api/fr/webhooks-fr"
           ],
@@ -97,6 +98,7 @@
             "integration-api/en/authentication-en",
             "integration-api/en/customer-management-en",
             "integration-api/en/collects-management-en",
+            "integration-api/en/payouts-management-en",
             "integration-api/en/sending-requests-en",
             "integration-api/en/webhooks-en"
           ],
