@@ -18,8 +18,32 @@ Creating a payout through the API involves several steps. Each payout follows pr
 
     * **customer** : The customer receiving the payout. If the customer is not yet in your database, you can create them at the same time by providing details such as name, email, and phone number.
 
+  #### Example of a request for creating a repository
+
+    <CodeGroup>
+      ```javascript NodeJs
+      const { FedaPay, Payout } = require('fedapay');
+      FedaPay.setApiKey('YOUR_API_KEY');
+      FedaPay.setEnvironment('sandbox');
+      const payout = await Payout.create(params = {}, headers = {});
+      ```
+
+      ```php PHP
+      \FedaPay\Fedapay::setApiKey(MY_API_KEY);
+      \FedaPay\Payout::create(["amount" => 2000, "currency" => {"iso": "XOF"}]);
+      ```
+
+      ```Ruby Ruby
+      require 'fedapay';
+      FedaPay.api_key = '';
+      FedaPay.environment = 'sandbox';
+      currency = { iso: 'XOF' };
+      payout = FedaPay::Payout.create(amount: 1000, currency: currency);
+      ```
+    </CodeGroup>
+
     <Info>
-      [API code to create a payout](/api-reference/payouts/create)
+      [Find more information in our API Reference](/api-reference/payouts/create)
 
       Sample code is available to simplify the creation of a repository via the API. Be sure to replace **YOUR\_SECRETE\_API\_KEY** with your sandbox or live private key.
     </Info>

@@ -18,8 +18,32 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
 
     * **customer** : Le client concerné par le dépôt. Si le client n'existe pas encore dans votre base de données, vous pouvez le créer en même temps que le dépôt en fournissant les informations suivantes : nom, prénom, adresse e-mail, et numéro de téléphone.
 
+    #### Exemple de requête pour la création d’un dépôt
+
+    <CodeGroup>
+      ```javascript NodeJs
+      const { FedaPay, Payout } = require('fedapay');
+      FedaPay.setApiKey('YOUR_API_KEY');
+      FedaPay.setEnvironment('sandbox');
+      const payout = await Payout.create(params = {}, headers = {});
+      ```
+
+      ```php PHP
+      \FedaPay\Fedapay::setApiKey(MY_API_KEY);
+      \FedaPay\Payout::create(["amount" => 2000, "currency" => {"iso": "XOF"}]);
+      ```
+
+      ```Ruby Ruby
+      require 'fedapay';
+      FedaPay.api_key = '';
+      FedaPay.environment = 'sandbox';
+      currency = { iso: 'XOF' };
+      payout = FedaPay::Payout.create(amount: 1000, currency: currency);
+      ```
+    </CodeGroup>
+
     <Info>
-      [Code API pour la création d’un dépôt](/api-reference/payouts/create)
+      [Retrouvez plus d’informations dans notre Reference API](/api-reference/payouts/create)
 
       Un exemple de code est disponible pour simplifier la création d’un dépôt via l'API. Assurez-vous de remplacer **YOUR\_SECRETE\_API\_KEY** par votre clé privée sandbox ou live.
     </Info>
