@@ -1,4 +1,77 @@
 ---
-title: 'Payout fr'
-description: 'Description of your new file.'
+title: 'Gestion des dépôts'
 ---
+
+Un dépôt est une opération qui permet de transférer de l'argent directement à partir de votre balance vers le compte d'un client. Cette fonctionnalité est conçue pour les entreprises qui ont besoin de gérer des paiements vers des clients spécifiques.
+
+### Étapes pour la Création d’un Dépôt
+
+La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque dépôt passe par différents processus qui doivent être respectés pour garantir le bon déroulement du transfert.
+
+<Steps>
+  <Step title="Requête de Création d'un Dépôt">
+    Pour commencer, vous devez envoyer une requête de création de dépôt via notre API. Les informations essentielles à fournir lors de cette requête incluent :
+
+    * **amount** : Le montant du dépôt, toujours indiqué en nombre entier.
+
+    * **currency** : La devise à utiliser pour le dépôt. Vous pouvez indiquer le code ISO de la devise choisie (par exemple, XOF pour le franc CFA).
+
+    * **customer** : Le client concerné par le dépôt. Si le client n'existe pas encore dans votre base de données, vous pouvez le créer en même temps que le dépôt en fournissant les informations suivantes : nom, prénom, adresse e-mail, et numéro de téléphone.
+
+    <Info>
+      [Code API pour la création d’un dépôt](/api-reference/payouts/create)
+
+      Un exemple de code est disponible pour simplifier la création d’un dépôt via l'API. Assurez-vous de remplacer **YOUR\_SECRETE\_API\_KEY** par votre clé privée sandbox ou live.
+    </Info>
+  </Step>
+
+  <Step title="Envoi du Dépôt">
+    Après avoir créé un dépôt, il sera marqué comme "en attente". Vous devez ensuite procéder à son envoi. Deux options s’offrent à vous :
+
+    * Envoyer le dépôt immédiatement
+
+    * Planifier l'envoi pour plus tard
+
+    <Info>
+      [Code API pour l’envoi du dépôt](/api-reference/payouts/update-start)
+
+      Utilisez le code PHP, Node.js ou Ruby pour envoyer le dépôt en remplaçant **YOUR\_SECRETE\_API\_KEY** par votre clé privée.
+    </Info>
+  </Step>
+
+  <Step title="Récupération des Détails d'un Dépôt">
+    Une fois le dépôt créé et/ou envoyé, vous pouvez consulter ses détails pour obtenir des informations spécifiques, telles que le statut ou l’historique du dépôt.
+
+    <Info>
+      [Code API pour récupérer les détails d'un dépôt](/api-reference/payouts/get-by-id)
+
+      Récupérez les informations d’un dépôt spécifique en utilisant son identifiant unique (ID). Remplacez **ID** dans l'URL par l'identifiant du dépôt que vous souhaitez consulter.
+    </Info>
+  </Step>
+</Steps>
+
+### Cycle de Vie des Dépôts
+
+Lorsqu'un dépôt est créé, il passe par plusieurs statuts :
+
+* **pending (En attente)** : Statut initial après la création du dépôt.
+
+* **started (Démarré)** : Le dépôt a été validé et l’envoi est en cours de démarrage.
+
+* **processing (En cours d'envoi)** : Le dépôt est en cours de traitement et d’envoi vers le destinataire.
+
+* **sent (Envoyé)** : Le dépôt a été envoyé avec succès au destinataire.
+
+* **failed (Échoué)** : L’envoi du dépôt a échoué, pour des raisons qui peuvent varier (erreur technique, problème avec la méthode de versement, etc.).
+
+Vous pouvez suivre l'évolution du statut de vos dépôts à partir du tableau de bord FedaPay dans le menu Dépots.
+
+### Méthodes de Versement Disponibles
+
+Actuellement, [les méthodes de versement](/payment-methods/fr/payment-methods-fr) prises en charge pour les dépôts sont disponibles dans plusieurs pays de la sous-région
+
+Ces méthodes permettent d'envoyer facilement des fonds vers différents pays d'Afrique de l'Ouest.
+
+### Support
+
+Si vous avez des questions ou rencontrez des difficultés avec les dépôts, n'hésitez pas à contacter notre support technique à l’adresse : [`support@fedapay.com`](mailto:support@fedapay.com)
