@@ -159,38 +159,12 @@
           }
         ]
       }
-    },
-    "/customers/search": {
+    },"/customers/search": {
       "get": {
         "summary": "Search your customers",
         "security": [
           {
             "bearerAuth": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "transaction",
-            "in": "path",
-            "description": "Filter the customers by email, first name, last name",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "email": {
-                  "type": "string",
-                  "format": "email",
-                  "description": "Customer's email address."
-                },
-                "firstname": {
-                  "type": "string",
-                  "description": "Customer's first name."
-                },
-                "lastname": {
-                  "type": "string",
-                  "description": "Customer's last name."
-                }
-              }
-            }
           }
         ],
         "responses": {
