@@ -133,30 +133,30 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
 
     #### Exemple de requête pour récupérer les détails d’une collecte
 
-  <CodeGroup>
-```javascript NodeJs
-const { FedaPay, Transaction } = require('fedapay');
-/* Replace YOUR_SECRETE_API_KEY with your real API key */
-FedaPay.setApiKey("YOUR_SECRETE_API_KEY");
-/* Specify whether you want to run your query in test mode or live mode */
-FedaPay.setEnvironment('sandbox'); //or setEnvironment('live');
-/* Show customers */
-const transaction = await Transaction.retrieve(ID, params = {}, headers = {});
-```
+    <CodeGroup>
+      ```javascript NodeJs
+      const { FedaPay, Transaction } = require('fedapay');
+      /* Remplacez YOUR_SECRETE_API_KEY par votre véritable clé API */
+      FedaPay.setApiKey("YOUR_SECRETE_API_KEY");
+      /* Indiquez si vous souhaitez exécuter votre requête en mode test ou en mode live */
+      FedaPay.setEnvironment('sandbox'); //or setEnvironment('live');
+      /* Afficher les clients */
+      const transaction = await Transaction.retrieve(ID, params = {}, headers = {});
+      ```
 
-```php PHP
-\FedaPay\Fedapay::setApiKey(MY_API_KEY);
-$customer = \FedaPay\Transaction::retrieve(ID, params = {}, header = {});
-```
+      ```php PHP
+      \FedaPay\Fedapay::setApiKey(MY_API_KEY);
+      $customer = \FedaPay\Transaction::retrieve(ID, params = {}, header = {});
+      ```
 
-```Ruby Ruby
-require 'fedapay';
-# configure FedaPay library
-FedaPay.api_key = '' # Your secret api key
-FedaPay.environment = '' # sandbox or live
-transactions = FedaPay::Transaction.retrieve(ID);
-```
-</CodeGroup>
+      ```Ruby Ruby
+      require 'fedapay';
+      # configure FedaPay library
+      FedaPay.api_key = '' # Your secret api key
+      FedaPay.environment = '' # sandbox or live
+      transactions = FedaPay::Transaction.retrieve(ID);
+      ```
+    </CodeGroup>
 
     <Info>[Retrouvez plus d’informations dans notre Reference API](/api-reference/transactions/get-by-id)</Info>
   </Step>
