@@ -26,8 +26,57 @@ The steps to set up a collect are broken down into several key processes.
 
     If the customer is not yet registered in your system, you can create their profile by adding details such as name, email, and phone number.
 
+    #### Example query to create a collects
+
+    <CodeGroup>
+      ```javascript NodeJs
+      const { FedaPay, Transaction } = require('fedapay');
+      FedaPay.setApiKey('YOUR_SECRET_API_KEY');
+      FedaPay.setEnvironment('sandbox');
+      const transaction = await Transaction.create({
+        description: 'Payment for order #1234',
+        amount: 1000,
+        currency: { iso: 'XOF' },
+        callback_url: 'https://example.com/callback',
+        mode: 'mtn_open',
+        customer: { id: 1 }
+      });
+      ```
+
+      ```php PHP
+      \FedaPay\Fedapay::setApiKey('YOUR_API_KEY');
+      \FedaPay\Fedapay::setEnvironment('sandbox');
+      $transaction = \FedaPay\Transaction::create([
+        'description' => 'Payment for order #1234',
+        'amount' => 1000,
+        'currency' => ['iso' => 'XOF'],
+        'callback_url' => 'https://example.com/callback',
+        'mode' => 'mtn_open',
+        'customer' => ['id' => 1]
+      ]);
+      ```
+
+      ```Ruby Ruby
+      require 'fedapay'
+
+      FedaPay.api_key = 'YOUR_SECRET_API_KEY'
+      FedaPay.environment = 'sandbox'
+
+      transaction = FedaPay::Transaction.create(
+        amount: 1000,
+        currency: { iso: 'XOF' },
+        customer: { id: 1 },
+        description: 'Payment for order #1234',
+        callback_url: 'https://example.com/callback',
+        mode: 'mtn_open'
+      )
+
+      puts "Transaction successfully created : #{transaction.inspect}"
+      ```
+    </CodeGroup>
+
     <Info>
-      [Example request to create a collect](/api-reference/transactions/create)
+      [Find more information in our API Reference](/api-reference/transactions/create)
 
       Replace **YOUR\_SECRETE\_API\_KEY** with your API key and use the URL of the appropriate server (**sandbox** or **live**).
 
@@ -101,54 +150,54 @@ The mobile payment process without redirection is divided into two main steps in
   <Step title="Trigger the Payment">
     Once you have the payment token, you need to send a request to the FedaPay API to process the payment. The request is made using one of the specific [payment methods ](/payment-methods/en/payment-methods-en)
 
-    _**Here is an example code to send a mobile payment without redirection**_
+    ***Here is an example code to send a mobile payment without redirection***
 
     <CodeGroup>
+      ```java curl
+      curl -X POST \
+      https://sandbox-api.fedapay.com/v1/METHODE_PAIEMENT \
+      -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+      -H 'Content-Type: application/json'
+      -d '{
+        "token" : "TOKEN_DE_PAIEMENT"
+      }'
+      ```
 
-```java curl
-curl -X POST \
-https://sandbox-api.fedapay.com/v1/METHODE_PAIEMENT \
--H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
--H 'Content-Type: application/json'
--d '{
-  "token" : "TOKEN_DE_PAIEMENT"
-}'
-```
+      ```php PHP
+      $transaction = \FedaPay\Transaction::create(...);
+      $token = $transaction->generateToken()->token;
+      $mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
+      $transaction->sendNowWithToken($mode, $token);
+      ```
 
-```php PHP
-$transaction = \FedaPay\Transaction::create(...);
-$token = $transaction->generateToken()->token;
-$mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
-$transaction->sendNowWithToken($mode, $token);
-```
-
-```javascript Node.js
-const transaction = await Transaction.create(...);
-const token = transaction.generateToken().token;
-const mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
-await transaction.sendNowWithToken(mode, token);
-```
-</CodeGroup>
+      ```javascript Node.js
+      const transaction = await Transaction.create(...);
+      const token = transaction.generateToken().token;
+      const mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
+      await transaction.sendNowWithToken(mode, token);
+      ```
+    </CodeGroup>
   </Step>
 </Steps>
 
 <Warning>
-**Important Notes :**
-  
-Replace **METHODE_PAIEMENT** with the chosen payment method (e.g., **mtn_benin**, **moov_benin**, etc.).
- 
-**VOTRE_CLE_API_SECRETE** must be replaced with your secret API key (in sandbox mode for testing or live mode for production transactions).
+  **Important Notes :**
 
-When you're ready to go live, replace the **sandbox** URL with the **Live** URL :
+  Replace **METHODE\_PAIEMENT** with the chosen payment method (e.g., **mtn\_benin**, **moov\_benin**, etc.).
 
-- **Sandbox** : `https://sandbox-api.fedapay.com`
-- **Live** : `https://api.fedapay.com/v1/transactions/ID`
+  **VOTRE\_CLE\_API\_SECRETE** must be replaced with your secret API key (in sandbox mode for testing or live mode for production transactions).
 
-_**Important**: Make sure to thoroughly test your integrations in the sandbox environment before deploying them to production._
+  When you're ready to go live, replace the **sandbox** URL with the **Live** URL :
+
+  * **Sandbox** : `https://sandbox-api.fedapay.com`
+
+  * **Live** : `https://api.fedapay.com/v1/transactions/ID`
+
+  ***Important**: Make sure to thoroughly test your integrations in the sandbox environment before deploying them to production.*
 </Warning>
 
 <Note>
-   **Note**: Payments without redirection do not support all operators. Refer to the **Payment Methods** section for more details on supported methods.
+  **Note**: Payments without redirection do not support all operators. Refer to the **Payment Methods** section for more details on supported methods.
 </Note>
 
 ### Automatic Retrieval of Collect Status

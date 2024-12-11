@@ -29,56 +29,54 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
     #### Exemple de requête pour créer une collecte
 
     <CodeGroup>
+      ```javascript NodeJs
+      const { FedaPay, Transaction } = require('fedapay');
+      FedaPay.setApiKey('YOUR_SECRET_API_KEY');
+      FedaPay.setEnvironment('sandbox');
+      const transaction = await Transaction.create({
+        description: 'Payment for order #1234',
+        amount: 1000,
+        currency: { iso: 'XOF' },
+        callback_url: 'https://example.com/callback',
+        mode: 'mtn_open',
+        customer: { id: 1 }
+      });
+      ```
 
-```javascript Node
-const { FedaPay, Transaction } = require('fedapay');
-FedaPay.setApiKey('YOUR_SECRET_API_KEY');
-FedaPay.setEnvironment('sandbox');
-const transaction = await Transaction.create({
-  description: 'Payment for order #1234',
-  amount: 1000,
-  currency: { iso: 'XOF' },
-  callback_url: 'https://example.com/callback',
-  mode: 'mtn_open',
-  customer: { id: 1 }
-});
-```
+      ```php PHP
+      \FedaPay\Fedapay::setApiKey('YOUR_API_KEY');
+      \FedaPay\Fedapay::setEnvironment('sandbox');
+      $transaction = \FedaPay\Transaction::create([
+        'description' => 'Payment for order #1234',
+        'amount' => 1000,
+        'currency' => ['iso' => 'XOF'],
+        'callback_url' => 'https://example.com/callback',
+        'mode' => 'mtn_open',
+        'customer' => ['id' => 1]
+      ]);
+      ```
 
-```php PHP
-\FedaPay\Fedapay::setApiKey('YOUR_API_KEY');
-\FedaPay\Fedapay::setEnvironment('sandbox');
-$transaction = \FedaPay\Transaction::create([
-  'description' => 'Payment for order #1234',
-  'amount' => 1000,
-  'currency' => ['iso' => 'XOF'],
-  'callback_url' => 'https://example.com/callback',
-  'mode' => 'mtn_open',
-  'customer' => ['id' => 1]
-]);
-```
+      ```Ruby Ruby
+      require 'fedapay'
 
-```Ruby Ruby
-require 'fedapay'
+      FedaPay.api_key = 'YOUR_SECRET_API_KEY'
+      FedaPay.environment = 'sandbox'
 
-FedaPay.api_key = 'YOUR_SECRET_API_KEY'
-FedaPay.environment = 'sandbox'
+      transaction = FedaPay::Transaction.create(
+        amount: 1000,
+        currency: { iso: 'XOF' },
+        customer: { id: 1 },
+        description: 'Payment for order #1234',
+        callback_url: 'https://example.com/callback',
+        mode: 'mtn_open'
+      )
 
-transaction = FedaPay::Transaction.create(
-  amount: 1000,
-  currency: { iso: 'XOF' },
-  customer: { id: 1 },
-  description: 'Payment for order #1234',
-  callback_url: 'https://example.com/callback',
-  mode: 'mtn_open'
-)
-
-puts "Transaction successfully created : #{transaction.inspect}"
-```
-
-</CodeGroup>
+      puts "Transaction successfully created : #{transaction.inspect}"
+      ```
+    </CodeGroup>
 
     <Info>
-      [Exemple de requête pour créer une collecte](/api-reference/transactions/create)
+      [Retrouvez plus d’informations dans notre Reference API](/api-reference/transactions/create)
 
       Remplacez **YOUR\_SECRETE\_API\_KEY** par votre clé API et utilisez l’URL du serveur approprié (**sandbox** ou **live**).
 
