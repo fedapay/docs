@@ -195,14 +195,14 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
       $transaction = \FedaPay\Transaction::create(...);
       $token = $transaction->generateToken()->token;
       $mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
-      $transaction->sendNowWithToken($mode, $token);
+      $transaction->sendNowWithToken($mode, $token, $phonenumber);
       ```
 
       ```javascript Node.js
       const transaction = await Transaction.create(...);
       const token = transaction.generateToken().token;
       const mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
-      await transaction.sendNowWithToken(mode, token);
+      await transaction.sendNowWithToken(mode, token, phonenumber);
       ```
     </CodeGroup>
   </Step>
