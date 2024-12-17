@@ -4,15 +4,19 @@ title: 'Librairies de  FedaPay : Installation et Configuration'
 
 FedaPay offre une suite de librairies pour plusieurs langages de programmation populaires, facilitant l’intégration des solutions de paiement pour différents types de projets. Ces librairies permettent d'optimiser les paiements et de simplifier la gestion des transactions dans vos applications. Voici un guide d’installation et d’utilisation des librairies de FedaPay.
 
-##  Choisissez votre langage de programmation/framework
+## Choisissez votre langage de programmation/framework
 
 FedaPay propose des librairies dédiées pour les langages suivants, chaque librairie étant adaptée à des environnements spécifiques :
 
-- **PHP** : Parfait pour les applications back-end, et s'intègre facilement aux frameworks comme Laravel ou Symfony.
-- **Node.js** : Adapté aux applications côté serveur et aux API en JavaScript.
-- **React.js** : Idéal pour les applications front-end interactives.
-- **Angular** : Recommandé pour les projets d’applications front-end robustes.
-- **Ruby** : Conçu pour les applications Ruby, notamment avec le framework Ruby on Rails.
+* **PHP** : Parfait pour les applications back-end, et s'intègre facilement aux frameworks comme Laravel ou Symfony.
+
+* **Node.js** : Adapté aux applications côté serveur et aux API en JavaScript.
+
+* **React.js** : Idéal pour les applications front-end interactives.
+
+* **Angular** : Recommandé pour les projets d’applications front-end robustes.
+
+* **Ruby** : Conçu pour les applications Ruby, notamment avec le framework Ruby on Rails.
 
 <Note>**Conseil** : Assurez-vous de choisir la librairie qui correspond au langage de votre projet pour garantir une intégration optimale.</Note>
 
@@ -21,32 +25,32 @@ FedaPay propose des librairies dédiées pour les langages suivants, chaque libr
 Chaque librairie de FedaPay s'installe via un gestionnaire de paquets standard pour le langage choisi. Voici un aperçu des commandes d’installation pour PHP et Node.js :
 
 <CodeGroup>
+  ```Php PHP
+  composer require fedapay/fedapay-php
+  ```
 
-```Php PHP
-composer require fedapay/fedapay-php
-```
+  ```Typescript Node
+  npm install fedapay --save
+  ```
 
-```Typescript Node
-npm install fedapay --save
-```
+  ```Javascript ReactJs
+  npm install fedapay-reactjs --save
+  ```
 
-```Javascript ReactJs
-npm install fedapay-reactjs --save
-```
+  ```Angular Angular
+  npm install fedapay-angular --save
+  ```
 
-```Angular Angular
-npm install fedapay-angular --save
-```
-```Ruby Ruby
-$ gem install fedapay-ruby
-```
+  ```Ruby Ruby
+  $ gem install fedapay-ruby
+  ```
 </CodeGroup>
 
 <Note>Pour les instructions complètes d'installation, consultez [les dépôts GitHub de chaque librairie FedaPay](https://github.com/fedapay).</Note>
 
 ## Utilisation des librairies avec les Clés API
 
-Après l'installation, configurez la librairie avec vos clés API, qui permettent d’authentifier vos requêtes. Vous pouvez obtenir ces clés dans le tableau de bord FedaPay. 
+Après l'installation, configurez la librairie avec vos clés API, qui permettent d’authentifier vos requêtes. Vous pouvez obtenir ces clés dans le tableau de bord FedaPay.
 
 <Note>**Bonnes pratiques** : Utilisez des clés API distinctes pour les environnements de développement et de production. Cela garantit la sécurité de vos transactions et réduit le risque d’erreurs en production.</Note>
 
@@ -63,24 +67,13 @@ Pour des détails sur chaque fonction, consultez la [référence API FedaPay](/a
 Voici les librairies disponibles avec les liens vers leurs dépôts GitHub. Chaque dépôt comprend des documentations détaillées spécifiques à chaque langage :
 
 <CardGroup>
-  <Card
-    title="PHP"
-    href="https://github.com/FedaPay/fedapay-php"
-  ></Card>
-  <Card
-    title="Node.js "
-    href="https://github.com/FedaPay/fedapay-node"
-  ></Card>
-  <Card
-    title="React.js "
-    href="https://github.com/FedaPay/fedapay-react"
-  ></Card>
-  <Card
-    title="Angular "
-    href="https://github.com/FedaPay/fedapay-angular"
-  ></Card>
-  <Card
-    title="Ruby "
-    href="https://github.com/FedaPay/fedapay-ruby"
-  ></Card>
+  <Card title="PHP" icon="php" href="https://github.com/FedaPay/fedapay-php" />
+
+  <Card title="Node.js" icon="node" href="https://github.com/FedaPay/fedapay-node" />
+
+  <Card title="React.js" icon="react" href="https://github.com/FedaPay/fedapay-react" />
+
+  <Card title="Angular" icon="angular" href="https://github.com/FedaPay/fedapay-angular" />
+
+  <Card title="Ruby" icon="gem" href="https://github.com/FedaPay/fedapay-ruby" />
 </CardGroup>
