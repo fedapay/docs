@@ -159,7 +159,8 @@
           }
         ]
       }
-    },"/customers/search": {
+    },
+    "/customers/search": {
       "get": {
         "summary": "Search your customers",
         "security": [
@@ -2811,61 +2812,23 @@
       }
     },
     "/transactions/{mode}": {
-    "put": {
-      "summary": "Send payment to user",
-      "security": [
-        {
-          "bearerAuth": []
-        }
-      ],
-      "parameters": [
-        {
-          "mode": {
-            "type": "string",
-            "description": "",
-            "example": "mtn, moov, mtn_ci, moov_tg"
+      "put": {
+        "summary": "Send payment to user",
+        "security": [
+          {
+            "bearerAuth": []
           }
-        }
-      ],
-      "requestBody": {
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "token": {
-                    "type": "integer",
-                    "description": "Transaction token",
-                    "example": 1
-                  },
-                  "phone_number": {
-                    "type": "object",
-                    "description": "Phone number details",
-                    "properties": {
-                      "number": {
-                        "type": "string",
-                        "description": "Phone number",
-                        "example": "+22997808080"
-                      },
-                      "country": {
-                        "type": "string",
-                        "description": "Country code",
-                        "example": "BJ"
-                      }
-                    }
-                  }
-                },
-                "required": ["token", "mode"]
-              }
+        ],
+        "parameters": [
+          {
+            "mode": {
+              "type": "string",
+              "description": "",
+              "example": "mtn, moov, mtn_ci, moov_tg"
             }
           }
-        }
-      },
-      "responses": {
-        "200": {
-          "description": "Transaction sent successfully.",
+        ],
+        "requestBody": {
           "content": {
             "application/json": {
               "schema": {
@@ -2873,99 +2836,137 @@
                 "items": {
                   "type": "object",
                   "properties": {
-                    "reference": {
-                      "type": "string",
-                      "description": "Payment intent reference.",
-                      "example": "pi_xdc_123456"
-                    },
-                    "amount": {
+                    "token": {
                       "type": "integer",
-                      "description": "Payout amount.",
-                      "example": 1000
-                    },
-                    "status": {
-                      "type": "string",
-                      "description": "Intent status (e.g., 'pending', 'scheduled', 'sent', 'failed').",
-                      "example": "pending"
-                    },
-                    "currency_id": {
-                      "type": "integer",
-                      "description": "Currency ID associated with the payout.",
-                      "example": 840
-                    },
-                    "mode": {
-                      "type": "string",
-                      "description": "Payout mode.",
-                      "example": "automatic"
-                    },
-                    "last_error_code": {
-                      "type": "string",
-                      "description": "Last error code encountered during the payout.",
-                      "example": "NO_ERROR"
-                    },
-                    "created_at": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Date and time of payout creation.",
-                      "example": "2024-10-23T14:00:00Z"
-                    },
-                    "updated_at": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Date and time of last payout update.",
-                      "example": "2024-10-23T14:00:00Z"
-                    },
-                    "approved_at": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Date and time the payout was sent.",
-                      "example": "2024-10-23T14:31:00Z"
-                    },
-                    "canceled_at": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Date and time the payout failed.",
-                      "example": "2024-10-23T14:32:00Z"
-                    },
-                    "deleted_at": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Date and time of payout deletion.",
-                      "example": "2024-10-23T14:33:00Z"
-                    },
-                    "payment_method_id": {
-                      "type": "integer",
-                      "description": "Payment method ID used for the payout.",
+                      "description": "Transaction token",
                       "example": 1
                     },
-                    "transaction_key": {
-                      "type": "string",
-                      "description": "Unique key associated with the payout.",
-                      "example": "TRANSACTION-XYZ"
-                    },
-                    "account_id": {
-                      "type": "integer",
-                      "description": "Account ID associated with the payout.",
-                      "example": 5
+                    "phone_number": {
+                      "type": "object",
+                      "description": "Phone number details",
+                      "properties": {
+                        "number": {
+                          "type": "string",
+                          "description": "Phone number",
+                          "example": "+22997808080"
+                        },
+                        "country": {
+                          "type": "string",
+                          "description": "Country code",
+                          "example": "BJ"
+                        }
+                      }
                     }
-                  }
+                  },
+                  "required": ["token", "mode"]
                 }
               }
             }
           }
         },
-        "400": {
-          "description": "Invalid request body."
-        },
-        "422": {
-          "description": "Validation error."
-        },
-        "404": {
-          "description": "Payout not found."
+        "responses": {
+          "200": {
+            "description": "Transaction sent successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "reference": {
+                        "type": "string",
+                        "description": "Payment intent reference.",
+                        "example": "pi_xdc_123456"
+                      },
+                      "amount": {
+                        "type": "integer",
+                        "description": "Payout amount.",
+                        "example": 1000
+                      },
+                      "status": {
+                        "type": "string",
+                        "description": "Intent status (e.g., 'pending', 'scheduled', 'sent', 'failed').",
+                        "example": "pending"
+                      },
+                      "currency_id": {
+                        "type": "integer",
+                        "description": "Currency ID associated with the payout.",
+                        "example": 840
+                      },
+                      "mode": {
+                        "type": "string",
+                        "description": "Payout mode.",
+                        "example": "automatic"
+                      },
+                      "last_error_code": {
+                        "type": "string",
+                        "description": "Last error code encountered during the payout.",
+                        "example": "NO_ERROR"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of payout creation.",
+                        "example": "2024-10-23T14:00:00Z"
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of last payout update.",
+                        "example": "2024-10-23T14:00:00Z"
+                      },
+                      "approved_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time the payout was sent.",
+                        "example": "2024-10-23T14:31:00Z"
+                      },
+                      "canceled_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time the payout failed.",
+                        "example": "2024-10-23T14:32:00Z"
+                      },
+                      "deleted_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Date and time of payout deletion.",
+                        "example": "2024-10-23T14:33:00Z"
+                      },
+                      "payment_method_id": {
+                        "type": "integer",
+                        "description": "Payment method ID used for the payout.",
+                        "example": 1
+                      },
+                      "transaction_key": {
+                        "type": "string",
+                        "description": "Unique key associated with the payout.",
+                        "example": "TRANSACTION-XYZ"
+                      },
+                      "account_id": {
+                        "type": "integer",
+                        "description": "Account ID associated with the payout.",
+                        "example": 5
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body."
+          },
+          "422": {
+            "description": "Validation error."
+          },
+          "404": {
+            "description": "Payout not found."
+          }
         }
       }
-    }
-  },
+    },
     "/transactions/{id}": {
       "get": {
         "summary": "Get a transaction",
