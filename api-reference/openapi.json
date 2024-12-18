@@ -2812,7 +2812,7 @@
       }
     },
     "/transactions/{mode}": {
-      "put": {
+      "post": {
         "summary": "Send payment to user",
         "security": [
           {
