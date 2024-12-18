@@ -191,28 +191,113 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
       ```
 
       ```javascript NodeJs
-          const payout = await Payout.create({...});
+        const payout = await Payout.create({...});
         // Envoi du dépôt maintenant
         await payout.sendNow();
+        // Envoi d'un dépôt sur numéro de téléphone autre que celui du customer
+        await payout.sendNow({
+          phone_number: {
+            number: "64000001",
+            country: "BJ"
+          }
+        });
         // Envoi du dépôt plus tard
         await payout.schedule("2024-11-18 18:8:43");
+        // Programmer un dépôt pour plus tard mais sur un autre numéro autre
+        // que celui du customer
+        await payout.schedule("2024-11-18 18:8:43", {
+          phone_number: {
+            number: "64000001",
+            country: "BJ"
+          }
+        });
         // Programmer plusieurs envois
         await Payout.scheduleAll([
             {
-                id: 23, // Envoie le dépôt instantanément
-                scheduled_at: "2024-11-18 18:8:43" // Envoie le dépôt plus tard
+              id: 23, // Envoie le dépôt instantanément
+              scheduled_at: "2024-11-18 18:8:43" // Envoie le dépôt plus tard
             },
             {
-                id: 24, // Envoie le dépôt instantanément
-                scheduled_at: "2024-11-18 18:8:43" // Envoie le dépôt plus tard
+              id: 24, // Envoie le dépôt instantanément
+              scheduled_at: "2024-11-18 18:8:43" // Envoie le dépôt plus tard
+            },
+            {
+              id: 25,
+              scheduled_at: "2024-11-18 18:8:43",
+              phone_number: {
+                number: "64000001",
+                country: "BJ"
+              }
             }
         ]);
         // Envoyer tous les dépôts instantanément
         await Payout.sendAllNow([
             { id: 23 },
-            { id: 24 }
+            { id: 24 },
+            {
+              id: 24,
+              phone_number: {
+                number: "64000001",
+                country: "BJ"
+              }
+            }
         ]);
       ```
+
+      ```ruby Ruby
+        payout = FedaPay::Payout.create({...});
+        # Envoi du dépôt maintenant
+        payout.sendNow();
+        # Envoi d'un dépôt sur numéro de téléphone autre que celui du customer
+        payout.sendNow({
+          phone_number: {
+            number: "64000001",
+            country: "BJ"
+          }
+        });
+        # Envoi du dépôt plus tard
+        payout.schedule("2024-11-18 18:8:43");
+        # Programmer un dépôt pour plus tard mais sur un autre numéro autre
+        # que celui du customer
+        payout.schedule("2024-11-18 18:8:43", {
+          phone_number: {
+            number: "64000001",
+            country: "BJ"
+          }
+        });
+        # Programmer plusieurs envois
+        FedaPay::Payout.scheduleAll([
+            {
+              id: 23, # Envoie le dépôt instantanément
+              scheduled_at: "2024-11-18 18:8:43" # Envoie le dépôt plus tard
+            },
+            {
+              id: 24, # Envoie le dépôt instantanément
+              scheduled_at: "2024-11-18 18:8:43" # Envoie le dépôt plus tard
+            },
+            {
+              id: 25,
+              scheduled_at: "2024-11-18 18:8:43",
+              phone_number: {
+                number: "64000001",
+                country: "BJ"
+              }
+            }
+        ]);
+        # Envoyer tous les dépôts instantanément
+        FedaPay::Payout.sendAllNow([
+            { id: 23 },
+            { id: 24 },
+            {
+              id: 24,
+              phone_number: {
+                number: "64000001",
+                country: "BJ"
+              }
+            }
+        ]);
+      ```
+      
     </CodeGroup>
   </Step>
 
