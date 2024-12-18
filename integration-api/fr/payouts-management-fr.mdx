@@ -21,7 +21,6 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
     #### Exemple de requête pour la création d’un dépôt
 
     <CodeGroup>
-
       ```
         curl -X POST \
         https://sandbox-api.fedapay.com/v1/payouts \
@@ -42,7 +41,7 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
               }
             }'
       ```
-    
+
       ```javascript NodeJs
       const { FedaPay, Payout } = require('fedapay');
       FedaPay.setApiKey('YOUR_API_KEY');
@@ -66,7 +65,20 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
 
       ```php PHP
       \FedaPay\Fedapay::setApiKey(MY_API_KEY);
-      \FedaPay\Payout::create(["amount" => 2000, "currency" => {"iso": "XOF"}]);
+      \FedaPay\Payout::create([
+        "amount" => 2000,
+        "currency" => ["iso" => "XOF"],
+        "mode" => "mtn_open", // Non obligatoire. FedaPay détectera l'operateur sinon.
+        "customer" => [
+            "firstname" => "John",
+            "lastname" => "Doe",
+            "email" => "john.doe@example.com",
+            "phone_number" => [
+                "number" => "+22997808080",
+                "country" => "bj",
+            ],
+        ],
+    ]);
       ```
 
       ```Ruby Ruby
@@ -74,7 +86,20 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
       FedaPay.api_key = '';
       FedaPay.environment = 'sandbox';
       currency = { iso: 'XOF' };
-      payout = FedaPay::Payout.create(amount: 1000, currency: currency);
+      payout = FedaPay::Payout.create({
+        amount: 1000, 
+        currency: currency,
+        mode: "mtn_open", // Non obligatoire. FedaPay détectera l'operateur sinon.
+        customer: {
+          firstname: "John",
+          lastname: "Doe",
+          email: "john.doe@example.com",
+          phone_number: {
+            number: "+22997808080",
+            country: "bj",
+          },
+        },
+      });
       ```
     </CodeGroup>
 
