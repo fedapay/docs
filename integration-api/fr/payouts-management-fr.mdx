@@ -18,14 +18,50 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
 
     * **customer** : Le client concerné par le dépôt. Si le client n'existe pas encore dans votre base de données, vous pouvez le créer en même temps que le dépôt en fournissant les informations suivantes : nom, prénom, adresse e-mail, et numéro de téléphone.
 
-  #### Exemple de requête pour la création d’un dépôt
+    #### Exemple de requête pour la création d’un dépôt
 
     <CodeGroup>
+
+      ```
+        curl -X POST \
+        https://sandbox-api.fedapay.com/v1/payouts \
+        -H 'Authorization: Bearer VOTRE_CLE_API_PRIVEE' \
+        -H 'Content-Type: application/json' \
+        -d '{
+              "amount" : 2000,
+              "currency" : {"iso" : "XOF"},
+              "mode": "mtn_open" 
+              "customer" : {
+                  "firstname" : "John",
+                  "lastname" : "Doe",
+                  "email" : "john.doe@example.com",
+                  "phone_number" : {
+                      "number" : "+22997808080",
+                      "country" : "bj"
+                  }
+              }
+            }'
+      ```
+    
       ```javascript NodeJs
       const { FedaPay, Payout } = require('fedapay');
       FedaPay.setApiKey('YOUR_API_KEY');
       FedaPay.setEnvironment('sandbox');
-      const payout = await Payout.create(params = {}, headers = {});
+      const payout = await Payout.create(
+      {
+        amount: 2000,
+        currency: { iso: "XOF" },
+        mode: "mtn_open", // Non obligatoire. FedaPay détectera l'operateur sinon.
+        customer: {
+          firstname: "John",
+          lastname: "Doe",
+          email: "john.doe@example.com",
+          phone_number: {
+            number: "+22997808080",
+            country: "bj",
+          },
+        },
+      });
       ```
 
       ```php PHP
@@ -60,36 +96,32 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
   <Step title="Récupération des Détails d'un Dépôt">
     Une fois le dépôt créé et/ou envoyé, vous pouvez consulter ses détails pour obtenir des informations spécifiques, telles que le statut ou l’historique du dépôt.
 
+    #### Exemple de requête pour récupérer les détails d'un dépôt
 
-#### Exemple de requête pour récupérer les détails d'un dépôt
+    <CodeGroup>
+      ```javascript NodeJs
+      const { FedaPay, Payout } = require('fedapay');
+      /* Remplacez YOUR_SECRETE_API_KEY par votre véritable clé API */
+      FedaPay.setApiKey("YOUR_SECRETE_API_KEY");
+      /* Indiquez si vous souhaitez exécuter votre requête en mode test ou en direct */
+      FedaPay.setEnvironment('sandbox'); //or setEnvironment('live');
+      /* Afficher un depot */
+      const payout = await Payout.retrieve(params = {}, headers = {});
+      ```
 
-  <CodeGroup>
+      ```php PHP
+      \FedaPay\Fedapay::setApiKey(MY_API_KEY);
+      $customer = \FedaPay\Payout::retrieve(ID, params = {}, header = {});
+      ```
 
-```javascript NodeJs
-const { FedaPay, Payout } = require('fedapay');
-/* Remplacez YOUR_SECRETE_API_KEY par votre véritable clé API */
-FedaPay.setApiKey("YOUR_SECRETE_API_KEY");
-/* Indiquez si vous souhaitez exécuter votre requête en mode test ou en direct */
-FedaPay.setEnvironment('sandbox'); //or setEnvironment('live');
-/* Afficher un depot */
-const payout = await Payout.retrieve(params = {}, headers = {});
-```
-
-```php PHP
-\FedaPay\Fedapay::setApiKey(MY_API_KEY);
-$customer = \FedaPay\Payout::retrieve(ID, params = {}, header = {});
-```
-
-```Ruby Ruby
-require 'fedapay';
-# configurer la bibliothèque FedaPay
-FedaPay.api_key = '' # Votre clé API secrète
-FedaPay.environment = '' # sandbox or live
-payouts = FedaPay::Payout.retrieve(ID);
-```
-
-</CodeGroup>
-
+      ```Ruby Ruby
+      require 'fedapay';
+      # configurer la bibliothèque FedaPay
+      FedaPay.api_key = '' # Votre clé API secrète
+      FedaPay.environment = '' # sandbox or live
+      payouts = FedaPay::Payout.retrieve(ID);
+      ```
+    </CodeGroup>
 
     <Info>
       [Retrouvez plus d’informations dans notre Reference API](/api-reference/payouts/get-by-id)
