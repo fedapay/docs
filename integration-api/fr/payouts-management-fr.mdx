@@ -123,72 +123,67 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
 
     * Planifier l'envoi pour plus tard
 
+    <CodeGroup>
+      ```java Curl
+          curl -X PUT \
+          https://sandbox-api.fedapay.com/v1/payouts/start \
+          -H 'Authorization: Bearer VOTRE_CLE_API_PRIVEE' \
+          -H 'Content-Type: application/json'
+          -d '{
+                "payouts" : [
+                  { "id": 23 }, // Envoie le dépôt instantanément
+                  { "id": 24 , "scheduled_at": "2024-11-18 18:8:43"} // Envoie le dépôt plus tard
+                ]
+              }'
+      ```
 
+      ```php PHP
+        $payout = \FedaPay\Payout::create(array(...));
+        // Envoi du dépôt maintenant
+        $payout->sendNow();
+         // Envoie le dépôt plus tard
+        $payout->schedule("2024-11-18 18:8:43");
+        // Programmer plusieurs envoies
+        Payout::scheduleAll([
+            [
+                "id" => 23 // Envoie le dépôt instantanément
+            ],
+            [
+                "id" => 24,
+                "scheduled_at" => "2024-11-18 18:8:43" // Envoie le dépôt plus tard
+            ]
+        ]);
+        // Envoyer tous les paiements instantanément
+        Payout::sendAllNow([
+            [ "id" => 23 ],
+            [ "id" => 24 ]
+        ]);
+      ```
 
-  <CodeGroup>
-  
-    ```java Curl
-        curl -X PUT \
-        https://sandbox-api.fedapay.com/v1/payouts/start \
-        -H 'Authorization: Bearer VOTRE_CLE_API_PRIVEE' \
-        -H 'Content-Type: application/json'
-        -d '{
-              "payouts" : [
-                { "id": 23 },
-                { "id": 24 , "scheduled_at": "2024-11-18 18:8:43"}
-              ]
-            }'
-    ```
-    
-    ```php PHP
-      $payout = \FedaPay\Payout::create(array(...));
-      // Envoi du dépôt maintenant
-      $payout->sendNow();
-       // Envoie le dépôt plus tard
-      $payout->schedule("2024-11-18 18:8:43");
-      // Programmer plusieurs envoies
-      Payout::scheduleAll([
-          [
-              "id" => 23 // Envoie le dépôt instantanément
-          ],
-          [
-              "id" => 24,
-              "scheduled_at" => "2024-11-18 18:8:43" // Envoie le dépôt plus tard
-          ]
-      ]);
-      // Envoyer tous les paiements instantanément
-      Payout::sendAllNow([
-          [ "id" => 23 ],
-          [ "id" => 24 ]
-      ]);
-    ```
-    
-    ```javascript NodeJs
-        const payout = await Payout.create({...});
-      // Envoi du dépôt maintenant
-      await payout.sendNow();
-      // Envoi du dépôt plus tard
-      await payout.schedule("2024-11-18 18:8:43");
-      // Programmer plusieurs envois
-      await Payout.scheduleAll([
-          {
-              id: 23,
-              scheduled_at: "2024-11-18 18:8:43"
-          },
-          {
-              id: 24,
-              scheduled_at: "2024-11-18 18:8:43"
-          }
-      ]);
-      // Envoyer tous les dépôts instantanément
-      await Payout.sendAllNow([
-          { id: 23 },
-          { id: 24 }
-      ]);
-    ```
-  
-  </CodeGroup>
-
+      ```javascript NodeJs
+          const payout = await Payout.create({...});
+        // Envoi du dépôt maintenant
+        await payout.sendNow();
+        // Envoi du dépôt plus tard
+        await payout.schedule("2024-11-18 18:8:43");
+        // Programmer plusieurs envois
+        await Payout.scheduleAll([
+            {
+                id: 23, // Envoie le dépôt instantanément
+                scheduled_at: "2024-11-18 18:8:43" // Envoie le dépôt plus tard
+            },
+            {
+                id: 24, // Envoie le dépôt instantanément
+                scheduled_at: "2024-11-18 18:8:43" // Envoie le dépôt plus tard
+            }
+        ]);
+        // Envoyer tous les dépôts instantanément
+        await Payout.sendAllNow([
+            { id: 23 },
+            { id: 24 }
+        ]);
+      ```
+    </CodeGroup>
   </Step>
 
   <Step title="Récupération des Détails d'un Dépôt">
