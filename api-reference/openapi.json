@@ -2821,11 +2821,13 @@
         ],
         "parameters": [
           {
-            "mode": {
-              "type": "string",
-              "description": "",
-              "example": "mtn, moov, mtn_ci, moov_tg"
-            }
+            "in": "path",
+            "name": "mode",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Transaction ID."
           }
         ],
         "requestBody": {
