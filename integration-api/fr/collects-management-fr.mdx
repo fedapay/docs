@@ -27,7 +27,6 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
     #### Exemple de requête pour créer une collecte
 
     <CodeGroup>
-
       ```curl curl
         curl -X POST \
         https://sandbox-api.fedapay.com/v1/transactions \
@@ -49,7 +48,7 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
                 }
             }'
       ```
-    
+
       ```javascript NodeJs
       const { FedaPay, Transaction } = require('fedapay');
       FedaPay.setApiKey('YOUR_SECRET_API_KEY');
@@ -217,7 +216,7 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
         "token" : "TOKEN_DE_PAIEMENT",
         "phone_number": {
           "number": "64000001",
-          "country":"BJ"
+          "country":"bj"
         }
       }'
       ```
@@ -228,7 +227,7 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
       $mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg';
       $phone_number:[ // Ce parametre n'est pas obligatoire
         "number" => "64000001",
-        "country" => "BJ"
+        "country" => "bj"
       ]
       $transaction->sendNowWithToken($mode, $token, $phone_number);
       ```
@@ -239,7 +238,7 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
       const mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg';
       const phone_number = { // Ce parametre n'est pas obligatoire
         "number" : "64000001",
-        "country" : "BJ"
+        "country" : "bj"
       }
       await transaction.sendNowWithToken(mode, token, phone_number);
       ```
