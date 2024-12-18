@@ -103,11 +103,17 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
       ```
     </CodeGroup>
 
-    <Info>
+  <Info>
       [Retrouvez plus d’informations dans notre Reference API](/api-reference/payouts/create)
 
       Un exemple de code est disponible pour simplifier la création d’un dépôt via l'API. Assurez-vous de remplacer **YOUR\_SECRETE\_API\_KEY** par votre clé privée sandbox ou live.
-    </Info>
+  </Info>
+
+  <Warning>
+      **Attention :**
+
+    Le paramètre **customer** n’est pas obligatoire. Cependant, lorsque vous créer une transaction avec un customer, assurez-vous que l’adresse email est unique. En effet, FedaPay considère qu’il s’agit du meme customer si les emails sont identique. Si vous envoyer la meme adresse email et que vous renseignez des nom, prénom et numéros de téléphone différents, FedaPay mettra simplement à jour le customer avec les nouvelles informations.
+  </Warning>
   </Step>
 
   <Step title="Envoi du Dépôt">
