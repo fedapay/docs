@@ -2834,34 +2834,31 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "token": {
-                      "type": "integer",
-                      "description": "Transaction token",
-                      "example": 1
-                    },
-                    "phone_number": {
-                      "type": "object",
-                      "description": "Phone number details",
-                      "properties": {
-                        "number": {
-                          "type": "string",
-                          "description": "Phone number",
-                          "example": "+22997808080"
-                        },
-                        "country": {
-                          "type": "string",
-                          "description": "Country code",
-                          "example": "BJ"
-                        }
+                "type": "object",
+                "properties": {
+                  "token": {
+                    "type": "integer",
+                    "description": "Transaction token",
+                    "example": 1
+                  },
+                  "phone_number": {
+                    "type": "object",
+                    "description": "Phone number details",
+                    "properties": {
+                      "number": {
+                        "type": "string",
+                        "description": "Phone number",
+                        "example": "+22997808080"
+                      },
+                      "country": {
+                        "type": "string",
+                        "description": "Country code",
+                        "example": "BJ"
                       }
                     }
-                  },
-                  "required": ["token", "mode"]
-                }
+                  }
+                },
+                "required": ["token", "mode"]
               }
             }
           }
