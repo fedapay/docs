@@ -936,6 +936,22 @@
                       "format": "date-time",
                       "description": "Date and time the payout is scheduled to be sent.",
                       "example": "2024-10-23T14:30:00Z"
+                    },
+                    "phone_number": {
+                      "type": "object",
+                      "description": "Phone number details",
+                      "properties": {
+                        "number": {
+                          "type": "string",
+                          "description": "Phone number",
+                          "example": "+22997808080"
+                        },
+                        "country": {
+                          "type": "string",
+                          "description": "Country code",
+                          "example": "BJ"
+                        }
+                      }
                     }
                   },
                   "required": ["id"]
