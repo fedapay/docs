@@ -141,22 +141,52 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
         $payout = \FedaPay\Payout::create(array(...));
         // Envoi du dépôt maintenant
         $payout->sendNow();
-         // Envoie le dépôt plus tard
+        // Envoi d'un dépôt sur numéro de téléphone autre que celui du customer
+        $payout->sendNow([
+          "phone_number" => [
+            "number" => "64000001",
+            "country" => "BJ"
+          ]
+        ]);
+         // Programmer un dépôt pour plus tard
         $payout->schedule("2024-11-18 18:8:43");
+        // Programmer un dépôt pour plus tard mais sur un autre numéro autre
+        // que celui du customer
+        $payout->schedule("2024-11-18 18:8:43", [
+          "phone_number" => [
+            "number" => "64000001",
+            "country" => "BJ"
+          ]
+        ]);
         // Programmer plusieurs envoies
         Payout::scheduleAll([
             [
-                "id" => 23 // Envoie le dépôt instantanément
+              "id" => 23 // Envoie le dépôt instantanément
             ],
             [
-                "id" => 24,
-                "scheduled_at" => "2024-11-18 18:8:43" // Envoie le dépôt plus tard
+              "id" => 24,
+              "scheduled_at" => "2024-11-18 18:8:43" // Envoie le dépôt plus tard
+            ],
+            [
+              "id" => 25,
+              "scheduled_at" => "2024-11-18 18:8:43",
+              "phone_number" => [
+                "number" => "64000001",
+                "country" => "BJ"
+              ]
             ]
         ]);
         // Envoyer tous les paiements instantanément
         Payout::sendAllNow([
             [ "id" => 23 ],
-            [ "id" => 24 ]
+            [ "id" => 24 ],
+            [
+              "id" => 24,
+              "phone_number" => [
+                "number" => "64000001",
+                "country" => "BJ"
+              ]
+            ]
         ]);
       ```
 
