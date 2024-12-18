@@ -126,15 +126,16 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
     <CodeGroup>
       ```java Curl
           curl -X PUT \
-          https://sandbox-api.fedapay.com/v1/payouts/start \
-          -H 'Authorization: Bearer VOTRE_CLE_API_PRIVEE' \
-          -H 'Content-Type: application/json'
-          -d '{
-                "payouts" : [
-                  { "id": 23 }, // Envoie le dépôt instantanément
-                  { "id": 24 , "scheduled_at": "2024-11-18 18:8:43"} // Envoie le dépôt plus tard
-                ]
-              }'
+    https://sandbox-api.fedapay.com/v1/payouts/start \
+    -H 'Authorization: Bearer VOTRE_CLE_API_PRIVEE' \
+    -H 'Content-Type: application/json'
+    -d '{
+          "payouts" : [
+            { "id": 23 }, // Envoie le dépôt instantanément
+            { "id": 23, "phone_number": { "number": "66000001", "country": "BJ" } }, // Envoie le dépôt instantanément avec numéro de téléphone
+            { "id": 24 , "scheduled_at": "2024-11-18 18:8:43"} // Envoie le dépôt plus tard
+          ]
+        }'
       ```
 
       ```php PHP
@@ -297,7 +298,6 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
             }
         ]);
       ```
-      
     </CodeGroup>
   </Step>
 
