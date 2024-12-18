@@ -164,7 +164,8 @@
             "api-reference/transactions/update",
             "api-reference/transactions/delete",
             "api-reference/transactions/get-all",
-            "api-reference/transactions/create-token"
+            "api-reference/transactions/create-token",
+            "api-reference/transactions/send-payment"
           ]
         },
         {
