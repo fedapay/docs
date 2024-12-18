@@ -80,6 +80,14 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
 
       Si le client est déjà enregistré, utilisez simplement son ID ou email pour l’associer à la collecte.
     </Info>
+
+<Warning>
+  **Attention :**
+
+  Le paramètre **customer** n’est pas obligatoire. Cependant, lorsque vous créer une transaction avec un customer, assurez-vous que l’adresse email est unique. En effet, FedaPay considère qu’il s’agit du meme customer si les emails sont identique. Si vous envoyer la meme adresse email et que vous renseignez des nom, prénom et numéros de téléphone différents, FedaPay mettra simplement à jour le customer avec les nouvelles informations.
+</Warning>
+
+
   </Step>
 
   <Step title="Génération du Token et du Lien de Paiement">
@@ -236,7 +244,7 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
 
 <Warning>
   **Attention :**
-  
+
   Le paramètre ***phone\_number*** n’est pas obligatoire pour la requête d’envoie de notification de paiement. Cependant, s’il n’est pas mentionné, FedaPay essaiera d’envoyer la notification au numéro lié au client associé à la transaction lors de sa création.
 </Warning>
 
