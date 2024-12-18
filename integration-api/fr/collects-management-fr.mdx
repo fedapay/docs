@@ -185,22 +185,34 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
       -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
       -H 'Content-Type: application/json'
       -d '{
-        "token" : "TOKEN_DE_PAIEMENT"
+        "token" : "TOKEN_DE_PAIEMENT",
+        "phone_number": {
+          number: "64000001",
+          country:"BJ"
+        }
       }'
       ```
 
       ```php PHP
       $transaction = \FedaPay\Transaction::create(...);
       $token = $transaction->generateToken()->token;
-      $mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
-      $transaction->sendNowWithToken($mode, $token, $phonenumber);
+      $mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg';
+      $phone_number:[
+        "number" => "64000001",
+        "country" => "BJ"
+      ]
+      $transaction->sendNowWithToken($mode, $token, $phone_number);
       ```
 
       ```javascript Node.js
       const transaction = await Transaction.create(...);
       const token = transaction.generateToken().token;
-      const mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
-      await transaction.sendNowWithToken(mode, token, phonenumber);
+      const mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg';
+      const phone_number = {
+        number: "64000001",
+        country: "BJ"
+      }
+      await transaction.sendNowWithToken(mode, token, phone_number);
       ```
     </CodeGroup>
   </Step>
