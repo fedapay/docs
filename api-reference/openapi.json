@@ -2824,7 +2824,7 @@
             "in": "path",
             "name": "mode",
             "schema": {
-              "type": "integer"
+              "type": "string"
             },
             "required": true,
             "description": "Transaction ID."
