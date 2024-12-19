@@ -2963,7 +2963,22 @@
           "404": {
             "description": "Payout not found."
           }
-        }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "label": "Node",
+            "source": "const transaction = await Transaction.create(...);\nconst token = transaction.generateToken().token;\nconst mode = 'METHODE_PAIEMENT'; // Exemple : 'mtn', 'moov', 'mtn_ci', 'moov_tg'\nconst phoneNumber = { // Ce paramètre n'est pas obligatoire\n  number: '64000001',\n  country: 'bj'\n};\nawait transaction.sendNowWithToken(mode, token, phoneNumber);"
+          },
+          {
+            "lang": "PHP",
+            "source": "$transaction = \\FedaPay\\Transaction::create(...);\n$token = $transaction->generateToken()->token;\n$mode = 'METHODE_PAIEMENT'; // Exemple : 'mtn', 'moov', 'mtn_ci', 'moov_tg'\n$phoneNumber = [ // Ce paramètre n'est pas obligatoire\n    'number' => '64000001',\n    'country' => 'bj'\n];\n$transaction->sendNowWithToken($mode, $token, $phoneNumber);"
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'fedapay'\n\nFedaPay.api_key = 'YOUR_SECRET_API_KEY'\nFedaPay.environment = 'sandbox'\n\ntransaction = FedaPay::Transaction.create(\n  amount: 1000,\n  currency: { iso: 'XOF' },\n  customer: { id: 1 },\n  description: 'Payment for order #1234',\n  callback_url: 'https://example.com/callback',\n  mode: 'mtn_open'\n)\n\nputs \"Transaction successfully created: #{transaction.inspect}\""
+          }
+        ]
       }
     },
     "/transactions/{id}": {
