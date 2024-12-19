@@ -122,6 +122,183 @@ Creating a payout through the API involves several steps. Each payout follows pr
     * Send the payout immediately.
 
     * Schedule the payout for later.
+
+
+  <CodeGroup>
+      ```java Curl
+          curl -X PUT \
+      https://sandbox-api.fedapay.com/v1/payouts/start \
+      -H 'Authorization: Bearer VOTRE_CLE_API_PRIVEE' \
+      -H 'Content-Type: application/json'
+      -d '{
+          "payouts" : [
+            { "id": 23 }, // Sends the deposit instantly
+            { "id": 23, "phone_number": { "number": "66000001", "country": "BJ" } }, // Sends deposit instantly with phone number
+            { "id": 24 , "scheduled_at": "2024-11-18 18:8:43"} // Envoie le dépôt plus tard
+          ]
+        }'
+      ```
+
+      ```php PHP
+        $payout = \FedaPay\Payout::create(array(...));
+        // Send deposit now
+        $payout->sendNow();
+        // Sending a payout to a telephone number other than that of the customer
+        $payout->sendNow([
+          "phone_number" => [
+            "number" => "64000001",
+            "country" => "BJ"
+          ]
+        ]);
+         // Schedule a payout for later
+        $payout->schedule("2024-11-18 18:8:43");
+        // Schedule a payout for later but on a different number
+than the customer's
+        $payout->schedule("2024-11-18 18:8:43", [
+          "phone_number" => [
+            "number" => "64000001",
+            "country" => "BJ"
+          ]
+        ]);
+        // Programming multiple shipments
+        Payout::scheduleAll([
+            [
+              "id" => 23 // Sends the deposit instantly
+            ],
+            [
+              "id" => 24,
+              "scheduled_at" => "2024-11-18 18:8:43" // Send deposit later
+            ],
+            [
+              "id" => 25,
+              "scheduled_at" => "2024-11-18 18:8:43",
+              "phone_number" => [
+                "number" => "64000001",
+                "country" => "BJ"
+              ]
+            ]
+        ]);
+        // Send all payments instantly
+        Payout::sendAllNow([
+            [ "id" => 23 ],
+            [ "id" => 24 ],
+            [
+              "id" => 24,
+              "phone_number" => [
+                "number" => "64000001",
+                "country" => "BJ"
+              ]
+            ]
+        ]);
+      ```
+
+      ```javascript NodeJs
+        const payout = await Payout.create({...});
+        // Send payout now
+        await payout.sendNow();
+        // Sending a payout to a telephone number other than that of the customer
+        await payout.sendNow({
+          phone_number: {
+            number: "64000001",
+            country: "BJ"
+          }
+        });
+        // Send payout later
+        await payout.schedule("2024-11-18 18:8:43");
+        // Sending a payout to a telephone number other than that of the customer
+        await payout.schedule("2024-11-18 18:8:43", {
+          phone_number: {
+            number: "64000001",
+            country: "BJ"
+          }
+        });
+        // Schedule multiple shipments
+        await Payout.scheduleAll([
+            {
+              id: 23, // Sends the payout instantly
+              scheduled_at: "2024-11-18 18:8:43" // Send payout later
+            },
+            {
+              id: 24, // Sends the payout instantly
+              scheduled_at: "2024-11-18 18:8:43" // Send payout later
+            },
+            {
+              id: 25,
+              scheduled_at: "2024-11-18 18:8:43",
+              phone_number: {
+                number: "64000001",
+                country: "BJ"
+              }
+            }
+        ]);
+        // Send all deposits instantly
+        await Payout.sendAllNow([
+            { id: 23 },
+            { id: 24 },
+            {
+              id: 24,
+              phone_number: {
+                number: "64000001",
+                country: "BJ"
+              }
+            }
+        ]);
+      ```
+
+      ```ruby Ruby
+        payout = FedaPay::Payout.create({...});
+        # Send payout now
+        payout.sendNow();
+        # Sending a payout to a telephone number other than that of the customer
+        payout.sendNow({
+          phone_number: {
+            number: "64000001",
+            country: "BJ"
+          }
+        });
+        # Send payout later
+        payout.schedule("2024-11-18 18:8:43");
+        # Schedule a deposit for later but on a different number
+than the customer's
+        payout.schedule("2024-11-18 18:8:43", {
+          phone_number: {
+            number: "64000001",
+            country: "BJ"
+          }
+        });
+        # Schedule multiple shipments
+        FedaPay::Payout.scheduleAll([
+            {
+              id: 23, # Sends the payout instantly
+              scheduled_at: "2024-11-18 18:8:43" # Send payout later
+            },
+            {
+              id: 24, # Sends the payout instantly
+              scheduled_at: "2024-11-18 18:8:43" # Send payout later
+            },
+            {
+              id: 25,
+              scheduled_at: "2024-11-18 18:8:43",
+              phone_number: {
+                number: "64000001",
+                country: "BJ"
+              }
+            }
+        ]);
+        # Send all deposits instantly
+        FedaPay::Payout.sendAllNow([
+            { id: 23 },
+            { id: 24 },
+            {
+              id: 24,
+              phone_number: {
+                number: "64000001",
+                country: "BJ"
+              }
+            }
+        ]);
+      ```
+  </CodeGroup>
   </Step>
 
   <Step title="Retrieve Payout Details">
