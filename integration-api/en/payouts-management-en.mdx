@@ -50,8 +50,8 @@ Creating a payout through the API involves several steps. Each payout follows pr
       {
         amount: 2000,
         currency: { iso: "XOF" },
-        mode: "mtn_open", // Non obligatoire. FedaPay détectera l'operateur sinon.
-        customer: { // Non obligatoire.
+        mode: "mtn_open", // Not required. FedaPay will detect the operator otherwise.
+        customer: { // Not required.
           firstname: "John",
           lastname: "Doe",
           email: "john.doe@example.com",
@@ -68,7 +68,7 @@ Creating a payout through the API involves several steps. Each payout follows pr
       \FedaPay\Payout::create([
         "amount" => 2000,
         "currency" => ["iso" => "XOF"],
-        "mode" => "mtn_open", // Non obligatoire. FedaPay détectera l'operateur sinon.
+        "mode" => "mtn_open", // Not required. FedaPay will detect the operator otherwise.
         "customer" => [ // Non obligatoire.
             "firstname" => "John",
             "lastname" => "Doe",
@@ -89,8 +89,8 @@ Creating a payout through the API involves several steps. Each payout follows pr
       payout = FedaPay::Payout.create({
         amount: 1000, 
         currency: currency,
-        mode: "mtn_open", // Non obligatoire. FedaPay détectera l'operateur sinon.
-        customer: { // Non obligatoire.
+        mode: "mtn_open", // Not required. FedaPay will detect the operator otherwise.
+        customer: { // Not required.
           firstname: "John",
           lastname: "Doe",
           email: "john.doe@example.com",
@@ -109,11 +109,11 @@ Creating a payout through the API involves several steps. Each payout follows pr
       Sample code is available to simplify the creation of a repository via the API. Be sure to replace **YOUR\_SECRETE\_API\_KEY** with your sandbox or live private key.
     </Info>
 
-  <Warning>
+    <Warning>
       **Note:**
 
       The **customer** parameter is not mandatory. However, when creating a transaction with a customer, make sure that the email address is unique. FedaPay considers it to be the same customer if the emails are identical. If you send the same email address but enter different first and last names and phone numbers, FedaPay will simply update the customer with the new information.
-  </Warning>
+    </Warning>
   </Step>
 
   <Step title="Sending the Payout">
