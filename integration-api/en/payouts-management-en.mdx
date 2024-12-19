@@ -123,8 +123,7 @@ Creating a payout through the API involves several steps. Each payout follows pr
 
     * Schedule the payout for later.
 
-
-  <CodeGroup>
+    <CodeGroup>
       ```java Curl
           curl -X PUT \
       https://sandbox-api.fedapay.com/v1/payouts/start \
@@ -134,7 +133,7 @@ Creating a payout through the API involves several steps. Each payout follows pr
           "payouts" : [
             { "id": 23 }, // Sends the deposit instantly
             { "id": 23, "phone_number": { "number": "66000001", "country": "BJ" } }, // Sends deposit instantly with phone number
-            { "id": 24 , "scheduled_at": "2024-11-18 18:8:43"} // Envoie le dépôt plus tard
+            { "id": 24 , "scheduled_at": "2024-11-18 18:8:43"} // Send payout later
           ]
         }'
       ```
@@ -153,7 +152,7 @@ Creating a payout through the API involves several steps. Each payout follows pr
          // Schedule a payout for later
         $payout->schedule("2024-11-18 18:8:43");
         // Schedule a payout for later but on a different number
-than the customer's
+      than the customer's
         $payout->schedule("2024-11-18 18:8:43", [
           "phone_number" => [
             "number" => "64000001",
@@ -259,7 +258,7 @@ than the customer's
         # Send payout later
         payout.schedule("2024-11-18 18:8:43");
         # Schedule a deposit for later but on a different number
-than the customer's
+      than the customer's
         payout.schedule("2024-11-18 18:8:43", {
           phone_number: {
             number: "64000001",
@@ -298,7 +297,7 @@ than the customer's
             }
         ]);
       ```
-  </CodeGroup>
+    </CodeGroup>
   </Step>
 
   <Step title="Retrieve Payout Details">
