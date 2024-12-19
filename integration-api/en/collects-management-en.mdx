@@ -95,19 +95,19 @@ The steps to set up a collect are broken down into several key processes.
       ```
     </CodeGroup>
 
-  <Info>
+    <Info>
       [Find more information in our API Reference](/api-reference/transactions/create)
 
       Replace **YOUR\_SECRETE\_API\_KEY** with your API key and use the URL of the appropriate server (**sandbox** or **live**).
 
       If the customer is already registered, simply use their ID or email to associate them with the collect.
-  </Info>
+    </Info>
 
-  <Warning>
-     **Note:**
+    <Warning>
+      **Note:**
 
       The **customer** parameter is not mandatory. However, when creating a transaction with a customer, make sure that the email address is unique. FedaPay considers it to be the same customer if the emails are identical. If you send the same email address but enter different first and last names and phone numbers, FedaPay will simply update the customer with the new information.
-  </Warning>
+    </Warning>
   </Step>
 
   <Step title="Generate Token and Payment Link">
@@ -212,22 +212,34 @@ The mobile payment process without redirection is divided into two main steps in
       -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
       -H 'Content-Type: application/json'
       -d '{
-        "token" : "TOKEN_DE_PAIEMENT"
+        "token" : "TOKEN_DE_PAIEMENT",
+        "phone_number": {
+          "number": "64000001",
+          "country":"bj"
+        }
       }'
       ```
 
       ```php PHP
       $transaction = \FedaPay\Transaction::create(...);
       $token = $transaction->generateToken()->token;
-      $mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
-      $transaction->sendNowWithToken($mode, $token, $phonenumber);
+      $mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg';
+      $phone_number:[ // Ce parametre n'est pas obligatoire
+        "number" => "64000001",
+        "country" => "bj"
+      ]
+      $transaction->sendNowWithToken($mode, $token, $phone_number);
       ```
 
       ```javascript Node.js
       const transaction = await Transaction.create(...);
       const token = transaction.generateToken().token;
-      const mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
-      await transaction.sendNowWithToken(mode, token, phonenumber);
+      const mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg';
+      const phone_number = { // Ce parametre n'est pas obligatoire
+        "number" : "64000001",
+        "country" : "bj"
+      }
+      await transaction.sendNowWithToken(mode, token, phone_number);
       ```
     </CodeGroup>
   </Step>
@@ -247,6 +259,12 @@ The mobile payment process without redirection is divided into two main steps in
   * **Live** : `https://api.fedapay.com/v1/transactions/ID`
 
   ***Important**: Make sure to thoroughly test your integrations in the sandbox environment before deploying them to production.*
+</Warning>
+
+<Warning>
+  **Note:**
+
+  The ***phone\_number*** parameter is not mandatory for the payment notification request. However, if it is not specified, FedaPay will try to send the notification to the number linked to the customer associated with the transaction when it was created.
 </Warning>
 
 <Note>

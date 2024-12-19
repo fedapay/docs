@@ -103,11 +103,11 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
       Si le client est déjà enregistré, utilisez simplement son ID ou email pour l’associer à la collecte.
     </Info>
 
-   <Warning>
+    <Warning>
       **Attention :**
 
       Le paramètre **customer** n’est pas obligatoire. Cependant, lorsque vous créer une transaction avec un customer, assurez-vous que l’adresse email est unique. En effet, FedaPay considère qu’il s’agit du meme customer si les emails sont identique. Si vous envoyer la meme adresse email et que vous renseignez des nom, prénom et numéros de téléphone différents, FedaPay mettra simplement à jour le customer avec les nouvelles informations.
-  </Warning>
+    </Warning>
   </Step>
 
   <Step title="Génération du Token et du Lien de Paiement">
@@ -206,7 +206,7 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
 
     ***Voici un exemple de code pour envoyer un paiement mobile sans redirection***
 
-    <CodeGroup>
+  <CodeGroup>
       ```java curl
       curl -X POST \
       https://sandbox-api.fedapay.com/v1/METHODE_PAIEMENT \
@@ -242,7 +242,7 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
       }
       await transaction.sendNowWithToken(mode, token, phone_number);
       ```
-    </CodeGroup>
+  </CodeGroup>
   </Step>
 </Steps>
 
