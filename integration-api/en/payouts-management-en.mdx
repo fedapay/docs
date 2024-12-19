@@ -21,16 +21,64 @@ Creating a payout through the API involves several steps. Each payout follows pr
     #### Example of a request for creating a repository
 
     <CodeGroup>
+      ```java Curl
+        curl -X POST \
+        https://sandbox-api.fedapay.com/v1/payouts \
+        -H 'Authorization: Bearer VOTRE_CLE_API_PRIVEE' \
+        -H 'Content-Type: application/json' \
+        -d '{
+              "amount" : 2000,
+              "currency" : {"iso" : "XOF"},
+              "mode": "mtn_open" 
+              "customer" : {
+                  "firstname" : "John",
+                  "lastname" : "Doe",
+                  "email" : "john.doe@example.com",
+                  "phone_number" : {
+                      "number" : "+22997808080",
+                      "country" : "bj"
+                  }
+              }
+            }'
+      ```
+
       ```javascript NodeJs
       const { FedaPay, Payout } = require('fedapay');
       FedaPay.setApiKey('YOUR_API_KEY');
       FedaPay.setEnvironment('sandbox');
-      const payout = await Payout.create(params = {}, headers = {});
+      const payout = await Payout.create(
+      {
+        amount: 2000,
+        currency: { iso: "XOF" },
+        mode: "mtn_open", // Non obligatoire. FedaPay détectera l'operateur sinon.
+        customer: { // Non obligatoire.
+          firstname: "John",
+          lastname: "Doe",
+          email: "john.doe@example.com",
+          phone_number: {
+            number: "+22997808080",
+            country: "bj",
+          },
+        },
+      });
       ```
 
       ```php PHP
       \FedaPay\Fedapay::setApiKey(MY_API_KEY);
-      \FedaPay\Payout::create(["amount" => 2000, "currency" => {"iso": "XOF"}]);
+      \FedaPay\Payout::create([
+        "amount" => 2000,
+        "currency" => ["iso" => "XOF"],
+        "mode" => "mtn_open", // Non obligatoire. FedaPay détectera l'operateur sinon.
+        "customer" => [ // Non obligatoire.
+            "firstname" => "John",
+            "lastname" => "Doe",
+            "email" => "john.doe@example.com",
+            "phone_number" => [
+                "number" => "+22997808080",
+                "country" => "bj",
+            ],
+        ],
+      ]);
       ```
 
       ```Ruby Ruby
@@ -38,7 +86,20 @@ Creating a payout through the API involves several steps. Each payout follows pr
       FedaPay.api_key = '';
       FedaPay.environment = 'sandbox';
       currency = { iso: 'XOF' };
-      payout = FedaPay::Payout.create(amount: 1000, currency: currency);
+      payout = FedaPay::Payout.create({
+        amount: 1000, 
+        currency: currency,
+        mode: "mtn_open", // Non obligatoire. FedaPay détectera l'operateur sinon.
+        customer: { // Non obligatoire.
+          firstname: "John",
+          lastname: "Doe",
+          email: "john.doe@example.com",
+          phone_number: {
+            number: "+22997808080",
+            country: "bj",
+          },
+        },
+      });
       ```
     </CodeGroup>
 
@@ -47,6 +108,12 @@ Creating a payout through the API involves several steps. Each payout follows pr
 
       Sample code is available to simplify the creation of a repository via the API. Be sure to replace **YOUR\_SECRETE\_API\_KEY** with your sandbox or live private key.
     </Info>
+
+  <Warning>
+      **Note:**
+
+      The **customer** parameter is not mandatory. However, when creating a transaction with a customer, make sure that the email address is unique. FedaPay considers it to be the same customer if the emails are identical. If you send the same email address but enter different first and last names and phone numbers, FedaPay will simply update the customer with the new information.
+  </Warning>
   </Step>
 
   <Step title="Sending the Payout">
@@ -60,34 +127,32 @@ Creating a payout through the API involves several steps. Each payout follows pr
   <Step title="Retrieve Payout Details">
     After creating and/or sending the payout, you can view its details to obtain specific information, such as status or payout history.
 
-  #### Example query to retrieve payout details
+    #### Example query to retrieve payout details
 
-  <CodeGroup>
+    <CodeGroup>
+      ```javascript NodeJs
+      const { FedaPay, Payout } = require('fedapay');
+      /* Replace YOUR_SECRETE_API_KEY with your real API key */
+      FedaPay.setApiKey("YOUR_SECRETE_API_KEY");
+      /* Specify whether you want to run your query in test or live mode */
+      FedaPay.setEnvironment('sandbox'); //or setEnvironment('live');
+      /* Show a payout */
+      const payout = await Payout.retrieve(params = {}, headers = {});
+      ```
 
-```javascript NodeJs
-const { FedaPay, Payout } = require('fedapay');
-/* Replace YOUR_SECRETE_API_KEY with your real API key */
-FedaPay.setApiKey("YOUR_SECRETE_API_KEY");
-/* Specify whether you want to run your query in test or live mode */
-FedaPay.setEnvironment('sandbox'); //or setEnvironment('live');
-/* Show a payout */
-const payout = await Payout.retrieve(params = {}, headers = {});
-```
+      ```php PHP
+      \FedaPay\Fedapay::setApiKey(MY_API_KEY);
+      $customer = \FedaPay\Payout::retrieve(ID, params = {}, header = {});
+      ```
 
-```php PHP
-\FedaPay\Fedapay::setApiKey(MY_API_KEY);
-$customer = \FedaPay\Payout::retrieve(ID, params = {}, header = {});
-```
-
-```Ruby Ruby
-require 'fedapay';
-# configure FedaPay library
-FedaPay.api_key = '' # Your secret api key
-FedaPay.environment = '' # sandbox or live
-payouts = FedaPay::Payout.retrieve(ID);
-```
-
-</CodeGroup>
+      ```Ruby Ruby
+      require 'fedapay';
+      # configure FedaPay library
+      FedaPay.api_key = '' # Your secret api key
+      FedaPay.environment = '' # sandbox or live
+      payouts = FedaPay::Payout.retrieve(ID);
+      ```
+    </CodeGroup>
 
     <Info>
       [Find more information in our API Reference](/api-reference/payouts/get-by-id)

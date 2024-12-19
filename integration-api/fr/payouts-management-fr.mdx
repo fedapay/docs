@@ -20,7 +20,7 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
 
     #### Exemple de requête pour la création d’un dépôt
 
-    <CodeGroup>
+  <CodeGroup>
       ```java Curl
         curl -X POST \
         https://sandbox-api.fedapay.com/v1/payouts \
@@ -101,7 +101,7 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
         },
       });
       ```
-    </CodeGroup>
+   </CodeGroup>
 
     <Info>
       [Retrouvez plus d’informations dans notre Reference API](/api-reference/payouts/create)
@@ -109,11 +109,11 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
       Un exemple de code est disponible pour simplifier la création d’un dépôt via l'API. Assurez-vous de remplacer **YOUR\_SECRETE\_API\_KEY** par votre clé privée sandbox ou live.
     </Info>
 
-    <Warning>
+   <Warning>
       **Attention :**
 
       Le paramètre **customer** n’est pas obligatoire. Cependant, lorsque vous créer une transaction avec un customer, assurez-vous que l’adresse email est unique. En effet, FedaPay considère qu’il s’agit du meme customer si les emails sont identique. Si vous envoyer la meme adresse email et que vous renseignez des nom, prénom et numéros de téléphone différents, FedaPay mettra simplement à jour le customer avec les nouvelles informations.
-    </Warning>
+  </Warning>
   </Step>
 
   <Step title="Envoi du Dépôt">
@@ -126,10 +126,10 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
     <CodeGroup>
       ```java Curl
           curl -X PUT \
-    https://sandbox-api.fedapay.com/v1/payouts/start \
-    -H 'Authorization: Bearer VOTRE_CLE_API_PRIVEE' \
-    -H 'Content-Type: application/json'
-    -d '{
+      https://sandbox-api.fedapay.com/v1/payouts/start \
+      -H 'Authorization: Bearer VOTRE_CLE_API_PRIVEE' \
+      -H 'Content-Type: application/json'
+      -d '{
           "payouts" : [
             { "id": 23 }, // Envoie le dépôt instantanément
             { "id": 23, "phone_number": { "number": "66000001", "country": "BJ" } }, // Envoie le dépôt instantanément avec numéro de téléphone
