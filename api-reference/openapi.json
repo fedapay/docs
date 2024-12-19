@@ -146,7 +146,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Create customer */\nconst customer = await Customer.create({\n  firstname: 'John',\n  lastname: 'Doe',\n  email: 'john@doe.com',\n  phone_number: {\n    number: '90090909',\n    country: 'BJ'\n  }\n});"
           },
           {
@@ -235,7 +235,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show customers */\nconst customer = await Customer.all( params = {}, headers = {} );"
           },
           {
@@ -335,7 +335,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Afficher le client */\nconst customer = await Customer.retrieve( ID, params = {}, headers = {} );"
           },
           {
@@ -477,7 +477,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Customer } = require('fedapay');\nFedaPay.setApiKey('YOUR_SECRETE_API_KEY');\nFedaPay.setEnvironment('sandbox');\nconst customer = await Customer.update(ID, {\n  firstname: 'Jane',\n  lastname: 'Doe',\n  email: 'jane@doe.com',\n  phone_number: {\n    number: '91010101',\n    country: 'BJ'\n  }\n});"
           },
           {
@@ -522,7 +522,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Customer } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Delete customer */\nconst customer = await Customer.delete(ID, params = {}, headers = {});"
           },
           {
@@ -745,7 +745,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Payout } = require('fedapay');\nFedaPay.setApiKey('YOUR_API_KEY');\nFedaPay.setEnvironment('sandbox');\nconst payout = await Payout.create(params = {}, headers = {});"
           },
           {
@@ -897,7 +897,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show payouts */\nconst payout = await Payout.all(params = {}, headers = {});"
           },
           {
@@ -1272,7 +1272,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show a payout */\nconst payout = await Payout.retrieve(params = {}, headers = {});"
           },
           {
@@ -1456,7 +1456,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Update a payout */\nconst payout = await Payout.update(params = {}, headers = {});"
           },
           {
@@ -1498,7 +1498,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Payout } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* delete a payout */\nconst payout = await Payout.delete(params = {}, headers = {});"
           },
           {
@@ -1578,7 +1578,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Event } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show events */\nconst event = await Event.all( params = {}, headers = {} );"
           },
           {
@@ -1673,7 +1673,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Event } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show event */\nconst event = await Event.retrieve( ID, params = {}, headers = {} );"
           },
           {
@@ -1759,7 +1759,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Balance } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show balance */\nconst balance = await Balance.retrieve( ID, params = {}, headers = {} );"
           },
           {
@@ -1830,7 +1830,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Balance } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show balances */\nconst balance = await Balance.all( params = {}, headers = {} );"
           },
           {
@@ -1916,7 +1916,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Currency } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show currencies */\nconst currency = await Currency.all( params = {}, headers = {} );"
           },
           {
@@ -2016,7 +2016,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Currency } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* show a currency */\nconst currency = await Currency.retrieve( ID, params = {}, headers = {} );"
           },
           {
@@ -2115,7 +2115,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Logs } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show logs */\nconst log = await Log.all( params = {}, headers = {} );"
           },
           {
@@ -2228,7 +2228,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Log } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* show a log */\nconst log = await Log.retrieve( ID, params = {}, headers = {} );"
           },
           {
@@ -2311,7 +2311,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Webhook } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show webhooks */\nconst webhook = await Webhook.all( params = {}, headers = {} );"
           },
           {
@@ -2408,7 +2408,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Webhook } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show webhook */\nconst webhook = await Webhook.retrieve( ID, params = {}, headers = {} );"
           },
           {
@@ -2572,7 +2572,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Transaction } = require('fedapay');\nFedaPay.setApiKey('YOUR_SECRET_API_KEY');\nFedaPay.setEnvironment('sandbox');\nconst transaction = await Transaction.create({\n  description: 'Payment for order #1234',\n  amount: 1000,\n  currency: { iso: 'XOF' },\n  callback_url: 'https://example.com/callback',\n  mode: 'mtn_open',\n  customer: { id: 1 }\n});"
           },
           {
@@ -2751,7 +2751,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Transaction } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test mode or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show customers */\nconst transaction = await Transaction.all(params = {}, headers = {});"
           },
           {
@@ -2967,7 +2967,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const transaction = await Transaction.create(...);\nconst token = transaction.generateToken().token;\nconst mode = 'METHODE_PAIEMENT'; // Exemple : 'mtn', 'moov', 'mtn_ci', 'moov_tg'\nconst phoneNumber = { // Ce paramètre n'est pas obligatoire\n  number: '64000001',\n  country: 'bj'\n};\nawait transaction.sendNowWithToken(mode, token, phoneNumber);"
           },
           {
@@ -3157,7 +3157,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Transaction } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test mode or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Show customers */\nconst transaction = await Transaction.retrieve(ID, params = {}, headers = {});"
           },
           {
@@ -3372,7 +3372,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Transaction } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test mode or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Update a transaction */\nconst transaction = await Transaction.update(ID, params = {}, headers = {});"
           },
           {
@@ -3414,7 +3414,7 @@
         "x-codeSamples": [
           {
             "lang": "JavaScript",
-            "label": "Node",
+            "label": "NodeJs",
             "source": "const { FedaPay, Transaction } = require('fedapay');\n/* Replace YOUR_SECRETE_API_KEY with your real API key */\nFedaPay.setApiKey(\"YOUR_SECRETE_API_KEY\");\n/* Specify whether you want to run your query in test mode or live mode */\nFedaPay.setEnvironment('sandbox'); //or setEnvironment('live');\n/* Delete transaction */\nconst transaction = await Transaction.delete(ID, params = {}, headers = {});"
           },
           {
