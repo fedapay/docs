@@ -121,17 +121,18 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
       -H 'Content-Type: application/json'
       ```
 
+      ```javaScript NodeJS
+      const transaction = await Transaction.create({...})
+      const token = await transaction.generateToken();
+      return redirect(token.url);
+      ```
+
       ```PHP PHP
       $transaction = \FedaPay\Transaction::create(array(...))
       $token = $transaction->generateToken();
       return header('Location: ' . $token->url);
       ```
 
-      ```javaScript NodeJS
-      const transaction = await Transaction.create({...})
-      const token = await transaction.generateToken();
-      return redirect(token.url);
-      ```
     </CodeGroup>
 
     Le lien ainsi généré peut être utilisé pour rediriger les utilisateurs vers la page de paiement de FedaPay.
@@ -221,6 +222,18 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
       }'
       ```
 
+      
+      ```javascript Node.js
+      const transaction = await Transaction.create(...);
+      const token = transaction.generateToken().token;
+      const mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg';
+      const phone_number = { // Ce parametre n'est pas obligatoire
+        "number" : "64000001",
+        "country" : "bj"
+      }
+      await transaction.sendNowWithToken(mode, token, phone_number);
+      ```
+
       ```php PHP
       $transaction = \FedaPay\Transaction::create(...);
       $token = $transaction->generateToken()->token;
@@ -232,16 +245,6 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
       $transaction->sendNowWithToken($mode, $token, $phone_number);
       ```
 
-      ```javascript Node.js
-      const transaction = await Transaction.create(...);
-      const token = transaction.generateToken().token;
-      const mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg';
-      const phone_number = { // Ce parametre n'est pas obligatoire
-        "number" : "64000001",
-        "country" : "bj"
-      }
-      await transaction.sendNowWithToken(mode, token, phone_number);
-      ```
     </CodeGroup>
   </Step>
 </Steps>

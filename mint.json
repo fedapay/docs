@@ -45,10 +45,10 @@
   "versions": ["fr", "en"],
   "navigation": [
     {
-      "group": "Documentation Fedapay",
+      "group": "Documentation de Fedapay",
       "pages": [
         {
-          "group": "Introduction",
+          "group": "Introduction à FedaPay",
           "pages": [
             "introduction/fr/fedapay-fr",
             "introduction/fr/keyconcepts-fr",
@@ -58,7 +58,7 @@
           "version": "fr"
         },
         {
-          "group": "Introduction",
+          "group": "Introduction to FedaPay",
           "pages": [
             "introduction/en/fedapay-en",
             "introduction/en/keyconcepts-en",
