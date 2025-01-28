@@ -118,49 +118,7 @@ Pour vous assurer que les **Webhooks** que vous recevez proviennent bien de **Fe
 
 <CodeGroup>
 
-```php PHP
-      // You can find your endpoint's secret key in your webhook settings
-  $endpoint_secret = 'wh_dev.......';
   
-  $payload = @file_get_contents('php://input');
-  $sig_header = $_SERVER['HTTP_X_FEDAPAY_SIGNATURE'];
-  $event = null;
-  
-  try {
-      $event = \FedaPay\Webhook::constructEvent(
-          $payload, $sig_header, $endpoint_secret
-      );
-  } catch(\UnexpectedValueException $e) {
-      // Invalid payload
-  
-      http_response_code(400);
-      exit();
-  } catch(\FedaPay\Error\SignatureVerification $e) {
-      // Invalid signature
-  
-      http_response_code(400);
-      exit();
-  }
-  
-  // Handle the event
-  switch ($event->name) {
-      case 'transaction.created':
-          // Transaction créée
-          break;
-      case 'transaction.approved':
-          // Transaction approuvée
-          break;
-      case 'transaction.canceled':
-          // Transaction annulée
-          break;
-      default:
-          http_response_code(400);
-          exit();
-  }
-  
-  http_response_code(200);
-```
-
 ```javascript NodeJs
 const { Webhook } = require('fedapay')
 
@@ -205,6 +163,50 @@ app.post('/webhook', bodyParser.raw({type: 'application/json'}), (request, respo
 });
 
 app.listen(4242, () => console.log('Running on port 4242'));
+```
+  
+
+```php PHP
+      // You can find your endpoint's secret key in your webhook settings
+  $endpoint_secret = 'wh_dev.......';
+  
+  $payload = @file_get_contents('php://input');
+  $sig_header = $_SERVER['HTTP_X_FEDAPAY_SIGNATURE'];
+  $event = null;
+  
+  try {
+      $event = \FedaPay\Webhook::constructEvent(
+          $payload, $sig_header, $endpoint_secret
+      );
+  } catch(\UnexpectedValueException $e) {
+      // Invalid payload
+  
+      http_response_code(400);
+      exit();
+  } catch(\FedaPay\Error\SignatureVerification $e) {
+      // Invalid signature
+  
+      http_response_code(400);
+      exit();
+  }
+  
+  // Handle the event
+  switch ($event->name) {
+      case 'transaction.created':
+          // Transaction créée
+          break;
+      case 'transaction.approved':
+          // Transaction approuvée
+          break;
+      case 'transaction.canceled':
+          // Transaction annulée
+          break;
+      default:
+          http_response_code(400);
+          exit();
+  }
+  
+  http_response_code(200);
 ```
 
 </CodeGroup>
