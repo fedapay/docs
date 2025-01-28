@@ -27,7 +27,7 @@ These details, except for the phone number, are mandatory. However, it is recomm
 To add a new customer, send a request to the FedaPay API. Below are examples in various programming languages:
 
 <CodeGroup>
-  ```javascript Node
+  ```javascript NodeJs
   const { FedaPay, Customer } = require('fedapay');
   /* Replace YOUR_SECRETE_API_KEY with your real API key */
   FedaPay.setApiKey("YOUR_SECRETE_API_KEY");
@@ -99,7 +99,7 @@ To get a complete list of customers registered on your FedaPay account, send a s
 **Example request to retrieve customers**
 
 <CodeGroup>
-  ```javascript Node
+  ```javascript NodeJs
   const { FedaPay, Customer } = require('fedapay');
   /* Replace YOUR_SECRETE_API_KEY with your real API key */
   FedaPay.setApiKey("YOUR_SECRETE_API_KEY");
@@ -135,7 +135,7 @@ Sometimes, you may need to update a customer’s information (e.g., an incorrect
 **Example of Updating a Customer**
 
 <CodeGroup>
-  ```javascript Node
+  ```javascript NodeJs
   const { FedaPay, Customer } = require('fedapay');
   /* Replace YOUR_SECRETE_API_KEY with your real API key */
   FedaPay.setApiKey("YOUR_SECRETE_API_KEY");
@@ -177,7 +177,7 @@ If a customer is no longer active or you wish to remove their data from your Fed
 **Example of Deleting a Customer**
 
 <CodeGroup>
-  ```javascript Node
+  ```javascript NodeJs
   const { FedaPay, Customer } = require('fedapay');
   /* Replace YOUR_SECRETE_API_KEY with your real API key */
   FedaPay.setApiKey("YOUR_SECRETE_API_KEY");
