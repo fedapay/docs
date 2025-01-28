@@ -45,7 +45,7 @@
   "versions": ["fr", "en"],
   "navigation": [
     {
-      "group": "Documentation",
+      "group": "Documentation Fedapay",
       "pages": [
         {
           "group": "Introduction",
