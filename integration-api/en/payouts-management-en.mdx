@@ -138,59 +138,7 @@ Creating a payout through the API involves several steps. Each payout follows pr
         }'
       ```
 
-      ```php PHP
-        $payout = \FedaPay\Payout::create(array(...));
-        // Send deposit now
-        $payout->sendNow();
-        // Sending a payout to a telephone number other than that of the customer
-        $payout->sendNow([
-          "phone_number" => [
-            "number" => "64000001",
-            "country" => "BJ"
-          ]
-        ]);
-         // Schedule a payout for later
-        $payout->schedule("2024-11-18 18:8:43");
-        // Schedule a payout for later but on a different number
-      than the customer's
-        $payout->schedule("2024-11-18 18:8:43", [
-          "phone_number" => [
-            "number" => "64000001",
-            "country" => "BJ"
-          ]
-        ]);
-        // Programming multiple shipments
-        Payout::scheduleAll([
-            [
-              "id" => 23 // Sends the deposit instantly
-            ],
-            [
-              "id" => 24,
-              "scheduled_at" => "2024-11-18 18:8:43" // Send deposit later
-            ],
-            [
-              "id" => 25,
-              "scheduled_at" => "2024-11-18 18:8:43",
-              "phone_number" => [
-                "number" => "64000001",
-                "country" => "BJ"
-              ]
-            ]
-        ]);
-        // Send all payments instantly
-        Payout::sendAllNow([
-            [ "id" => 23 ],
-            [ "id" => 24 ],
-            [
-              "id" => 24,
-              "phone_number" => [
-                "number" => "64000001",
-                "country" => "BJ"
-              ]
-            ]
-        ]);
-      ```
-
+      
       ```javascript NodeJs
         const payout = await Payout.create({...});
         // Send payout now
@@ -241,6 +189,59 @@ Creating a payout through the API involves several steps. Each payout follows pr
                 country: "BJ"
               }
             }
+        ]);
+      ```
+
+      ```php PHP
+        $payout = \FedaPay\Payout::create(array(...));
+        // Send deposit now
+        $payout->sendNow();
+        // Sending a payout to a telephone number other than that of the customer
+        $payout->sendNow([
+          "phone_number" => [
+            "number" => "64000001",
+            "country" => "BJ"
+          ]
+        ]);
+         // Schedule a payout for later
+        $payout->schedule("2024-11-18 18:8:43");
+        // Schedule a payout for later but on a different number
+      than the customer's
+        $payout->schedule("2024-11-18 18:8:43", [
+          "phone_number" => [
+            "number" => "64000001",
+            "country" => "BJ"
+          ]
+        ]);
+        // Programming multiple shipments
+        Payout::scheduleAll([
+            [
+              "id" => 23 // Sends the deposit instantly
+            ],
+            [
+              "id" => 24,
+              "scheduled_at" => "2024-11-18 18:8:43" // Send deposit later
+            ],
+            [
+              "id" => 25,
+              "scheduled_at" => "2024-11-18 18:8:43",
+              "phone_number" => [
+                "number" => "64000001",
+                "country" => "BJ"
+              ]
+            ]
+        ]);
+        // Send all payments instantly
+        Payout::sendAllNow([
+            [ "id" => 23 ],
+            [ "id" => 24 ],
+            [
+              "id" => 24,
+              "phone_number" => [
+                "number" => "64000001",
+                "country" => "BJ"
+              ]
+            ]
         ]);
       ```
 
