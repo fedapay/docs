@@ -18,25 +18,25 @@ Checkout.js offers several integration options to suit different needs. You can 
   <Step title="Add a Simple Payment Button to Your Page">
     Start by adding a simple button on your page to trigger the collection. This button will allow the user to access a payment form where they can finalize the transaction.
 
-    ```javascript
-    <!--
-    Replace VOTRE_CLE_API_PUBLIQUE by the public key of your sandbox or live account.
-    -->
-
-    <!doctype html>
+     ```javascript
+  <!--
+  Replace VOTRE_CLE_API_PUBLIQUE with the public key of your sandbox or live account.
+  -->
+    
+    <!DOCTYPE html>
     <html lang="en">
-    <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Intégrer Feda Checkout à mon site</title>
-    <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
-    </head>
-    <body>
-    <button id="pay-btn">Payer 100 FCFA</button>
-    <script type="text/javascript">
-      FedaPay.init('#pay-btn', { public_key: 'VOTRE_CLE_API_PUBLIQUE' });
-    </script>
-    </body>
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>Intégrer Feda Checkout à mon site</title>
+        <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+      </head>
+      <body>
+        <button id="pay-btn">Payer 100 FCFA</button>
+        <script type="text/javascript">
+          FedaPay.init("#pay-btn", { public_key: "VOTRE_CLE_API_PUBLIQUE" });
+        </script>
+      </body>
     </html>
     ```
 
