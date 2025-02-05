@@ -46,6 +46,7 @@
   "navigation": [
     {
       "group": "Documentation de Fedapay",
+      "version": "fr",
       "pages": [
         {
           "group": "Introduction à FedaPay",
@@ -54,28 +55,11 @@
             "introduction/fr/keyconcepts-fr",
             "introduction/fr/compte-fr",
             "introduction/fr/quickstart-fr"
-          ],
-          "version": "fr"
-        },
-        {
-          "group": "Introduction to FedaPay",
-          "pages": [
-            "introduction/en/fedapay-en",
-            "introduction/en/keyconcepts-en",
-            "introduction/en/compte-en",
-            "introduction/en/quickstart-en"
-          ],
-          "version": "en"
+          ]
         },
         {
           "group": "Méthodes de Paiement",
-          "pages": ["payment-methods/fr/payment-methods-fr"],
-          "version": "fr"
-        },
-        {
-          "group": "Payment Methods",
-          "pages": ["payment-methods/en/payment-methods-en"],
-          "version": "en"
+          "pages": ["payment-methods/fr/payment-methods-fr"]
         },
         {
           "group": "Intégration API",
@@ -87,8 +71,38 @@
             "integration-api/fr/payouts-management-fr",
             "integration-api/fr/sending-requests-fr",
             "integration-api/fr/webhooks-fr"
-          ],
-          "version": "fr"
+          ]
+        },
+        "libraries/fr/plugin-fr"
+        {
+          "group": "Tableau de bord",
+          "pages": ["dashboard/fr/dashboard-fr"]
+        },
+        {
+          "group": "Sécurité",
+          "pages": [
+            "security/fr/best-practices-fr",
+            "security/fr/fraud-security-fr"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "FedaPay documentation",
+      "version": "en",
+      "pages": [
+        {
+          "group": "Introduction to FedaPay",
+          "pages": [
+            "introduction/en/fedapay-en",
+            "introduction/en/keyconcepts-en",
+            "introduction/en/compte-en",
+            "introduction/en/quickstart-en"
+          ]
+        },
+        {
+          "group": "Payment Methods",
+          "pages": ["payment-methods/en/payment-methods-en"]
         },
         {
           "group": "API integration",
@@ -100,36 +114,19 @@
             "integration-api/en/payouts-management-en",
             "integration-api/en/sending-requests-en",
             "integration-api/en/webhooks-en"
-          ],
-          "version": "en"
+          ]
         },
-        "libraries/fr/plugin-fr",
         "libraries/en/plugin-en",
         {
-          "group": "Tableau de bord",
-          "pages": ["dashboard/fr/dashboard-fr"],
-          "version": "fr"
-        },
-        {
           "group": "Dashboard",
-          "pages": ["dashboard/en/dashboard-en"],
-          "version": "en"
-        },
-        {
-          "group": "Sécurité",
-          "pages": [
-            "security/fr/best-practices-fr",
-            "security/fr/fraud-security-fr"
-          ],
-          "version": "fr"
+          "pages": ["dashboard/en/dashboard-en"]
         },
         {
           "group": "Security",
           "pages": [
             "security/en/best-practices-en",
             "security/en/fraud-security-en"
-          ],
-          "version": "en"
+          ]
         }
       ]
     },
