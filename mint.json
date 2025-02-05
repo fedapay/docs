@@ -53,8 +53,8 @@
           "pages": [
             "introduction/fr/fedapay-fr",
             "introduction/fr/keyconcepts-fr",
-            "introduction/fr/compte-fr",
             "introduction/fr/quickstart-fr",
+            "introduction/fr/compte-fr",
             "introduction/fr/checkoutjs-fr" 
           ]
         },
@@ -91,8 +91,8 @@
           "pages": [
             "introduction/en/fedapay-en",
             "introduction/en/keyconcepts-en",
-            "introduction/en/compte-en",
             "introduction/en/quickstart-en",
+            "introduction/en/compte-en",
             "introduction/en/checkoutjs-en"  
           ]
         },
