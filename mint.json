@@ -114,7 +114,7 @@
           ]
         },
         "libraries/en/plugin-en",
-        "dashboard/en/dashboard-en,"
+        "dashboard/en/dashboard-en",
         {
           "group": "Security",
           "pages": [
