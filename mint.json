@@ -74,10 +74,7 @@
           ]
         },
         "libraries/fr/plugin-fr",
-        {
-          "group": "Tableau de bord",
-          "pages": ["dashboard/fr/dashboard-fr"]
-        },
+        "dashboard/fr/dashboard-fr",
         {
           "group": "Sécurité",
           "pages": [
@@ -117,10 +114,7 @@
           ]
         },
         "libraries/en/plugin-en",
-        {
-          "group": "Dashboard",
-          "pages": ["dashboard/en/dashboard-en"]
-        },
+        "dashboard/en/dashboard-en,"
         {
           "group": "Security",
           "pages": [
