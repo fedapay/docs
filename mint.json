@@ -54,7 +54,8 @@
             "introduction/fr/fedapay-fr",
             "introduction/fr/keyconcepts-fr",
             "introduction/fr/compte-fr",
-            "introduction/fr/quickstart-fr"
+            "introduction/fr/quickstart-fr",
+            "introduction/fr/checkoutjs-fr",  
           ]
         },
         "payment-methods/fr/payment-methods-fr",
@@ -91,7 +92,8 @@
             "introduction/en/fedapay-en",
             "introduction/en/keyconcepts-en",
             "introduction/en/compte-en",
-            "introduction/en/quickstart-en"
+            "introduction/en/quickstart-en",
+            "introduction/en/checkoutjs-en",   
           ]
         },
         "payment-methods/en/payment-methods-en",

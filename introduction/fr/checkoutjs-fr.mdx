@@ -1,0 +1,438 @@
+---
+title: 'Intégrer facilement un formulaire de paiement avec Checkout.Js'
+---
+
+## Pourquoi utiliser Checkout.js pour vos paiements en ligne ?
+
+Checkout.js est un outil conçu pour faciliter l'intégration d'un formulaire de paiement sécurisé et rapide sur votre site web. Que vous soyez développeur ou non, cet outil vous permettra de collecter des paiements directement sur votre site en toute simplicité. Découvrez comment utiliser et personnaliser Checkout.js pour offrir une expérience de paiement fluide à vos utilisateurs.
+
+***Avant de commencer, visionnez cette vidéo qui présente le mode d’intégration de Checkout.js*** :
+
+<iframe width="730" height="415" src="https://www.youtube.com/embed/NswxFnyrzR8" title="Intégrer un formulaire de paiement sur votre site avec Feda Checkout" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+
+## Méthodes d'intégration de Checkout.js
+
+Checkout.js offre plusieurs options d'intégration pour répondre à différents besoins. Vous pouvez ajouter un bouton de paiement simple, plusieurs boutons de collecte, ou même intégrer le formulaire de paiement directement sur votre site pour éviter les redirections.
+
+<Steps>
+  <Step title="Ajouter un bouton de paiement simple à votre page">
+    Commencez par ajouter un bouton simple sur votre page pour déclencher la        collecte. Ce bouton permettra à l’utilisateur d’accéder à un formulaire de      paiement où il pourra finaliser la transaction.
+
+    ```javascript
+  <!--
+  Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou live.
+  -->
+    
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>Intégrer Feda Checkout à mon site</title>
+        <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+      </head>
+      <body>
+        <button id="pay-btn">Payer 100 FCFA</button>
+        <script type="text/javascript">
+          FedaPay.init("#pay-btn", { public_key: "VOTRE_CLE_API_PUBLIQUE" });
+        </script>
+      </body>
+    </html>
+    ```
+
+    <Note>
+      [Cliquez ici pour tester](https://demo.fedapay.com/payment-button.html)
+    </Note>
+  </Step>
+
+  <Step title="Personnaliser le formulaire de paiement">
+    Vous pouvez personnaliser les détails de la collecte (montant, description, noms et adresse e-mail du client) pour adapter le formulaire de paiement à votre plateforme.
+
+    ```javascript
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+      <title>Intégrer Feda Checkout à mon site</title>
+      <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+    </head>
+    <body>
+      <button id="pay-btn">Payer 1000 FCFA</button>
+      <script type="text/javascript">
+          FedaPay.init('#pay-btn', {
+            public_key: 'VOTRE_CLE_API_PUBLIQUE',
+            transaction: {
+              amount: 1000,
+              description: 'Acheter mon produit'
+            },
+            customer: {
+              email: 'johndoe@gmail.com',
+              lastname: 'Doe',
+              firstname: 'John',
+            }
+          });
+      </script>
+    </body>
+    </html>
+    ```
+
+    <Note>
+      [Cliquez ici pour tester](https://demo.fedapay.com/customize-form.html)
+    </Note>
+  </Step>
+
+  <Step title="Ajouter plusieurs boutons de paiement sur une même page">
+    Pour permettre des collectes de différents montants, vous pouvez intégrer plusieurs boutons de paiement sur la même page.
+
+    ```javascript
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+      <title>Intégrer Feda Checkout à mon site</title>
+      <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+    </head>
+    <body>
+      <button class="pay-btn"
+      data-transaction-amount="1000"
+      data-transaction-description="Acheter mon produit"
+      data-customer-email="johndoe@gmail.com"
+      data-customer-lastname="Doe">Payer 1000 FCFA</button>
+
+      <button class="pay-btn"
+      data-transaction-amount="2000"
+      data-transaction-description="Acheter mon produit"
+      data-customer-email="janetay@gmail.com"
+      data-customer-lastname="Tay">Payer 2000 FCFA</button>
+      <script type="text/javascript">
+          FedaPay.init('.pay-btn', { public_key: 'VOTRE_CLE_API_PUBLIQUE' });
+      </script>
+    </body>
+    </html>
+    ```
+
+    <Note>
+      [Cliquez ici pour tester](https://demo.fedapay.com/add-multiple-buttons.html)
+    </Note>
+  </Step>
+
+  <Step title="Déclencher la collecte avec un événement">
+    Si vous souhaitez déclencher la collecte par un événement spécifique, utilisez JavaScript pour activer le formulaire de paiement sur demande.
+
+    ```javascript
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+      <title>Intégrer Feda Checkout à mon site</title>
+      <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+    </head>
+    <body>
+      <button id="pay-btn"
+      data-transaction-amount="1000"
+      data-transaction-description="Acheter mon produit"
+      data-customer-email="johndoe@gmail.com"
+      data-customer-lastname="Doe"
+      >Payer 1000 FCFA</button>
+
+      <script type="text/javascript">
+        let widget =  FedaPay.init({
+          public_key: 'VOTRE_CLE_API_PUBLIQUE'
+        });
+        let btn = document.getElementById('pay-btn');
+        btn.addEventListener('click', () => {
+          widget.open();
+        });
+      </script>
+    </body>
+    </html>
+    ```
+
+    <Note>
+      [Cliquez ici pour tester](https://demo.fedapay.com/trigger-collection.html)
+    </Note>
+  </Step>
+
+  <Step title="Intégration embarquée : Paiement sans redirection">
+    Pour une expérience utilisateur optimisée, vous pouvez intégrer le formulaire de collecte directement sur votre site, sans rediriger l'utilisateur.
+
+    ```javascript
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+      <title>Intégrer Feda Checkout à mon site</title>
+      <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+    </head>
+    <body>
+      <div id="embed" style="width: 500px; height: 420px"></div>
+
+      <script type="text/javascript">
+          FedaPay.init({
+            public_key: 'VOTRE_CLE_API_PUBLIQUE',
+            transaction: {
+              amount: 1000,
+              description: 'Acheter mon produit'
+            },
+            customer: {
+              email: 'johndoe@gmail.com',
+              lastname: 'Doe',
+            },
+            container: '#embed'
+         });
+      </script>
+    </body>
+    </html>
+    ```
+
+    <Note>
+      [Cliquez ici pour tester](https://demo.fedapay.com/payment-no-redirection.html)
+    </Note>
+  </Step>
+</Steps>
+
+## Personnalisation de l'interface et options avancées
+
+Checkout.js permet de personnaliser les éléments visuels de votre formulaire pour qu’il corresponde à l’identité de votre plateforme. Vous pouvez notamment définir la couleur de l’arrière-plan, le texte du bouton de paiement, ou ajouter un logo.
+
+***Modifier l'apparence et ajouter des détails supplémentaires***
+
+* ***Clé publique** : `data-public-key`*
+
+* ***Montant de la collecte** : `data-transaction-amount`*
+
+* ***Description de la collecte** : `data-transaction-description`*
+
+* ***Devise** : `data-currency-iso`*
+
+* ***Texte du bouton** : `data-button-text`*
+
+* ***Classe CSS du bouton** : `data-button-class`*
+
+* ***Image et description du widget** : `data-widget-image, data-widget-description`*
+
+## Méthode avec une balise form pour une intégration avancée
+
+Checkout.js permet également l’intégration avec une balise form pour envoyer des données spécifiques après paiement.
+
+```javascript
+<!--
+Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou live.
+-->
+<form action="index.php" method="POST">
+ <input type="hidden" name="field" value="test">
+ <script
+   src="https://cdn.fedapay.com/checkout.js?v=1.1.7"
+   data-public-key="VOTRE_CLE_API_PUBLIQUE"
+   data-button-text="Payer 1000"
+   data-button-class="button-class"
+   data-transaction-amount="1000"
+   data-transaction-description="Description de la transaction"
+   data-currency-iso="XOF">
+ </script>
+</form>
+```
+
+<Note>
+  [Cliquez ici pour tester](https://demo.fedapay.com/form-tag.html)
+</Note>
+
+**Connecter votre compte FedaPay**
+
+Une fois le code intégré, assurez-vous de connecter votre compte FedaPay pour autoriser la création des clients et des collectes. Cette étape est cruciale pour sécuriser votre intégration.
+
+<Note>
+  ***Accédez aux Préférences ici :***
+
+  [Préférences de votre compte FedaPay](https://live.fedapay.com/login?redirect_uri=%2Fsettings%2Fpreferences)
+</Note>
+
+## Méthode de la classe FedaPay et attributs de configuration
+
+***Checkout.js propose des options pour initialiser le composant de collecte avec plusieurs configurations :***
+
+<AccordionGroup>
+  <Accordion title="public_key">
+    * **Attribut HTML**: `data-public-key`
+
+    * **Type**: *string*
+
+    * **Description**: La clé public FedaPay
+  </Accordion>
+
+  <Accordion title="environment">
+    * **Attribut HTML**: `data-environment`
+
+    * **Type**: *string*
+
+    * **Description**: L'environnement FedaPay. Les valeurs possibles sont **live et sandbox**.
+  </Accordion>
+
+  <Accordion title="trigger">
+    * **Attribut HTML**: `data-trigger`
+
+    * **Type**: *string*
+
+    * **Description**: Le type d'événément qui déclenche l'ouverture de la boîte de dialogue de paiement. La valeur par défaut est **click**.
+  </Accordion>
+
+  <Accordion title="locale">
+    * **Attribut HTML**: `data-locale`
+
+    * **Type**: *string*
+
+    * **Description**: La langue de l'interface de paiement. La valeur par défaut est **fr**.
+  </Accordion>
+
+  <Accordion title="transaction.id">
+    * **Attribut HTML**: `data-transaction-id`
+
+    * **Type**: *integer*
+
+    * **Description**: Si vous avez déjà créé la transaction, vous pouvez spécifier l'id de la collecte.
+  </Accordion>
+
+  <Accordion title="transaction.amount">
+    * **Attribut HTML**: `data-transaction-amount`
+
+    * **Type**: *integer*
+
+    * **Description**: Le montant de la transaction. La valeur par défaut est **100**.
+  </Accordion>
+
+  <Accordion title="transaction.description">
+    * **Attribut HTML**: `data-transaction-description`
+
+    * **Type**: *string*
+
+    * **Description**: La description de la transaction.
+  </Accordion>
+
+  <Accordion title="transaction.custom_metadata">
+    * **Attribut HTML**: `data-transaction-custom_metadata`
+
+    * **Type**: *object*
+
+    * **Description**: Objet metadata de la transaction.
+
+      **Exemple JS:**
+
+      ```
+        {
+          transaction:{
+            custom_metadata:{
+              foo: 'bar'
+            }
+          }
+        }
+      ```
+
+      **Exemple HTML**
+
+      ```
+      <button data-transaction-custom_metadata-foo="bar"></>
+      ```
+  </Accordion>
+
+  <Accordion title="customer.email">
+    * **Attribut HTML**: `data-customer-email`
+
+    * **Type**: *string*
+
+    * **Description**: L'email du client
+  </Accordion>
+
+  <Accordion title="customer.firstname">
+    * **Attribut HTML**: `data-customer-firstname`
+
+    * **Type**: *string*
+
+    * **Description**: Le prénom du client
+  </Accordion>
+
+  <Accordion title="customer.lastname">
+    * **Attribut HTML**: `data-customer-lastname`
+
+    * **Type**: *string*
+
+    * **Description**: Le nom du client
+  </Accordion>
+
+  <Accordion title="customer.phone_number.number">
+    * **Attribut HTML**: `data-customer-phone_number-number`
+
+    * **Type**: *string*
+
+    * **Description**: Le numéro de téléphone du client
+  </Accordion>
+
+  <Accordion title="customer.phone_number.country">
+    * **Attribut HTML**: `data-customer-phone_number-country`
+
+    * **Type**: *string*
+
+    * **Description**: Le pays du téléphone du client
+  </Accordion>
+
+  <Accordion title="customer.currency.iso">
+    * **Attribut HTML**: `data-currency-iso`
+
+    * **Type**: *string*
+
+    * **Description**: Le code iso de la devise. La valeur par défaut est **XOF**
+  </Accordion>
+
+  <Accordion title="customer.currency.code">
+    * **Attribut HTML**: `data-currency-code`
+
+    * **Type**: *string*
+
+    * **Description**: Le code de la devise
+  </Accordion>
+
+  <Accordion title="button.text">
+    * **Attribut HTML**: `data-button-text`
+
+    * **Type**: *string*
+
+    * **Description**: Le text à afficher sur le bontton de paiement.
+  </Accordion>
+
+  <Accordion title="button.class">
+    * **Attribut HTML**: `data-button-class`
+
+    * **Type**: *string*
+
+    * **Description**: La class css du bontton de paiement.
+  </Accordion>
+
+  <Accordion title="form_selector">
+    * **Attribut HTML**: `data-form_selector`
+
+    * **Type**: *string*
+
+    * **Description**: outre passer le selecteur de selecteur de la base formulaire. Si celui ci est bien indiqué, il sera utilisé pour trouver le formulaire à soumettre après paiement
+  </Accordion>
+
+  <Accordion title="submit_form_on_failed">
+    * **Attribut HTML**: `data-submit_form_on_failed`
+
+    * **Type**: *boolean*
+
+    * **Description**: Indique si le formulaire (Lorsque le bouton de paiement ou l'élément embarqué a un parent direct qui est un formulaire) doit être soumis ou non lorsque le paiement échoue.
+  </Accordion>
+
+  <Accordion title="onComplete">
+    * **Type**:
+
+      ```
+        function{ reason: number, transaction: object }
+      ```
+
+    * **Description**: La fonction de retour lorsque la boîte de dialogue est fermée. Cette fonction prend deux arguments. Le premier est la raison de fermeture de la boîte de dialogue. Il peut être égal à FedaPay.CHECKOUT\_COMPLETED (lorsque le paiement est complet) ou FedaPay.DIALOG\_DISMISSED (lorsque la boîte de dialogue est fermée par l'utilisateur). Le deuxième argument est l'object transaction créé lors du paiement.
+  </Accordion>
+</AccordionGroup>
