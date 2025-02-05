@@ -57,10 +57,7 @@
             "introduction/fr/quickstart-fr"
           ]
         },
-        {
-          "group": "Méthodes de Paiement",
-          "pages": ["payment-methods/fr/payment-methods-fr"]
-        },
+        "payment-methods/fr/payment-methods-fr",
         {
           "group": "Intégration API",
           "pages": [
@@ -97,10 +94,7 @@
             "introduction/en/quickstart-en"
           ]
         },
-        {
-          "group": "Payment Methods",
-          "pages": ["payment-methods/en/payment-methods-en"]
-        },
+        "payment-methods/en/payment-methods-en",
         {
           "group": "API integration",
           "pages": [
