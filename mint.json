@@ -103,16 +103,8 @@
           ],
           "version": "en"
         },
-        {
-          "group": "Librairies JS et Plugin",
-          "pages": ["libraries/fr/checkoutjs-fr", "libraries/fr/plugin-fr"],
-          "version": "fr"
-        },
-        {
-          "group": "JS Librairies and Plugin",
-          "pages": ["libraries/en/checkoutjs-en", "libraries/en/plugin-en"],
-          "version": "en"
-        },
+        "libraries/fr/plugin-fr",
+        "libraries/en/plugin-en",
         {
           "group": "Tableau de bord",
           "pages": ["dashboard/fr/dashboard-fr"],
