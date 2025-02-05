@@ -73,7 +73,7 @@
             "integration-api/fr/webhooks-fr"
           ]
         },
-        "libraries/fr/plugin-fr"
+        "libraries/fr/plugin-fr",
         {
           "group": "Tableau de bord",
           "pages": ["dashboard/fr/dashboard-fr"]
