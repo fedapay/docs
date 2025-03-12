@@ -159,7 +159,17 @@ The steps to set up a collect are broken down into several key processes.
 
     #### Example query to retrieve details of a collects
 
+
     <CodeGroup>
+      ```java cURL
+      /*Replace YOUR_SECRETE_API_KEY with the secret API key of your sandbox or live account. If you are using your live account, you must replace the link with https://api.fedapay.com/v1/transactions/ID */
+      
+      curl -X GET \
+      https://sandbox-api.fedapay.com/v1/transactions/ID \
+      -H 'Authorization: Bearer YOUR_SECRETE_API_KEY' \
+      -H 'Content-Type: application/json'
+      ```
+    
       ```javascript NodeJs
       const { FedaPay, Transaction } = require('fedapay');
       /* Replace YOUR_SECRETE_API_KEY with your real API key */
