@@ -2,70 +2,275 @@
 title: 'FedaPay Account Types'
 ---
 
-FedaPay offers account types tailored to different users' needs. Whether you're an NGO, freelancer, business, or government institution, here’s an overview:
+FedaPay offers multiple account types tailored to meet the specific needs of each user. Whether you are a **business**, **freelancer**, **NGO**, **government institution**, or **managing a marketplace**, FedaPay provides a customized solution to securely and easily process your payments. Here is an overview of the available options:
 
 ## NGO Account
 
-* **Purpose** : For NGOs and associations.
+**Who is it for?**
 
-* **Avantages** :No transaction or weekly limits.
+This account is designed for Non-Governmental Organizations (NGOs) and non-profit associations.
+ 
+**Why choose this account ?**
 
-* **Required Documents (KYC)**:
+   - No transaction limits, whether per operation or per week.
+   -  Tailored to the specific needs of humanitarian and associative organizations.
 
-  * Association creation document
+     
+**Required Documents (KYC):**
 
-  * ID
+   - Official registration document of the association.
+    
+   - ID card of the legal representative.
 
 ## Freelancer Account
 
-* **Purpose** : For freelancers or service providers.
+**Who is it for?**
 
-* **Features** :
+ If you are a freelancer or service provider looking to receive payments easily, this account is for you.
+ 
+**Key Features:**
 
-  * 10 transactions/week
+   -  Limit of **10 transactions per week**.
+   - Authorized transaction amount: between **100 XOF and 300,000 XOF**.
+     
+**Required Documents (KYC) :**
 
-  * between **100 XOF** and **300,000 XOF** per transaction
-
-* **Required Documents (KYC)** :
-
-  * ID
-
-  * tax ID
-
-  * Signature
+    -  ID card.
+     
+    - Tax Identification Number (IFU).
+     
+    - Signature.
 
 ## Business Account
 
-* **Purpose** : For registered companies.
+**Who is it for?**
 
-* **Advantages** :
+ Legally registered businesses that want to integrate online payments and efficiently manage their cash flow.
+ 
+**Why choose this account ?**
 
-  * Supports all FedaPay payment methods
+    - Access to all available payment methods on FedaPay.
+    - No transaction amount limits.
+  
+**Required Documents (KYC) :**
 
-  * no transaction limits
-
-* **Required Documents (KYC)** :
-
-  * RCCM
-
-  * tax ID
-
-  * ID
-
-  * Signature
+   - Business Registration (RCCM).
+   - Tax Identification Number (IFU).
+   - ID card of the legal representative.
+   - Signature.
 
 ## Government Account
 
-* **Purpose** : For government institutions.
+**Who is it for ?**
 
-* **Advantages** :  No transaction or weekly limits.
+ This account is designed for government institutions and administrative entities.
+ 
+**Why choose this account ?**
 
-* **Required Documents (KYC)** : Validation by FedaPay team.
+    -  No transaction limits.
+    -  Suitable for government financial operations.
+    
+**Required Documents (KYC) :**
 
-<Note>
-  ### Why Choose FedaPay?
+Validation by the FedaPay team.
 
-  FedaPay ensures solutions suited to each user category, with top-notch compliance and security.
+## Marketplace Account
 
-**Contact us** at `support@fedapay.com` to find out how to create your account and optimize your payments.
-</Note>
+**Who is it for ?**
+
+ This account is specifically designed for marketplace platforms that connect sellers and buyers and need to automate payment and commission management.
+ 
+**Why choose this account ?**
+
+    -  Supports all payment methods (Mobile Money, bank cards, etc.).
+    -  No limits on the number or amount of transactions.
+    - Advanced functionality: management of sub-accounts and commissions.
+  
+**Required Documents (KYC) :**
+
+     - ID card or passport of the Founder/Director/Manager.
+     - Copy of the ID card.
+     - Business Tax ID (IFU/VAT) + supporting document.
+     - Business Registration (RCCM) + supporting document.
+
+#### Sub-Account Feature
+
+With a **Marketplace Account**, you can integrate sub-accounts, allowing automatic payment distribution among multiple parties.
+
+**Use Case Example :**
+
+A marketplace connects multiple vendors. When a customer makes a purchase, a commission is deducted for the platform, and the remaining payment is automatically transferred to the relevant vendor.
+
+**Conditions to activate sub-accounts :**
+
+    - A validated Marketplace Account.
+    -  At least one associated sub-account.
+    
+#### How Does Payment Distribution Work ?
+
+When you create a transaction on your **marketplace**, you can specify how the amount should be divided between the **main account and service providers**.
+
+**Example of an API request for commission distribution :**
+
+<CodeGroup>
+
+  ```java Curl
+ //Replace YOUR_SECRET_API_KEY with the secret API key of your sandbox or live account. If you are using your live account, you must replace the link with https://api.fedapay.com/v1/transactions
+  
+curl -X POST \
+  https://sandbox-api.fedapay.com/v1/transactions \
+  -H 'Authorization: Bearer YOUR_SECRET_API_KEY' \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "description" : "Transaction for john.doe@example.com",
+        "amount" : 2000,
+        "currency" : {"iso" : "XOF"},
+        "callback_url" : "https://maplateforme.com/callback",
+        "customer" : {
+            "firstname" : "John",
+            "lastname" : "Doe",
+            "email" : "john.doe@example.com",
+            "phone_number" : {
+                "number" : "+22997808080",
+                "country" : "bj"
+            }
+        },
+        "sub_accounts_commisssions": [
+          {
+            "reference": "acc_xxxxxxxxx",
+            "amount": 1500
+          }
+        ]
+      }'
+```
+
+```javascript NodeJs
+const { FedaPay, Transaction } = require('fedapay')
+  
+  /* Replace YOUR_API_KEY with your actual API key */
+  FedaPay.setApiKey("VOTRE_CLE_API_SECRETE");
+  
+  /* Specify whether you want to run your query in test or live mode */
+  FedaPay.setEnvironment('sandbox'); //ou setEnvironment('live');
+  
+  /* Create the transaction */
+  const transaction = await Transaction.create({
+    description: 'Description',
+    amount: 2000,
+    callback_url: 'https://maplateforme.com/callback',
+    currency: {
+        iso: 'XOF'
+    },
+    customer: {
+        firstname: 'John',
+        lastname: 'Doe',
+        email: 'john.doe@example.com',
+        phone_number: {
+            number: '97808080',
+            country: 'BJ'
+        }
+    },
+    sub_accounts_commisssions: [
+        {
+            reference: 'acc_xxxxxxxxx',
+            amount: 1500
+        }
+    ]
+  });
+```
+
+```php PHP
+/* Replace YOUR_API_KEY with your actual API key */
+  \FedaPay\FedaPay::setApiKey("YOUR_API_KEY");
+  
+  /* Specify whether you want to run your query in test or live mode */
+  \FedaPay\FedaPay::setEnvironment('sandbox'); //ou setEnvironment('live');
+  
+  /* Create the transaction */
+  \FedaPay\Transaction::create(array(
+    "description" => "Transaction for john.doe@example.com",
+    "amount" => 2000,
+    "currency" => ["iso" => "XOF"],
+    "callback_url" => "https://maplateforme.com/callback",
+    "customer" => [
+        "firstname" => "John",
+        "lastname" => "Doe",
+        "email" => "john.doe@example.com",
+        "phone_number" => [
+            "number" => "+22997808080",
+            "country" => "bj"
+        ]
+    ],
+    "sub_accounts_commisssions" => [
+      [
+        "reference" => "acc_xxxxxxxxx",
+        "amount" => 1500
+      ]
+    ]
+  ));
+```
+
+</CodeGroup>
+
+In this example, **1,500 XOF** will be transferred to the sub-account of the service provider **(acc_xxxxxxxxx)**, while the main account **retains the remaining amount** after deducting FedaPay fees.
+
+<Warning>
+  **Note:** The total distributed amount must be less than the transaction amount minus FedaPay commissions; otherwise, the transaction will fail.
+</Warning>
+
+ #### Track Transactions & Commissions
+
+ From your FedaPay **dashboard**, you can monitor all transactions with commission distribution by viewing their details.
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1742553992/marketplace-transaction-detail-6b778e19a5754bb058c59c6449761716a9c4db5db99ee4fe875ca19db3450c5c_um1vnv.png" />
+</Frame>
+
+#### Invite a Provider to Join Your Marketplace
+
+You can invite a service provider to join your **FedaPay Marketplace** account directly from your dashboard.
+
+**Steps to invite a business :**
+
+<Steps>
+  <Step title="Go to the 'Marketplace' menu in your dashboard.">
+    <Frame>
+      <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1742554010/dashboard-marketplace-9c9a25e410a79745dc9dd742eb437b57d273dc7754d16fe6833f6ad6f58fe620_knp27w.png" />
+    </Frame>
+  </Step>
+  <Step title="Click on 'Invite a Business' and fill in the necessary details.">
+    <Frame>
+      <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1742554025/subaccount-invitation-b7982eff6fdeeec0ee01641426fd98b83ce9706a1caec8fffb7801075fa73aa2_hvrfzb.png" />
+    </Frame>
+  </Step>
+  <Step title="Once the invitation is accepted, the provider can receive payments via your platform, and you can pay them commissions.">
+  </Step>
+</Steps>
+
+#### Automate Sub-Account Creation via API
+
+FedaPay allows you to automate the onboarding of new providers by integrating the sub-account functionality directly into your system via API.
+
+**Example code snippet for automating sub-account creation:**
+
+```java Curl
+//Replace YOUR_SECRET_API_KEY with the secret API key of your sandbox or live account. If you are using your live account, you must replace the link with https://api.fedapay.com/v1/auth/sub_account_invitations
+
+curl -X POST \
+  https://sandbox-api.fedapay.com/v1/auth/sub_account_invitations \
+  -H 'Authorization: Bearer YOUR_SECRET_API_KEY' \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "email" : "john.doe@example.com",
+        "full_name" : "Jonh Doe"
+      }'
+```
+
+ FedaPay ensures the verification and validation of the information to comply with KYC regulations.
+
+## Why Choose FedaPay ?
+
+FedaPay provides secure solutions tailored to each type of user, whether you are a business, freelancer, or marketplace managing complex payments with transparency and efficiency.
+
+With these different account types, FedaPay simplifies online payment collection while ensuring compliance with security and regulatory requirements.
+
