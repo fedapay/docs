@@ -111,6 +111,106 @@ Lorsque vous créez une transaction sur votre marketplace, vous pouvez spécifie
 
 **Exemple d’une requête API pour la répartition des commissions :**
 
+<CodeGroup>
+
+  ```java Curl
+ //Remplacez VOTRE_CLE_API_SECRETE par la clé API secrète de votre compte sandbox ou live. Si vous utilisez votre compte live, vous devez remplacer le lien par https://api.fedapay.com/v1/transactions
+  
+curl -X POST \
+  https://sandbox-api.fedapay.com/v1/transactions \
+  -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "description" : "Transaction for john.doe@example.com",
+        "amount" : 2000,
+        "currency" : {"iso" : "XOF"},
+        "callback_url" : "https://maplateforme.com/callback",
+        "customer" : {
+            "firstname" : "John",
+            "lastname" : "Doe",
+            "email" : "john.doe@example.com",
+            "phone_number" : {
+                "number" : "+22997808080",
+                "country" : "bj"
+            }
+        },
+        "sub_accounts_commisssions": [
+          {
+            "reference": "acc_xxxxxxxxx",
+            "amount": 1500
+          }
+        ]
+      }'
+```
+
+```javascript NodeJs
+const { FedaPay, Transaction } = require('fedapay')
+  
+  /* Remplacez VOTRE_CLE_API par votre véritable clé API */
+  FedaPay.setApiKey("VOTRE_CLE_API_SECRETE");
+  
+  /* Précisez si vous souhaitez exécuter votre requête en mode test ou live */
+  FedaPay.setEnvironment('sandbox'); //ou setEnvironment('live');
+  
+  /* Créer la transaction */
+  const transaction = await Transaction.create({
+    description: 'Description',
+    amount: 2000,
+    callback_url: 'https://maplateforme.com/callback',
+    currency: {
+        iso: 'XOF'
+    },
+    customer: {
+        firstname: 'John',
+        lastname: 'Doe',
+        email: 'john.doe@example.com',
+        phone_number: {
+            number: '97808080',
+            country: 'BJ'
+        }
+    },
+    sub_accounts_commisssions: [
+        {
+            reference: 'acc_xxxxxxxxx',
+            amount: 1500
+        }
+    ]
+  });
+```
+
+```php PHP
+/* Remplacez VOTRE_CLE_API par votre véritable clé API */
+  \FedaPay\FedaPay::setApiKey("VOTRE_CLE_API_SECRETE");
+  
+  /* Précisez si vous souhaitez exécuter votre requête en mode test ou live */
+  \FedaPay\FedaPay::setEnvironment('sandbox'); //ou setEnvironment('live');
+  
+  /* Créer la transaction */
+  \FedaPay\Transaction::create(array(
+    "description" => "Transaction for john.doe@example.com",
+    "amount" => 2000,
+    "currency" => ["iso" => "XOF"],
+    "callback_url" => "https://maplateforme.com/callback",
+    "customer" => [
+        "firstname" => "John",
+        "lastname" => "Doe",
+        "email" => "john.doe@example.com",
+        "phone_number" => [
+            "number" => "+22997808080",
+            "country" => "bj"
+        ]
+    ],
+    "sub_accounts_commisssions" => [
+      [
+        "reference" => "acc_xxxxxxxxx",
+        "amount" => 1500
+      ]
+    ]
+  ));
+```
+
+</CodeGroup>
+
 Dans cet exemple, **1 500 XOF** seront transférés au sous-compte du prestataire de service **(acc_xxxxxxxxx)**, tandis que le compte principal **gardera la différence** après déduction des frais de FedaPay.
 
 <Warning>
