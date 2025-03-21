@@ -91,3 +91,28 @@ Validation par l’équipe FedaPay.
      - Copie de la pièce d’identité.
      - Numéro IFU/TVA de la société + copie du document.
      - Numéro RCCM de la société + copie du document.
+
+#### Fonctionnalité des sous-comptes
+
+Avec un compte **Marketplace**, vous avez la possibilité d’intégrer des **sous-comptes**, permettant de **répartir les paiements automatiquement** entre plusieurs parties.
+
+**Exemple d'utilisation :**
+
+Une marketplace met en relation plusieurs vendeurs. Lorsqu’un client achète un produit, une commission est prélevée pour la plateforme, et le reste du paiement est automatiquement transféré au vendeur concerné.
+
+**Conditions pour activer les sous-comptes :**
+
+    - Disposer d’un compte Marketplace validé.
+    - Avoir au moins un sous-compte associé.
+    
+#### Comment fonctionne la répartition des paiements ?
+
+Lorsque vous créez une transaction sur votre marketplace, vous pouvez spécifier comment le montant doit être divisé entre le **compte principal** et les **prestataires de services.**
+
+**Exemple d’une requête API pour la répartition des commissions :**
+
+Dans cet exemple, **1 500 XOF** seront transférés au sous-compte du prestataire de service **(acc_xxxxxxxxx)**, tandis que le compte principal **gardera la différence** après déduction des frais de FedaPay.
+
+<Warning>
+**Attention :** Le montant total réparti doit être inférieur au montant de la transaction moins les commissions de FedaPay, sinon la transaction échouera.</Warning>
+ 
