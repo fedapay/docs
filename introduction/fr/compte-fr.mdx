@@ -232,7 +232,7 @@ Vous pouvez inviter un prestataire de services à rejoindre votre compte **FedaP
 **Étapes pour inviter une entreprise :**
 
 <Steps>
-  <Step title="Accédez au 'menu Place de marché' dans votre dashboard.">
+  <Step title="Accédez au 'menu Place de marché' dans votre tableau de bord.">
     <Frame>
       <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1742554010/dashboard-marketplace-9c9a25e410a79745dc9dd742eb437b57d273dc7754d16fe6833f6ad6f58fe620_knp27w.png" />
     </Frame>
@@ -246,3 +246,30 @@ Vous pouvez inviter un prestataire de services à rejoindre votre compte **FedaP
 ">
   </Step>
 </Steps>
+
+#### Automatiser l’ajout de sous-comptes via l’API
+
+FedaPay permet d’**automatiser** l’ajout de nouveaux prestataires en intégrant la fonctionnalité des sous-comptes directement dans votre système via l’API.
+
+**Exemple de code pour automatiser l'ajout de sous-comptes :**
+
+```java Curl
+//Remplacez VOTRE_CLE_API_SECRETE par la clé API secrète de votre compte sandbox ou live. Si vous utilisez votre compte live, vous devez remplacer le lien par https://api.fedapay.com/v1/auth/sub_account_invitations
+
+curl -X POST \
+  https://sandbox-api.fedapay.com/v1/auth/sub_account_invitations \
+  -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "email" : "john.doe@example.com",
+        "full_name" : "Jonh Doe"
+      }'
+```
+
+FedaPay se charge alors de **vérifier et valider** les informations pour garantir la conformité aux normes KYC.
+
+## Pourquoi choisir FedaPay ?
+
+FedaPay offre des solutions sécurisées et adaptées aux besoins de chaque type d’utilisateur, qu’il s’agisse d’une **entreprise**, d’un **freelance** ou d’une **marketplace** souhaitant gérer des paiements complexes avec transparence et efficacité.
+
+Grâce à ces différents types de comptes, **FedaPay simplifie l’encaissement des paiements en ligne** tout en respectant les exigences de conformité et de sécurité. Si vous gérez une **marketplace**, la gestion automatisée des paiements et la répartition des commissions deviennent un jeu d’enfant ! 
