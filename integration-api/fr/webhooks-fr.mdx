@@ -16,11 +16,11 @@ Les transactions sur FedaPay suivent un cycle de vie, et chaque étape de ce cyc
 
 2. **Suivi des transactions** : Une transaction peut évoluer de plusieurs façons :
 
-  - **transaction.approved** : La transaction a été approuvée, ce qui signifie que le paiement a été validé.
-  - **transaction.dcreated du client** : Lorsqu’un nouveau client est ajouté à votre compte, cela génère l’événement **customer.created**.
-  - **eclined** : Le paiement a échoué ou a été refusé.
-  - **transaction.canceled** : La transaction a été annulée avant sa finalisation.
-  - **transaction.transferred** : Les fonds de la transaction ont été transférés au compte prévu (par exemple, vers un compte bancaire ou mobile money).
+      - **transaction.approved** : La transaction a été approuvée, ce qui signifie que le paiement a été validé.
+      - **transaction.dcreated du client** : Lorsqu’un nouveau client est ajouté à votre compte, cela génère l’événement **customer.created**.
+      - **eclined** : Le paiement a échoué ou a été refusé.
+      - **transaction.canceled** : La transaction a été annulée avant sa finalisation.
+      - **transaction.transferred** : Les fonds de la transaction ont été transférés au compte prévu (par exemple, vers un compte bancaire ou mobile money).
 
 3. À chaque changement de statut, un nouvel événement est généré pour vous tenir informé. Par exemple, dès qu'une transaction est mise à jour, l’événement **transaction.updated** est déclenché.
 
@@ -89,7 +89,6 @@ Ensuite, FedaPay envoie cet objet à l'URL de votre choix (appelée **point de t
 
   - Entrez l’URL de votre site où vous souhaitez recevoir les notifications.
   - Assurez-vous que cette URL est prête à traiter les Webhooks envoyés par FedaPay.
-  - 
 **Paramètres optionnels**
 
   - **Désactiver la vérification SSL sur les requêtes HTTP** (optionnel)
