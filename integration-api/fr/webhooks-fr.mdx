@@ -137,7 +137,7 @@ FedaPay exécute chaque envoi d’événement webhook dans des tâches concurren
   - Après 10 essais sans succès, le webhook est automatiquement **désactivé** pour éviter une surcharge de la queue.
   - Vous pouvez prévenir la désactivation en décochant l’option **Désactiver le webhook lorsque l'application génère des erreurs**  dans votre tableau de bord.
 
-il est préférable de bien faire le suivi de votre système et de prévenir les erreurs éventuelles. Suivez également nos [recommandations](#Bonnes pratiques pour l'utilisation des Webhooks) pour une bonne implémentation de votre service
+il est préférable de bien faire le suivi de votre système et de prévenir les erreurs éventuelles. Suivez également nos [recommandations](#bonnes-pratiques-pour-lutilisation-des-webhooks) pour une bonne implémentation de votre service
 
 #### Redéclenchement manuel
 
@@ -149,6 +149,20 @@ il est préférable de bien faire le suivi de votre système et de prévenir les
 </Frame>
 
 ## Bonnes pratiques pour l'utilisation des Webhooks
+
+Gérer les événements en double
+Les points de terminaison webhook peuvent parfois recevoir le même événement plusieurs fois. Vous pouvez éviter le traitement des événements en double en suivant les indications suivantes : 
+Enregistrez les identifiants des événements déjà traités pour ne pas les re-traiter.
+Utilisez l’identifiant de l’objet dans object ainsi que name pour identifier les doublons.
+Écouter uniquement les types d’événements requis
+Configurez vos points de terminaison pour ne recevoir que les événements nécessaires.
+Évitez d’écouter tous les événements pour ne pas surcharger votre serveur.
+Modifiez les événements reçus via le tableau de bord.
+Gérer les événements de manière asynchrone
+Pour éviter les problèmes de mise à l’échelle et garantir la stabilité de votre service, suivez ces recommandations :
+Utilisez une file d’attente asynchrone pour traiter les événements webhook sans bloquer votre système.
+
+
 
 
 
