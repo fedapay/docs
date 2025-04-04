@@ -121,6 +121,36 @@ Ensuite, FedaPay envoie cet objet à l'URL de votre choix (appelée **point de t
   </Step>
 </Steps>
 
+## Stratégie d’envoi des événements des Webhooks
+
+Lorsque vous définissez un point de terminaison webhook, FedaPay vous enverra les événements liés à ce point de terminaison lorsque ceux-ci seront déclenchés sur FedaPay.
+
+  - FedaPay enverra une requête HTTP de type POST avec les données de l’événement.
+  - FedaPay attend en retour une réponse avec un statut **2xx**.
+  - Toute réponse différente d'un statut 2xx est considérée comme un échec.
+
+#### Nouvelles tentatives automatiques
+
+FedaPay exécute chaque envoi d’événement webhook dans des tâches concurrentes.
+  - En cas d’échec de la tache d’exécution, FedaPay réessaiera au maximum **9 fois** à des intervalles exponentiels.
+  - Le temps d’attente pour réessayer ne dépasse pas **2 minutes**.
+  - Après 10 essais sans succès, le webhook est automatiquement **désactivé** pour éviter une surcharge de la queue.
+  - Vous pouvez prévenir la désactivation en décochant l’option **Désactiver le webhook lorsque l'application génère des erreurs**  dans votre tableau de bord.
+
+il est préférable de bien faire le suivi de votre système et de prévenir les erreurs éventuelles. Suivez également nos [recommandations](https://docs.google.com/document/d/1wIrcMKemhX8iznXRaK2-D_xlTS3LfnFifpAXQPo1RRU/edit#heading=h.6yefichpwv73) pour une bonne implémentation de votre service
+
+#### Redéclenchement manuel
+
+  - Allez dans **Logs** de la page de votre webhook.
+  - Cliquez sur le bouton **Re-déclencher**.
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1743778900/screely-1743778624463_zqqfj4.png" />
+</Frame>
+
+
+
+
 ## Vérification des signatures des Webhooks
 
 Pour garantir que les notifications que vous recevez proviennent bien de FedaPay (et non d'une tierce partie), FedaPay **signe** chaque événement envoyé à votre URL.
