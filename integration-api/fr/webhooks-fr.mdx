@@ -334,21 +334,3 @@ app.listen(4242, () => console.log('Running on port 4242'));
 
 
 
-
-## Vérification des signatures des Webhooks
-
-Pour garantir que les notifications que vous recevez proviennent bien de FedaPay (et non d'une tierce partie), FedaPay **signe** chaque événement envoyé à votre URL.
-
-### Comment vérifier la signature ?
-
-1. Lorsqu'un Webhook est envoyé, FedaPay inclut une signature dans l'en-tête de la requête. Cette signature est nommée **X-FEDAPAY-SIGNATURE**.
-
-2. Pour vérifier que le message est authentique, vous devez utiliser la clé secrète de votre Webhook. Vous pouvez la récupérer dans les paramètres de votre tableau de bord.
-
-3. Utilisez cette clé secrète pour vérifier la signature et vous assurer que le Webhook a bien été envoyé par FedaPay.
-
-### Outils pour vérifier les signatures
-
-Pour vous assurer que les **Webhooks** que vous recevez proviennent bien de **FedaPay** et qu'ils n'ont pas été altérés, il est essentiel de procéder à une vérification de leur signature. Heureusement, **les bibliothèques officielles** de FedaPay simplifient grandement ce processus. Voici un exemple de code montrant comment vérifier la signature en utilisant ces bibliothèques dans vos projets :
-
-
