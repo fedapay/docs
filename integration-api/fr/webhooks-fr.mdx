@@ -137,7 +137,7 @@ FedaPay exécute chaque envoi d’événement webhook dans des tâches concurren
   - Après 10 essais sans succès, le webhook est automatiquement **désactivé** pour éviter une surcharge de la queue.
   - Vous pouvez prévenir la désactivation en décochant l’option **Désactiver le webhook lorsque l'application génère des erreurs**  dans votre tableau de bord.
 
-il est préférable de bien faire le suivi de votre système et de prévenir les erreurs éventuelles. Suivez également nos [recommandations](#bonnes-pratiques-pour-lutilisation-des-webhooks) pour une bonne implémentation de votre service
+il est préférable de bien faire le suivi de votre système et de prévenir les erreurs éventuelles. Suivez également nos recommandations pour une bonne implémentation de votre service
 
 #### Redéclenchement manuel
 
@@ -150,38 +150,74 @@ il est préférable de bien faire le suivi de votre système et de prévenir les
 
 ## Bonnes pratiques pour l'utilisation des Webhooks
 
-Gérer les événements en double
+#### Gérer les événements en double
+
 Les points de terminaison webhook peuvent parfois recevoir le même événement plusieurs fois. Vous pouvez éviter le traitement des événements en double en suivant les indications suivantes : 
-Enregistrez les identifiants des événements déjà traités pour ne pas les re-traiter.
-Utilisez l’identifiant de l’objet dans object ainsi que name pour identifier les doublons.
-Écouter uniquement les types d’événements requis
-Configurez vos points de terminaison pour ne recevoir que les événements nécessaires.
-Évitez d’écouter tous les événements pour ne pas surcharger votre serveur.
-Modifiez les événements reçus via le tableau de bord.
-Gérer les événements de manière asynchrone
+
+  - Enregistrez les identifiants des événements déjà traités pour ne pas les re-traiter.
+  - Utilisez l’identifiant de l’objet dans **object** ainsi que **name** pour identifier les doublons.
+    
+#### Écouter uniquement les types d’événements requis
+
+  - Configurez vos points de terminaison pour ne recevoir que les événements nécessaires.
+  - Évitez d’écouter tous les événements pour ne pas surcharger votre serveur.
+  - Modifiez les événements reçus via le tableau de bord.
+    
+#### Gérer les événements de manière asynchrone
+
 Pour éviter les problèmes de mise à l’échelle et garantir la stabilité de votre service, suivez ces recommandations :
-Utilisez une file d’attente asynchrone pour traiter les événements webhook sans bloquer votre système.
 
+  - **Utilisez une file d’attente asynchrone** pour traiter les événements webhook sans bloquer votre système.
+  - **Évitez le traitement synchrone**, qui peut ralentir votre infrastructure et causer des échecs en cas de forte charge.
+  - **Anticipez les pics de trafic**, notamment lors des renouvellements d’abonnements en masse, pour éviter la surcharge des serveurs.
+  - **Contrôlez le débit de traitement** en ajustant la consommation des événements en fonction des capacités de votre système.
+    
+#### Recevoir des événements avec un serveur HTTPS
 
+Pour garantir la sécurité des webhooks, assurez-vous que votre serveur respecte les exigences suivantes :
 
+  - **Utilisation d’une URL HTTPS** : FedaPay vérifie la sécurité de la connexion avant d’envoyer les webhooks.
+  - **Certificat SSL valide** : Votre serveur doit être correctement configuré avec un certificat valide pour éviter tout rejet de connexion.
+  - **Compatibilité TLS** : Seules les versions **TLS v1.2 et v1.3** sont prises en charge par FedaPay.
 
+#### Vérifier que les événements sont envoyés par FedaPay
 
+<Steps>
+  <Step title="Vérification des adresses IP">
+      - FedaPay envoie les webhooks depuis une **liste définie d’adresses IP**.
+      - Faites uniquement confiance aux événements provenant de ces adresses.
+  </Step>
+  <Step title="Vérification des signatures des webhooks">
+      - Chaque webhook est signé par FedaPay via l’en-tête **X-FEDAPAY-SIGNATURE**.
+      - Vous pouvez vérifier ces signatures en utilisant :
+    
+            - Les bibliothèques officielles de FedaPay.
+            - Une vérification manuelle avec votre propre solution.
 
-## Vérification des signatures des Webhooks
+  </Step>
+  <Step title="Comment vérifier les signatures des webhooks ?">
+    
+  **Récupération du secret du point de terminaison**
+    
+    - Accédez à **Workbench → Onglet Webhooks**.
+    - Sélectionnez le point de terminaison et cliquez sur **Click to reveal**.
+    - FedaPay génère une **clé secrète unique** pour chaque point de terminaison :
+        - **Différente entre le mode test et le mode live.**
+        - **Unique pour chaque point de terminaison utilisé.**
+  
+  **Vérification de la signature**
 
-Pour garantir que les notifications que vous recevez proviennent bien de FedaPay (et non d'une tierce partie), FedaPay **signe** chaque événement envoyé à votre URL.
+    - Lorsqu’un Webhook est envoyé, FedaPay **inclut une signature** dans l’en-tête de la requête.
+    - Cette signature est présente dans l’en-tête **X-FEDAPAY-SIGNATURE**.
+    - Pour vérifier que le message est authentique :
+        1- **Utilisez la clé secrète** de votre Webhook (récupérable dans les paramètres du tableau de bord).
+        2- **Utilisez cette clé pour vérifier la signature** et vous assurer que le Webhook provient bien de FedaPay.
+  
+**Outils pour vérifier les signatures**
 
-### Comment vérifier la signature ?
-
-1. Lorsqu'un Webhook est envoyé, FedaPay inclut une signature dans l'en-tête de la requête. Cette signature est nommée **X-FEDAPAY-SIGNATURE**.
-
-2. Pour vérifier que le message est authentique, vous devez utiliser la clé secrète de votre Webhook. Vous pouvez la récupérer dans les paramètres de votre tableau de bord.
-
-3. Utilisez cette clé secrète pour vérifier la signature et vous assurer que le Webhook a bien été envoyé par FedaPay.
-
-### Outils pour vérifier les signatures
-
-Pour vous assurer que les **Webhooks** que vous recevez proviennent bien de **FedaPay** et qu'ils n'ont pas été altérés, il est essentiel de procéder à une vérification de leur signature. Heureusement, **les bibliothèques officielles** de FedaPay simplifient grandement ce processus. Voici un exemple de code montrant comment vérifier la signature en utilisant ces bibliothèques dans vos projets :
+    - Pour s’assurer que les Webhooks reçus **proviennent bien de FedaPay** et n’ont pas été altérés, il est essentiel de **vérifier leur signature**.
+    - FedaPay simplifie ce processus grâce à ses **bibliothèques officielles**.
+    - Voici un exemple de code montrant comment vérifier la signature dans un projet Node.js ou PHP 
 
 <CodeGroup>
 
@@ -277,3 +313,43 @@ app.listen(4242, () => console.log('Running on port 4242'));
 ```
 
 </CodeGroup>
+  </Step>
+  <Step title=" Prévenir les attaques par nouvelle tentative">
+    
+      - Une **attaque par nouvelle tentative** consiste à retransmettre un webhook intercepté.
+      - FedaPay inclut un **horodatage (timestamp)** dans l’en-tête **X-FEDAPAY-SIGNATURE** pour empêcher ces attaques.
+      - L’horodatage est vérifié avec la signature :
+            - **Impossible de le modifier sans invalider la signature.**
+            - **Si l’horodatage est trop ancien, votre application peut rejeter le webhook.**
+      - À chaque réessai d’envoi (si le premier a échoué), **une nouvelle signature et un nouvel horodatage** sont générés.
+
+  </Step>
+  <Step title="Retourner rapidement une réponse 2xx">
+    - Votre point de terminaison doit répondre **rapidement** avec un code **2xx** avant d’exécuter des traitements lourds.
+    - Exemples :
+         - **Répondre 200 immédiatement.**
+         - **Effectuer ensuite les actions comme marquer une facture comme payée.**
+  </Step>
+</Steps>
+
+
+
+
+
+## Vérification des signatures des Webhooks
+
+Pour garantir que les notifications que vous recevez proviennent bien de FedaPay (et non d'une tierce partie), FedaPay **signe** chaque événement envoyé à votre URL.
+
+### Comment vérifier la signature ?
+
+1. Lorsqu'un Webhook est envoyé, FedaPay inclut une signature dans l'en-tête de la requête. Cette signature est nommée **X-FEDAPAY-SIGNATURE**.
+
+2. Pour vérifier que le message est authentique, vous devez utiliser la clé secrète de votre Webhook. Vous pouvez la récupérer dans les paramètres de votre tableau de bord.
+
+3. Utilisez cette clé secrète pour vérifier la signature et vous assurer que le Webhook a bien été envoyé par FedaPay.
+
+### Outils pour vérifier les signatures
+
+Pour vous assurer que les **Webhooks** que vous recevez proviennent bien de **FedaPay** et qu'ils n'ont pas été altérés, il est essentiel de procéder à une vérification de leur signature. Heureusement, **les bibliothèques officielles** de FedaPay simplifient grandement ce processus. Voici un exemple de code montrant comment vérifier la signature en utilisant ces bibliothèques dans vos projets :
+
+
