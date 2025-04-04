@@ -8,7 +8,7 @@ Les événements sont des actions importantes qui se produisent dans votre compt
 
 Chaque fois qu'un événement se produit, FedaPay le signale en temps réel via des **notifications d'événements**. Ces notifications peuvent être utilisées pour suivre et réagir à ce qui se passe dans votre compte, comme lorsqu'un paiement est approuvé ou un client est modifié.
 
-### Cycle de vie des transactions
+#### Cycle de vie des transactions
 
 Les transactions sur FedaPay suivent un cycle de vie, et chaque étape de ce cycle génère un événement particulier. Voici comment ça se passe :
 
@@ -16,17 +16,15 @@ Les transactions sur FedaPay suivent un cycle de vie, et chaque étape de ce cyc
 
 2. **Suivi des transactions** : Une transaction peut évoluer de plusieurs façons :
 
-   * **transaction.approved** : La transaction a été approuvée, ce qui signifie que le paiement a été validé.
-
-   * **transaction.declined** : Le paiement a échoué ou a été refusé.
-
-   * **transaction.canceled** : La transaction a été annulée avant sa finalisation.
-
-   * **transaction.transferred** : Les fonds de la transaction ont été transférés au compte prévu (par exemple, vers un compte bancaire ou mobile money).
+  - **transaction.approved** : La transaction a été approuvée, ce qui signifie que le paiement a été validé.
+  - **transaction.dcreated du client** : Lorsqu’un nouveau client est ajouté à votre compte, cela génère l’événement **customer.created**.
+  - **eclined** : Le paiement a échoué ou a été refusé.
+  - **transaction.canceled** : La transaction a été annulée avant sa finalisation.
+  - **transaction.transferred** : Les fonds de la transaction ont été transférés au compte prévu (par exemple, vers un compte bancaire ou mobile money).
 
 3. À chaque changement de statut, un nouvel événement est généré pour vous tenir informé. Par exemple, dès qu'une transaction est mise à jour, l’événement **transaction.updated** est déclenché.
 
-### Cycle de vie des clients
+#### Cycle de vie des clients
 
 Les clients peuvent également faire l'objet d'événements spécifiques :
 
@@ -34,29 +32,29 @@ Les clients peuvent également faire l'objet d'événements spécifiques :
 
 * **customer.deleted** : Le client a été supprimé de votre compte.
 
-### Comment utiliser les événements ?
+#### Comment utiliser les événements ?
 
 Chaque événement contient des informations détaillées sur ce qui vient de se passer. Vous pouvez consulter tous ces événements dans la section **Événements** de votre tableau de bord FedaPay. Cela vous permet d'avoir un historique complet de toutes les actions importantes sur votre compte.
 
 ![images d’illlustrations de la présentation des Evènements au niveau du tableau de bord](https://res.cloudinary.com/dvilp6td2/image/upload/v1731926324/Events-presentation_pou7bt.png)
 
-### Pourquoi est-ce important ?
+#### Pourquoi est-ce important ?
 
 La gestion des événements vous aide à :
 
 * **Suivre vos paiements** : Vous êtes informé en temps réel de l’état de chaque transaction.
 
-* **Gérer vos clients** : Vous pouvez suivre les modifications apportées aux profils de vos clients.
+* **Administrer vos clients** : Vous pouvez suivre les modifications apportées aux profils de vos clients.
 
 * **Automatiser vos processus** : Grâce à la notification des événements, vous pouvez automatiser certaines tâches sur votre site, comme envoyer un e-mail de confirmation après un paiement réussi.
 
-## Introduction aux Webhooks
+# Introduction aux Webhooks
 
 Les **Webhooks** sont des notifications automatiques que FedaPay envoie à votre application ou site web lorsque des événements importants se produisent sur votre compte. Par exemple, vous pouvez recevoir un webhook lorsqu'une transaction est réussie ou contestée.
 
 Ces notifications sont particulièrement utiles car elles vous permettent de rester informé en temps réel, sans avoir à vérifier manuellement ce qui se passe sur votre compte FedaPay.
 
-### Pourquoi utiliser des Webhooks ?
+#### Pourquoi utiliser des Webhooks ?
 
 Les Webhooks sont essentiels pour être alerté rapidement des actions importantes sur votre compte, comme :
 
@@ -66,7 +64,7 @@ Les Webhooks sont essentiels pour être alerté rapidement des actions important
 
 * Des transactions contestées
 
-### Comment fonctionnent les Webhooks ?
+#### Comment fonctionnent les Webhooks ?
 
 Chaque fois qu'un événement se produit (par exemple, un paiement accepté), FedaPay crée un **objet événement (Event)**. Cet objet contient toutes les informations pertinentes sur l'événement, comme le type d'événement (paiement réussi) et les détails associés.
 
@@ -76,17 +74,40 @@ Ensuite, FedaPay envoie cet objet à l'URL de votre choix (appelée **point de t
 
 <Steps>
   <Step title="Créer un Webhook">
-    Pour recevoir des Webhooks, vous devez configurer une URL sur votre site qui pourra recevoir ces notifications. Voici comment faire :
+    Pour recevoir des Webhooks, vous devez configurer une URL sur votre site qui pourra recevoir ces notifications. Suivez ces étapes :
 
-    1. Connectez-vous à votre compte FedaPay et accédez à la section **Webhooks** de votre tableau de bord.
+      - Connectez-vous à votre compte **FedaPay**.
+      - Accédez à la section **Webhooks** depuis le menu de votre tableau de bord.
+      - Cliquez sur **Créer un Webhook** ou **Nouveau Webhook**.
+      - Un formulaire s’ouvre avec plusieurs champs à renseigner: 
 
-    2. Cliquez sur **Créer un Webhook**.
+  <Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1743778900/screely-1743778497481_ga07u6.png" />
+</Frame>
 
-    3. Entrez l'URL de votre site où vous souhaitez recevoir les notifications. Il est important que cette page soit prête à recevoir des notifications de FedaPay.
+**Saisir l’URL de destination**
 
-    4. Sélectionnez les types d'événements pour lesquels vous voulez être notifié (par exemple : paiements réussis, remboursements).
+  - Entrez l’URL de votre site où vous souhaitez recevoir les notifications.
+  - Assurez-vous que cette URL est prête à traiter les Webhooks envoyés par FedaPay.
+  - 
+**Paramètres optionnels**
 
-    5. Cliquez sur **Créer**.
+  - **Désactiver la vérification SSL sur les requêtes HTTP** (optionnel)
+  - **Désactiver le Webhook lorsque l’application génère des erreurs** (optionnel)
+    
+**Ajouter des en-têtes HTTP**
+  - Vous pouvez spécifier des en-têtes personnalisés en ajoutant des **clés et valeurs**.
+  - Cliquez sur le bouton **"+"** pour ajouter plusieurs en-têtes si nécessaire.
+
+**Choisir les types d’événements**
+
+  - **Recevoir tous les événements** (par défaut, vous recevrez toutes les notifications).
+  - **Sélectionner les événements spécifiques** (vous pouvez choisir uniquement ceux qui vous intéressent parmi la liste des événements disponibles).
+    
+**Finalisation et activation**
+
+  - Vérifiez que toutes les informations sont correctes.
+  - Cliquez sur **Créer** pour enregistrer et activer le Webhook.
   </Step>
 
   <Step title="Gérer vos Webhooks">
