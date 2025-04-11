@@ -17,10 +17,10 @@ Transactions on FedaPay follow a lifecycle, and each stage in this lifecycle gen
 2. **Tracking Transactions**: A transaction can evolve in several ways:
 
       - **transaction.approved** : The transaction has been approved, meaning the payment has been validated.
-      - **transaction.dcreated du client** : Lorsqu’un nouveau client est ajouté à votre compte, cela génère l’événement **customer.created**.
-      - **eclined** : Le paiement a échoué ou a été refusé.
-      - **transaction.canceled** : La transaction a été annulée avant sa finalisation.
-      - **transaction.transferred** : Les fonds de la transaction ont été transférés au compte prévu (par exemple, vers un compte bancaire ou mobile money).
+      - **customer.created** : When a new customer is added to your account, this generates the event
+      - **transaction.declined**: The payment failed or was rejected.
+      - **transaction.canceled**: The transaction was canceled before it was finalized.
+      - **transaction.transferred**: The funds from the transaction have been transferred to the designated account (e.g., bank account or mobile money).
 
 3. À chaque changement de statut, un nouvel événement est généré pour vous tenir informé. Par exemple, dès qu'une transaction est mise à jour, l’événement **transaction.updated** est déclenché.
 
