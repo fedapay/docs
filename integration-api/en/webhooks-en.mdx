@@ -8,25 +8,23 @@ Events are important actions that occur within your FedaPay account, such as the
 
 Whenever an event occurs, FedaPay notifies you in real-time through **event notifications**. These notifications can be used to track and react to what is happening within your account, such as when a payment is approved or when a customer is updated.
 
-### Transaction Lifecycle
+#### Transaction Lifecycle
 
 Transactions on FedaPay follow a lifecycle, and each stage in this lifecycle generates a specific event. Here's how it works:
 
-1. **Transaction Creation** :  Once the customer is created, you can assign a transaction to them. This triggers the **transaction.created** event.
+1. **Transaction Creation** : Once the customer is created, you can assign a transaction to them. This triggers the **transaction.created** event.
 
-2. **Tracking Transactions** :  A transaction can evolve in several ways:
+2. **Tracking Transactions**: A transaction can evolve in several ways:
 
-   * **transaction.approved** : The transaction has been approved, meaning the payment has been validated.
+      - **transaction.approved** : The transaction has been approved, meaning the payment has been validated.
+      - **transaction.dcreated du client** : Lorsqu’un nouveau client est ajouté à votre compte, cela génère l’événement **customer.created**.
+      - **eclined** : Le paiement a échoué ou a été refusé.
+      - **transaction.canceled** : La transaction a été annulée avant sa finalisation.
+      - **transaction.transferred** : Les fonds de la transaction ont été transférés au compte prévu (par exemple, vers un compte bancaire ou mobile money).
 
-   * **transaction.declined** : The payment failed or was rejected.
+3. À chaque changement de statut, un nouvel événement est généré pour vous tenir informé. Par exemple, dès qu'une transaction est mise à jour, l’événement **transaction.updated** est déclenché.
 
-   * **transaction.canceled** : The transaction was canceled before it was finalized.
-
-   * **transaction.transferred** : The funds from the transaction have been transferred to the designated account (e.g., bank account or mobile money).
-
-3. Each time a status changes, a new event is generated to keep you informed. For example, once a transaction is updated, the **transaction.updated** event is triggered.
-
-### Customer Lifecycle
+#### Customer Lifecycle
 
 Customers can also have specific events:
 
@@ -34,88 +32,193 @@ Customers can also have specific events:
 
 * **customer.deleted** : The customer has been deleted from your account.
 
-### How to Use Events ?
+#### How to Use Events ?
 
 Each event contains detailed information about what has just happened. You can view all these events in the **Events** section of your FedaPay dashboard, which gives you a complete history of all important actions in your account.
 
-![images of illustrations of the presentation of Events at the dashboard level](https://res.cloudinary.com/dvilp6td2/image/upload/v1732276422/events-en_kboge4.png)
+![images d’illlustrations de la présentation des Evènements au niveau du tableau de bord](https://res.cloudinary.com/dvilp6td2/image/upload/v1731926324/Events-presentation_pou7bt.png)
 
-### Why is it Important ?
+#### Why is it Important ?
 
 Event management helps you to:
 
-* **Track Payments** : You are informed in real-time of the status of each transaction.
+* **Track Payments**: You are informed in real-time of the status of each transaction.
 
-* **Manage Customers** : You can track changes made to customer profiles.
+* **Manage Customers**: You can track changes made to customer profiles.
 
-* **Automate Processes** : With event notifications, you can automate certain tasks on your site, like sending a confirmation email after a successful payment.
+* **Automate Processes**: With event notifications, you can automate certain tasks on your site, like sending a confirmation email after a successful payment.
 
-## Introduction to Webhooks
+# Introduction to Webhooks
 
-**Webhooks** are automatic notifications that FedaPay sends to your application or website when significant events occur on your account. For example, you can receive a webhook when a transaction is successful or contested.
+**Webhooks** are automatic notifications that FedaPay sends to your application or website when important events occur on your account. For example, you can receive a webhook when a transaction is successful or disputed.
 
-These notifications are particularly useful because they allow you to stay informed in real-time, without manually checking what's happening on your FedaPay account.
+These notifications are particularly useful because they allow you to stay informed in real-time without having to manually check what is happening on your FedaPay account.
 
-### Why Use Webhooks ?
+#### Why Use Webhooks ?
 
-Webhooks are essential for quickly being alerted to important actions on your account, such as:
+Webhooks are essential to be quickly alerted of important actions on your account, such as:
 
-* Successful or failed payments
+* Successful or failed payments.
 
-* Refunds
+* Refunds.
 
-* Contested transactions
+* Disputed transactions.
 
-### How Do Webhooks Work ?
+#### How Do Webhooks Work?
 
-Each time an event occurs (e.g., a successful payment), FedaPay creates an **event object**. This object contains all relevant information about the event, such as the event type (successful payment) and the associated details.
+Each time an event occurs (e.g., an accepted payment), FedaPay creates an **Event object**. This object contains all relevant information about the event, such as the event type (successful payment) and associated details.
 
-Then, FedaPay sends this object to your chosen URL (called an **endpoint**) via an HTTP request. It's like FedaPay sending you a message to inform you of what just happened.
+Then, FedaPay sends this object to your chosen URL (called the **endpoint**) via an HTTP request. It is like FedaPay sending you a message to inform you of what has happened.
 
 ## Configuring Webhooks
 
 <Steps>
-  <Step title="Create a Webhook">
-    To receive webhooks, you need to configure a URL on your site that will receive these notifications. Here's how to do it:
+  <Step title="Creating a Webhook">
+    To receive Webhooks, you need to configure a URL on your site that can receive these notifications. Follow these steps:
 
-    1. Log in to your FedaPay account and go to the **Webhooks** section of your dashboard.
+      - Log in to your **FedaPay** account.
+      - Go to the **Webhooks** section from the dashboard menu.
+      - Click on **Create a Webhook** or **New Webhook**.
+      - A form opens with several fields to fill in:
 
-    2. Click **Create a Webhook**.
+  <Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1743778900/screely-1743778497481_ga07u6.png" />
+</Frame>
 
-    3. Enter the URL of your site where you want to receive the notifications. It's important that this page is ready to receive FedaPay notifications.
+**Enter the destination URL**
 
-    4. Select the types of events you want to be notified about (e.g: successful payments, refunds).
+  - Enter the URL of your site where you want to receive notifications.
+  - Ensure that this URL is ready to handle Webhooks sent by FedaPay.
 
-    5. Click **Create**.
+**Optional settings:**
+
+  - **Disable SSL verification on HTTP requests** (optional).
+  - **Disable the Webhook when the application generates errors** (optional).
+    
+**Add HTTP headers**
+  - You can specify custom headers by adding **key-value** pairs.
+  - Click the **"+"** button to add multiple headers if needed.
+
+**Select event types**
+
+  - **Receive all events** (by default, you will receive all notifications).
+  - **Select specific events** (you can choose only those of interest from the available event list).
+    
+**Finalization and activation**
+
+  - Verify that all information is correct.
+  - Click **Create** to save and activate the Webhook.
   </Step>
 
-  <Step title="Manage Your Webhooks">
-    Once your webhooks are created, you can:
+  <Step title="Managing Your Webhooks">
+    Once your Webhooks are created, you can:
 
-    * **Edit** : Change the URL or the events you want to track.
+    * **Modify**: Change the URL or the events you want to track.
 
-    * **Delete** :  If you no longer need the webhook, you can remove it.
+    * **Delete**: If you no longer need this Webhook, you can remove it.
 
-    * **View Details** : You can see all the information about the webhook (URL, events tracked, etc.).
+    * **View details**: You can see all information about the Webhook (URL, tracked events, etc.).
   </Step>
 </Steps>
 
-## Webhook Signature Verification
+## Webhook Event Delivery Strategy
 
-To ensure that the notifications you receive are indeed from FedaPay (and not from a third party), FedaPay **signs** each event sent to your URL.
+When you define a Webhook endpoint, FedaPay will send event notifications related to that endpoint when they are triggered on FedaPay.
 
-### How to Verify the Signature ?
+  - FedaPay sends an **HTTP POST request** with the event data.
+  - FedaPay expects a **2xx status** response.
+  - Any response other than **2xx** is considered a failure.
 
-1. When a webhook is sent, FedaPay includes a signature in the request header. This signature is named **X-FEDAPAY-SIGNATURE**.
+#### Automatic Retry Mechanism
 
-2. To verify that the message is authentic, you need to use your webhook's secret key. You can retrieve this key from the settings in your dashboard.
+FedaPay executes each webhook event delivery in concurrent tasks.
+  - If execution fails, FedaPay will **retry up to 9 times** at exponential intervals.
+  - The retry waiting time does not exceed **2 minutes**.
+  - After **10 unsuccessful attempts**, the Webhook is automatically disabled to prevent queue overload.
+  - You can prevent automatic deactivation by unchecking the option **Disable the webhook when the application generates errors** in your dashboard.
 
-3. Use this secret key to verify the signature and ensure that the webhook was indeed sent by FedaPay.
+It is advisable to **monitor your system closely** and prevent potential errors. Follow our recommendations for optimal service implementation.
 
-### Tools to Verify Signatures
+#### Manual Redelivery
+
+  - Go to the **Logs** page of your webhook.
+  - Click the **Redeliver** button.
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1743778900/screely-1743778624463_zqqfj4.png" />
+</Frame>
+
+## Best Practices for Using Webhooks
+
+#### Handle Duplicate Events
+
+Webhook endpoints may sometimes receive the same event multiple times. You can prevent processing duplicate events by following these guidelines:
+
+  - Store the **event IDs** of already processed events to avoid reprocessing them.
+  - Use the object **identifier** in **object** and **name** to detect duplicates.
+    
+#### Listen Only to Required Event Types
+
+  - Configure your endpoints to receive only necessary events.
+  - Avoid listening to **all events** to prevent server overload.
+  - Modify received events through the dashboard.
+    
+#### Handle Events Asynchronously
+
+To prevent scalability issues and ensure system stability, follow these recommendations:
+
+  - Use an **asynchronous queue** to process webhook events without blocking your system.
+  - Avoid **synchronous processing**, which may slow down your infrastructure and cause failures under heavy load.
+  - Anticipate **traffic spikes**, especially during mass subscription renewals, to prevent server overload.
+  - Control processing rates by adjusting event consumption based on your system's capacity.
+    
+#### Receiving Events with an HTTPS Server
+
+To ensure webhook security, make sure your server meets the following requirements:
+
+  - **Use an HTTPS URL**: FedaPay verifies the security of the connection before sending webhooks.
+  - **Valid SSL certificate**: Your server must be properly configured with a valid certificate to prevent connection rejection.
+  - **TLS compatibility**: Only **TLS v1.2 and v1.3** versions are supported by FedaPay.
 
 
-To ensure that the **Webhooks** you receive are from **FedaPay** and have not been tampered with, it is essential to verify their signature. Fortunately, **the official FedaPay libraries** make this process much easier. Here is a code example showing how to verify the signature using these libraries in your projects:
+#### Verifying That Events Are Sent by FedaPay
+
+<Steps>
+  <Step title="IP Address Verification">
+      - FedaPay sends webhooks from a predefined **list of IP addresses**.
+      - Only trust events originating from these addresses.
+  </Step>
+  <Step title="Webhook Signature Verification">
+      - Each webhook is signed by FedaPay via the **X-FEDAPAY-SIGNATURE** header.
+      - You can verify these signatures using:
+    
+            - Official **FedaPay libraries**.
+            - Manual verification with your own solution.
+
+  </Step>
+  <Step title="How to Verify Webhook Signatures ?">
+    
+  **Retrieve the Endpoint Secret**
+    
+    - Go to **Workbench → Webhooks Tab**.
+    - Select the endpoint and click **Click to reveal**.
+    - FedaPay generates a unique secret key for each endpoint:
+        - **Different between test mode and live mode.**
+        - **Unique for each used endpoint.**
+  
+  **Signature Verification**
+
+    - When a Webhook is sent, FedaPay includes a signature in the request header.
+    - This signature is present in the **X-FEDAPAY-SIGNATURE** header.
+    - PTo verify that the message is authentic:
+        1- Use your Webhook **secret key** (retrievable from dashboard settings).
+        2- Use this key to verify the signature and ensure the Webhook is from **FedaPay**.
+  
+**Tools for Signature Verification**
+
+    - To ensure that received Webhooks originate from FedaPay and have not been altered, it is essential to verify their signature.
+    - FedaPay simplifies this process with its **official libraries**.
+    - Here is an example of code showing how to verify the signature in a **Node.js** or **PHP**
 
 <CodeGroup>
 
@@ -211,3 +314,25 @@ app.listen(4242, () => console.log('Running on port 4242'));
 ```
 
 </CodeGroup>
+  </Step>
+  <Step title="Prevent Replay Attacks">
+    
+      - A **replay attack** consists of resending an intercepted webhook.
+      - FedaPay includes a **timestamp** in the **X-FEDAPAY-SIGNATURE** header to prevent these attacks.
+      - The timestamp is checked with the signature:
+            - **It cannot be modified** without invalidating the signature.
+            - If the timestamp is too old, your application can **reject the webhook**.
+      - Each retry attempt (if the first one fails) generates a **new signature and timestamp**.
+
+  </Step>
+  <Step title="Respond Quickly with a 2xx Status">
+    - Your endpoint should respond **quickly** with a **2xx status** before performing heavy processing.
+    - Exemples :
+         - **Respond with 200 immediately.**
+         - **Then, perform actions such as marking an invoice as paid.**
+  </Step>
+</Steps>
+
+
+
+
