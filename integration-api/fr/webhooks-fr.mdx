@@ -17,8 +17,8 @@ Les transactions sur FedaPay suivent un cycle de vie, et chaque étape de ce cyc
 2. **Suivi des transactions** : Une transaction peut évoluer de plusieurs façons :
 
       - **transaction.approved** : La transaction a été approuvée, ce qui signifie que le paiement a été validé.
-      - **transaction.dcreated du client** : Lorsqu’un nouveau client est ajouté à votre compte, cela génère l’événement **customer.created**.
-      - **eclined** : Le paiement a échoué ou a été refusé.
+      - **customer.created** : Lorsqu’un nouveau client est ajouté à votre compte, cela génère l’événement 
+      - **transaction.declined**: Le paiement a échoué ou a été refusé.
       - **transaction.canceled** : La transaction a été annulée avant sa finalisation.
       - **transaction.transferred** : Les fonds de la transaction ont été transférés au compte prévu (par exemple, vers un compte bancaire ou mobile money).
 
