@@ -436,3 +436,63 @@ Une fois le code intégré, assurez-vous de connecter votre compte FedaPay pour 
     * **Description**: La fonction de retour lorsque la boîte de dialogue est fermée. Cette fonction prend deux arguments. Le premier est la raison de fermeture de la boîte de dialogue. Il peut être égal à FedaPay.CHECKOUT\_COMPLETED (lorsque le paiement est complet) ou FedaPay.DIALOG\_DISMISSED (lorsque la boîte de dialogue est fermée par l'utilisateur). Le deuxième argument est l'object transaction créé lors du paiement.
   </Accordion>
 </AccordionGroup>
+
+## Autorisation de domaine pour Checkout JS
+
+Lors de la **première connexion** entre votre site marchand et la solution **FedaPay Checkout**, une **autorisation de domaine** est nécessaire. Cette étape permet de garantir que vos clients soient correctement redirigés vers votre page de paiement sécurisée, et non vers l’interface de création de compte FedaPay.
+
+#### Pourquoi cette autorisation est nécessaire ?
+
+Sans autorisation préalable de votre domaine :
+
+  - Vos clients seront redirigés vers l’interface d’inscription FedaPay,
+  - Ils **ne pourront pas finaliser leurs paiements**,
+  - Cela peut entraîner une perte de conversions.
+
+### Étapes pour autoriser votre domaine
+
+1. **Connectez-vous à votre compte FedaPay**
+
+
+2. Cliquez sur votre **photo de profil** (en haut à droite)
+
+
+3. Sélectionnez le menu **Applications**
+
+
+4. Dans la section **Nom de domaine à autoriser**:
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1744389994/screely-1744389924590_xvcodg.png" />
+</Frame>
+
+   
+        - Saisissez **le nom de domaine** de votre site marchand (ex. **votresite.com**)
+        - Cliquez sur le bouton **Autoriser**
+
+
+Une fois cette étape terminée, votre domaine est approuvé pour l'utilisation de Checkout JS.
+
+### Révocation d’un domaine (optionnelle)
+
+Dans certains cas, vous pourriez vouloir retirer l'accès d'un domaine autorisé – par exemple :
+
+    - Si vous avez changé de site ou de domaine principal,
+    - Si vous avez détecté un usage non autorisé ou suspect.
+
+
+Pour cela :
+
+    1. Rendez-vous toujours dans l’onglet "Applications"
+
+
+    2. Saisissez le domaine concerné dans le champ "Révoquer les accès au domaine suivant"
+
+
+    3. Cliquez sur le bouton "Révoquer les accès"
+
+
+<Note>
+  **Note** : Une fois la révocation effectuée, les paiements via ce domaine seront bloqués.
+</Note>
+
