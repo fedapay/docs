@@ -436,3 +436,62 @@ Once the code is integrated, make sure to connect your FedaPay account to author
     * **Description**: The return function when the dialog box is closed. This function takes two arguments. The first is the reason for closing the dialog box. It can be equal to FedaPay.CHECKOUT\_COMPLETED (when the payment is complete) or FedaPay.DIALOG\_DISMISSED (when the dialog box is closed by the user). The second argument is the transaction object created during payment.
   </Accordion>
 </AccordionGroup>
+
+## Domain Authorization for Checkout JS
+
+When your merchant site connects to the **FedaPay Checkout** solution for the first time, domain authorization is required. This step ensures that your customers are properly redirected to your secure payment page, and not to the FedaPay account creation interface.
+
+#### Why is this authorization crucial ?
+
+Without prior authorization of your domain:
+
+  - Your customers will be redirected to the FedaPay signup interface,
+  - They will **not be able to complete their payments**,
+  - This can lead to a **loss of conversions**.
+
+### Steps to authorize your domain
+
+1. **Log in to your FedaPay account**
+
+
+2. Click on your **profile photo** (top right)
+
+
+3. Select the **Applications** menu
+
+
+4. In the section **Domain name to authorize**:
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1744389994/screely-1744389454474_roqzwc.png" />
+</Frame>
+
+   
+        - Enter the domain name of your merchant site (e.g. **yourwebsite.com**)
+        - Click the **Authorize** button
+
+
+Once this step is completed, your domain is approved for use with Checkout JS.
+
+### Revoking a domain (optional)
+
+In some cases, you may want to remove access for an authorized domain – for example:
+
+    - If you have changed your main site or domain,
+    - If you detect unauthorized or suspicious usage.
+
+
+To do this:
+
+    1. Still go to the **Applications** tab
+
+
+    2. Enter the relevant domain name in the field **Revoke access to the following domain**
+
+
+    3. Click the **Revoke access** button
+
+
+<Note>
+  **Note** : Once the revocation is done, payments from this domain will be blocked.
+</Note>
