@@ -85,7 +85,8 @@
             "dashboard/fr/refunds-fr",
             "dashboard/fr/payout-fr",
             "dashboard/fr/business-fr",
-            "dashboard/fr/user-fr"
+            "dashboard/fr/user-fr",
+            "dashboard/fr/funds-fr"
           ]
         },
         {
@@ -134,7 +135,8 @@
             "dashboard/en/refunds-en",
             "dashboard/en/payout-en",
             "dashboard/en/business-en",
-            "dashboard/en/user-en"
+            "dashboard/en/user-en",
+            "dashboard/en/funds-en"
           ]
         },
         {
