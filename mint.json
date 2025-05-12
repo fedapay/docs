@@ -82,6 +82,7 @@
           "pages": [
             "dashboard/fr/home-fr",
             "dashboard/fr/customer-fr",
+            "dashboard/fr/refunds-fr",
             "dashboard/fr/payout-fr",
             "dashboard/fr/business-fr"
           ]
@@ -129,6 +130,7 @@
           "pages": [
             "dashboard/en/home-en",
             "dashboard/en/customer-en",
+            "dashboard/en/refunds-en",
             "dashboard/en/payout-en",
             "dashboard/en/business-en"
           ]
