@@ -123,10 +123,10 @@
         "libraries/en/plugin-en",
         "dashboard/en/dashboard-en",
         {
-          "group": "Tableau de bord FedaPay",
+          "group": "FedaPay Dashboard",
           "pages": [
-            "dashboard/fr/home-fr",
-            "dashboard/fr/custumer-fr"
+            "dashboard/en/home-en",
+            "dashboard/en/custumer-en"
           ]
         },
         {
