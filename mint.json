@@ -81,7 +81,7 @@
           "group": "Tableau de bord FedaPay",
           "pages": [
             "dashboard/fr/home-fr",
-            "dashboard/fr/custumer-fr"
+            "dashboard/fr/customer-fr"
           ]
         },
         {
@@ -126,7 +126,7 @@
           "group": "FedaPay Dashboard",
           "pages": [
             "dashboard/en/home-en",
-            "dashboard/en/custumer-en"
+            "dashboard/en/customer-en"
           ]
         },
         {
