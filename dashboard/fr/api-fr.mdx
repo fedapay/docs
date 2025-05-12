@@ -1,0 +1,68 @@
+---
+title: "API, Évènements, Logs et Webhooks"
+---
+
+Cette section regroupe les outils avancés permettant d’intégrer votre compte à des systèmes tiers, suivre les collectes en temps réel et inspecter les activités via les journaux (logs). Elle s’adresse autant aux utilisateurs techniques qu’aux gestionnaires souhaitant garder un œil sur leurs opérations.
+
+### API – Gestion des Clés d’Intégration
+
+Les **clés API** vous permettent d'intégrer vos services externes à la plateforme. 
+
+Deux types de clés sont disponibles :
+
+  * **Clé publique** : à utiliser côté client (navigateur ou application).
+
+  * **Clé secrète** : à conserver uniquement côté serveur.
+
+Pour générer ou renouveler vos clés :
+
+1-Accédez à la section **API**.
+
+2-Cliquez sur “**Régénérer les clés API**” pour générer de nouvelles clés.
+
+<Warning>⚠️ **Note de sécurité** : Ne partagez jamais votre clé secrète. Elle donne un accès total à votre compte via l’API.</Warning>
+
+### Évènements – Suivi en Temps Réel des Collectes
+
+La **section Évènements** permet de consulter tous les événements générés par les paiements et collectes, par exemple :
+
+   * Paiement réussi
+  
+   * Paiement échoué
+
+   * Collecte en attente
+
+Chaque événement contient des détails précis sur l’opération concernée. Pour y accéder :
+
+* Cliquez sur **Évènements** depuis le menu latéral ou depuis [la page Webhooks & Évènements](https://docs.fedapay.com/integration-api/fr/webhooks-fr).
+
+### Logs – Historique des Activités
+
+La **section Logs** fournit un historique complet des opérations liées à vos collectes, incluant :
+
+   * Le **statut** de chaque action
+
+   * Une **description claire** de ce qui s’est passé
+
+   * La **date et l’heure** de l’opération
+
+1- Cliquez sur **Logs** dans le menu pour consulter l’activité.
+2- Utilisez les filtres pour rechercher un log spécifique ou un intervalle de temps.
+
+### Webhooks – Connexion avec vos Systèmes Externes
+
+Les **Webhooks** vous permettent de recevoir des notifications automatiques lorsqu’un événement spécifique se produit (paiement réussi, échec, etc.). Pour configurer un webhook :
+
+1- Accédez à **Webhooks** depuis le menu ou la section Évènements.
+
+2- Cliquez sur **Ajouter un Webhook**.
+
+3- Renseignez l’**URL de destination** et sélectionnez les types d’événements à surveiller.
+
+
+
+
+
+
+
+
