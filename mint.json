@@ -78,6 +78,13 @@
         "libraries/fr/plugin-fr",
         "dashboard/fr/dashboard-fr",
         {
+          "group": "Tableau de bord FedaPay",
+          "pages": [
+            "dashboard/fr/home-fr",
+            "dashboard/fr/custumer-fr"
+          ]
+        },
+        {
           "group": "Sécurité",
           "pages": [
             "security/fr/best-practices-fr",
@@ -115,6 +122,13 @@
         },
         "libraries/en/plugin-en",
         "dashboard/en/dashboard-en",
+        {
+          "group": "Tableau de bord FedaPay",
+          "pages": [
+            "dashboard/fr/home-fr",
+            "dashboard/fr/custumer-fr"
+          ]
+        },
         {
           "group": "Security",
           "pages": [
