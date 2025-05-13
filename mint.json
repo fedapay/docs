@@ -86,6 +86,7 @@
             "dashboard/fr/page-fr",
             "dashboard/fr/payout-fr",
             "dashboard/fr/api-fr",
+            "dashboard/fr/profile-fr",
             "dashboard/fr/business-fr",
             "dashboard/fr/user-fr",
             "dashboard/fr/funds-fr"
@@ -139,6 +140,7 @@
             "dashboard/en/page-en",
             "dashboard/en/payout-en",
             "dashboard/en/api-en",
+            "dashboard/en/profile-en",
             "dashboard/en/business-en",
             "dashboard/en/user-en",
             "dashboard/en/funds-en"
