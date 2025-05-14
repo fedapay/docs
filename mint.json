@@ -76,7 +76,6 @@
           ]
         },
         "libraries/fr/plugin-fr",
-        "dashboard/fr/dashboard-fr",
         {
           "group": "Tableau de bord FedaPay",
           "pages": [
@@ -131,7 +130,6 @@
           ]
         },
         "libraries/en/plugin-en",
-        "dashboard/en/dashboard-en",
         {
           "group": "FedaPay Dashboard",
           "pages": [
