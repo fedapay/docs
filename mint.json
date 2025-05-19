@@ -75,7 +75,7 @@
             "integration-api/fr/webhooks-fr"
           ]
         },
-        "Plugins/fr/plugin-fr",
+        "libraries/fr/plugin-fr",
         {
           "group": "Tableau de bord FedaPay",
           "pages": [
@@ -129,7 +129,7 @@
             "integration-api/en/webhooks-en"
           ]
         },
-        "Plugins/en/plugin-en",
+        "libraries/en/plugin-en",
         {
           "group": "FedaPay Dashboard",
           "pages": [
