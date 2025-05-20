@@ -1,0 +1,80 @@
+---
+title: "Feda Give for WordPress"
+---
+
+With **Feda Give**, you can easily collect donations via Mobile Money and credit cards on your WordPress site. Follow this simple guide to install and configure the plugin.
+
+<Steps>
+  <Step title="Download and Install the Required Plugins">
+    Before starting, make sure to install two essential plugins :
+
+    1. **Give** – the main plugin for managing donations, available for free [here](https://wordpress.org/plugins/give/?utm_source=give\&utm_medium=marketing\&utm_campaign=download).
+
+    2. **Feda Give** – the FedaPay payment plugin for donations, available [here](https://www.fedapay.com/produit/feda-give/?v=ddd70bbaf5be).
+  </Step>
+
+  <Step title="Configure the Give Plugin">
+    Once both plugins are installed and activated, follow these steps :
+
+    1. Go to **Donations** > **Settings** in the WordPress dashboard.
+
+    ![Image Showing access to settings](https://res.cloudinary.com/dvilp6td2/image/upload/v1731423661/parametre_fedagive_dc3ge3.png)
+
+    2. Click on the **Currency** tab in the General settings.
+
+    3. Set **FCFA (XOF)** as the default currency, as Feda Give currently only supports this currency.
+
+    ![Image showing Currency tab and FCFA selection](https://res.cloudinary.com/dvilp6td2/image/upload/v1731423661/devise_fedagive_fl3veq.png)
+
+
+    ![Image showing Currency tab and FCFA selection](https://res.cloudinary.com/dvilp6td2/image/upload/v1731423662/devise1_fedagive_zzkq3q.png)
+
+    4. Save the changes.
+  </Step>
+
+  <Step title="Enable the FedaPay Payment Gateway">
+    After configuring the currency, activate FedaPay as a payment gateway :
+
+    1. Click on the **Payment Gateways** tab in the Give settings.
+
+    2. Check the box next to **FedaPay** to activate it.
+
+    3. Click on the **FedaPay** section that appears after activation.
+
+    ![Image Showing FedaPay activation](https://res.cloudinary.com/dvilp6td2/image/upload/v1731423661/passerelle_fedagive_xpkuik.png)
+  </Step>
+
+  <Step title="Configure Your FedaPay API Keys">
+    For FedaPay to work properly, you need to link your FedaPay accounts using your secret API keys.
+
+    1. Log in to your FedaPay **Sandbox** and **Live** accounts to retrieve the secret API keys:
+
+       * **sk\_sandbox** for your test account.
+
+       * **sk\_live** for your real (live) account.
+
+    ![Image Showing where to retrieve the API keys](https://res.cloudinary.com/dvilp6td2/image/upload/v1731423662/api-cle_fedagive_r21vol.png)
+
+    2. Copy and paste the secret API key for **test mode** in the corresponding field when using the test mode.
+
+    3. Do the same with the live secret API key to receive real donations once you’re ready to go live.
+
+    <Note> **Note**: Use the test key when the test mode is activated to avoid receiving real payments.</Note>
+
+    ![Image Showing the test mode activated](https://res.cloudinary.com/dvilp6td2/image/upload/v1731423662/active_fedagive_wxj3ia.png)
+
+    4. Save your changes.
+  </Step>
+
+  <Step title="Create a Donation Form">
+    Once the configuration is complete, you're ready to create your donation form.
+
+    1. Go to **Donations** > **Add Form** to create a donation collection form using Give.
+
+    ![Image Showing the form addition](https://res.cloudinary.com/dvilp6td2/image/upload/v1731423661/formulaire_fedagive_emyycl.png)
+
+    2. Customize your form as needed.
+
+   Your Feda Give integration is now complete! You can now collect donations via Mobile Money and credit cards on your WordPress site.
+  </Step>
+</Steps>

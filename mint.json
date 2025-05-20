@@ -81,7 +81,8 @@
           "pages": [
             "libraries/fr/woocommerce-fr",
             "libraries/fr/prestashop-fr",
-            "libraries/fr/opencart-fr"
+            "libraries/fr/opencart-fr",
+            "libraries/fr/give-fr"
             
           ]
         },
@@ -145,7 +146,8 @@
           "pages": [
             "libraries/en/woocommerce-en",
             "libraries/en/prestashop-en",
-            "libraries/en/opencart-en"
+            "libraries/en/opencart-en",
+            "libraries/en/give-en"
             
           ]
         },
