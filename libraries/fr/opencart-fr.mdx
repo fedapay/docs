@@ -1,0 +1,117 @@
+---
+title: "OpenCart"
+---
+
+Intégrer FedaPay à votre boutique OpenCart est facile grâce à notre plugin. Suivez ces étapes simples pour installer et configurer FedaPay et commencer à accepter les paiements.
+
+<Steps>
+  <Step title="Télécharger et installer le plugin">
+    Téléchargez le plugin FedaPay pour OpenCart en cliquant [ici](https://www.fedapay.com/produit/plugin-fedapay-pour-opencart/?v=ddd70bbaf5be).
+
+    ![Image du plugin](https://res.cloudinary.com/dvilp6td2/image/upload/v1731419530/opencart_sqnhxr.png)
+
+    **Étapes d'installation :**
+
+    1. Accédez à votre **tableau de bord OpenCart**.
+
+    2. Cliquez sur **Extensions** > **Installer**.
+
+       ![Image montrant le menu Extensions](https://res.cloudinary.com/dvilp6td2/image/upload/v1731419529/extension_opencart_egb2iy.png)
+
+    3. Cliquez sur le bouton **Upload** pour téléverser le plugin que vous avez téléchargé.
+
+    ![Image montrant l'interface de téléchargement du plugin](https://res.cloudinary.com/dvilp6td2/image/upload/v1731419527/Upload_opencart_e0xvnp.png)
+
+    <Note>
+      **Important** : Ne changez pas le nom du fichier du plugin (fedapay.ocmod.zip) lors du téléversement, sinon l'installation échouera.
+    </Note>
+
+    4. Une fois l'ajout terminé, cliquez sur le sous-menu **Extensions** pour voir la liste des extensions disponibles.
+
+    ![Image montrant la liste des extensions](https://res.cloudinary.com/dvilp6td2/image/upload/v1731419525/sous-menu_extension_opencart_xkaf42.png)
+
+    5. Filtrez par catégorie **Payments** (Paiements).
+
+    ![image montrant le filtre des extension](https://res.cloudinary.com/dvilp6td2/image/upload/v1731419924/filter-extension_opencart_ad1srr.png)
+
+    6. Trouvez **FedaPay** dans la liste des moyens de paiement.
+
+    ![Image montrant le filtre et la liste des moyens de paiement](https://res.cloudinary.com/dvilp6td2/image/upload/v1731419528/fedapay_opencart_teuxpk.png)
+
+    7. Cliquez sur le bouton vert pour installer FedaPay.
+
+       ![Image montrant le bouton d'installation](https://res.cloudinary.com/dvilp6td2/image/upload/v1731419528/active-fedapay_opencart_fynw66.png)
+  </Step>
+
+  <Step title="Configurer le plugin FedaPay">
+    Une fois installé, vous devez configurer FedaPay pour qu'il fonctionne avec votre boutique.
+
+    1. Cliquez sur le bouton bleu **Configurer** pour accéder aux réglages de FedaPay.
+
+    ![Image montrant l'accès aux réglages](https://res.cloudinary.com/dvilp6td2/image/upload/v1731420713/acces-reglage_opencart_obinib.png)
+
+    2. Activez FedaPay en passant le \**Status* de "Disabled" à "Enabled".
+
+    ![image montrant le status](https://res.cloudinary.com/dvilp6td2/image/upload/v1731420713/active-status_opencart_kuxupa.png)
+
+    3. Choisissez l'environnement selon vos besoins :
+
+       * **Sandbox** si vous voulez tester avec un compte test.
+
+       * **Live** pour commencer à accepter des paiements réels avec votre compte FedaPay.
+
+       ![Image montrant la sélection de l'environnement](https://res.cloudinary.com/dvilp6td2/image/upload/v1731420712/selection-environement_opencart_yuffpa.png)
+
+    4. Selon l'environnement choisi, copiez et collez la **clé API secrète** de votre compte FedaPay.
+
+       * Si vous avez choisi **Sandbox**, copiez la clé API de votre compte FedaPay Sandbox.
+
+       * Si vous avez choisi **Live**, copiez la clé API de votre compte FedaPay Live.
+
+    ![Image montrant où coller la clé API](https://res.cloudinary.com/dvilp6td2/image/upload/v1731420712/api_opencart_zv8hzz.png)
+
+    5. **Sort Order** : Ce champ vous permet de définir l'ordre d'affichage de FedaPay si vous avez plusieurs options de paiement. Remplissez ce champ selon vos préférences.
+
+    6. Cliquez sur le bouton de sauvegarde en haut à droite pour enregistrer vos réglages.
+
+    ![Image montrant le bouton de sauvegarde](https://res.cloudinary.com/dvilp6td2/image/upload/v1731420712/enregistrer_opencart_fc7izj.png)
+  </Step>
+
+  <Step title="Ajouter et configurer la devise FCFA">
+    FedaPay supporte uniquement le **FCFA** comme devise. Vous devez donc l'ajouter et la définir comme devise par défaut.
+
+    **Étapes pour ajouter le FCFA :**
+
+    1. Cliquez sur **System** > **Localisation** > **Currencies**.
+
+       ![Image montrant le chemin pour accéder aux devises](https://res.cloudinary.com/dvilp6td2/image/upload/v1731421730/devise_opencart_qlqgoo.png)
+
+    2. Cliquez sur le bouton bleu **Ajouter une devise**.
+
+       ![Image montrant l'ajout d'une nouvelle devise](https://res.cloudinary.com/dvilp6td2/image/upload/v1731421731/ajouter-devise_opencart_twnopw.png)
+
+    3. Remplissez les informations pour le **FCFA** (nom, symbole, taux de conversion) et sauvegardez.
+
+       ![Image montrant les informations à remplir pour le FCFA](https://res.cloudinary.com/dvilp6td2/image/upload/v1731421729/sauvegarder-devise_opencart_vcgq7o.png)
+
+    **Définir le FCFA comme devise par défaut :**
+
+    1. Allez dans **System** > **Settings**.
+
+    ![Image montrant le chemin vers les paramètres](https://res.cloudinary.com/dvilp6td2/image/upload/v1731421730/parametre_opencart_kxathp.png)
+
+    2. Cliquez sur le bouton d'édition pour accéder aux paramètres de votre boutique.
+
+    ![Image montrant le bouton d'édition](https://res.cloudinary.com/dvilp6td2/image/upload/v1731421730/modifier-devise_opencart_dk6qbb.png)
+
+    3. Allez dans l'onglet **Local**, puis dans l'option **Currency**, sélectionnez **FCFA** dans la liste des devises.
+
+    ![Image montrant comment définir le FCFA comme devise par défaut](https://res.cloudinary.com/dvilp6td2/image/upload/v1731421729/save_opencart_ao8cec.png)
+
+    4. Cliquez sur **Sauvegarder**.
+  </Step>
+
+  <Step title="Terminer l'intégration">
+    Votre boutique OpenCart est maintenant prête à accepter les paiements via FedaPay !
+  </Step>
+</Steps>

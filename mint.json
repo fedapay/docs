@@ -80,7 +80,8 @@
           "group": "Plugins FedaPay",
           "pages": [
             "libraries/fr/woocommerce-fr",
-            "libraries/fr/prestashop-fr"
+            "libraries/fr/prestashop-fr",
+            "libraries/fr/opencart-fr"
             
           ]
         },
@@ -143,7 +144,8 @@
           "group": "Plugins FedaPay",
           "pages": [
             "libraries/en/woocommerce-en",
-            "libraries/en/prestashop-en"
+            "libraries/en/prestashop-en",
+            "libraries/en/opencart-en"
             
           ]
         },
