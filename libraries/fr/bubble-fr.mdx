@@ -1,0 +1,114 @@
+---
+title: "Bubble"
+---
+
+Vous utilisez **Bubble** pour créer une application ou un site web sans coder ? Grâce au **plugin FedaPay**, vous pouvez accepter facilement des paiements par carte bancaire (Visa, MasterCard) et Mobile Money dans plusieurs pays d’Afrique de l’Ouest — sans rediriger vos utilisateurs vers une autre page.Voici les étapes pour intégrer le plugin FedaPay dans votre projet  : 
+
+### Étape 1 – Installer le plugin FedaPay
+
+1- Ouvrez votre projet dans **Bubble**.
+
+2- Allez dans l’onglet **Plugins** (menu de gauche).
+
+3- Cliquez sur **Add plugins**, puis recherchez **FedaPay Payment Gateway**.
+
+4- Cliquez sur **Install** pour l’ajouter à votre application.
+
+<Note>**Astuce** : Une fois installé, vous verrez le plugin dans la liste **Installed plugins**.</Note>
+
+### Étape 2 – Configurer les clés API FedaPay
+
+1- Dans l’onglet **Plugins**, cliquez sur **FedaPay Payment Gateway**.
+
+2- Choisissez le **mode** :
+
+      * **sandbox** pour faire des tests (aucun vrai paiement)
+
+      * **live** pour activer les paiements réels
+
+3- Renseignez les **clés API** :
+
+      * Clé Sandbox si vous êtes en mode test
+
+      * Clé Live si vous êtes prêt à recevoir de vrais paiements
+
+Vous trouverez vos clés dans [votre compte FedaPay](https://live.fedapay.com/login) → Paramètres API.
+
+### Étape 3 – Ajouter l’élément FedaPay à votre page
+
+1- Dans l’onglet **Design** de Bubble, cherchez **FedaPay Payment Gateway** dans les éléments visuels.
+
+2- Glissez-déposez cet élément n’importe où sur votre page.
+
+<Info>**Pourquoi cet élément est nécessaire** ?
+Même s’il peut être invisible pour vos utilisateurs, cet élément permet à Bubble d’activer la fenêtre de paiement. **Ne le supprimez pas**.
+</Info>
+
+### Étape 4 – Créer un bouton pour déclencher le paiement
+
+1- Ajoutez un **bouton** (ex. : “Payer maintenant”) dans l’éditeur.
+
+2- Cliquez dessus, puis sur **Start/Edit Workflow**.
+
+3- Dans le workflow, ajoutez l’action **Open Checkout** (de l’élément FedaPay).
+
+4- Complétez les champs :
+
+     * **Amount (Requis)** : le montant à payer (ex. 1000)
+
+     * **Description (facultatif)** : “Paiement de commande #123”
+
+     * **Firstname / Lastname (facultatif)**
+
+     * **Phone number** (facultatif, utile pour Mobile Money)
+
+<Tip>**Conseil** : Vous pouvez utiliser les champs de votre formulaire utilisateur pour remplir automatiquement ces données.
+</Tip>
+
+### Étape 5 – Que se passe-t-il après le paiement ?
+
+Quand l’utilisateur termine le paiement :
+
+    * L’événement **checkout_completed** est déclenché automatiquement.
+
+    * Vous pouvez l’utiliser pour :
+
+          * Envoyer un email de confirmation
+
+          * Enregistrer la transaction dans votre base de données
+
+          * Afficher un message de réussite
+
+**Données disponibles après paiement** :
+
+Vous pouvez récupérer ces informations dans votre workflow :
+
+     * transaction_id
+
+     * amount
+
+     * customer_email
+
+     * customer_firstname
+
+     * customer_lastname
+
+### Étape 6 – Tester le plugin dans une app de démonstration
+
+Envie de voir à quoi ça ressemble avant de l’implémenter vous-même ?
+Consultez l’éditeur de démo ici : [Lien vers l’application de démonstration](http://bubble.io/page?id=payment-gateway-78241&tab=Design&name=index)
+
+### À propos des données collectées
+
+Le plugin FedaPay collecte uniquement les informations saisies par l'utilisateur lors du paiement (prénom, nom, email). Ces données vous sont renvoyées après paiement pour vous permettre de :
+
+      * Créer ou mettre à jour un profil utilisateur
+
+      * Envoyer une confirmation
+
+      * Faire de l’analyse de données
+
+### Où trouver le plugin dans Bubble ?
+
+Il faut cliquez sur le lien suivant : [FedaPay Payment Gateway](https://bubble.io/plugin/fedapay-payment-gateway-1744967327162x196581148574351360)
+

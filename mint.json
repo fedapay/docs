@@ -83,7 +83,8 @@
             "libraries/fr/prestashop-fr",
             "libraries/fr/opencart-fr",
             "libraries/fr/give-fr",
-            "libraries/fr/whmcs-fr"
+            "libraries/fr/whmcs-fr",
+            "libraries/fr/bubble-fr"
             
           ]
         },
@@ -149,7 +150,8 @@
             "libraries/en/prestashop-en",
             "libraries/en/opencart-en",
             "libraries/en/give-en",
-            "libraries/en/whmcs-en"
+            "libraries/en/whmcs-en",
+            "libraries/en/bubble-en"
             
           ]
         },
