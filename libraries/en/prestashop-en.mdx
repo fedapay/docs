@@ -1,0 +1,104 @@
+---
+title: "PrestaShop"
+---
+ 
+
+Integrating FedaPay into your PrestaShop store is easy with our dedicated plugin. Follow this guide to install and configure FedaPay quickly, so you can start accepting online payments with ease.
+
+<Steps>
+  <Step title="Download and Install the Plugin">
+    You can download the FedaPay plugin for PrestaShop by clicking [here](https://www.fedapay.com/produit/plugin-fedapay-pour-prestashop/?v=ddd70bbaf5be).
+
+    ![Image Showing the plugin](https://res.cloudinary.com/dvilp6td2/image/upload/v1731415086/prestashop-logo_bkbdkv.png)
+
+    **Installation Steps :**
+
+    1. Go to your PrestaShop dashboard.
+
+    2. Click on **Modules > Module Manager**.
+
+       ![prestashop mode](https://res.cloudinary.com/dvilp6td2/image/upload/v1731415087/module_prestshop_pnsvri.png)
+
+    3. Click on **Install a module**.
+
+    ![Image Showing how to access the module installation](https://res.cloudinary.com/dvilp6td2/image/upload/v1731415087/install_module_prestashop_lmzhw2.png)
+
+    4. Upload the plugin file you downloaded.
+
+       ![Image Showing where to upload the plugin](https://res.cloudinary.com/dvilp6td2/image/upload/v1731415086/televerser_module_prestashop_dz1zv9.png)
+
+    Once the plugin is uploaded, the installation will start automatically. You will receive a success notification once the installation is complete.
+
+    ![Image Showing installation confirmation](https://res.cloudinary.com/dvilp6td2/image/upload/v1731415087/confirme-install_prestashop_tj1d0g.png)
+  </Step>
+
+  <Step title="Configure the FedaPay Plugin">
+    After installation, click on **Configure** to access FedaPay's settings.
+
+    ![Image Showing the Configure button](https://res.cloudinary.com/dvilp6td2/image/upload/v1731416102/config_prestashop_habjbp.png)
+
+    You can configure the plugin to work in either **Test Mode (Sandbox)** or **Live Mode** depending on your needs:
+
+    **Test Mode (Sandbox) :**
+
+    * Log in to your FedaPay **Sandbox account**.
+
+    * Go to the **API** menu and copy the test secret key (**sk\_sandbox**).
+
+    * Paste this key into the corresponding field in PrestaShop.
+
+      ![Image showing sandbox configuration](https://res.cloudinary.com/dvilp6td2/image/upload/v1731416101/config_prestashop_sandbox_uaexbx.png)
+
+    **Live Mode :**
+
+    * Log in to your FedaPay **Live account**.
+
+    * Go to the **API** menu and copy the live secret key (**sk\_live**).
+
+    * Paste this key into the corresponding field in **PrestaShop**.
+
+      ![Image showing live configuration](https://res.cloudinary.com/dvilp6td2/image/upload/v1731416102/config_prestashop_live_wpj2k1.png)
+  </Step>
+
+  <Step title="Configure the Currency (FCFA)">
+    FedaPay currently only supports FCFA, so you need to configure this currency as the default in PrestaShop.
+
+    **Steps to add FCFA :**
+
+    1. Go to **International** > **Localization**.
+
+       ![Image Showing access to localization](https://res.cloudinary.com/dvilp6td2/image/upload/v1731415087/module_prestshop_pnsvri.png)
+
+    2. Click on the **Currencies** tab.
+
+    ![Image showing currency tab](https://res.cloudinary.com/dvilp6td2/image/upload/v1731417650/currencie_prestashop_motwd3.png)
+
+    3. Click on **Add a currency**.
+
+       ![Image Showing how to add a currency](https://res.cloudinary.com/dvilp6td2/image/upload/v1731417650/ajout-devise_prestashop_yqzlmc.png)
+
+    4. Select **FCFA** from the dropdown list.
+
+    5. Set the conversion rate to Euro (if needed).
+
+    ![Image Showing the conversion rate](https://res.cloudinary.com/dvilp6td2/image/upload/v1731417650/choisi-fcfa_prestashop_o2kaba.png)
+
+    Once FCFA is added, it will appear in your store's currency list.
+
+    ![Image Showing FCFA in the list of currencies](https://res.cloudinary.com/dvilp6td2/image/upload/v1731417650/ajout-devise_prestashop_yqzlmc.png)
+
+    **Set FCFA as the default currency :**
+
+    1. Return to **Localization**.
+
+    2. Scroll down to the currency settings.
+
+    3. Choose **FCFA** as the default currency.
+
+    ![Image Showing how to set FCFA as default](https://res.cloudinary.com/dvilp6td2/image/upload/v1731417650/localisation_prestashop_du8mgw.png)
+  </Step>
+
+  <Step title="Finalize the Configuration">
+    Once all the previous steps are completed, your PrestaShop store will be configured to accept payments via FedaPay.
+  </Step>
+</Steps>
