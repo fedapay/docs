@@ -1,0 +1,88 @@
+---
+title: "Configuration du plugin WHMCS pour FedaPay"
+---
+
+**WHMCS** est un système d'automatisation d'hébergement web simple à utiliser. Si vous gérez un site d'hébergement web avec WHMCS, **FedaPay** propose un plugin d'intégration pour collecter des paiements en toute simplicité. Voici comment l'installer et le configurer.
+
+<Steps>
+  <Step title="Installation du plugin">
+    Avant de commencer, suivez ces étapes simples pour installer le plugin :
+
+    1. **Créez un compte FedaPay** en vous inscrivant [ici](https://live.fedapay.com/register).
+
+    2. **Téléchargez le plugin WHMCS** pour FedaPay disponible sur GitHub [ici](https://github.com/fedapay/whmcs-fedapay).
+
+    3. Une fois téléchargé, vous devrez **copier les fichiers** dans les dossiers de votre système WHMCS.
+
+    **Structure des fichiers à copier :**
+
+    ```
+    modules/fedapay/
+      callback/fedapay.php
+      fedapay-php/
+      fedapay.php
+    ```
+
+    * Copiez le dossier **fedapay-php/** et le fichier **fedapay.php** dans le dossier **modules/gateways/** de votre installation WHMCS.
+
+    * Copiez le contenu du dossier **callback/** dans **modules/gateways/callback/**.
+  </Step>
+
+  <Step title="Configuration du plugin dans WHMCS">
+    Une fois les fichiers du plugin installés, suivez les étapes ci-dessous pour configurer FedaPay dans WHMCS :
+
+    **Étape 1 : Accéder aux paramètres de paiement**
+
+    * Dans votre tableau de bord WHMCS, allez dans **Setup** > **Payments** > **Payment Gateways**.
+
+      ![Image montrant comment accéder aux paramètres](https://res.cloudinary.com/dvilp6td2/image/upload/v1731424814/parametre_whmcs_arsgwi.png)
+
+      ![Image montrant comment accéder aux paramètres](https://res.cloudinary.com/dvilp6td2/image/upload/v1731424815/parametre1_whmcs_dn2k5h.png)
+
+    * Cliquez sur l'onglet **All Payment Gateways** pour voir la liste complète des passerelles de paiement disponibles.
+
+      ![Image montrant la liste des passerelles de paiement](https://res.cloudinary.com/dvilp6td2/image/upload/v1731424816/liste-passerelle_whmcs_l1y7oi.png)
+
+    * Dans la liste, sélectionnez **FedaPay** pour l'activer.
+
+    **Étape 2 : Activer et configurer FedaPay**
+
+    * Cochez la case **Show on Order Form** pour permettre à vos clients de voir FedaPay sur le formulaire de commande.
+
+    * Si vous êtes en mode test, cochez la case **Sandbox Mode**. Sinon, laissez cette case décochée pour les transactions réelles.
+
+    **Étape 3 : Récupérer et entrer vos clés API**
+
+    * Connectez-vous à vos comptes **FedaPay Sandbox** (test) et **FedaPay Live** (réel).
+
+    * Copiez les **clés API secrètes** pour chaque mode :
+
+      * **sk\_sandbox** pour le mode test.
+
+      * **sk\_live** pour le mode réel.
+
+      ![Image montrant où récupérer les clés API](https://res.cloudinary.com/dvilp6td2/image/upload/v1731424816/active-fedapay_whmcs_krvp0l.png)
+
+    * Collez ces clés dans les champs correspondants dans WHMCS.
+
+    **Étape 4 : Enregistrer les modifications**
+
+    Cliquez sur **Enregistrer** pour sauvegarder vos modifications.
+  </Step>
+
+  <Step title="Ajouter la devise XOF (FCFA)">
+    Pour permettre à vos clients de payer en **FCFA (XOF)**, vous devez ajouter cette devise dans WHMCS.
+
+    * Dans le menu **Payments**, cliquez sur **Currencies**.
+
+    * Modifiez la devise par défaut ou ajoutez **XOF** comme nouvelle devise.
+
+      ![Image montrant l'ajout de la devise XOF](https://res.cloudinary.com/dvilp6td2/image/upload/v1731424816/ajout-devise_whmcs_ro5idt.png)
+
+      ![Image montrant l'ajout de la devise XOF](https://res.cloudinary.com/dvilp6td2/image/upload/v1731424816/ajout1-devise_whmcs_b85kby.png)
+  </Step>
+
+  <Step title="Finaliser la configuration">
+    Vous avez maintenant terminé la configuration de FedaPay pour WHMCS. Votre passerelle de paiement est prête à recevoir des paiements via Mobile Money et cartes de crédit.
+  </Step>
+</Steps>
