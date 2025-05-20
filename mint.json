@@ -77,6 +77,14 @@
         },
         "libraries/fr/plugin-fr",
         {
+          "group": "Plugins FedaPay",
+          "pages": [
+            "libraries/fr/woocommerce-fr"
+            
+          ]
+        },
+        
+        {
           "group": "Tableau de bord FedaPay",
           "pages": [
             "dashboard/fr/home-fr",
@@ -130,6 +138,14 @@
           ]
         },
         "libraries/en/plugin-en",
+        {
+          "group": "Plugins FedaPay",
+          "pages": [
+            "libraries/en/woocommerce-en"
+            
+          ]
+        },
+        
         {
           "group": "FedaPay Dashboard",
           "pages": [
