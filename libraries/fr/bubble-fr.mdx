@@ -6,7 +6,7 @@ Vous utilisez **Bubble** pour créer une application ou un site web sans coder�
 
 ### Étape 1 – Installer le plugin FedaPay
 
-1- Ouvrez votre projet dans **Bubble**.
+1- Ouvrez l'éditeur de votre application **Bubble**.
 
 2- Allez dans l’onglet **Plugins** (menu de gauche).
 
@@ -14,23 +14,25 @@ Vous utilisez **Bubble** pour créer une application ou un site web sans coder�
 
 4- Cliquez sur **Install** pour l’ajouter à votre application.
 
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1748018711/screely-1748015204121_z4rx8l.png" />
+</Frame>
+
 <Note>**Astuce** : Une fois installé, vous verrez le plugin dans la liste **Installed plugins**.</Note>
 
 ### Étape 2 – Configurer les clés API FedaPay
 
 1- Dans l’onglet **Plugins**, cliquez sur **FedaPay Payment Gateway**.
 
-2- Choisissez le **mode** :
-
-      * **sandbox** pour faire des tests (aucun vrai paiement)
-
-      * **live** pour activer les paiements réels
-
-3- Renseignez les **clés API** :
+2- Renseignez les **clés API** :
 
       * Clé Sandbox si vous êtes en mode test
 
       * Clé Live si vous êtes prêt à recevoir de vrais paiements
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1748018711/screely-1748015773095_fwpeyy.png" />
+</Frame>
 
 Vous trouverez vos clés dans [votre compte FedaPay](https://live.fedapay.com/login) → Paramètres API.
 
@@ -47,11 +49,23 @@ Même s’il peut être invisible pour vos utilisateurs, cet élément permet à
 
 1- Ajoutez un **bouton** (ex. : “Payer maintenant”) dans l’éditeur.
 
-2- Cliquez dessus, puis sur **Start/Edit Workflow**.
+2- Cliquez dessus, puis sur **Add/Edit Workflow**.
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1748018711/screely-1748017025108_rmj5tz.png" />
+</Frame>
 
 3- Dans le workflow, ajoutez l’action **Open Checkout** (de l’élément FedaPay).
 
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1748018711/screely-1748017163530_vt2xjs.png" />
+</Frame>
+
 4- Complétez les champs :
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1748018712/screely-1748018469163_omvr8c.png" />
+</Frame>
 
      * **Amount (Requis)** : le montant à payer (ex. 1000)
 
@@ -63,19 +77,31 @@ Même s’il peut être invisible pour vos utilisateurs, cet élément permet à
 
 <Tip>**Conseil** : Vous pouvez utiliser les champs de votre formulaire utilisateur pour remplir automatiquement ces données.</Tip>
 
-### Étape 5 – Que se passe-t-il après le paiement ?
+### Étape 5 – Gérer le succès du paiement 
 
-Quand l’utilisateur termine le paiement :
+Une fois que l'utilisateur finalise le paiement via FedaPay, l'événement **checkout_completed** est déclenché automatiquement dans Bubble.
 
-    * L’événement **checkout_completed** est déclenché automatiquement.
+**Que faire après le paiement ?**
 
-    * Vous pouvez l’utiliser pour :
+Vous pouvez utiliser cet événement dans votre **workflow** pour :
 
-          * Envoyer un email de confirmation
+  * Enregistrer la transaction dans votre base de données
 
-          * Enregistrer la transaction dans votre base de données
+  * Envoyer un email de confirmation
 
-          * Afficher un message de réussite
+  * Afficher un message de réussite à l’utilisateur
+
+**Comment configurer cela dans Bubble ?**
+
+1- Allez dans l’onglet **Workflow** de votre application Bubble.
+
+2- Cliquez sur le bouton bleu "**New**" 
+
+3- Dans la section "**Elements**", sélectionnez **A FedaPay Payment Gateway checkout is completed**.
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1748018713/screely-1748018565647_szjfmv.png" />
+</Frame>
 
 **Données disponibles après paiement** :
 
