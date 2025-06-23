@@ -307,6 +307,17 @@ Creating a payout through the API involves several steps. Each payout follows pr
     #### Example query to retrieve payout details
 
     <CodeGroup>
+
+    
+    ```java Curl
+
+/*Replace YOUR_API_SECRET_KEY by the API secret key of your sandbox or live account. If you are using your live account, you must replace the link by https://api.fedapay.com/v1/payouts/ID   */
+    
+      curl -X GET \
+      https://sandbox-api.fedapay.com/v1/payouts/ID \
+      -H 'Authorization: Bearer YOUR_API_SECRET_KEY' \
+      -H 'Content-Type: application/json'
+      ```
       
       ```javascript NodeJs
       const { FedaPay, Payout } = require('fedapay');
