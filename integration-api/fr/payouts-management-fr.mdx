@@ -308,6 +308,13 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
     #### Exemple de requête pour récupérer les détails d'un dépôt
 
     <CodeGroup>
+
+    ```java Curl
+      curl -X GET \
+      https://sandbox-api.fedapay.com/v1/payouts/ID \
+      -H 'Authorization: Bearer YOUR_API_SECRET_KEY' \
+      -H 'Content-Type: application/json'
+      ```
     
       ```javascript NodeJs
       const { FedaPay, Payout } = require('fedapay');
