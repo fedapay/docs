@@ -9,7 +9,7 @@ L'API de FedaPay permet d’intégrer facilement des solutions de paiement sécu
 Les étapes de configuration d’une collecte se divisent en plusieurs processus essentiels.
 
 <Steps>
-  <Step title=" Initialisation de la Collecte : Création d'une Requête">
+  <Step title="Initialisation de la Collecte : Création d'une Requête">
     La première étape consiste à envoyer une requête de création de collecte via l’API. Cette requête nécessite certains paramètres obligatoires :
 
     * **description** : une brève description de l’objet de la collecte
@@ -132,7 +132,6 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
       $token = $transaction->generateToken();
       return header('Location: ' . $token->url);
       ```
-
     </CodeGroup>
 
     Le lien ainsi généré peut être utilisé pour rediriger les utilisateurs vers la page de paiement de FedaPay.
@@ -155,7 +154,7 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
     </Warning>
   </Step>
 
-  <Step title=" Récupération des Détails d’une Collecte">
+  <Step title="Récupération des Détails d’une Collecte">
     Pour récupérer les informations complètes d’une collecte, effectuez une requête avec l'ID de cette collecte.
 
     #### Exemple de requête pour récupérer les détails d’une collecte
@@ -211,7 +210,7 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
     La première étape consiste à créer une collecte via l'API de FedaPay. Cela génère un **token** qui est nécessaire pour effectuer la transaction.
   </Step>
 
-  <Step title=" Déclencher le paiement">
+  <Step title="Déclencher le paiement">
     Une fois que vous avez le token de paiement, vous devez envoyer une requête à l'API FedaPay pour traiter le paiement. La requête se fait en utilisant une des [méthodes de paiement](/payment-methods/fr/payment-methods-fr) spécifiques
 
     ***Voici un exemple de code pour envoyer un paiement mobile sans redirection***
@@ -310,108 +309,3 @@ Chaque collecte passe par différents statuts :
 
 <Note>Pour consulter le statut en temps réel, rendez-vous dans le tableau de bord FedaPay sous la section **Collectes** ou utilisez l’API pour vérifier avec l'ID de la collecte.</Note>
 
-### Ajouter des données personnalisées à vos transactions : merchant_reference et custom_metadata
-
-Lorsque vous créez une transaction via l’API de FedaPay, il est souvent nécessaire d’y associer des informations propres à votre application. Cela vous permet de mieux suivre, analyser ou relier une transaction à un utilisateur ou une commande spécifique sur votre plateforme. FedaPay vous offre deux champs très utiles pour cela : **merchant_reference** et **custom_metadata**.
-
-**merchant_reference : Votre identifiant unique pour chaque transaction**
-
-Le champ **merchant_reference** vous permet d’attribuer à chaque transaction un identifiant unique défini par vous-même (par exemple : un ID de commande, un numéro de facture ou le code d’une session d’achat). Cet identifiant est stocké par FedaPay et peut ensuite être utilisé pour retrouver facilement la transaction via une API dédiée.
-
-**Pourquoi l’utiliser ?**
-
-*  Vous avez une plateforme e-commerce ou une application mobile et souhaitez lier une transaction FedaPay à un paiement interne.
-
-*  Vous souhaitez retrouver rapidement une transaction en utilisant vos propres références, sans avoir à stocker l’ID généré par FedaPay.
-
-*  Vous voulez tracer plus facilement les paiements effectués par vos clients.
-
-**Exemple : Créer une transaction avec merchant_reference**
-
-  
-      ``curl -X POST \
- https://sandbox-api.fedapay.com/v1/transactions \
--H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
--H 'Content-Type: application/json' \
--d '{
-       "description" : "Transaction for john.doe@example.com",
-       "amount" : 2000,
-       "currency" : {"iso" : "XOF"},
-       "callback_url" : "https://maplateforme.com/callback",
-       "customer" : {
-       "email" : "john.doe@example.com",
-    },
-      "merchant_reference": "CMD-20250701-001" 
-    }'
-      ```
-
-<Note>Dans cet exemple, CMD-20250701-001 est la référence propre au marchand pour cette commande.</Note>
-
-**Récupérer une transaction avec la référence marchand**
-
-  
-      ```curl -X GET \
-https://sandbox-api.fedapay.com/v1/transactions/merchant/{reference}
- \
--H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
--H 'Content-Type: application/json'
-
-      ```
-
-**custom_metadata : Ajouter des données personnalisées à vos transactions**
-
-Avec le champ **custom_metadata**, vous pouvez enregistrer des informations supplémentaires directement dans la transaction. Il peut s’agir, par exemple :
-
-* Le numéro de la commande
-
-* Du type de service acheté
-
-* De l’identifiant de l’agent vendeur
-
-* Ou toute autre donnée utile pour vous.
-
-Ces données sont stockées sous forme de paires clé-valeur et restent attachées à la transaction, sans affecter son traitement.
-
-**Pourquoi l’utiliser ?**
-
-* Pour enrichir vos rapports internes ou automatiser certains traitements en récupérant vos propres données.
-
-* Pour éviter de stocker des informations sensibles côté client.
-
-* Pour gagner du temps lors du rapprochement comptable ou des vérifications manuelles.
-
-**Exemple : Créer une transaction avec custom_metadata**
-
-
-  
-      ```curl -X POST 
- https://sandbox-api.fedapay.com/v1/transactions \
--H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
--H 'Content-Type: application/json' \
--d '{
-     "description": "Abonnement premium",
-     "amount": 10000,
-     "currency": {"iso": "XOF"},
-     "callback_url": "https://votreapp.com/callback",
-     "customer": {
-     "email": "utilisateur@votreapp.com"
-      },
-      
-  "custom_metadata": {
-    "client_id": "USER-14567",
-    "forfait": "premium",
-    "langue": "fr"
-  }
-}'
-      ```
-
-<Warning>
-**Bonnes pratiques** :
-  
-* Assurez-vous que la valeur de merchant_reference est unique pour chaque transaction. Si la valeur de l’identifiant existe déjà, la création de la transaction échouera.
-
-* Utilisez custom_metadata uniquement pour des données non sensibles (évitez les mots de passe, données de carte, etc.).
-
-* Ces champs sont facultatifs, mais très utiles pour automatiser vos flux métier et faciliter l’intégration avec vos outils internes.
-
-</Warning>
