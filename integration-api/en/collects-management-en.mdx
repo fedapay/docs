@@ -348,4 +348,71 @@ https://sandbox-api.fedapay.com/v1/transactions \
 
 ```
 
+<Note>Here, ORD-20250701-001 is the merchant’s own code for this specific transaction.</Note>
 
+**Retrieving a Transaction by Merchant Reference**
+
+```java Curl
+curl -X GET \
+https://sandbox-api.fedapay.com/v1/transactions/merchant/{reference} \
+-H 'Authorization: Bearer YOUR_SECRET_API_KEY' \
+-H 'Content-Type: application/json'
+
+```
+
+**custom_metadata: Add Extra Info to a Transaction**
+
+With the **custom_metadata** field, you can attach additional data to your transaction. These are key-value pairs that can hold any info useful for your business without impacting how the payment is processed.
+
+**Use Cases Include:**
+
+* Order ID or user ID
+
+* Type of service or subscription purchased
+
+* Sales agent or partner involved
+
+* Anything else that helps you with automation or reporting
+
+**Why Use It?**
+
+* Makes it easier to automate back-office tasks (e.g., reconciliation, reporting, alerts).
+
+* Avoids having to store sensitive or dynamic data in your own systems.
+
+* Saves time when reviewing or validating transactions manually.
+
+**Example: Creating a Transaction with custom_metadata**
+
+```java Curl
+curl -X POST https://sandbox-api.fedapay.com/v1/transactions \
+-H 'Authorization: Bearer YOUR_SECRET_API_KEY' \
+-H 'Content-Type: application/json' \
+-d '{
+  "description": "Premium subscription",
+  "amount": 10000,
+  "currency": {"iso": "XOF"},
+  "callback_url": "https://yourapp.com/callback",
+  "customer": {
+    "email": "user@yourapp.com"
+  },
+  "custom_metadata": {
+    "client_id": "USER-14567",
+    "plan": "premium",
+    "language": "fr"
+  }
+}'
+
+```
+
+<Warning>
+**Best Practices** :
+  
+* Make sure your merchant_reference is unique for every transaction. If it's duplicated, the transaction will fail.
+
+* Only use custom_metadata for non-sensitive data. Don’t store passwords, card numbers, or personal details in this field.
+
+* Both fields are optional, but they’re powerful tools for improving how your system interacts with FedaPay and how you handle payment workflows internally.
+
+ 
+</Warning>
