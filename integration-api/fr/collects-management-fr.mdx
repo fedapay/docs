@@ -340,7 +340,7 @@ https://sandbox-api.fedapay.com/v1/transactions \
       "customer" : {
         "email" : "john.doe@example.com",
       },
-      "merchant_reference": "reference-unique-marchand" 
+      "merchant_reference": "CMD-20250701-001" 
     }'
 
 ```
@@ -383,7 +383,7 @@ Ces données sont stockées sous forme de paires clé-valeur et restent attaché
 **Exemple : Créer une transaction avec custom_metadata**
 
 
-```javascript Code Block Example
+```java Curl
 curl -X POST https://sandbox-api.fedapay.com/v1/transactions \
 -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
 -H 'Content-Type: application/json' \
