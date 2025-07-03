@@ -329,18 +329,18 @@ Le champ **merchant_reference** vous permet d’attribuer à chaque transaction 
 **Exemple : Créer une transaction avec merchant_reference**
 
   
-      ```curl -X POST \
-https://sandbox-api.fedapay.com/v1/transactions \
+      ``curl -X POST \
+ https://sandbox-api.fedapay.com/v1/transactions \
 -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
 -H 'Content-Type: application/json' \
 -d '{
-      "description" : "Transaction for john.doe@example.com",
-      "amount" : 2000,
-      "currency" : {"iso" : "XOF"},
-      "callback_url" : "https://maplateforme.com/callback",
-      "customer" : {
-        "email" : "john.doe@example.com",
-      },
+       "description" : "Transaction for john.doe@example.com",
+       "amount" : 2000,
+       "currency" : {"iso" : "XOF"},
+       "callback_url" : "https://maplateforme.com/callback",
+       "customer" : {
+       "email" : "john.doe@example.com",
+    },
       "merchant_reference": "CMD-20250701-001" 
     }'
       ```
@@ -384,17 +384,19 @@ Ces données sont stockées sous forme de paires clé-valeur et restent attaché
 
 
   
-      ```curl -X POST https://sandbox-api.fedapay.com/v1/transactions \
+      ```curl -X POST 
+ https://sandbox-api.fedapay.com/v1/transactions \
 -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
 -H 'Content-Type: application/json' \
 -d '{
-  "description": "Abonnement premium",
-  "amount": 10000,
-  "currency": {"iso": "XOF"},
-  "callback_url": "https://votreapp.com/callback",
-  "customer": {
-    "email": "utilisateur@votreapp.com"
-  },
+     "description": "Abonnement premium",
+     "amount": 10000,
+     "currency": {"iso": "XOF"},
+     "callback_url": "https://votreapp.com/callback",
+     "customer": {
+     "email": "utilisateur@votreapp.com"
+      },
+      
   "custom_metadata": {
     "client_id": "USER-14567",
     "forfait": "premium",
