@@ -349,7 +349,14 @@ https://sandbox-api.fedapay.com/v1/transactions \
 
 **Récupérer une transaction avec la référence marchand**
 
-  
+```java Curl
+curl -X GET \
+https://sandbox-api.fedapay.com/v1/transactions/merchant/{reference}
+ \
+-H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+-H 'Content-Type: application/json'
+
+```
 
 **custom_metadata : Ajouter des données personnalisées à vos transactions**
 
@@ -374,4 +381,25 @@ Ces données sont stockées sous forme de paires clé-valeur et restent attaché
 * Pour gagner du temps lors du rapprochement comptable ou des vérifications manuelles.
 
 **Exemple : Créer une transaction avec custom_metadata**
+
+
+```javascript Code Block Example
+curl -X POST https://sandbox-api.fedapay.com/v1/transactions \
+-H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+-H 'Content-Type: application/json' \
+-d '{
+  "description": "Abonnement premium",
+  "amount": 10000,
+  "currency": {"iso": "XOF"},
+  "callback_url": "https://votreapp.com/callback",
+  "customer": {
+    "email": "utilisateur@votreapp.com"
+  },
+  "custom_metadata": {
+    "client_id": "USER-14567",
+    "forfait": "premium",
+    "langue": "fr"
+  }
+}'
+```
 
