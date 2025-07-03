@@ -328,7 +328,6 @@ Le champ **merchant_reference** vous permet d’attribuer à chaque transaction 
 
 **Exemple : Créer une transaction avec merchant_reference**
 
-<CodeGroup>
   
       ```curl -X POST \
 https://sandbox-api.fedapay.com/v1/transactions \
@@ -346,13 +345,10 @@ https://sandbox-api.fedapay.com/v1/transactions \
     }'
       ```
 
-  </CodeGroup>
-
 <Note>Dans cet exemple, CMD-20250701-001 est la référence propre au marchand pour cette commande.</Note>
 
 **Récupérer une transaction avec la référence marchand**
 
-<CodeGroup>
   
       ```curl -X GET \
 https://sandbox-api.fedapay.com/v1/transactions/merchant/{reference}
@@ -361,7 +357,6 @@ https://sandbox-api.fedapay.com/v1/transactions/merchant/{reference}
 -H 'Content-Type: application/json'
 
       ```
-  </CodeGroup>
 
 **custom_metadata : Ajouter des données personnalisées à vos transactions**
 
@@ -388,7 +383,6 @@ Ces données sont stockées sous forme de paires clé-valeur et restent attaché
 **Exemple : Créer une transaction avec custom_metadata**
 
 
-<CodeGroup>
   
       ```curl -X POST https://sandbox-api.fedapay.com/v1/transactions \
 -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
@@ -408,8 +402,6 @@ Ces données sont stockées sous forme de paires clé-valeur et restent attaché
   }
 }'
       ```
-
-  </CodeGroup>
 
 <Warning>
 **Bonnes pratiques** :
