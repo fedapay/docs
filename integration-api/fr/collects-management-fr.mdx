@@ -403,3 +403,12 @@ curl -X POST https://sandbox-api.fedapay.com/v1/transactions \
 }'
 ```
 
+<Warning>
+**Bonnes pratiques** :
+  
+* Assurez-vous que la valeur de merchant_reference est unique pour chaque transaction. Si la valeur de l’identifiant existe déjà, la création de la transaction échouera.
+
+* Utilisez custom_metadata uniquement pour des données non sensibles (évitez les mots de passe, données de carte, etc.).
+
+* Ces champs sont facultatifs, mais très utiles pour automatiser vos flux métier et faciliter l’intégration avec vos outils internes.
+</Warning>
