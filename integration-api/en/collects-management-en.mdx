@@ -308,3 +308,44 @@ Each collection passes through various statuses:
 * **transferred** : Transferred (amount moved to the merchant account)
 
 <Note>To view the real-time status, visit the FedaPay dashboard under the **Collects** section or use the API to check using the collect ID.</Note>
+
+### Add Custom Data to Your FedaPay Transactions: merchant_reference and custom_metadata
+
+When you create a transaction through the FedaPay API, it's often helpful to attach some custom information that comes from your own app or platform. This could be to track the transaction better, connect it to a user account, an order, or a specific business operation.
+
+To make this easier, FedaPay offers two key fields you can use: **merchant_reference** and **custom_metadata.**
+
+**Merchant_reference: Your Own Unique ID for Each Transaction**
+
+The **merchant_reference** field lets you assign your own identifier to a transaction — for example, an order number, an invoice code, or a session ID from your platform. This reference is stored on FedaPay’s side and can later be used to easily retrieve that transaction.
+
+**Why Use It?**
+
+* You run an e-commerce site or mobile app and want to match each FedaPay transaction to an internal payment or order.
+
+* You want to search and filter transactions using your own identifiers, without relying on FedaPay’s generated transaction ID.
+
+* You need better visibility and tracking of client payments for internal tools or reports.
+
+**Example: Creating a Transaction with merchant_reference**
+
+```java Curl
+curl -X POST \
+https://sandbox-api.fedapay.com/v1/transactions \
+-H 'Authorization: Bearer YOUR_SECRET_API_KEY' \
+-H 'Content-Type: application/json' \
+-d '{
+  "description" : "Transaction for john.doe@example.com",
+  "amount" : 2000,
+  "currency" : {"iso" : "XOF"},
+  "callback_url" : "https://yourapp.com/callback",
+  "customer" : {
+    "email" : "john.doe@example.com"
+  },
+  "merchant_reference": "ORD-20250701-001"
+}'
+
+
+```
+
+
