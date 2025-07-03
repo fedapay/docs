@@ -344,14 +344,34 @@ https://sandbox-api.fedapay.com/v1/transactions \
     }'
 
 ```
-
-```java HelloWorld.java lines icon="java"
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-```
       
 <Note>Dans cet exemple, CMD-20250701-001 est la référence propre au marchand pour cette commande.</Note>
+
+**Récupérer une transaction avec la référence marchand**
+
+  
+
+**custom_metadata : Ajouter des données personnalisées à vos transactions**
+
+Avec le champ **custom_metadata**, vous pouvez enregistrer des informations supplémentaires directement dans la transaction. Il peut s’agir, par exemple :
+
+* Le numéro de la commande
+
+* Du type de service acheté
+
+* De l’identifiant de l’agent vendeur
+
+* Ou toute autre donnée utile pour vous.
+
+Ces données sont stockées sous forme de paires clé-valeur et restent attachées à la transaction, sans affecter son traitement.
+
+**Pourquoi l’utiliser ?**
+
+* Pour enrichir vos rapports internes ou automatiser certains traitements en récupérant vos propres données.
+
+* Pour éviter de stocker des informations sensibles côté client.
+
+* Pour gagner du temps lors du rapprochement comptable ou des vérifications manuelles.
+
+**Exemple : Créer une transaction avec custom_metadata**
 
