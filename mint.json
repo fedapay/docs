@@ -106,6 +106,13 @@
             "dashboard/fr/funds-fr"
           ]
         },
+
+        {
+          "group": "TAP & GO",
+          "pages": [
+            "tap-go/fr/faq-fr",
+          ]
+        },
         
         {
           "group": "Sécurité",
@@ -172,6 +179,13 @@
             "dashboard/en/business-en",
             "dashboard/en/user-en",
             "dashboard/en/funds-en"
+          ]
+        },
+
+        {
+          "group": "TAP & GO",
+          "pages": [
+            "tap-go/en/faq-en",
           ]
         },
         
