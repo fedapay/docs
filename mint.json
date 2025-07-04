@@ -110,7 +110,7 @@
         {
           "group": "TAP & GO",
           "pages": [
-            "tap-go/fr/faq-fr",
+            "tap-go/fr/faq-fr"
           ]
         },
         
@@ -179,13 +179,6 @@
             "dashboard/en/business-en",
             "dashboard/en/user-en",
             "dashboard/en/funds-en"
-          ]
-        },
-
-        {
-          "group": "TAP & GO",
-          "pages": [
-            "tap-go/en/faq-en",
           ]
         },
         
