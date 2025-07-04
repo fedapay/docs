@@ -181,6 +181,13 @@
             "dashboard/en/funds-en"
           ]
         },
+
+        {
+          "group": "TAP & GO",
+          "pages": [
+            "tap-go/en/faq-en"
+          ]
+        },
         
         {
           "group": "Security",
