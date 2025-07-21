@@ -327,23 +327,23 @@ Le champ **merchant_reference** vous permet d’attribuer à chaque transaction 
 
 **Exemple : Créer une transaction avec merchant_reference**
 
-```java Curl
-curl -X POST \
-https://sandbox-api.fedapay.com/v1/transactions \
--H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
--H 'Content-Type: application/json' \
--d '{
-      "description" : "Transaction for john.doe@example.com",
-      "amount" : 2000,
-      "currency" : {"iso" : "XOF"},
-      "callback_url" : "https://maplateforme.com/callback",
-      "customer" : {
-        "email" : "john.doe@example.com",
-      },
-      "merchant_reference": "CMD-20250701-001" 
-    }'
-
-```
+  ```java Curl
+  curl -X POST \
+  https://sandbox-api.fedapay.com/v1/transactions \
+  -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "description" : "Transaction for john.doe@example.com",
+        "amount" : 2000,
+        "currency" : {"iso" : "XOF"},
+        "callback_url" : "https://maplateforme.com/callback",
+        "customer" : {
+          "email" : "john.doe@example.com",
+        },
+        "merchant_reference": "CMD-20250701-001" 
+      }'
+  
+  ```
       
 <Note>Dans cet exemple, CMD-20250701-001 est la référence propre au marchand pour cette commande.</Note>
 

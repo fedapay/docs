@@ -391,6 +391,31 @@ Que vous soyez une plateforme de services, un opérateur de cashback, une market
 
 * Gagner du temps : plus besoin de croiser manuellement les ID FedaPay avec ceux de votre système.
 
+**Exemple : effectuer un dépôt avec des métadonnées personnalisées**
+
+Voici une requête de dépôt (payout) avec un champ custom_metadata renseigné :
+
+```java Curl
+-H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+-H 'Content-Type: application/json' \
+-d '{
+  "amount": 3000,
+  "currency": {"iso": "XOF"},
+  "description": "Paiement de la commission d’un agent terrain",
+  "receiver": {
+    "name": "Koffi Kodjo",
+    "phone_number": "+22961234567",
+    "provider": "mtn"
+  },
+  "custom_metadata": {
+    "agent_id": "AGT-0032",
+    "mois": "Juillet",
+    "type": "commission"
+  }
+}'
+
+  
+  ```
 
 ### Support
 
