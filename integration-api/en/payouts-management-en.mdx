@@ -373,6 +373,59 @@ Currently, [the available payout methods](/payment-methods/en/payment-methods-en
 
 These methods make it easy to send money to various countries in the region.
 
+### Add Custom Metadata to Your Payouts
+
+When initiating a **payout** from your FedaPay balance to a Mobile Money account (MTN Benin, MTN Côte d’Ivoire, Moov Benin, Moov Togo, or Togocel), you can attach custom metadata to the operation using the **custom_metadata** field.
+
+This allows you to enrich each payout with useful business-related information, such as a user ID, a transfer purpose, a service reference, or any data specific to your system.
+
+**Why Use custom_metadata in a Payout?**
+
+The custom_metadata field is particularly helpful for:
+
+* Keeping a clear and structured trace of each transaction within your platform.
+
+* Automating internal processes by linking payouts to users, orders, or events.
+
+* Simplifying audits and reconciliation with metadata stored directly in the transaction.
+
+* Saving time by avoiding manual cross-referencing between FedaPay IDs and your own records.
+
+**Example: Perform a Payout with Custom Metadata**
+
+Here's a sample API request to send a payout with attached metadata:
+
+```java Curl
+curl -X POST https://sandbox-api.fedapay.com/v1/payouts \
+-H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+-H 'Content-Type: application/json' \
+-d '{
+  "amount": 3000,
+  "currency": {"iso": "XOF"},
+  "description": "Paiement de commission d’un agent",
+  "receiver": {
+    "name": "Koffi Kodjo",
+    "phone_number": "+22961234567",
+    "provider": "mtn"
+  },
+  "custom_metadata": {
+    "agent_id": "AGT-0032",
+    "mois": "Juillet",
+    "type": "commission"
+  }
+}'
+```
+
+**Good to Know**
+
+* The custom_metadata field accepts a JSON object with key-value pairs.
+
+* Use simple and meaningful keys like type, month, client_id.
+
+* This field is optional, but strongly recommended for better data management and traceability.
+
+* Avoid including sensitive or confidential information, such as passwords or card details.
+
 ### Support
 
 If you have any questions or encounter difficulties with payouts, feel free to contact our support team at: [`support@fedapay.com`](mailto:support@fedapay.com)
