@@ -1,5 +1,146 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Odoo"
 ---
 
+This module allows you to add **FedaPay** as a native payment provider in your **Odoo** environment, so you can securely accept credit card and Mobile Money payments through FedaPay Checkout. It is compatible with Odoo’s eCommerce and Invoicing modules.
+
+**Why choose FedaPay?**
+
+* No setup fees or subscriptions
+
+* You only pay when you receive a payment
+
+* Automatic payouts every 3 days to your bank account or Mobile Money wallet
+
+* Fast, reliable, and secure infrastructure
+
+### Installation & Configuration
+
+1. Install the **FedaPay Payment Provider** module
+
+In your Odoo interface:
+
+* Go to the Apps menu
+
+* Search for and install the **FedaPay Payment Provider** module
+
+* Ensure all required modules are activated (eCommerce, Invoicing)
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1753803784/step1_rzku8f.jpg" />
+</Frame>
+
+2. Access the Payment Service Provider configuration
+
+Depending on your use case (eCommerce or invoicing):
+
+* Go to **Website → Configuration → Payment Providers**
+ or
+
+ **Invoicing → Configuration → Payment Providers**
+
+* From the list, click on **FedaPay** to open its configuration form
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1753803787/step2_chkbpo.jpg" />
+</Frame>
+
+3. Configure FedaPay in Odoo
+
+a) Operation mode
+
+* Test: to simulate transactions without real impact
+
+* Live: to accept real payments
+
+Only activate Live mode after successful testing.
+
+b) "Credentials" tab
+
+Enter your FedaPay API secret key based on the selected mode (Test or Live)
+
+c) "Configuration" tab
+
+* Select the accounting journal to associate with the transactions (e.g. Bank, Mobile Money)
+
+* Click "**Save**" to apply your settings.
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1753803784/step3_rd2p6k.jpg" />
+</Frame>
+
+### Demo & Use Cases
+
+1. Payment through an Odoo eCommerce site
+
+Once FedaPay is configured:
+
+* The user adds products to their cart
+
+* At checkout, FedaPay appears as an available payment method
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1753803785/step4_x9fx1k.jpg" />
+</Frame>
+
+2. Redirect to FedaPay Checkout
+
+* The user is automatically redirected to the secure FedaPay payment page
+
+* They enter their payment details (Mobile Money or card)
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1753803784/step5_kewohp.jpg" />
+</Frame>
+
+3. Payment confirmation
+
+After a successful transaction:
+
+* The user is redirected back to the Odoo payment confirmation page
+
+* The order status is automatically updated
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1753803785/step6_a0vyj3.jpg" />
+</Frame>
+
+4. Invoice payment via Sign & Pay
+
+For invoices generated with the Invoicing module:
+
+* The client receives a link with the **Sign & Pay** option
+
+* They click **Pay** with FedaPay
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1753803785/step7_xenvxe.jpg" />
+</Frame>
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1753803785/step8_uunlmb.jpg" />
+</Frame>
+
+5. Processing and confirmation
+
+* The client is redirected to FedaPay to complete the payment
+
+* After payment, they are automatically redirected back to Odoo with confirmation
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1753803786/step9_f6jnwd.jpg" />
+</Frame>
+
+<Warning>
+**Best practices**:
+  
+* Enable **Webhooks** from your FedaPay dashboard for accurate payment status synchronization.
+
+* Add a custom label or `custom_metadata` to each transaction (e.g. user ID, order ID).
+
+* Secure your setup with a clear API key management policy (never expose keys in frontend code).
+</Warning>
+
+### Additional Resources
+
+Module available on the Odoo [App Store – payment_fedapay](https://apps.odoo.com/apps/modules/18.0/payment_fedapay)
