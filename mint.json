@@ -84,7 +84,8 @@
             "libraries/fr/opencart-fr",
             "libraries/fr/give-fr",
             "libraries/fr/whmcs-fr",
-            "libraries/fr/bubble-fr"
+            "libraries/fr/bubble-fr",
+            "libraries/fr/odoo-fr"
             
           ]
         },

@@ -1,0 +1,146 @@
+---
+title: "Odoo"
+---
+
+Ce module permet d’ajouter **FedaPay** comme fournisseur de paiement natif dans votre environnement **Odoo**, afin d'accepter en toute sécurité les paiements par carte bancaire et Mobile Money via FedaPay Checkout. Il es Compatible avec les modules eCommerce et Invoicing d’Odoo.
+
+**Pourquoi choisir FedaPay ?**
+
+* Aucun frais d’installation ni abonnement
+
+* Vous ne payez que si vous recevez un paiement
+
+* Règlements automatiques tous les 3 jours vers votre compte bancaire ou portefeuille Mobile Money
+
+* Infrastructure rapide, fiable et sécurisée
+
+### Installation & Configuration
+
+1. Installer le module **FedaPay Payment Provider** 
+
+Dans votre interface Odoo :
+
+* Accédez au menu Apps
+
+* Recherchez et installez le module **FedaPay Payment Provider**
+
+* Vérifiez que tous les modules requis sont bien activés (eCommerce, Invoicing)
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1753803784/step1_rzku8f.jpg" />
+</Frame>
+
+2. Accéder à la configuration du Prestataire de services de paiement 
+
+Selon votre cas d’usage (site e-commerce ou facturation) :
+
+* Rendez-vous dans **Website → Configuration → Payment Providers**
+ ou
+
+ **Invoicing → Configuration → Payment Providers**
+
+* Dans la liste, cliquez sur **FedaPay** pour ouvrir sa fiche de configuration
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1753803787/step2_chkbpo.jpg" />
+</Frame>
+
+3. Configurer FedaPay dans Odoo
+
+a) Mode de fonctionnement
+
+* Test : pour simuler les transactions sans impact réel
+
+* Live : pour accepter des paiements réels
+
+Activez uniquement le mode Live une fois les tests concluants.
+
+b) Onglet "Credentials"
+
+Entrez votre clé secrète API FedaPay, en fonction du mode choisi (Test ou Live)
+
+c) Onglet "Configuration"
+
+* Sélectionnez un journal comptable auquel rattacher les transactions (ex. Banque, Mobile Money)
+
+* Cliquez sur "**Save**" pour enregistrer vos paramètres.
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1753803784/step3_rd2p6k.jpg" />
+</Frame>
+
+### Démo & Cas d’usage
+
+1. Paiement via un site eCommerce Odoo
+
+Une fois FedaPay configuré :
+
+* L’utilisateur ajoute des produits à son panier
+
+* Lors du paiement, l’option FedaPay apparaît comme méthode disponible
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1753803785/step4_x9fx1k.jpg" />
+</Frame>
+
+2. Redirection vers FedaPay Checkout
+
+* L’utilisateur est automatiquement redirigé vers la page sécurisée de FedaPay
+
+* Il saisit ses informations de paiement (Mobile Money ou carte)
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1753803784/step5_kewohp.jpg" />
+</Frame>
+
+3. Confirmation du paiement
+
+Après une transaction réussie :
+
+* L’utilisateur est renvoyé vers la page de confirmation de paiement Odoo
+
+* Le statut de la commande est mis à jour automatiquement
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1753803785/step6_a0vyj3.jpg" />
+</Frame>
+
+4. Paiement d’une facture via Sign & Pay
+
+Pour les factures générées via le module Invoicing :
+
+* Le client reçoit un lien avec l’option **Sign & Pay**
+
+* Il clique sur **Pay** avec FedaPay
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1753803785/step7_xenvxe.jpg" />
+</Frame>
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1753803785/step8_uunlmb.jpg" />
+</Frame>
+
+5. Traitement et confirmation
+
+* Le client est redirigé vers FedaPay pour le paiement
+
+* Après paiement, il revient automatiquement sur Odoo avec confirmation
+
+<Frame>
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1753803786/step9_f6jnwd.jpg" />
+</Frame>
+
+<Warning>
+**Bonnes pratiques** :
+  
+* Activez les **Webhooks** depuis le tableau de bord de votre compte FedaPay pour une synchronisation parfaite des statuts de paiement.
+
+* Ajoutez un libellé personnalisé ou des custom_metadata pour chaque transaction (ex : ID utilisateur, ID commande).
+
+* Sécurisez votre interface avec une politique de gestion des clés API claire (ne pas exposer en frontend).
+</Warning>
+
+### Ressources complémentaires
+
+Module disponible sur l’Odoo [App Store – payment_fedapay](https://apps.odoo.com/apps/modules/18.0/payment_fedapay)
