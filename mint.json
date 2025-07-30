@@ -111,7 +111,8 @@
         {
           "group": "TAP & GO",
           "pages": [
-            "tap-go/fr/faq-fr"
+            "tap-go/fr/faq-fr",
+            "tap-go/fr/docs-fr"
           ]
         },
         
