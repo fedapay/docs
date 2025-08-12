@@ -24,13 +24,13 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
       ```java Curl
         curl -X POST \
         https://sandbox-api.fedapay.com/v1/payouts \
-        -H 'Authorization: Bearer VOTRE_CLE_API_PRIVEE' \
+        -H 'Authorization: Bearer TOKEN' \
         -H 'Content-Type: application/json' \
         -d '{
               "amount" : 2000,
               "currency" : {"iso" : "XOF"},
               "mode": "mtn_open" 
-              "customer" : {
+              "customer" : { //  obligatoire.
                   "firstname" : "John",
                   "lastname" : "Doe",
                   "email" : "john.doe@example.com",
@@ -51,7 +51,7 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
         amount: 2000,
         currency: { iso: "XOF" },
         mode: "mtn_open", // Non obligatoire. FedaPay détectera l'operateur sinon.
-        customer: { // Non obligatoire.
+        customer: { //  obligatoire.
           firstname: "John",
           lastname: "Doe",
           email: "john.doe@example.com",
@@ -127,7 +127,7 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
       ```java Curl
           curl -X PUT \
       https://sandbox-api.fedapay.com/v1/payouts/start \
-      -H 'Authorization: Bearer VOTRE_CLE_API_PRIVEE' \
+      -H 'Authorization: Bearer TOKEN' \
       -H 'Content-Type: application/json'
       -d '{
           "payouts" : [
@@ -315,7 +315,7 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
     
       curl -X GET \
       https://sandbox-api.fedapay.com/v1/payouts/ID \
-      -H 'Authorization: Bearer VOTRE_CLE_API_PRIVEE' \
+      -H 'Authorization: Bearer TOKEN' \
       -H 'Content-Type: application/json'
       ```
     
@@ -396,7 +396,7 @@ Que vous soyez une plateforme de services, un opérateur de cashback, une market
 Voici une requête de dépôt (payout) avec un champ custom_metadata renseigné :
 
 ```java Curl
--H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+-H 'Authorization: Bearer TOKEN' \
 -H 'Content-Type: application/json' \
 -d '{
   "amount": 3000,

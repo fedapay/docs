@@ -24,7 +24,7 @@ Creating a payout through the API involves several steps. Each payout follows pr
       ```java Curl
         curl -X POST \
         https://sandbox-api.fedapay.com/v1/payouts \
-        -H 'Authorization: Bearer VOTRE_CLE_API_PRIVEE' \
+        -H 'Authorization: Bearer TOKEN' \
         -H 'Content-Type: application/json' \
         -d '{
               "amount" : 2000,
@@ -127,7 +127,7 @@ Creating a payout through the API involves several steps. Each payout follows pr
       ```java Curl
           curl -X PUT \
       https://sandbox-api.fedapay.com/v1/payouts/start \
-      -H 'Authorization: Bearer VOTRE_CLE_API_PRIVEE' \
+      -H 'Authorization: Bearer TOKEN' \
       -H 'Content-Type: application/json'
       -d '{
           "payouts" : [
@@ -315,7 +315,7 @@ Creating a payout through the API involves several steps. Each payout follows pr
     
       curl -X GET \
       https://sandbox-api.fedapay.com/v1/payouts/ID \
-      -H 'Authorization: Bearer YOUR_API_SECRET_KEY' \
+      -H 'Authorization: Bearer TOKEN' \
       -H 'Content-Type: application/json'
       ```
       
@@ -397,7 +397,7 @@ Here's a sample API request to send a payout with attached metadata:
 
 ```java Curl
 curl -X POST https://sandbox-api.fedapay.com/v1/payouts \
--H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+-H 'Authorization: Bearer TOKEN' \
 -H 'Content-Type: application/json' \
 -d '{
   "amount": 3000,

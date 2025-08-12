@@ -30,7 +30,7 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
       ```java Curl
         curl -X POST \
         https://sandbox-api.fedapay.com/v1/transactions \
-        -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+        -H 'Authorization: Bearer TOKEN' \
         -H 'Content-Type: application/json' \
         -d '{
               "description" : "Transaction for john.doe@example.com",
@@ -117,7 +117,7 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
       ```java cURL
       curl -X POST \
       https://sandbox-api.fedapay.com/v1/transactions/ID/token \
-      -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+      -H 'Authorization: Bearer TOKEN' \
       -H 'Content-Type: application/json'
       ```
       
@@ -165,7 +165,7 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
       
       curl -X GET \
       https://sandbox-api.fedapay.com/v1/transactions/ID \
-      -H 'Authorization: Bearer YOUR_SECRETE_API_KEY' \
+      -H 'Authorization: Bearer TOKEN' \
       -H 'Content-Type: application/json'
       ```
     
@@ -219,7 +219,7 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
       ```java curl
       curl -X POST \
       https://sandbox-api.fedapay.com/v1/METHODE_PAIEMENT \
-      -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+      -H 'Authorization: Bearer TOKEN' \
       -H 'Content-Type: application/json'
       -d '{
         "token" : "TOKEN_DE_PAIEMENT",
@@ -332,7 +332,7 @@ Le champ **merchant_reference** vous permet d’attribuer à chaque transaction 
   ```java Curl
   curl -X POST \
   https://sandbox-api.fedapay.com/v1/transactions \
-  -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+  -H 'Authorization: Bearer TOKEN' \
   -H 'Content-Type: application/json' \
   -d '{
         "description" : "Transaction for john.doe@example.com",
@@ -387,7 +387,7 @@ Ces données sont stockées sous forme de paires clé-valeur et restent attaché
 
 ```java Curl
 curl -X POST https://sandbox-api.fedapay.com/v1/transactions \
--H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+-H 'Authorization: Bearer TOKEN' \
 -H 'Content-Type: application/json' \
 -d '{
   "description": "Abonnement premium",

@@ -30,7 +30,7 @@ The steps to set up a collect are broken down into several key processes.
       ```java Curl
         curl -X POST \
         https://sandbox-api.fedapay.com/v1/transactions \
-        -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+        -H 'Authorization: Bearer TOKEN' \
         -H 'Content-Type: application/json' \
         -d '{
               "description" : "Transaction for john.doe@example.com",
@@ -117,7 +117,7 @@ The steps to set up a collect are broken down into several key processes.
       ```java cURL
       curl -X POST \
       https://sandbox-api.fedapay.com/v1/transactions/ID/token \
-      -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+      -H 'Authorization: Bearer TOKEN' \
       -H 'Content-Type: application/json'
       ```
 
@@ -166,7 +166,7 @@ The steps to set up a collect are broken down into several key processes.
       
       curl -X GET \
       https://sandbox-api.fedapay.com/v1/transactions/ID \
-      -H 'Authorization: Bearer YOUR_SECRETE_API_KEY' \
+      -H 'Authorization: Bearer TOKEN' \
       -H 'Content-Type: application/json'
       ```
     
@@ -220,7 +220,7 @@ The mobile payment process without redirection is divided into two main steps in
       ```java curl
       curl -X POST \
       https://sandbox-api.fedapay.com/v1/METHODE_PAIEMENT \
-      -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
+      -H 'Authorization: Bearer TOKEN' \
       -H 'Content-Type: application/json'
       -d '{
         "token" : "TOKEN_DE_PAIEMENT",
@@ -334,7 +334,7 @@ The **merchant_reference** field lets you assign your own identifier to a transa
 ```java Curl
 curl -X POST \
 https://sandbox-api.fedapay.com/v1/transactions \
--H 'Authorization: Bearer YOUR_SECRET_API_KEY' \
+-H 'Authorization: Bearer TOKEN' \
 -H 'Content-Type: application/json' \
 -d '{
   "description" : "Transaction for john.doe@example.com",
@@ -357,7 +357,7 @@ https://sandbox-api.fedapay.com/v1/transactions \
 ```java Curl
 curl -X GET \
 https://sandbox-api.fedapay.com/v1/transactions/merchant/{reference} \
--H 'Authorization: Bearer YOUR_SECRET_API_KEY' \
+-H 'Authorization: Bearer TOKEN' \
 -H 'Content-Type: application/json'
 
 ```
@@ -388,7 +388,7 @@ With the **custom_metadata** field, you can attach additional data to your trans
 
 ```java Curl
 curl -X POST https://sandbox-api.fedapay.com/v1/transactions \
--H 'Authorization: Bearer YOUR_SECRET_API_KEY' \
+-H 'Authorization: Bearer TOKEN' \
 -H 'Content-Type: application/json' \
 -d '{
   "description": "Premium subscription",
