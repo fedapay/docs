@@ -220,7 +220,7 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
       -H 'Content-Type: application/json'
       -d '{
         "token" : "TOKEN_DE_PAIEMENT",
-        "phone_number": {
+        "phone_number" = {
           "number": "64000001",
           "country":"bj"
         }
@@ -243,7 +243,7 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
       $transaction = \FedaPay\Transaction::create(...);
       $token = $transaction->generateToken()->token;
       $mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg';
-      $phone_number:[ // Ce parametre n'est pas obligatoire
+      $phone_number = [ // Ce parametre n'est pas obligatoire
         "number" => "64000001",
         "country" => "bj"
       ]
