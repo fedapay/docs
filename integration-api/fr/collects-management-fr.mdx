@@ -278,6 +278,45 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
       ]
       $transaction->sendNowWithToken($mode, $token, $phone_number);
       ```
+      
+      ```Ruby Ruby
+       require 'fedapay'
+
+# Configure FedaPay API credentials
+FedaPay.api_key = 'YOUR_SECRET_API_KEY'
+FedaPay.environment = 'sandbox' # or 'live'
+
+# Créer une transaction
+transaction = FedaPay::Transaction.create(
+  amount: 1000,
+  currency: { iso: 'XOF' },
+  customer: { id: 1 },
+  description: 'Payment for order #5678',
+  callback_url: 'https://example.com/callback'
+)
+
+puts "Transaction created: #{transaction.id}"
+
+# Générer un token de paiement
+token_data = transaction.generate_token
+token = token_data.token
+
+# Définir la méthode de paiement
+mode = 'mtn' # ou 'moov', 'mtn_ci', 'moov_tg'
+
+# (Optionnel) Numéro de téléphone associé au paiement
+phone_number = {
+  number: '64000001',
+  country: 'BJ'
+}
+
+# Déclencher le paiement immédiat avec le token
+transaction.send_now_with_token(mode, token, phone_number)
+
+puts "Payment initiated via #{mode} for transaction #{transaction.id}"
+
+
+      ```
 
     </CodeGroup>
   </Step>
