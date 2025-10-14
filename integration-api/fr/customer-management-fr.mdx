@@ -119,8 +119,9 @@ Vous pouvez obtenir la liste complète des clients enregistrés sur votre compte
 
    
   ```java Curl
-   curl https://sandbox-api.fedapay.com/v1/customers \
-  -u YOUR_SECRETE_API_KEY:
+   curl --request GET \
+  --url https://sandbox-api.fedapay.com/v1/customers/{id} \
+  --header 'Authorization: Bearer <token>'
    ```
   
   ```javascript NodeJs
