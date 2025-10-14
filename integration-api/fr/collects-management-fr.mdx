@@ -580,25 +580,72 @@ curl -X POST https://sandbox-api.fedapay.com/v1/transactions \
 ```
   ```javascript NodeJs
       const { FedaPay, Transaction } = require('fedapay');
-      /* Remplacez YOUR_SECRETE_API_KEY par votre véritable clé API */
-      FedaPay.setApiKey("YOUR_SECRETE_API_KEY");
-      /* Indiquez si vous souhaitez exécuter votre requête en mode test ou en mode live */
-      FedaPay.setEnvironment('sandbox'); //or setEnvironment('live');
-      /* Afficher les clients */
-      const transaction = await Transaction.retrieve(ID, params = {}, headers = {});
+/* Replace YOUR_SECRET_API_KEY with your real API key */
+FedaPay.setApiKey("YOUR_SECRET_API_KEY");
+/* Specify whether you want to run your query in test or live mode */
+FedaPay.setEnvironment('sandbox'); // or 'live'
+/* Create a transaction with custom_metadata */
+const transaction = await Transaction.create({
+  description: "Abonnement premium",
+  amount: 10000,
+  currency: { iso: "XOF" },
+  callback_url: "https://votreapp.com/callback",
+  customer: {
+    email: "utilisateur@votreapp.com"
+  },
+  custom_metadata: {
+    client_id: "USER-14567",
+    forfait: "premium",
+    langue: "fr"
+  }
+});
+console.log("Transaction created:", transaction.id);
+
       ```
 
       ```php PHP
-      \FedaPay\Fedapay::setApiKey(MY_API_KEY);
-      $customer = \FedaPay\Transaction::retrieve(ID, params = {}, header = {});
+
+// Configurer la clé API et l'environnement
+\FedaPay\FedaPay::setApiKey('YOUR_SECRET_API_KEY');
+\FedaPay\FedaPay::setEnvironment('sandbox'); // ou 'live'
+// Créer une transaction avec custom_metadata
+$transaction = \FedaPay\Transaction::create([
+  "description" => "Abonnement premium",
+  "amount" => 10000,
+  "currency" => ["iso" => "XOF"],
+  "callback_url" => "https://votreapp.com/callback",
+  "customer" => [
+    "email" => "utilisateur@votreapp.com"
+  ],
+  "custom_metadata" => [
+    "client_id" => "USER-14567",
+    "forfait" => "premium",
+    "langue" => "fr"
+  ]
+]);
+echo "Transaction created: " . $transaction->id;
+
       ```
 
       ```Ruby Ruby
-      require 'fedapay';
-      # configurer la bibliothèque FedaPay
-      FedaPay.api_key = '' # Votre clé API secrète
-      FedaPay.environment = '' # sandbox or live
-      transactions = FedaPay::Transaction.retrieve(ID);
+      require 'fedapay'
+FedaPay.api_key = 'YOUR_SECRET_API_KEY'
+FedaPay.environment = 'sandbox' # or 'live'
+transaction = FedaPay::Transaction.create(
+  description: 'Abonnement premium',
+  amount: 10000,
+  currency: { iso: 'XOF' },
+  callback_url: 'https://votreapp.com/callback',
+  customer: {
+    email: 'utilisateur@votreapp.com'
+  },
+  custom_metadata: {
+    client_id: 'USER-14567',
+    forfait: 'premium',
+    langue: 'fr'
+  }
+)
+puts "Transaction created: #{transaction.id}"
       ```
       
 </CodeGroup>
