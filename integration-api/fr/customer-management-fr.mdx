@@ -27,6 +27,22 @@ Ces informations sont obligatoires à l'exception du numéro de téléphone, mai
 Vous pouvez ajouter un nouveau client en envoyant une requête à l’API FedaPay. Voici des exemples dans différents langages de programmation :
 
 <CodeGroup>
+  
+  ```java Curl
+        curl https://sandbox-api.fedapay.com/v1/customers \
+  -u YOUR_SECRETE_API_KEY: \
+  -H "Content-Type: application/json" \
+  -d '{
+    "firstname": "John",
+    "lastname": "Doe",
+    "email": "john@doe.com",
+    "phone_number": {
+      "number": "90090909",
+      "country": "BJ"
+    }
+  }'
+   ```
+  
   ```javascript NodeJs
   const { FedaPay, Customer } = require('fedapay');
   /* Replace YOUR_SECRETE_API_KEY with your real API key */
