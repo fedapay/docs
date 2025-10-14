@@ -29,18 +29,19 @@ Vous pouvez ajouter un nouveau client en envoyant une requête à l’API FedaPa
 <CodeGroup>
   
   ```java Curl
-   curl https://sandbox-api.fedapay.com/v1/customers \
-  -u YOUR_SECRETE_API_KEY: \
-  -H "Content-Type: application/json" \
-  -d '{
-    "firstname": "John",
-    "lastname": "Doe",
-    "email": "john@doe.com",
-    "phone_number": {
-      "number": "90090909",
-      "country": "BJ"
-    }
-  }'
+   curl --request POST \
+  --url https://sandbox-api.fedapay.com/v1/customers \
+  --header 'Authorization: Bearer <token>' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "email": "jsmith@example.com",
+  "phone_number": {
+    "number": 123,
+    "country": "<string>"
+  },
+  "firstname": "<string>",
+  "lastname": "<string>"
+}'
    ```
   
   ```javascript NodeJs
