@@ -218,7 +218,15 @@ Si un client n'est plus actif ou que vous souhaitez supprimer ses données de vo
 
 **Exemple de suppression**
 
+
 <CodeGroup>
+ 
+  ```java Curl
+   curl --request DELETE \
+  --url https://sandbox-api.fedapay.com/v1/customers/{id} \
+  --header 'Authorization: Bearer <token>'
+   ```
+  
   ```javascript NodeJs
   const { FedaPay, Customer } = require('fedapay');
   /* Replace YOUR_SECRETE_API_KEY with your real API key */
