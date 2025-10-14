@@ -129,6 +129,35 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
       $token = $transaction->generateToken();
       return header('Location: ' . $token->url);
       ```
+      
+      ```Ruby Ruby
+       require 'fedapay'
+
+# Configure FedaPay API credentials
+FedaPay.api_key = 'YOUR_SECRET_API_KEY'
+FedaPay.environment = 'sandbox' # or 'live'
+
+# Créer une transaction
+transaction = FedaPay::Transaction.create(
+  amount: 1000,
+  currency: { iso: 'XOF' },
+  customer: { id: 1 },
+  description: 'Payment for order #1234',
+  callback_url: 'https://example.com/callback'
+)
+
+puts "Transaction successfully created: #{transaction.id}"
+
+# Générer un token de paiement
+token = transaction.generate_token
+
+#Afficher le lien sécurisé de paiement
+puts "Redirect user to: #{token.url}"
+
+# Si tu es dans un contrôleur Rails :
+# redirect_to token.url
+
+      ```
     </CodeGroup>
 
     Le lien ainsi généré peut être utilisé pour rediriger les utilisateurs vers la page de paiement de FedaPay.
