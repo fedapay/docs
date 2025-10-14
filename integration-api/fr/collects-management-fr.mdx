@@ -498,19 +498,15 @@ https://sandbox-api.fedapay.com/v1/transactions/merchant/{reference}
 
 ```
 ```javascript NodeJs
-      const { FedaPay, Transaction } = require('fedapay');
-
+const { FedaPay, Transaction } = require('fedapay');
 /* Replace YOUR_SECRET_API_KEY with your real API key */
 FedaPay.setApiKey("YOUR_SECRET_API_KEY");
 /* Specify whether you want to run your query in test or live mode */
 FedaPay.setEnvironment('sandbox'); // or 'live'
-
 /* Merchant reference to search */
 const reference = 'CMD-20250701-001';
-
 /* Retrieve transaction by merchant reference */
 const transaction = await Transaction.retrieveByMerchantReference(reference);
-
 console.log("Transaction found:", transaction.id);
 
       ```
