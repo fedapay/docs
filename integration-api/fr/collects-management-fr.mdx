@@ -516,12 +516,9 @@ console.log("Transaction found:", transaction.id);
       ```
 
       ```php PHP
-      $merchant_reference = 'CMD-20250701-001';
-
+$merchant_reference = 'CMD-20250701-001';
 $transaction = \FedaPay\Transaction::retrieveByMerchantReference($merchant_reference);
-
 echo "Transaction found: " . $transaction->id;
-
       ```
 
       ```Ruby Ruby
@@ -529,11 +526,8 @@ echo "Transaction found: " . $transaction->id;
 
 FedaPay.api_key = 'YOUR_SECRET_API_KEY'
 FedaPay.environment = 'sandbox' # or 'live'
-
 reference = 'CMD-20250701-001'
-
 transaction = FedaPay::Transaction.retrieve_by_merchant_reference(reference)
-
 puts "Transaction found: #{transaction.id}"
 
       ```
