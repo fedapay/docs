@@ -395,7 +395,9 @@ Que vous soyez une plateforme de services, un opérateur de cashback, une market
 
 Voici une requête de dépôt (payout) avec un champ custom_metadata renseigné :
 
-```java Curl
+ <CodeGroup>
+      ```java Curl
+        curl -X POST \
 -H 'Authorization: Bearer TOKEN' \
 -H 'Content-Type: application/json' \
 -d '{
@@ -413,7 +415,80 @@ Voici une requête de dépôt (payout) avec un champ custom_metadata renseigné 
     "type": "commission"
   }
 }'
-    ```
+      ```
+
+      ```javascript NodeJs
+const { FedaPay, Payout } = require('fedapay');
+/* Replace YOUR_SECRET_API_KEY with your real API key */
+FedaPay.setApiKey("YOUR_SECRET_API_KEY");
+/* Specify whether you want to run your query in test or live mode */
+FedaPay.setEnvironment('sandbox'); // or 'live'
+/* Create a payout with custom metadata */
+const payout = await Payout.create({
+  amount: 3000,
+  currency: { iso: "XOF" },
+  description: "Paiement de la commission d’un agent terrain",
+  receiver: {
+    name: "Koffi Kodjo",
+    phone_number: "+22961234567",
+    provider: "mtn"
+  },
+  custom_metadata: {
+    agent_id: "AGT-0032",
+    mois: "Juillet",
+    type: "commission"
+  }
+});
+console.log("Payout created:", payout.id);
+
+      ```
+
+      ```php PHP
+// Configurer la clé API et l'environnement
+\FedaPay\FedaPay::setApiKey('YOUR_SECRET_API_KEY');
+\FedaPay\FedaPay::setEnvironment('sandbox'); // ou 'live'
+// Créer un dépôt avec des métadonnées personnalisées
+$payout = \FedaPay\Payout::create([
+  "amount" => 3000,
+  "currency" => ["iso" => "XOF"],
+  "description" => "Paiement de la commission d’un agent terrain",
+  "receiver" => [
+    "name" => "Koffi Kodjo",
+    "phone_number" => "+22961234567",
+    "provider" => "mtn"
+  ],
+  "custom_metadata" => [
+    "agent_id" => "AGT-0032",
+    "mois" => "Juillet",
+    "type" => "commission"
+  ]
+]);
+echo "Payout created: " . $payout->id;
+      ```
+
+      ```Ruby Ruby
+require 'fedapay'
+FedaPay.api_key = 'YOUR_SECRET_API_KEY'
+FedaPay.environment = 'sandbox' # or 'live'
+payout = FedaPay::Payout.create(
+  amount: 3000,
+  currency: { iso: 'XOF' },
+  description: 'Paiement de la commission d’un agent terrain',
+  receiver: {
+    name: 'Koffi Kodjo',
+    phone_number: '+22961234567',
+    provider: 'mtn'
+  },
+  custom_metadata: {
+    agent_id: 'AGT-0032',
+    mois: 'Juillet',
+    type: 'commission'
+  }
+)
+
+puts "Payout created: #{payout.id}"
+      ```
+    </CodeGroup>
     
 **À savoir**
 
