@@ -501,6 +501,156 @@ puts "Payout created: #{payout.id}"
 * Évitez d’y mettre des informations sensibles ou confidentielles (comme des mots de passe ou des numéros de carte).
 
 
+### Merchant_reference : votre identifiant unique pour chaque payout
+
+Le champ merchant_reference vous permet d’attribuer à chaque opération de payout (transfert d’argent du compte marchand FedaPay vers un numéro Mobile Money) un identifiant unique défini par vous-même.
+Cet identifiant est enregistré par FedaPay et peut ensuite être utilisé pour retrouver ou tracer facilement un payout via une API dédiée.
+
+**Pourquoi l’utiliser ?**
+
+* **Suivi précis des transferts sortants** : Idéal si vous gérez de nombreux paiements vers des fournisseurs, partenaires, livreurs ou utilisateurs.
+
+* **Traçabilité interne** : Permet de lier un payout FedaPay à un paiement interne (par exemple un remboursement, une commission ou un versement).
+
+* **Recherche simplifiée** : Vous pouvez retrouver un payout à tout moment via son merchant_reference, sans avoir à stocker l’ID généré par FedaPay.
+
+* **Audit & reporting** : Très utile pour générer des rapports ou assurer la conformité comptable et financière de vos flux sortants.
+
+**Exemple : Créer un payout avec merchant_reference**
+
+
+<CodeGroup>
+      
+  ```java Curl
+ curl -X POST https://sandbox-api.fedapay.com/v1/payouts \
+-H 'Authorization: Bearer YOUR_SECRET_API_KEY' \
+-H 'Content-Type: application/json' \
+-d '{
+  "amount": 5000,
+  "currency": {"iso": "XOF"},
+  "description": "Paiement fournisseur Mars 2025",
+  "recipient": {
+    "name": "Kossi Agbo",
+    "phone_number": {
+      "number": "97000001",
+      "country": "bj"
+    }
+  },
+  "merchant_reference": "PAY-20250315-002"
+}'
+
+      ```
+
+      ```javascript NodeJs
+const { FedaPay, Payout } = require('fedapay');
+/* Replace YOUR_SECRET_API_KEY with your real API key */
+FedaPay.setApiKey("YOUR_SECRET_API_KEY");
+/* Set environment */
+FedaPay.setEnvironment('sandbox'); // or 'live'
+/* Create a payout with merchant_reference */
+const payout = await Payout.create({
+  amount: 5000,
+  currency: { iso: 'XOF' },
+  description: 'Paiement fournisseur Mars 2025',
+  recipient: {
+    name: 'Kossi Agbo',
+    phone_number: { number: '97000001', country: 'bj' }
+  },
+  merchant_reference: 'PAY-20250315-002'
+});
+
+console.log("Payout created:", payout.id);
+      ```
+
+      ```php PHP
+\FedaPay\FedaPay::setApiKey('YOUR_SECRET_API_KEY');
+\FedaPay\FedaPay::setEnvironment('sandbox'); // ou 'live'
+$payout = \FedaPay\Payout::create([
+  "amount" => 5000,
+  "currency" => ["iso" => "XOF"],
+  "description" => "Paiement fournisseur Mars 2025",
+  "recipient" => [
+    "name" => "Kossi Agbo",
+    "phone_number" => [
+      "number" => "97000001",
+      "country" => "bj"
+    ]
+  ],
+  "merchant_reference" => "PAY-20250315-002"
+]);
+
+echo "Payout created: " . $payout->id;
+      ```
+
+      ```Ruby Ruby
+require 'fedapay'
+FedaPay.api_key = 'YOUR_SECRET_API_KEY'
+FedaPay.environment = 'sandbox' # or 'live'
+payout = FedaPay::Payout.create(
+  amount: 5000,
+  currency: { iso: 'XOF' },
+  description: 'Paiement fournisseur Mars 2025',
+  recipient: {
+    name: 'Kossi Agbo',
+    phone_number: { number: '97000001', country: 'bj' }
+  },
+  merchant_reference: 'PAY-20250315-002'
+)
+
+puts "Payout created: #{payout.id}"
+      ```
+    </CodeGroup>
+
+**Récupérer un payout avec la référence marchand**
+
+<CodeGroup>
+      
+  ```java Curl
+ curl -X GET \
+https://sandbox-api.fedapay.com/v1/payouts/merchant/PAY-20250315-002 \
+-H 'Authorization: Bearer YOUR_SECRET_API_KEY' \
+-H 'Content-Type: application/json'
+      ```
+
+      ```javascript NodeJs
+const { FedaPay, Payout } = require('fedapay');
+FedaPay.setApiKey("YOUR_SECRET_API_KEY");
+FedaPay.setEnvironment('sandbox');
+const reference = 'PAY-20250315-002';
+const payout = await Payout.retrieveByMerchantReference(reference);
+
+console.log("Payout found:", payout.id);
+      ```
+
+      ```php PHP
+$merchant_reference = 'PAY-20250315-002';
+$payout = \FedaPay\Payout::retrieveByMerchantReference($merchant_reference);
+echo "Payout found: " . $payout->id;
+      ```
+
+      ```Ruby Ruby
+require 'fedapay'
+FedaPay.api_key = 'YOUR_SECRET_API_KEY'
+FedaPay.environment = 'sandbox' # or 'live'
+reference = 'PAY-20250315-002'
+payout = FedaPay::Payout.retrieve_by_merchant_reference(reference)
+puts "Payout found: #{payout.id}"
+
+      ```
+  </CodeGroup>
+
+ <Warning>
+
+**Bonnes pratiques :*
+
+*  Utilisez un format structuré pour vos références, ex. PAY-YYYYMMDD-XXX.
+
+*  Ne réutilisez jamais une même merchant_reference pour plusieurs payouts.
+
+*  Vous pouvez également combiner merchant_reference et custom_metadata pour ajouter des détails (ID employé, campagne, projet...).
+
+</Warning>
+
 ### Support
 
 Si vous avez des questions ou rencontrez des difficultés avec les dépôts, n'hésitez pas à contacter notre support technique à l’adresse : [`support@fedapay.com`](mailto:support@fedapay.com)
