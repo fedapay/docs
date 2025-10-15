@@ -159,6 +159,23 @@ Sometimes, you may need to update a customer’s information (e.g., an incorrect
 **Example of Updating a Customer**
 
 <CodeGroup>
+ 
+  ```java Curl
+   curl --request PUT \
+  --url https://sandbox-api.fedapay.com/v1/customers/{id} \
+  --header 'Authorization: Bearer <token>' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "email": "jsmith@example.com",
+  "phone_number": {
+    "number": 123,
+    "country": "<string>"
+  },
+  "firstname": "<string>",
+  "lastname": "<string>"
+}'
+   ```
+  
   ```javascript NodeJs
   const { FedaPay, Customer } = require('fedapay');
   /* Replace YOUR_SECRETE_API_KEY with your real API key */
