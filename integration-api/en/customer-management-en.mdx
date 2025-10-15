@@ -116,6 +116,13 @@ To get a complete list of customers registered on your FedaPay account, send a s
 **Example request to retrieve customers**
 
 <CodeGroup>
+
+  ```java Curl
+   curl --request GET \
+  --url https://sandbox-api.fedapay.com/v1/customers/{id} \
+  --header 'Authorization: Bearer <token>'
+   ```
+  
   ```javascript NodeJs
   const { FedaPay, Customer } = require('fedapay');
   /* Replace YOUR_SECRETE_API_KEY with your real API key */
