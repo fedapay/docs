@@ -379,36 +379,134 @@ The **merchant_reference** field lets you assign your own identifier to a transa
 
 **Example: Creating a Transaction with merchant_reference**
 
-```java Curl
-curl -X POST \
-https://sandbox-api.fedapay.com/v1/transactions \
--H 'Authorization: Bearer TOKEN' \
--H 'Content-Type: application/json' \
--d '{
-  "description" : "Transaction for john.doe@example.com",
-  "amount" : 2000,
-  "currency" : {"iso" : "XOF"},
-  "callback_url" : "https://yourapp.com/callback",
-  "customer" : {
-    "email" : "john.doe@example.com"
+ <CodeGroup> 
+  ```java Curl
+  curl -X POST \
+  https://sandbox-api.fedapay.com/v1/transactions \
+  -H 'Authorization: Bearer TOKEN' \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "description" : "Transaction for john.doe@example.com",
+        "amount" : 2000,
+        "currency" : {"iso" : "XOF"},
+        "callback_url" : "https://maplateforme.com/callback",
+        "customer" : {
+          "email" : "john.doe@example.com",
+        },
+        "merchant_reference": "CMD-20250701-001" 
+      }'
+  ```
+  ```javascript NodeJs
+const { FedaPay, Transaction } = require('fedapay');
+// Configure the API key and environment
+FedaPay.setApiKey('YOUR_SECRET_API_KEY');
+FedaPay.setEnvironment('sandbox'); // or 'live'
+// Create a transaction with merchant_reference and custom_metadata
+const transaction = await Transaction.create({
+  description: 'Transaction for john.doe@example.com',
+  amount: 2000,
+  currency: { iso: 'XOF' },
+  callback_url: 'https://maplateforme.com/callback',
+  customer: {
+    email: 'john.doe@example.com'
   },
-  "merchant_reference": "ORD-20250701-001"
-}'
+  merchant_reference: 'CMD-20250701-001',
+  custom_metadata: {
+    order_type: 'online',
+    promo_code: 'SUMMER2025'
+  }
+});
+console.log('Transaction created:', transaction.id);
+      ```
 
+      ```php PHP
+         $transaction = \FedaPay\Transaction::create([
+  "description" => "Transaction for john.doe@example.com",
+  "amount" => 2000,
+  "currency" => ["iso" => "XOF"],
+  "callback_url" => "https://maplateforme.com/callback",
+  "customer" => [
+    "email" => "john.doe@example.com"
+  ],
+  "merchant_reference" => "CMD-20250701-001",
+  "custom_metadata" => [
+    "order_type" => "online",
+    "promo_code" => "SUMMER2025"
+  ]
+]);
 
-```
+echo "Transaction created: " . $transaction->id;
+      ```
+
+      ```Ruby Ruby
+require 'fedapay'
+
+# Configure the API key and environment
+FedaPay.api_key = 'YOUR_SECRET_API_KEY'
+FedaPay.environment = 'sandbox' # or 'live'
+
+# Create a transaction with merchant_reference and custom_metadata
+transaction = FedaPay::Transaction.create(
+  description: 'Transaction for john.doe@example.com',
+  amount: 2000,
+  currency: { iso: 'XOF' },
+  callback_url: 'https://maplateforme.com/callback',
+  customer: { email: 'john.doe@example.com' },
+  merchant_reference: 'CMD-20250701-001',
+  custom_metadata: {
+    order_type: 'online',
+    promo_code: 'SUMMER2025'
+  }
+)
+
+puts "Transaction created: #{transaction.id}"
+      ```
+  </CodeGroup>  
 
 <Note>Here, ORD-20250701-001 is the merchant’s own code for this specific transaction.</Note>
 
 **Retrieving a Transaction by Merchant Reference**
 
+<CodeGroup>
 ```java Curl
 curl -X GET \
-https://sandbox-api.fedapay.com/v1/transactions/merchant/{reference} \
--H 'Authorization: Bearer TOKEN' \
+https://sandbox-api.fedapay.com/v1/transactions/merchant/{reference}
+ \
+-H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \
 -H 'Content-Type: application/json'
 
 ```
+```javascript NodeJs
+const { FedaPay, Transaction } = require('fedapay');
+/* Replace YOUR_SECRET_API_KEY with your real API key */
+FedaPay.setApiKey("YOUR_SECRET_API_KEY");
+/* Specify whether you want to run your query in test or live mode */
+FedaPay.setEnvironment('sandbox'); // or 'live'
+/* Merchant reference to search */
+const reference = 'CMD-20250701-001';
+/* Retrieve transaction by merchant reference */
+const transaction = await Transaction.retrieveByMerchantReference(reference);
+console.log("Transaction found:", transaction.id);
+
+      ```
+
+      ```php PHP
+$merchant_reference = 'CMD-20250701-001';
+$transaction = \FedaPay\Transaction::retrieveByMerchantReference($merchant_reference);
+echo "Transaction found: " . $transaction->id;
+      ```
+
+      ```Ruby Ruby
+      require 'fedapay'
+
+FedaPay.api_key = 'YOUR_SECRET_API_KEY'
+FedaPay.environment = 'sandbox' # or 'live'
+reference = 'CMD-20250701-001'
+transaction = FedaPay::Transaction.retrieve_by_merchant_reference(reference)
+puts "Transaction found: #{transaction.id}"
+
+      ```
+</CodeGroup>
 
 **custom_metadata: Add Extra Info to a Transaction**
 
@@ -434,26 +532,98 @@ With the **custom_metadata** field, you can attach additional data to your trans
 
 **Example: Creating a Transaction with custom_metadata**
 
-```java Curl
+<CodeGroup>
+
+  ```java Curl
 curl -X POST https://sandbox-api.fedapay.com/v1/transactions \
 -H 'Authorization: Bearer TOKEN' \
 -H 'Content-Type: application/json' \
 -d '{
-  "description": "Premium subscription",
+  "description": "Abonnement premium",
   "amount": 10000,
   "currency": {"iso": "XOF"},
-  "callback_url": "https://yourapp.com/callback",
+  "callback_url": "https://votreapp.com/callback",
   "customer": {
-    "email": "user@yourapp.com"
+    "email": "utilisateur@votreapp.com"
   },
   "custom_metadata": {
     "client_id": "USER-14567",
-    "plan": "premium",
-    "language": "fr"
+    "forfait": "premium",
+    "langue": "fr"
   }
 }'
-
 ```
+  ```javascript NodeJs
+const { FedaPay, Transaction } = require('fedapay');
+/* Replace YOUR_SECRET_API_KEY with your real API key */
+FedaPay.setApiKey("YOUR_SECRET_API_KEY");
+/* Specify whether you want to run your query in test or live mode */
+FedaPay.setEnvironment('sandbox'); // or 'live'
+/* Create a transaction with custom_metadata */
+const transaction = await Transaction.create({
+  description: "Abonnement premium",
+  amount: 10000,
+  currency: { iso: "XOF" },
+  callback_url: "https://votreapp.com/callback",
+  customer: {
+    email: "utilisateur@votreapp.com"
+  },
+  custom_metadata: {
+    client_id: "USER-14567",
+    forfait: "premium",
+    langue: "fr"
+  }
+});
+console.log("Transaction created:", transaction.id);
+
+      ```
+
+      ```php PHP
+
+// Configurer la clé API et l'environnement
+\FedaPay\FedaPay::setApiKey('YOUR_SECRET_API_KEY');
+\FedaPay\FedaPay::setEnvironment('sandbox'); // ou 'live'
+// Créer une transaction avec custom_metadata
+$transaction = \FedaPay\Transaction::create([
+  "description" => "Abonnement premium",
+  "amount" => 10000,
+  "currency" => ["iso" => "XOF"],
+  "callback_url" => "https://votreapp.com/callback",
+  "customer" => [
+    "email" => "utilisateur@votreapp.com"
+  ],
+  "custom_metadata" => [
+    "client_id" => "USER-14567",
+    "forfait" => "premium",
+    "langue" => "fr"
+  ]
+]);
+echo "Transaction created: " . $transaction->id;
+
+      ```
+
+      ```Ruby Ruby
+      require 'fedapay'
+FedaPay.api_key = 'YOUR_SECRET_API_KEY'
+FedaPay.environment = 'sandbox' # or 'live'
+transaction = FedaPay::Transaction.create(
+  description: 'Abonnement premium',
+  amount: 10000,
+  currency: { iso: 'XOF' },
+  callback_url: 'https://votreapp.com/callback',
+  customer: {
+    email: 'utilisateur@votreapp.com'
+  },
+  custom_metadata: {
+    client_id: 'USER-14567',
+    forfait: 'premium',
+    langue: 'fr'
+  }
+)
+puts "Transaction created: #{transaction.id}"
+      ```
+      
+</CodeGroup>
 
 <Warning>
 **Best Practices** :
