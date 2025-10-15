@@ -118,7 +118,7 @@ The steps to set up a collect are broken down into several key processes.
       -H 'Authorization: Bearer TOKEN' \
       -H 'Content-Type: application/json'
       ```
-
+      
       ```javaScript NodeJS
       const transaction = await Transaction.create({...})
       const token = await transaction.generateToken();
@@ -131,9 +131,31 @@ The steps to set up a collect are broken down into several key processes.
       return header('Location: ' . $token->url);
       ```
       
+      ```Ruby Ruby
+# Create and generate a transaction token using Ruby SDK
+require 'fedapay'
+# Configure FedaPay API credentials
+FedaPay.api_key = 'YOUR_SECRET_API_KEY'
+FedaPay.environment = 'sandbox' # or 'live'
+# Create a transaction
+transaction = FedaPay::Transaction.create(
+  amount: 1000,
+  currency: { iso: 'XOF' },
+  customer: { id: 1 },
+  description: 'Payment for order #1234',
+  callback_url: 'https://example.com/callback'
+)
+puts "Transaction successfully created: #{transaction.id}"
+# Generate a payment token
+token = transaction.generate_token
+# Display the secure payment link
+puts "Redirect user to: #{token.url}"
+# If you are in a Rails controller:
+# redirect_to token.url
+      ```
     </CodeGroup>
 
-    The generated link can be used to redirect users to FedaPay's secure payment page.
+  The generated link can be used to redirect users to FedaPay's secure payment page.
   </Step>
 
   <Step title="Redirect to Payment Page">
