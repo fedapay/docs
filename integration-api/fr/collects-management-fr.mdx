@@ -280,7 +280,7 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
       ```
       
       ```Ruby Ruby
-       require 'fedapay'
+require 'fedapay'
 
 # Configure FedaPay API credentials
 FedaPay.api_key = 'YOUR_SECRET_API_KEY'
@@ -314,8 +314,6 @@ phone_number = {
 transaction.send_now_with_token(mode, token, phone_number)
 
 puts "Payment initiated via #{mode} for transaction #{transaction.id}"
-
-
       ```
 
     </CodeGroup>

@@ -183,7 +183,6 @@ puts "Redirect user to: #{token.url}"
     <CodeGroup>
       ```java cURL
       /*Replace YOUR_SECRETE_API_KEY with the secret API key of your sandbox or live account. If you are using your live account, you must replace the link with https://api.fedapay.com/v1/transactions/ID */
-      
       curl -X GET \
       https://sandbox-api.fedapay.com/v1/transactions/ID \
       -H 'Authorization: Bearer TOKEN' \
@@ -271,6 +270,35 @@ The mobile payment process without redirection is divided into two main steps in
         "country" => "bj"
       ]
       $transaction->sendNowWithToken($mode, $token, $phone_number);
+      ```
+      ```Ruby Ruby
+require 'fedapay'
+# Configure FedaPay API credentials
+FedaPay.api_key = 'YOUR_SECRET_API_KEY'
+FedaPay.environment = 'sandbox' # or 'live'
+# Create a transaction
+transaction = FedaPay::Transaction.create(
+  amount: 1000,
+  currency: { iso: 'XOF' },
+  customer: { id: 1 },
+  description: 'Payment for order #5678',
+  callback_url: 'https://example.com/callback'
+)
+
+puts "Transaction created: #{transaction.id}"
+# Generate a payment token
+token_data = transaction.generate_token
+token = token_data.token
+# Define the payment method
+mode = 'mtn' # or 'moov', 'mtn_ci', 'moov_tg'
+# (Optional) Phone number associated with the payment
+phone_number = {
+  number: '64000001',
+  country: 'BJ'
+}
+# Trigger the immediate payment using the token
+transaction.send_now_with_token(mode, token, phone_number)
+puts "Payment initiated via #{mode} for transaction #{transaction.id}"
       ```
 
     </CodeGroup>
