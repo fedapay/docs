@@ -310,7 +310,7 @@ $phone_number = [
 ];
 // Trigger payment with token
 $transaction->sendNowWithToken($mode, $token, $phone_number);
-// Ou alors, déclencher le paiement en une seule étape
+// Or, trigger the payment in one step
 $transaction->sendNow($mode, $phone_number);
       ```
       
