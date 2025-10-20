@@ -2460,7 +2460,7 @@
                     "format": "uri",
                     "description": "URL to receive transaction updates."
                   },
-                  "metadata": {
+                  "custom_metadata": {
                     "type": "object",
                     "additionalProperties": true,
                     "description": "Additional metadata related to the transaction."
@@ -2501,10 +2501,6 @@
                         }
                       }
                     }
-                  },
-                  "fees": {
-                    "type": "integer",
-                    "description": "Transaction fees."
                   }
                 },
                 "required": ["description", "amount", "currency"]
