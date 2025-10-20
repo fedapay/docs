@@ -258,35 +258,68 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
 
       
       ```javascript Node.js
-      const transaction = await Transaction.create(...);
-      const token = transaction.generateToken().token;
-      const mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg';
-      const phone_number = { // Ce parametre n'est pas obligatoire
-        "number" : "64000001",
-        "country" : "bj"
-      }
-      await transaction.sendNowWithToken(mode, token, phone_number);
+const { FedaPay, Transaction } = require('fedapay');
+/* Configure your API key and environment */
+FedaPay.setApiKey('YOUR_SECRET_API_KEY');
+FedaPay.setEnvironment('sandbox'); // or 'live'
+/* Create a transaction */
+const transaction = await Transaction.create({
+  description: 'Payment for order #5678',
+  amount: 1000,
+  currency: { iso: 'XOF' },
+  callback_url: 'https://example.com/callback',
+  customer: { id: 1 }
+});
+console.log('Transaction created:', transaction.id);
+/* Generate a payment token */
+const token = transaction.generateToken().token;
+/* Define payment method */
+const mode = 'mtn'; // or 'moov', 'mtn_ci', 'moov_tg'
+/* Optional phone number for the transaction */
+const phone_number = {
+  number: '64000001',
+  country: 'bj'
+};
+/* Trigger payment using the token */
+await transaction.sendNowWithToken(mode, token, phone_number);
+console.log(`Payment initiated via ${mode} for transaction ${transaction.id}`);
+/* Or trigger the payment in one step */
+await transaction.sendNow(mode, phone_number);
       ```
 
       ```php PHP
-      $transaction = \FedaPay\Transaction::create(...);
-      $token = $transaction->generateToken()->token;
-      $mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg';
-      $phone_number = [ // Ce parametre n'est pas obligatoire
-        "number" => "64000001",
-        "country" => "bj"
-      ]
-      $transaction->sendNowWithToken($mode, $token, $phone_number);
+// Configure your API key and environment
+\FedaPay\FedaPay::setApiKey('YOUR_SECRET_API_KEY');
+\FedaPay\FedaPay::setEnvironment('sandbox'); // or 'live'
+// Create a transaction
+$transaction = \FedaPay\Transaction::create([
+    "description" => "Payment for order #5678",
+    "amount" => 1000,
+    "currency" => ["iso" => "XOF"],
+    "callback_url" => "https://example.com/callback",
+    "customer" => ["id" => 1]
+]);
+// Generate a payment token
+$token = $transaction->generateToken()->token;
+// Définir la méthode de paiement
+$mode = 'METHODE_PAIEMENT'; // 'mtn', 'moov', 'mtn_ci', 'moov_tg'
+// (Optional) Phone number linked to payment
+$phone_number = [
+    "number" => "64000001",
+    "country" => "bj"
+];
+// Trigger payment with token
+$transaction->sendNowWithToken($mode, $token, $phone_number);
+// Ou alors, déclencher le paiement en une seule étape
+$transaction->sendNow($mode, $phone_number);
       ```
       
       ```Ruby Ruby
 require 'fedapay'
-
 # Configure FedaPay API credentials
 FedaPay.api_key = 'YOUR_SECRET_API_KEY'
 FedaPay.environment = 'sandbox' # or 'live'
-
-# Créer une transaction
+# Create a transaction
 transaction = FedaPay::Transaction.create(
   amount: 1000,
   currency: { iso: 'XOF' },
@@ -294,26 +327,22 @@ transaction = FedaPay::Transaction.create(
   description: 'Payment for order #5678',
   callback_url: 'https://example.com/callback'
 )
-
 puts "Transaction created: #{transaction.id}"
-
-# Générer un token de paiement
+# Generate a payment token
 token_data = transaction.generate_token
 token = token_data.token
-
-# Définir la méthode de paiement
-mode = 'mtn' # ou 'moov', 'mtn_ci', 'moov_tg'
-
-# (Optionnel) Numéro de téléphone associé au paiement
+# Define the payment method
+mode = 'mtn' # or 'moov', 'mtn_ci', 'moov_tg'
+# (Optional) Phone number for the payment
 phone_number = {
   number: '64000001',
   country: 'BJ'
 }
-
-# Déclencher le paiement immédiat avec le token
+# Trigger immediate payment with the token
 transaction.send_now_with_token(mode, token, phone_number)
-
 puts "Payment initiated via #{mode} for transaction #{transaction.id}"
+# Or trigger the payment in one step
+transaction.send_now(mode, phone_number)
       ```
 
     </CodeGroup>
