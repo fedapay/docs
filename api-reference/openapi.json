@@ -3377,7 +3377,7 @@
           },
           {
             "lang": "Ruby",
-            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\n# Update a transaction instance\ntransaction.amount = 5000;\ntransaction.save;\n# Or\ntransaction.save amount: 5000;\n# Update a transaction by id\nFedaPay::Transaction.update(ID, amount: 5000);"
+            "source": "require 'fedapay';\n# configure FedaPay library\nFedaPay.api_key = '' # Your secret api key\nFedaPay.environment = '' # sandbox or live\n# Update a transaction instance\ntransaction.amount = 5000;\ntransaction.save;\n# Update a transaction by id\nFedaPay::Transaction.update(ID, amount: 5000);"
           }
         ]
       },
