@@ -27,7 +27,7 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
     #### Exemple de requête pour créer une collecte
 
     <CodeGroup>
-      ```java Curl
+      ```java Curl highlight={17-19}
         curl -X POST \
         https://sandbox-api.fedapay.com/v1/transactions \
         -H 'Authorization: Bearer TOKEN' \
@@ -44,7 +44,9 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
                   "phone_number" : {
                       "number" : "+22997808080",
                       "country" : "bj"
-                  }
+                  },
+                  //Passez le customer id lorsque le client est déjà créé
+                  customer: { id: 1 }
                 }
             }'
       ```
