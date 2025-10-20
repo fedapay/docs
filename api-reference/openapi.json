@@ -1286,7 +1286,7 @@
         ]
       },
       "put": {
-        "summary": "Update a payout.",
+        "summary": "Update a payout",
         "security": [
           {
             "bearerAuth": []
@@ -1470,7 +1470,7 @@
         ]
       },
       "delete": {
-        "summary": "Delete a payout.",
+        "summary": "Delete a payout",
         "security": [
           {
             "bearerAuth": []
