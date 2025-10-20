@@ -52,7 +52,7 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
             }'
       ```
 
-      ```javascript NodeJs
+      ```javascript NodeJs highlight={9,18}
       const { FedaPay, Transaction } = require('fedapay');
       FedaPay.setApiKey('YOUR_SECRET_API_KEY');
       FedaPay.setEnvironment('sandbox');
@@ -61,6 +61,7 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
         amount: 1000,
         currency: { iso: 'XOF' },
         callback_url: 'https://example.com/callback',
+        // Si le client n'existe pas encore
         customer : {
             firstname : "John",
             lastname : "Doe",
@@ -69,13 +70,12 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
                 number : "+22997808080",
                 country : "bj"
             }
-
-            
+        //Si le client existe déjà
         customer: { id: 1 }
       });
       ```
 
-      ```php PHP
+      ```php PHP highlight={8,18}
       \FedaPay\Fedapay::setApiKey('YOUR_API_KEY');
       \FedaPay\Fedapay::setEnvironment('sandbox');
       $transaction = \FedaPay\Transaction::create([
@@ -83,6 +83,17 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
         'amount' => 1000,
         'currency' => ['iso' => 'XOF'],
         'callback_url' => 'https://example.com/callback',
+        // Si le client n'existe pas encore
+        'customer' => [
+            'firstname' => 'John',
+            'lastname' => 'Doe',
+            'email' => 'john.doe@example.com',
+            'phone_number' => [
+                'number' => '+22997808080',
+                'country' => 'bj'
+            ]
+        ]
+        //Si le client existe déjà
         'customer' => ['id' => 1]
       ]);
       ```
