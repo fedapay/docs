@@ -76,10 +76,8 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
 
       ```Ruby Ruby
       require 'fedapay'
-
       FedaPay.api_key = 'YOUR_SECRET_API_KEY'
       FedaPay.environment = 'sandbox'
-
       transaction = FedaPay::Transaction.create(
         amount: 1000,
         currency: { iso: 'XOF' },
@@ -87,7 +85,6 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
         description: 'Payment for order #1234',
         callback_url: 'https://example.com/callback'
       )
-
       puts "Transaction successfully created : #{transaction.inspect}"
       ```
     </CodeGroup>
@@ -131,12 +128,10 @@ Les étapes de configuration d’une collecte se divisent en plusieurs processus
       ```
       
       ```Ruby Ruby
-       require 'fedapay'
-
+require 'fedapay'
 # Configure FedaPay API credentials
 FedaPay.api_key = 'YOUR_SECRET_API_KEY'
 FedaPay.environment = 'sandbox' # or 'live'
-
 # Créer une transaction
 transaction = FedaPay::Transaction.create(
   amount: 1000,
@@ -145,18 +140,11 @@ transaction = FedaPay::Transaction.create(
   description: 'Payment for order #1234',
   callback_url: 'https://example.com/callback'
 )
-
 puts "Transaction successfully created: #{transaction.id}"
-
 # Générer un token de paiement
 token = transaction.generate_token
-
 #Afficher le lien sécurisé de paiement
 puts "Redirect user to: #{token.url}"
-
-# Si tu es dans un contrôleur Rails :
-# redirect_to token.url
-
       ```
     </CodeGroup>
 
@@ -344,7 +332,6 @@ puts "Payment initiated via #{mode} for transaction #{transaction.id}"
 # Or trigger the payment in one step
 transaction.send_now(mode, phone_number)
       ```
-
     </CodeGroup>
   </Step>
 </Steps>
@@ -439,12 +426,10 @@ Le champ **merchant_reference** vous permet d’attribuer à chaque transaction 
       }'
   ```
   ```javascript NodeJs
-      const { FedaPay, Transaction } = require('fedapay');
-
+const { FedaPay, Transaction } = require('fedapay');
 // Configurer la clé API et l'environnement
 FedaPay.setApiKey('YOUR_SECRET_API_KEY');
 FedaPay.setEnvironment('sandbox'); // ou 'live'
-
 // Créer une transaction avec merchant_reference et custom_metadata
 const transaction = await Transaction.create({
   description: 'Transaction for john.doe@example.com',
@@ -503,11 +488,8 @@ transaction = FedaPay::Transaction.create(
     promo_code: 'SUMMER2025'
   }
 )
-
 puts "Transaction created: #{transaction.id}"
-
       ```
-   
   </CodeGroup>  
   
 <Note>Dans cet exemple, CMD-20250701-001 est la référence propre au marchand pour cette commande.</Note>
@@ -545,14 +527,12 @@ echo "Transaction found: " . $transaction->id;
       ```
 
       ```Ruby Ruby
-      require 'fedapay'
-
+require 'fedapay'
 FedaPay.api_key = 'YOUR_SECRET_API_KEY'
 FedaPay.environment = 'sandbox' # or 'live'
 reference = 'CMD-20250701-001'
 transaction = FedaPay::Transaction.retrieve_by_merchant_reference(reference)
 puts "Transaction found: #{transaction.id}"
-
       ```
 </CodeGroup>
 
@@ -651,7 +631,7 @@ echo "Transaction created: " . $transaction->id;
       ```
 
       ```Ruby Ruby
-      require 'fedapay'
+require 'fedapay'
 FedaPay.api_key = 'YOUR_SECRET_API_KEY'
 FedaPay.environment = 'sandbox' # or 'live'
 transaction = FedaPay::Transaction.create(
