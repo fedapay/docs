@@ -60,27 +60,22 @@ Avant de passer en mode Live, il est recommandé de tester votre intégration en
 
 Une fois que vous avez validé vos tests, vous pouvez passer en production en utilisant vos clés API live. Ce mode permet de réaliser des transactions réelles avec vos clients.
 
-## Numéros de test pour les cartes et le mobile money
+## Numéros de test Mobile Money
 
-Pour tester votre intégration, FedaPay vous fournit des numéros de carte et des numéros de téléphone pour simuler des paiements réussis ou échoués. **Vous devez utiliser ces numéros en mode test uniquement**.
+Pour vos tests d’intégration, FedaPay met à votre disposition un mode de paiement unique appelé **momo_test**.Ce mode simplifie les essais de transactions en sandbox, sans dépendre des serveurs de test spécifiques à un opérateur (MOOV, MTN, etc.), désormais supprimés.
 
-<Tabs>
-  <Tab title="Numéros de carte de test">
-    | Numéro           | Type de carte | Scénario |
-    | :--------------- | :------------ | :------- |
-    | 4111111111111111 | Visa          | Succès   |
-    | 4242424242424241 | Visa          | Échecs   |
-    | 5555555555554444 | Mastercard    | Succès   |
-    | 4242424242424242 | Visa          | Echecs   |
-  </Tab>
+**Fonctionnement du mode de test**
 
-  <Tab title="Numéros de téléphone pour Mobile Money">
-    | Numéro   | Opérateur GSM | Scénario |
-    | :------- | :------------ | :------- |
-    | 64000001 | MOOV Bénin    | Succès   |
-    | 64000000 | MOOV Bénin    | Échecs   |
-  </Tab>
-</Tabs>
+   *  Mode de test actif : **momo_test** .
+
+   *  Scénario de succès : utilisez uniquement les numéros **64000001** et **66000001** .
+
+   *  Scénario d’échec : utilisez n’importe quel autre numéro ; le système simulera un paiement échoué selon les paramètres définis dans votre environnement sandbox.
+
+<Warning>
+Les serveurs de test de MOOV, MTN et MTN CI ont été retirés. Le mode momo_test est désormais la seule méthode supportée sur la sandbox FedaPay.Cela garantit une compatibilité continue, sans impact des mises à jour des opérateurs sur vos tests.
+</Warning>
+
 
 ## Réponses de l'API
 
