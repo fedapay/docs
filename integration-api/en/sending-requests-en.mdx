@@ -60,27 +60,23 @@ Before switching to Live mode, we recommend that you test your integration in te
 
 Once you've validated your tests, you can go live with your API keys. This mode enables you to carry out real transactions with your customers.
 
-## Test numbers for cards and mobile money
+## Mobile Money Test Numbers
 
-To test your integration, FedaPay provides you with card numbers and telephone numbers to simulate successful and failed payments. **You should use these numbers in test mode only**.
+To test your integration, FedaPay provides a single test mode called momo_test.This new setup simplifies sandbox testing by removing obsolete operator-specific test servers (MOOV, MTN, etc.).
 
-<Tabs>
-  <Tab title="Test card numbers">
-    | Numéro           | Type de carte | Scénario |
-    | :--------------- | :------------ | :------- |
-    | 4111111111111111 | Visa          | Succès   |
-    | 4242424242424241 | Visa          | Échecs   |
-    | 5555555555554444 | Mastercard    | Succès   |
-    | 4242424242424242 | Visa          | Echecs   |
-  </Tab>
+**Test mode operation**
 
-  <Tab title="Mobile Money phone numbers">
-    | Numéro   | Opérateur GSM | Scénario |
-    | :------- | :------------ | :------- |
-    | 64000001 | MOOV Bénin    | Succès   |
-    | 64000000 | MOOV Bénin    | Échecs   |
-  </Tab>
-</Tabs>
+   * Active test mode: **momo_test**
+
+   * Success scenario: use only the numbers **64000001** and **66000001**.
+
+   * Failure scenario: use any other number; the system will simulate a failed payment according to the parameters defined in your sandbox environment.
+
+<Warning>
+The MOOV, MTN, and MTN CI test servers have been removed. The momo_test mode is now the only supported method on the FedaPay sandbox. This ensures continued compatibility, without operator updates impacting your tests.
+</Warning>
+
+
 
 ## API responses
 
