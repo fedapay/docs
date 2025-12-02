@@ -63,8 +63,8 @@ The steps to set up a collect are broken down into several key processes.
       ```
 
       ```php PHP
-      \FedaPay\Fedapay::setApiKey('YOUR_API_KEY');
-      \FedaPay\Fedapay::setEnvironment('sandbox');
+      \FedaPay\FedaPay::setApiKey('YOUR_API_KEY');
+      \FedaPay\FedaPay::setEnvironment('sandbox');
       $transaction = \FedaPay\Transaction::create([
         'description' => 'Payment for order #1234',
         'amount' => 1000,
@@ -336,7 +336,6 @@ puts "Payment initiated via #{mode} for transaction #{transaction.id}"
 # Or trigger the payment in one step
 transaction.send_now(mode, phone_number)
       ```
-
     </CodeGroup>
   </Step>
 </Steps>
