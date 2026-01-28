@@ -9,7 +9,85 @@
     "groups": [
       {
         "group": "Getting Started",
-        "pages": []
+        "pages": [
+          {
+      "group": "Documentation de Fedapay",
+      "version": "fr",
+      "pages": [
+        {
+          "group": "Introduction à FedaPay",
+          "pages": [
+            "introduction/fr/fedapay-fr",
+            "introduction/fr/keyconcepts-fr",
+            "introduction/fr/createaccount-fr",
+            "introduction/fr/checkoutjs-fr", 
+            "introduction/fr/compte-fr"
+          ]
+        },
+        "payment-methods/fr/payment-methods-fr",
+        {
+          "group": "Intégration API",
+          "pages": [
+            "integration-api/fr/librairies-fr",
+            "integration-api/fr/authentication-fr",
+            "integration-api/fr/customer-management-fr",
+            "integration-api/fr/collects-management-fr",
+            "integration-api/fr/payouts-management-fr",
+            "integration-api/fr/sending-requests-fr",
+            "integration-api/fr/webhooks-fr"
+          ]
+        },
+      
+        {
+          "group": "Plugins FedaPay",
+          "pages": [
+            "libraries/fr/woocommerce-fr",
+            "libraries/fr/prestashop-fr",
+            "libraries/fr/opencart-fr",
+            "libraries/fr/give-fr",
+            "libraries/fr/whmcs-fr",
+            "libraries/fr/bubble-fr",
+            "libraries/fr/odoo-fr"
+            
+          ]
+        },
+        
+        {
+          "group": "Tableau de bord FedaPay",
+          "pages": [
+            "dashboard/fr/home-fr",
+            "dashboard/fr/customer-fr",
+            "dashboard/fr/collects-fr",
+            "dashboard/fr/refunds-fr",
+            "dashboard/fr/retenue-fr",
+            "dashboard/fr/page-fr",
+            "dashboard/fr/payout-fr",
+            "dashboard/fr/api-fr",
+            "dashboard/fr/profile-fr",
+            "dashboard/fr/business-fr",
+            "dashboard/fr/user-fr",
+            "dashboard/fr/funds-fr"
+          ]
+        },
+
+        {
+          "group": "TAP & GO",
+          "pages": [
+            "tap-go/fr/faq-fr",
+            "tap-go/fr/docs-fr"
+          ]
+        },
+        
+        {
+          "group": "Sécurité",
+          "pages": [
+            "security/fr/best-practices-fr",
+            "security/fr/fraud-security-fr"
+          ]
+        }
+      ]
+    }
+        ]
       }
     ]
   }
