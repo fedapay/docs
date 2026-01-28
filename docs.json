@@ -7,12 +7,20 @@
     "light": "#07C983",
     "dark": "#15803D"
   },
+  "tabs": [
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    },
+    {
+      "name": "SDKs",
+      "url": "sdks"
+    }
+  ],
+  "versions": ["fr", "en"],
   "navigation": {
     "groups": [
-      {
-        "group": "Getting Started",
-        "pages": [
-          {
+       {
       "group": "Documentation de Fedapay",
       "version": "fr",
       "pages": [
@@ -88,9 +96,186 @@
           ]
         }
       ]
+    },
+    {
+      "group": "FedaPay documentation",
+      "version": "en",
+      "pages": [
+        {
+          "group": "Introduction to FedaPay",
+          "pages": [
+            "introduction/en/fedapay-en",
+            "introduction/en/keyconcepts-en",
+            "introduction/en/createaccount-en",
+            "introduction/en/checkoutjs-en", 
+            "introduction/en/compte-en"
+          ]
+        },
+        "payment-methods/en/payment-methods-en",
+        {
+          "group": "API integration",
+          "pages": [
+            "integration-api/en/librairies-en",
+            "integration-api/en/authentication-en",
+            "integration-api/en/customer-management-en",
+            "integration-api/en/collects-management-en",
+            "integration-api/en/payouts-management-en",
+            "integration-api/en/sending-requests-en",
+            "integration-api/en/webhooks-en"
+          ]
+        },
+       
+        {
+          "group": "Plugins FedaPay",
+          "pages": [
+            "libraries/en/woocommerce-en",
+            "libraries/en/prestashop-en",
+            "libraries/en/opencart-en",
+            "libraries/en/give-en",
+            "libraries/en/whmcs-en",
+            "libraries/en/bubble-en",
+            "libraries/en/odoo-en"
+            
+          ]
+        },
+        
+        {
+          "group": "FedaPay Dashboard",
+          "pages": [
+            "dashboard/en/home-en",
+            "dashboard/en/customer-en",
+            "dashboard/en/collects-en",
+            "dashboard/en/refunds-en",
+            "dashboard/en/retenue-en",
+            "dashboard/en/page-en",
+            "dashboard/en/payout-en",
+            "dashboard/en/api-en",
+            "dashboard/en/profile-en",
+            "dashboard/en/business-en",
+            "dashboard/en/user-en",
+            "dashboard/en/funds-en"
+          ]
+        },
+
+        {
+          "group": "TAP & GO",
+          "pages": [
+            "tap-go/en/faq-en"
+          ]
+        },
+        
+        {
+          "group": "Security",
+          "pages": [
+            "security/en/best-practices-en",
+            "security/en/fraud-security-en"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "API Documentation",
+      "pages": [
+        "api-reference/introduction",
+        {
+          "group": "Customers",
+          "pages": [
+            "api-reference/customers/get-by-id",
+            "api-reference/customers/create",
+            "api-reference/customers/update",
+            "api-reference/customers/delete",
+            "api-reference/customers/get-all"
+          ]
+        },
+        {
+          "group": "Collects",
+          "pages": [
+            "api-reference/transactions/get-by-id",
+            "api-reference/transactions/create",
+            "api-reference/transactions/update",
+            "api-reference/transactions/delete",
+            "api-reference/transactions/get-all",
+            "api-reference/transactions/create-token",
+            "api-reference/transactions/send-payment"
+          ]
+        },
+        {
+          "group": "Payouts",
+          "pages": [
+            "api-reference/payouts/get-by-id",
+            "api-reference/payouts/create",
+            "api-reference/payouts/update",
+            "api-reference/payouts/delete",
+            "api-reference/payouts/get-all",
+            "api-reference/payouts/update-start"
+          ]
+        },
+        {
+          "group": "Events",
+          "pages": [
+            "api-reference/events/get-by-id",
+            "api-reference/events/get-all"
+          ]
+        },
+        {
+          "group": "Balances",
+          "pages": [
+            "api-reference/balances/get-by-id",
+            "api-reference/balances/get-all"
+          ]
+        },
+        {
+          "group": "Currencies",
+          "pages": [
+            "api-reference/currencies/get-by-id",
+            "api-reference/currencies/get-all"
+          ]
+        },
+        {
+          "group": "Logs",
+          "pages": [
+            "api-reference/logs/get-by-id",
+            "api-reference/logs/get-all"
+          ]
+        },
+        {
+          "group": "Webhooks",
+          "pages": [
+            "api-reference/webhooks/get-by-id",
+            "api-reference/webhooks/get-all"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "SDKs",
+      "pages": [
+        "sdks/fr/overview-fr",
+        "sdks/fr/php-fr",
+        "sdks/fr/nodejs-fr",
+        "sdks/fr/ruby-fr",
+        "sdks/fr/reactjs-fr",
+        "sdks/fr/angular-fr"
+      ],
+      "version": "fr"
+    },
+    {
+      "group": "SDKs",
+      "pages": [
+        "sdks/en/overview-en",
+        "sdks/en/php-en",
+        "sdks/en/nodejs-en",
+        "sdks/en/ruby-en",
+        "sdks/en/reactjs-en",
+        "sdks/en/angular-en"
+      ],
+      "version": "en"
     }
-        ]
-      }
     ]
+  },
+  "footerSocials": {
+    "x": "https://x.com/fedapay",
+    "github": "https://github.com/fedapay",
+    "linkedin": "https://www.linkedin.com/company/fedapay"
   }
 }
