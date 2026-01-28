@@ -202,11 +202,11 @@
               {
                 "group": "Introduction to FedaPay",
                 "pages": [
-                  "introduction/fr/fedapay-fr",
-                  "introduction/fr/keyconcepts-fr",
-                  "introduction/fr/createaccount-fr",
-                  "introduction/fr/checkoutjs-fr",
-                  "introduction/fr/compte-fr"
+                  "introduction/en/fedapay-en",
+                  "introduction/en/keyconcepts-en",
+                  "introduction/en/createaccount-en",
+                  "introduction/en/checkoutjs-en",
+                  "introduction/en/compte-en"
                 ]
               },
               {
