@@ -111,6 +111,18 @@
             ]
           },
           {
+            "tab": "SDKs",
+            "icon": "square-terminal",
+            "pages": [
+              "sdks/fr/overview-fr",
+              "sdks/fr/php-fr",
+              "sdks/fr/nodejs-fr",
+              "sdks/fr/ruby-fr",
+              "sdks/fr/reactjs-fr",
+              "sdks/fr/angular-fr"
+            ]
+          },
+          {
             "tab": "API Référence",
             "icon": "code",
             "groups": [
@@ -176,18 +188,6 @@
                   "api-reference/webhooks/get-all"
                 ]
               }
-            ]
-          },
-          {
-            "tab": "SDKs",
-            "icon": "square-terminal",
-            "pages": [
-              "sdks/fr/overview-fr",
-              "sdks/fr/php-fr",
-              "sdks/fr/nodejs-fr",
-              "sdks/fr/ruby-fr",
-              "sdks/fr/reactjs-fr",
-              "sdks/fr/angular-fr"
             ]
           }
         ]
@@ -268,6 +268,18 @@
             ]
           },
           {
+            "tab": "SDKs",
+            "icon": "square-terminal",
+            "pages": [
+              "sdks/en/overview-en",
+              "sdks/en/php-en",
+              "sdks/en/nodejs-en",
+              "sdks/en/ruby-en",
+              "sdks/en/reactjs-en",
+              "sdks/en/angular-en"
+            ]
+          },
+          {
             "tab": "API Reference",
             "icon": "code",
             "groups": [
@@ -333,18 +345,6 @@
                   "api-reference/webhooks/get-all"
                 ]
               }
-            ]
-          },
-          {
-            "tab": "SDKs",
-            "icon": "square-terminal",
-            "pages": [
-              "sdks/en/overview-en",
-              "sdks/en/php-en",
-              "sdks/en/nodejs-en",
-              "sdks/en/ruby-en",
-              "sdks/en/reactjs-en",
-              "sdks/en/angular-en"
             ]
           }
         ]
