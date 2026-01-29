@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "willow",
   "name": "FedaPay",
   "logo": {
     "light": "https://res.cloudinary.com/dvilp6td2/image/upload/v1732196591/Logo-Fedapay-light-resize_ub1uhn.png",
