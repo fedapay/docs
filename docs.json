@@ -128,7 +128,7 @@
             "groups": [
               {
                 "group": "Introduction",
-                "pages": ["api-reference/introduction"]
+                "pages": ["api-reference/introduction-fr"]
               },
               {
                 "group": "Collects",
@@ -285,7 +285,7 @@
             "groups": [
               {
                 "group": "Introduction",
-                "pages": ["api-reference/introduction"]
+                "pages": ["api-reference/introduction-en"]
               },
               {
                 "group": "Collects",
