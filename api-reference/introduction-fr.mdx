@@ -1,4 +1,61 @@
 ---
-title: 'Introduction Fr'
+title: 'Introduction à l’API FedaPay'
 ---
+
+Bienvenue dans **la référence de l’API FedaPay**, votre guide complet pour intégrer facilement **une passerelle de paiement** à vos sites web et applications. Cette documentation **API** exhaustive met à disposition des entreprises, développeurs et organisations des outils robustes pour gérer les paiements, les clients et les transactions financières dans les régions prises en charge.
+
+
+Améliorez votre expérience d’intégration grâce à des fonctionnalités telles que le test des endpoints directement dans la documentation et des exemples de code prêts à l’emploi dans plusieurs langages de programmation. Ces ressources simplifient le processus d’intégration et garantissent une mise en œuvre fluide, efficace et adaptée à vos exigences techniques. Plongez dans l’écosystème FedaPay et exploitez tout son potentiel.
+
+## Que pouvez-vous réaliser avec l’API FedaPay ?
+
+FedaPay propose un ensemble de fonctionnalités conçues pour répondre aux besoins de secteurs variés :
+
+* **Gestion des clients (Customer Management)** : Créez et gérez facilement des profils clients.
+
+* **Encaissements (Collects)** : Traitez des encaissements sécurisés sur plusieurs canaux de paiement avec un minimum d’effort.
+
+* **Paiements sortants (Payouts)** : Automatisez et suivez vos paiements avec précision.
+
+* **Suivi des événements (Event Monitoring)** : Recevez des notifications en temps réel sur les événements clés.
+
+* **Balances** : Accédez à une vue financière complète et détaillée.
+
+* **Devises (Currencies)** : Gérez plusieurs devises en toute simplicité.
+
+* **Logs** : Déboguez et suivez l’activité de l’API.
+
+* **Webhooks** : Activez une communication fluide et automatisée entre votre application et les services FedaPay.
+
+
+## Structure de l’API
+
+L’API FedaPay est RESTful, conçue pour être simple, cohérente et performante. Les endpoints sont prévisibles, ce qui facilite leur implémentation et leur montée en charge.Chaque section de cette référence correspond à une fonctionnalité clé de l’API et fournit des exemples de code, des réponses attendues ainsi que des bonnes pratiques de gestion des erreurs.
+
+### Authentication
+
+Pour garantir la sécurité des transactions, tous les endpoints de l’API nécessitent une authentification par **token Bearer**.Vos clés API donnent accès aux données de votre compte : elles doivent donc être conservées de manière sécurisée. Utilisez l’environnement approprié (sandbox pour les tests, live pour la production).
+
+```json
+"security": [
+  {
+    "bearerAuth": []
+  }
+]
+```
+
+## Démarrer avec l’API
+
+1. **Choisissez votre environnement**: Utilisez le mode [sandbox](https://sandbox.fedapay.com/register) pour les tests  et [live](https://live.fedapay.com/register) pour la production.
+
+2. **Récupérez vos clés API** : Connectez-vous à votre tableau de bord FedaPay pour obtenir vos clés.
+
+3. **Explorez les endpoints** : Consultez les sections Customer, Collect et Payouts pour commencer à construire votre flux de paiement.
+
+
+## Pourquoi FedaPay ?
+
+FedaPay permet aux entreprises de passer à l’échelle facilement tout en bénéficiant de solutions de paiement sécurisées, fiables et rapides. Que vous gériez des transactions unitaires ou des paiements en masse, l’API FedaPay garantit une expérience fluide et performante.Explorez la documentation et libérez tout le potentiel des paiements digitaux avec FedaPay.
+
+Commencez dès maintenant par la [section Customer](/api-reference/customers/get-by-id) pour mettre en place votre premier parcours de paiement. 
 
