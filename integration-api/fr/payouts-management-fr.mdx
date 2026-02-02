@@ -18,6 +18,16 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
 
     * **customer** : Le client concerné par le dépôt. Si le client n'existe pas encore dans votre base de données, vous pouvez le créer en même temps que le dépôt en fournissant les informations suivantes : nom, prénom, adresse e-mail, et numéro de téléphone.
 
+    * **description (optionnel)** :Champ libre permettant de décrire l’objet ou l’usage du dépôt.Ce champ peut notamment servir à :
+
+       * préciser la nature de la transaction (ex. : aide familiale, paiement de service, achat de biens, etc.) ;
+
+       * répondre aux exigences réglementaires, notamment celles de la BCEAO relatives à la justification de l’usage des fonds ;
+
+       * faciliter le suivi, l’identification et l’analyse des transactions dans le dashboard et via l’API.
+
+Le champ description est facultatif côté API, afin de garantir la compatibilité avec les intégrations existantes. Toutefois, il peut être requis dans certaines interfaces du dashboard pour améliorer la traçabilité des opérations.
+
     #### Exemple de requête pour la création d’un dépôt
 
     <CodeGroup>
@@ -29,7 +39,8 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
         -d '{
               "amount" : 2000,
               "currency" : {"iso" : "XOF"},
-              "mode": "mtn_open" 
+              "mode": "mtn_open" ,
+              "description" : "paiement de service", // Non obligatoire
               "customer" : { //  obligatoire.
                   "firstname" : "John",
                   "lastname" : "Doe",
@@ -51,6 +62,7 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
         amount: 2000,
         currency: { iso: "XOF" },
         mode: "mtn_open", // Non obligatoire. FedaPay détectera l'operateur sinon.
+        description : "paiement de service", // Non obligatoire
         customer: { //  obligatoire.
           firstname: "John",
           lastname: "Doe",
@@ -69,6 +81,7 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
         "amount" => 2000,
         "currency" => ["iso" => "XOF"],
         "mode" => "mtn_open", // Non obligatoire. FedaPay détectera l'operateur sinon.
+        "description" =>  "paiement de service", // Non obligatoire
         "customer" => [ // Non obligatoire.
             "firstname" => "John",
             "lastname" => "Doe",
@@ -89,7 +102,8 @@ La création d’un dépôt via l’API se déroule en plusieurs étapes. Chaque
       payout = FedaPay::Payout.create({
         amount: 1000, 
         currency: currency,
-        mode: "mtn_open", // Non obligatoire. FedaPay détectera l'operateur sinon.
+        mode: "mtn_open", // Non obligatoire. 
+        description: "paiement de service", // Non obligatoire
         customer: { // Non obligatoire.
           firstname: "John",
           lastname: "Doe",
