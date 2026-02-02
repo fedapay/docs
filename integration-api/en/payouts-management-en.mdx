@@ -18,6 +18,16 @@ Creating a payout through the API involves several steps. Each payout follows pr
 
     * **customer** : The customer receiving the payout. If the customer is not yet in your database, you can create them at the same time by providing details such as name, email, and phone number.
 
+    * description (optional): A free-text field used to describe the purpose or intended use of the payout. This field can notably be used to:
+
+      * specify the nature of the transaction (e.g. family support, service payment, purchase of goods, etc.);
+
+      * comply with regulatory requirements, in particular those of the BCEAO regarding the justification of the use of transferred funds;
+
+      * facilitate transaction tracking, identification, and data analysis within the dashboard and via the API.
+
+ The description field is optional at the API level in order to ensure backward compatibility with existing integrations. However, it may be required in certain dashboard interfaces to improve the traceability of payout operations.
+
     #### Example of a request for creating a repository
 
     <CodeGroup>
@@ -29,7 +39,8 @@ Creating a payout through the API involves several steps. Each payout follows pr
         -d '{
               "amount" : 2000,
               "currency" : {"iso" : "XOF"},
-              "mode": "mtn_open" 
+              "mode": "mtn_open" , 
+              "description": "service payment" , // Not required
               "customer" : {
                   "firstname" : "John",
                   "lastname" : "Doe",
@@ -51,6 +62,7 @@ Creating a payout through the API involves several steps. Each payout follows pr
         amount: 2000,
         currency: { iso: "XOF" },
         mode: "mtn_open", // Not required. FedaPay will detect the operator otherwise.
+        description: "service payment", // Not required 
         customer: { // Not required.
           firstname: "John",
           lastname: "Doe",
@@ -69,6 +81,7 @@ Creating a payout through the API involves several steps. Each payout follows pr
         "amount" => 2000,
         "currency" => ["iso" => "XOF"],
         "mode" => "mtn_open", // Not required. FedaPay will detect the operator otherwise.
+        "description" => "service payment", // Not required
         "customer" => [ // Non obligatoire.
             "firstname" => "John",
             "lastname" => "Doe",
@@ -90,6 +103,7 @@ Creating a payout through the API involves several steps. Each payout follows pr
         amount: 1000, 
         currency: currency,
         mode: "mtn_open", // Not required. FedaPay will detect the operator otherwise.
+        description: "service payment", // Not required
         customer: { // Not required.
           firstname: "John",
           lastname: "Doe",
