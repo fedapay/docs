@@ -1,0 +1,117 @@
+---
+title: 'Gestion des clés API FedaPay'
+---
+
+Les clés API FedaPay sont des identifiants sensibles qui permettent d’accéder à votre compte et d’effectuer des opérations critiques (création de transactions, paiements, remboursements, payouts, etc.).À ce titre, elles doivent être protégées avec le même niveau d’exigence qu’un mot de passe administrateur.Une mauvaise gestion de vos clés API peut exposer votre entreprise à des risques majeurs : paiements frauduleux, fuite de données, pertes financières ou non-conformité réglementaire.
+
+
+**Comprendre les risques liés aux clés API**
+
+    *   Les clés publiques peuvent être utilisées côté client (front-end) et ne permettent que des actions limitées.
+
+    *    Les clés secrètes, en revanche, donnent un accès complet à l’API FedaPay.Toute personne disposant de cette clé peut agir au nom de votre compte.
+
+**FedaPay ne vous demandera jamais votre clé API secrète, que ce soit par e-mail, téléphone ou support client.**
+
+## Bonnes pratiques pour protéger vos clés API secrètes
+
+**1. Stockez vos clés dans un environnement sécurisé**
+
+Les clés API secrètes doivent être stockées exclusivement dans :
+     *  des variables d’environnement ;
+     *  des services de gestion de secrets (Key Management System – KMS, vaults, secrets managers, etc.).
+
+Évitez absolument :
+     * de les enregistrer en clair dans votre code source ;
+     * de les placer dans des fichiers locaux non sécurisés ;
+     * de les copier dans des outils collaboratifs non chiffrés.
+
+Une fois générée, votre clé doit être immédiatement stockée de manière sécurisée et ne plus être exposée.
+
+**2. Limitez strictement l’accès aux clés**
+
+L’accès aux clés API secrètes doit être :
+     *  réservé uniquement aux personnes et systèmes qui en ont réellement besoin ;
+     *  encadré par une politique interne claire (qui peut créer, consulter ou remplacer une clé).
+
+Nous recommandons de :
+     * revoir régulièrement les accès ;
+     * retirer les permissions inutiles ;
+     * auditer les usages internes en cas de doute.
+
+
+**3. Ne partagez jamais vos clés de manière non sécurisée**
+
+Ne partagez jamais vos clés API secrètes :
+     * par e-mail ;
+     * via des applications de messagerie instantanée ;
+     * dans des tickets de support ou captures d’écran.
+
+Toute demande de clé API est un signal d’alerte potentiel.
+
+**4. N’enregistrez jamais vos clés dans des dépôts de code**
+
+Les dépôts Git (publics ou privés) sont une source fréquente de fuite de clés.
+Même un dépôt privé peut être exposé :
+     * via les machines des développeurs ;
+     * par des outils tiers compromis ;
+     * ou par des erreurs de configuration.
+
+Utilisez toujours des variables d’environnement et des fichiers ignorés par le versionnement (.env, secrets, etc.).
+
+**5. N’intégrez jamais de clés secrètes dans des applications clientes**
+
+Les clés API secrètes ne doivent jamais être intégrées dans :
+     * des applications mobiles ;
+     * du JavaScript côté navigateur ;
+     * des SDK distribués à des tiers.
+
+Pour les usages côté client, utilisez exclusivement :
+     * les clés publiques prévues à cet effet ;
+     * ou des endpoints serveur intermédiaires sécurisés.
+
+**6. Renouvelez régulièrement vos clés API**
+
+La rotation des clés est une bonne pratique essentielle.Nous vous recommandons de :
+     * renouveler vos clés périodiquement, même sans incident ;
+     * mettre en place un processus clair de remplacement (ancienne → nouvelle clé).
+
+Cela permet :
+     * d’identifier précisément où vos clés sont utilisées ;
+     * de réagir rapidement en cas de compromission ;
+     * de réduire l’impact d’un accès non autorisé.
+
+**7. Surveillez les usages et comportements anormaux**
+
+Surveillez régulièrement :
+     * les requêtes API effectuées avec vos clés ;
+     * l’utilisation des clés live dans des contextes inattendus (ex. environnement de test).
+
+Assurez-vous notamment que :
+     * les clés sandbox sont utilisées uniquement en environnement de test ;
+     * les clés live ne sont pas exposées inutilement.
+
+**8. Réagir en cas de clé API compromise**
+
+Si vous pensez qu’une clé API a été exposée (publication accidentelle, fuite de code, activité suspecte) :
+
+    1-Régénérez immédiatement la clé concernée depuis votre tableau de bord FedaPay.
+    2-Remplacez la clé dans toutes vos intégrations.
+    3-Désactivez l’ancienne clé dès que la nouvelle est opérationnelle.
+    4-Analysez la cause de l’incident pour éviter qu’il ne se reproduise.
+
+En cas de doute, il est toujours préférable de procéder à une rotation proactive des clés.
+
+## Maintenir un haut niveau de sécurité dans le temps
+
+La sécurité des clés API n’est pas une action ponctuelle, mais un processus continu.
+Nous vous recommandons de :
+    * maintenir une documentation interne à jour ;
+    * former régulièrement vos équipes techniques ;
+    * revoir vos pratiques à chaque évolution de votre intégration.
+
+## À retenir
+
+Les clés API secrètes donnent un accès total à votre compte FedaPay.
+Toute exposition peut entraîner des conséquences financières et réglementaires.
+Une bonne gestion des clés protège à la fois votre entreprise et vos clients.

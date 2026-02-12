@@ -63,6 +63,7 @@
                 "pages": [
                   "integration-api/fr/librairies-fr",
                   "integration-api/fr/authentication-fr",
+                  "integration-api/fr/api-manage-fr",
                   "integration-api/fr/customer-management-fr",
                   "integration-api/fr/collects-management-fr",
                   "integration-api/fr/payouts-management-fr",
