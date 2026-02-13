@@ -222,6 +222,7 @@
                 "pages": [
                   "integration-api/en/librairies-en",
                   "integration-api/en/authentication-en",
+                  "integration-api/en/api-manage-en",
                   "integration-api/en/customer-management-en",
                   "integration-api/en/collects-management-en",
                   "integration-api/en/payouts-management-en",

@@ -1,0 +1,116 @@
+---
+title: 'Managing FedaPay API Keys'
+---
+
+
+FedaPay API keys are sensitive credentials that allow access to your account and enable critical operations (creating transactions, payments, refunds, payouts, etc.). As such, they must be protected with the same level of care as an administrator password. Poor management of your API keys can expose your business to major risks: fraudulent payments, data breaches, financial losses, or regulatory non-compliance.
+
+**Understanding the risks related to API keys**
+
+    *   Public keys can be used on the client side (front-end) and only allow limited actions.
+
+    *   Secret keys, on the other hand, provide full access to the FedaPay API. Anyone with this key can act on behalf of your account.
+
+**FedaPay will never ask for your secret API key, whether by email, phone, or through customer support.**
+
+## Best practices to protect your secret API keys
+
+**1. Store your keys in a secure environment**
+
+Secret API keys must be stored exclusively in:
+     *  environment variables;
+     *  secure secret management services (Key Management System – KMS, vaults, secrets managers, etc.).
+
+Strictly avoid:
+     * storing them in plain text within your source code;
+     * placing them in unsecured local files;
+     * copying them into unencrypted collaboration tools.
+
+Once generated, your key must be stored securely immediately and must no longer be exposed.
+
+**2. Strictly limit access to keys**
+
+Access to secret API keys must be:
+     *  restricted only to individuals and systems that truly need them;
+     *  governed by a clear internal policy (who can create, view, or rotate a key).
+
+We recommend:
+     * regularly reviewing access permissions;
+     * removing unnecessary privileges;
+     * auditing internal usage when in doubt.
+
+**3. Never share your keys insecurely**
+
+Never share your secret API keys:
+     * via email;
+     * through instant messaging applications;
+     * in support tickets or screenshots.
+
+Any request for your API key is a potential warning sign.
+
+**4. Never store your keys in code repositories**
+
+Git repositories (public or private) are a common source of key leaks.
+Even a private repository can be exposed:
+     * through developers’ machines;
+     * via compromised third-party tools;
+     * or due to configuration errors.
+
+Always use environment variables and files excluded from version control (.env, secrets, etc.).
+
+**5. Never embed secret keys in client applications**
+
+Secret API keys must never be embedded in:
+     * mobile applications;
+     * browser-side JavaScript;
+     * SDKs distributed to third parties.
+
+For client-side use cases, rely exclusively on:
+     * public keys designed for this purpose;
+     * or secure intermediary server endpoints.
+
+**6. Rotate your API keys regularly**
+
+Key rotation is an essential best practice. We recommend:
+     * rotating your keys periodically, even without an incident;
+     * implementing a clear replacement process (old → new key).
+
+This allows you to:
+     * identify exactly where your keys are used;
+     * respond quickly in case of compromise;
+     * reduce the impact of unauthorized access.
+
+**7. Monitor usage and suspicious activity**
+
+Regularly monitor:
+     * API requests made using your keys;
+     * the use of live keys in unexpected contexts (e.g., test environment).
+
+In particular, ensure that:
+     * sandbox keys are used only in test environments;
+     * live keys are not unnecessarily exposed.
+
+**8. Responding to a compromised API key**
+
+If you believe an API key has been exposed (accidental publication, code leak, suspicious activity):
+
+    * Regenerate the affected key immediately from your FedaPay dashboard.
+    * Replace the key in all your integrations.
+    * Disable the old key once the new one is operational.
+    * Investigate the root cause of the incident to prevent recurrence.
+
+When in doubt, it is always safer to proactively rotate your keys.
+
+## Maintaining a high level of security over time
+
+API key security is not a one-time action, but an ongoing process.
+We recommend:
+    * keeping your internal documentation up to date;
+    * regularly training your technical teams;
+    * reviewing your practices whenever your integration evolves.
+
+## Key takeaways
+
+Secret API keys provide full access to your FedaPay account.
+Any exposure can result in financial and regulatory consequences.
+Proper key management protects both your business and your customers.
