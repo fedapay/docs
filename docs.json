@@ -261,7 +261,10 @@
               },
               {
                 "group": "TAP & GO",
-                "pages": ["tap-go/en/faq-en"]
+                "pages": [
+                  "tap-go/en/faq-en",
+                  "tap-go/en/docs-en"
+                  ]
               },
               {
                 "group": "Security",
