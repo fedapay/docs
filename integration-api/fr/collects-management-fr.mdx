@@ -407,6 +407,10 @@ Pour vérifier le statut final d’une collecte, surtout lors d’un paiement sa
 
 ### Cycle de Vie d’une Collecte : Les Statuts
 
+![Cycle de vie d'une collecte sur FedaPay](https://res.cloudinary.com/dvilp6td2/image/upload/v1773402181/Cycle_vie_statut_fedapay_french28_r6ryzl.jpg)
+
+ Le diagramme ci-dessus illustre le cycle de vie complet d'une Collecte, de sa création jusqu'à son statut final.
+
 Chaque collecte passe par différents statuts :
 
 * **pending** : En attente (statut par défaut à la création)
@@ -422,6 +426,10 @@ Chaque collecte passe par différents statuts :
 * **transferred** : Transférée (montant transféré sur le compte marchand)
 
 * **expired** :  la collecte n’a pas été finalisée dans le délai imparti
+
+<Warning>
+Les statuts **canceled** et **declined** ne sont pas des statuts finaux une nouvelle tentative de paiement peut être relancée. Une collecte **pending** non finalisée expire automatiquement après 24 heures. Un remboursement peut être initié depuis **approved** ou **transferred** via une tentative de remboursement. 
+</Warning>
 
 <Note>Pour consulter le statut en temps réel, rendez-vous dans le tableau de bord FedaPay sous la section **Collectes** ou utilisez l’API pour vérifier avec l'ID de la collecte.</Note>
 
