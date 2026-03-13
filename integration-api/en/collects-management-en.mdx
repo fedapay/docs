@@ -376,6 +376,10 @@ To check the final status of a collection, especially during redirection-free pa
 
 ### Collect Lifecycle: Statuses
 
+![Lifecycle collects statues](https://res.cloudinary.com/dvilp6td2/image/upload/v1773402181/Lyfecycle_status_fedapay21029_qrxtcv.jpg)
+
+The diagram above illustrates the complete lifecycle of a Collecte, from creation to its final status.
+
 Each collection passes through various statuses:
 
 * **pending** : Pending (default status upon creation)
@@ -391,6 +395,10 @@ Each collection passes through various statuses:
 * **transferred** : Transferred (amount moved to the merchant account)
 
 * **expired** : Expired (the collect was not completed within the allowed time frame)
+
+<Warning>
+The **canceled** and **declined** statuses are not final statuses a new payment attempt can be made. A **pending** collecte that is not completed automatically expires after 24 hours. A **refund** can be initiated from **approved** or **transferred** via a refund attempt. 
+</Warning>
 
 <Note>To view the real-time status, visit the FedaPay dashboard under the **Collects** section or use the API to check using the collect ID.</Note>
 
