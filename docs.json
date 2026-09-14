@@ -192,6 +192,12 @@
                 ]
               }
             ]
+          },
+          {
+            "tab": "Changelog",
+            "pages": [
+              "changelog-fr"
+            ]
           }
         ]
       },
@@ -353,6 +359,12 @@
                   "api-reference/webhooks/get-all"
                 ]
               }
+            ]
+          },
+          {
+            "tab": "Changelog",
+            "pages": [
+              "changelog-en"
             ]
           }
         ]
