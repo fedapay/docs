@@ -46,12 +46,12 @@
               {
                 "group": "Introduction à FedaPay",
                 "pages": [
-                  "introduction/fr/fedapay-fr",
-                  "introduction/fr/keyconcepts-fr",
-                  "introduction/fr/createaccount-fr",
-                  "introduction/fr/checkoutjs-fr",
-                  "introduction/fr/compte-fr",
-                  "introduction/fr/account-rejection-fr"
+                  "fr/introduction/fedapay",
+                  "fr/introduction/keyconcepts",
+                  "fr/introduction/createaccount",
+                  "fr/introduction/checkoutjs",
+                  "fr/introduction/compte",
+                  "fr/introduction/account-rejection"
                 ]
               },
               {
@@ -213,12 +213,12 @@
               {
                 "group": "Introduction to FedaPay",
                 "pages": [
-                  "introduction/en/fedapay-en",
-                  "introduction/en/keyconcepts-en",
-                  "introduction/en/createaccount-en",
-                  "introduction/en/checkoutjs-en",
-                  "introduction/en/compte-en",
-                  "introduction/en/account-rejection-en"
+                  "en/introduction/fedapay",
+                  "en/introduction/keyconcepts",
+                  "en/introduction/createaccount",
+                  "en/introduction/checkoutjs",
+                  "en/introduction/compte",
+                  "en/introduction/account-rejection"
                 ]
               },
               {

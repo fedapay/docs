@@ -1,26 +1,26 @@
 ---
-title: 'Accepter des paiements avec Checkout.Js'
+title: 'Accept Payments with Checkout.Js'
 ---
 
-## Pourquoi utiliser Checkout.js pour vos paiements en ligne ?
+## Why Use Checkout.js for Online Payments ?
 
-Checkout.js est un outil conçu pour faciliter l'intégration d'un formulaire de paiement sécurisé et rapide sur votre site web. Que vous soyez développeur ou non, cet outil vous permettra de collecter des paiements directement sur votre site en toute simplicité. Découvrez comment utiliser et personnaliser Checkout.js pour offrir une expérience de paiement fluide à vos utilisateurs.
+Checkout.js is a tool designed to make it easy to integrate a secure and fast payment form on your website. Whether you are a developer or not, this tool will allow you to collect payments directly on your site with ease. Learn how to use and customize Checkout.js to provide a smooth payment experience for your users.
 
-***Avant de commencer, visionnez cette vidéo qui présente le mode d’intégration de Checkout.js*** :
+***Before you start, watch this video that explains how to integrate Checkout.js:*** :
 
 <iframe width="100%" height="415" src="https://www.youtube.com/embed/NswxFnyrzR8" title="Intégrer un formulaire de paiement sur votre site avec Feda Checkout" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
 
-## Méthodes d'intégration de Checkout.js
+## Methods of Integrating Checkout.js
 
-Checkout.js offre plusieurs options d'intégration pour répondre à différents besoins. Vous pouvez ajouter un bouton de paiement simple, plusieurs boutons de collecte, ou même intégrer le formulaire de paiement directement sur votre site pour éviter les redirections.
+Checkout.js offers several integration options to suit different needs. You can add a simple payment button, multiple collection buttons, or even embed the payment form directly on your site to avoid redirects.
 
 <Steps>
-  <Step title="Ajouter un bouton de paiement simple à votre page">
-    Commencez par ajouter un bouton simple sur votre page pour déclencher la        collecte. Ce bouton permettra à l’utilisateur d’accéder à un formulaire de      paiement où il pourra finaliser la transaction.
+  <Step title="Add a Simple Payment Button to Your Page">
+    Start by adding a simple button on your page to trigger the collection. This button will allow the user to access a payment form where they can finalize the transaction.
 
-    ```javascript
+     ```javascript
   <!--
-  Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou live.
+  Replace VOTRE_CLE_API_PUBLIQUE with the public key of your sandbox or live account.
   -->
     
     <!DOCTYPE html>
@@ -41,12 +41,12 @@ Checkout.js offre plusieurs options d'intégration pour répondre à différents
     ```
 
     <Note>
-      [Cliquez ici pour tester](https://demo.fedapay.com/payment-button.html)
+      [Click here to test](https://demo.fedapay.com/payment-button.html)
     </Note>
   </Step>
 
-  <Step title="Personnaliser le formulaire de paiement">
-    Vous pouvez personnaliser les détails de la collecte (montant, description, noms et adresse e-mail du client) pour adapter le formulaire de paiement à votre plateforme.
+  <Step title="Customize the Payment Form">
+    You can customize the collection details (amount, description, customer names, and email address) to adapt the payment form to your platform.
 
     ```javascript
     <!doctype html>
@@ -78,12 +78,12 @@ Checkout.js offre plusieurs options d'intégration pour répondre à différents
     ```
 
     <Note>
-      [Cliquez ici pour tester](https://demo.fedapay.com/customize-form.html)
+      [Click here to test](https://demo.fedapay.com/customize-form.html)
     </Note>
   </Step>
 
-  <Step title="Ajouter plusieurs boutons de paiement sur une même page">
-    Pour permettre des collectes de différents montants, vous pouvez intégrer plusieurs boutons de paiement sur la même page.
+  <Step title="Add Multiple Payment Buttons on One Page">
+    To allow collections of different amounts, you can integrate multiple payment buttons on the same page.
 
     ```javascript
     <!doctype html>
@@ -114,12 +114,12 @@ Checkout.js offre plusieurs options d'intégration pour répondre à différents
     ```
 
     <Note>
-      [Cliquez ici pour tester](https://demo.fedapay.com/add-multiple-buttons.html)
+      [Click here to test](https://demo.fedapay.com/add-multiple-buttons.html)
     </Note>
   </Step>
 
-  <Step title="Déclencher la collecte avec un événement">
-    Si vous souhaitez déclencher la collecte par un événement spécifique, utilisez JavaScript pour activer le formulaire de paiement sur demande.
+  <Step title="Trigger the Collection with an Event">
+    If you want to trigger the collection through a specific event, use JavaScript to activate the payment form on request.
 
     ```javascript
     <!doctype html>
@@ -152,12 +152,12 @@ Checkout.js offre plusieurs options d'intégration pour répondre à différents
     ```
 
     <Note>
-      [Cliquez ici pour tester](https://demo.fedapay.com/trigger-collection.html)
+      [Click here to test](https://demo.fedapay.com/trigger-collection.html)
     </Note>
   </Step>
 
-  <Step title="Intégration embarquée : Paiement sans redirection">
-    Pour une expérience utilisateur optimisée, vous pouvez intégrer le formulaire de collecte directement sur votre site, sans rediriger l'utilisateur.
+  <Step title="Embedded Integration: Payment Without Redirection">
+    For an optimized user experience, you can integrate the collection form directly on your site without redirecting the user.
 
     ```javascript
     <!doctype html>
@@ -190,38 +190,38 @@ Checkout.js offre plusieurs options d'intégration pour répondre à différents
     ```
 
     <Note>
-      [Cliquez ici pour tester](https://demo.fedapay.com/payment-no-redirection.html)
+      [Click here to test](https://demo.fedapay.com/payment-no-redirection.html)
     </Note>
   </Step>
 </Steps>
 
-## Personnalisation de l'interface et options avancées
+## Customization of the Interface and Advanced Options
 
-Checkout.js permet de personnaliser les éléments visuels de votre formulaire pour qu’il corresponde à l’identité de votre plateforme. Vous pouvez notamment définir la couleur de l’arrière-plan, le texte du bouton de paiement, ou ajouter un logo.
+Checkout.js allows you to customize the visual elements of your form to match your platform’s identity. You can define the background color, the payment button text, or add a logo.
 
-***Modifier l'apparence et ajouter des détails supplémentaires***
+***Modify the appearance and add extra details:***
 
-* ***Clé publique** : `data-public-key`*
+* ***Public key** : `data-public-key`*
 
-* ***Montant de la collecte** : `data-transaction-amount`*
+* ***Collection amount** : `data-transaction-amount`*
 
-* ***Description de la collecte** : `data-transaction-description`*
+* ***Collection description** : `data-transaction-description`*
 
-* ***Devise** : `data-currency-iso`*
+* ***Currency** : `data-currency-iso`*
 
-* ***Texte du bouton** : `data-button-text`*
+* ***Button text** : `data-button-text`*
 
-* ***Classe CSS du bouton** : `data-button-class`*
+* ***Button CSS class** : `data-button-class`*
 
-* ***Image et description du widget** : `data-widget-image, data-widget-description`*
+* ***Widget image and description** : `data-widget-image, data-widget-description`*
 
-## Méthode avec une balise form pour une intégration avancée
+## Method with a form tag for advanced integration
 
-Checkout.js permet également l’intégration avec une balise form pour envoyer des données spécifiques après paiement.
+Checkout.js also allows integration with a form tag to send specific data after payment.
 
 ```javascript
 <!--
-Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou live.
+Replace VOTRE_CLE_API_PUBLIQUE by the public key of your sandbox or live account.
 -->
 <form action="index.php" method="POST">
  <input type="hidden" name="field" value="test">
@@ -238,12 +238,12 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 ```
 
 <Note>
-  [Cliquez ici pour tester](https://demo.fedapay.com/form-tag.html)
+  [Click here to test](https://demo.fedapay.com/form-tag.html)
 </Note>
 
-## Méthode de la classe FedaPay et attributs de configuration
+## FedaPay Class Method and Configuration Attributes
 
-***Checkout.js propose des options pour initialiser le composant de collecte avec plusieurs configurations :***
+***Checkout.js offers options to initialize the collection component with multiple configurations:***
 
 <AccordionGroup>
   <Accordion title="public_key">
@@ -251,7 +251,7 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 
     * **Type**: *string*
 
-    * **Description**: La clé public FedaPay
+    * **Description**: The FedaPay public key
   </Accordion>
 
   <Accordion title="environment">
@@ -259,7 +259,7 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 
     * **Type**: *string*
 
-    * **Description**: L'environnement FedaPay. Les valeurs possibles sont **live et sandbox**.
+    * **Description**: FedaPay environment. Possible values are **live and sandbox**.
   </Accordion>
 
   <Accordion title="trigger">
@@ -267,7 +267,7 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 
     * **Type**: *string*
 
-    * **Description**: Le type d'événément qui déclenche l'ouverture de la boîte de dialogue de paiement. La valeur par défaut est **click**.
+    * **Description**: The type of event that triggers the opening of the payment dialog box. Default value is **click**.
   </Accordion>
 
   <Accordion title="locale">
@@ -275,7 +275,7 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 
     * **Type**: *string*
 
-    * **Description**: La langue de l'interface de paiement. La valeur par défaut est **fr**.
+    * **Description**: Payment interface language. The default value is **fr**.
   </Accordion>
 
   <Accordion title="transaction.id">
@@ -283,7 +283,7 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 
     * **Type**: *integer*
 
-    * **Description**: Si vous avez déjà créé la transaction, vous pouvez spécifier l'id de la collecte.
+    * **Description**: If you have already created the transaction, you can specify the collection id.
   </Accordion>
 
   <Accordion title="transaction.amount">
@@ -291,7 +291,7 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 
     * **Type**: *integer*
 
-    * **Description**: Le montant de la transaction. La valeur par défaut est **100**.
+    * **Description**: Transaction amount. Default value is **100**.
   </Accordion>
 
   <Accordion title="transaction.description">
@@ -299,7 +299,7 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 
     * **Type**: *string*
 
-    * **Description**: La description de la transaction.
+    * **Description**: Transaction description.
   </Accordion>
 
   <Accordion title="transaction.custom_metadata">
@@ -307,7 +307,7 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 
     * **Type**: *object*
 
-    * **Description**: Objet metadata de la transaction.
+    * **Description**: Transaction metadata object.
 
       **Exemple JS:**
 
@@ -333,7 +333,7 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 
     * **Type**: *string*
 
-    * **Description**: L'email du client
+    * **Description**: Customer email
   </Accordion>
 
   <Accordion title="customer.firstname">
@@ -341,7 +341,7 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 
     * **Type**: *string*
 
-    * **Description**: Le prénom du client
+    * **Description**: Customer's first name
   </Accordion>
 
   <Accordion title="customer.lastname">
@@ -349,7 +349,7 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 
     * **Type**: *string*
 
-    * **Description**: Le nom du client
+    * **Description**: Customer name
   </Accordion>
 
   <Accordion title="customer.phone_number.number">
@@ -357,7 +357,7 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 
     * **Type**: *string*
 
-    * **Description**: Le numéro de téléphone du client
+    * **Description**: The customer's telephone number
   </Accordion>
 
   <Accordion title="customer.phone_number.country">
@@ -365,7 +365,7 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 
     * **Type**: *string*
 
-    * **Description**: Le pays du téléphone du client
+    * **Description**: Customer's telephone country
   </Accordion>
 
   <Accordion title="customer.currency.iso">
@@ -373,7 +373,7 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 
     * **Type**: *string*
 
-    * **Description**: Le code iso de la devise. La valeur par défaut est **XOF**
+    * **Description**: The currency iso code. Default value is **XOF**.
   </Accordion>
 
   <Accordion title="customer.currency.code">
@@ -381,7 +381,7 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 
     * **Type**: *string*
 
-    * **Description**: Le code de la devise
+    * **Description**: Currency code
   </Accordion>
 
   <Accordion title="button.text">
@@ -389,7 +389,7 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 
     * **Type**: *string*
 
-    * **Description**: Le text à afficher sur le bontton de paiement.
+    * **Description**: The text to be displayed on the payment slip.
   </Accordion>
 
   <Accordion title="button.class">
@@ -397,7 +397,7 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 
     * **Type**: *string*
 
-    * **Description**: La class css du bontton de paiement.
+    * **Description**: The payment coupon's css class.
   </Accordion>
 
   <Accordion title="form_selector">
@@ -405,7 +405,7 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 
     * **Type**: *string*
 
-    * **Description**: outre passer le selecteur de selecteur de la base formulaire. Si celui ci est bien indiqué, il sera utilisé pour trouver le formulaire à soumettre après paiement
+    * **Description**: override the form base selector. If this is specified, it will be used to find the form to be submitted after payment.
   </Accordion>
 
   <Accordion title="submit_form_on_failed">
@@ -413,7 +413,7 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
 
     * **Type**: *boolean*
 
-    * **Description**: Indique si le formulaire (Lorsque le bouton de paiement ou l'élément embarqué a un parent direct qui est un formulaire) doit être soumis ou non lorsque le paiement échoue.
+    * **Description**: Indicates whether the form (when the payment button or embedded element has a direct parent that is a form) should be submitted or not when the payment fails.
   </Accordion>
 
   <Accordion title="onComplete">
@@ -423,66 +423,65 @@ Remplacez VOTRE_CLE_API_PUBLIQUE par la clé publique de votre compte sandbox ou
         function{ reason: number, transaction: object }
       ```
 
-    * **Description**: La fonction de retour lorsque la boîte de dialogue est fermée. Cette fonction prend deux arguments. Le premier est la raison de fermeture de la boîte de dialogue. Il peut être égal à FedaPay.CHECKOUT\_COMPLETED (lorsque le paiement est complet) ou FedaPay.DIALOG\_DISMISSED (lorsque la boîte de dialogue est fermée par l'utilisateur). Le deuxième argument est l'object transaction créé lors du paiement.
+    * **Description**: The return function when the dialog box is closed. This function takes two arguments. The first is the reason for closing the dialog box. It can be equal to FedaPay.CHECKOUT\_COMPLETED (when the payment is complete) or FedaPay.DIALOG\_DISMISSED (when the dialog box is closed by the user). The second argument is the transaction object created during payment.
   </Accordion>
 </AccordionGroup>
 
-## Autorisation de domaine pour Checkout JS
+## Domain Authorization for Checkout JS
 
-Lors de la **première connexion** entre votre site marchand et la solution **FedaPay Checkout**, une **autorisation de domaine** est nécessaire. Cette étape permet de garantir que vos clients soient correctement redirigés vers votre page de paiement sécurisée, et non vers l’interface de création de compte FedaPay.
+When your merchant site connects to the **FedaPay Checkout** solution for the first time, domain authorization is required. This step ensures that your customers are properly redirected to your secure payment page, and not to the FedaPay account creation interface.
 
-#### Pourquoi cette autorisation est nécessaire ?
+#### Why is this authorization crucial ?
 
-Sans autorisation préalable de votre domaine :
+Without prior authorization of your domain:
 
-  - Vos clients seront redirigés vers l’interface d’inscription FedaPay,
-  - Ils **ne pourront pas finaliser leurs paiements**,
-  - Cela peut entraîner une perte de conversions.
+  - Your customers will be redirected to the FedaPay signup interface,
+  - They will **not be able to complete their payments**,
+  - This can lead to a **loss of conversions**.
 
-### Étapes pour autoriser votre domaine
+### Steps to authorize your domain
 
-1. **Connectez-vous à votre compte FedaPay**
-
-
-2. Cliquez sur votre **photo de profil** (en haut à droite)
+1. **Log in to your FedaPay account**
 
 
-3. Sélectionnez le menu **Applications**
+2. Click on your **profile photo** (top right)
 
 
-4. Dans la section **Nom de domaine à autoriser**:
+3. Select the **Applications** menu
+
+
+4. In the section **Domain name to authorize**:
 
 <Frame>
-  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1744389994/screely-1744389924590_xvcodg.png" />
+  <img src="https://res.cloudinary.com/dvilp6td2/image/upload/v1744389994/screely-1744389454474_roqzwc.png" />
 </Frame>
 
    
-        - Saisissez **le nom de domaine** de votre site marchand (ex. **votresite.com**)
-        - Cliquez sur le bouton **Autoriser**
+        - Enter the domain name of your merchant site (e.g. **yourwebsite.com**)
+        - Click the **Authorize** button
 
 
-Une fois cette étape terminée, votre domaine est approuvé pour l'utilisation de Checkout JS.
+Once this step is completed, your domain is approved for use with Checkout JS.
 
-### Révocation d’un domaine (optionnelle)
+### Revoking a domain (optional)
 
-Dans certains cas, vous pourriez vouloir retirer l'accès d'un domaine autorisé – par exemple :
+In some cases, you may want to remove access for an authorized domain – for example:
 
-    - Si vous avez changé de site ou de domaine principal,
-    - Si vous avez détecté un usage non autorisé ou suspect.
-
-
-Pour cela :
-
-    1. Rendez-vous toujours dans l’onglet **Applications**
+    - If you have changed your main site or domain,
+    - If you detect unauthorized or suspicious usage.
 
 
-    2. Saisissez le domaine concerné dans le champ **Révoquer les accès au domaine suivant**
+To do this:
+
+    1. Still go to the **Applications** tab
 
 
-    3. Cliquez sur le bouton **Révoquer les accès**
+    2. Enter the relevant domain name in the field **Revoke access to the following domain**
+
+
+    3. Click the **Revoke access** button
 
 
 <Note>
-  **Note** : Une fois la révocation effectuée, les paiements via ce domaine seront bloqués.
+  **Note** : Once the revocation is done, payments from this domain will be blocked.
 </Note>
-
