@@ -196,7 +196,7 @@
           {
             "tab": "Changelog",
             "pages": [
-              "changelog-fr"
+              "fr/changelog"
             ]
           }
         ]
@@ -364,7 +364,7 @@
           {
             "tab": "Changelog",
             "pages": [
-              "changelog-en"
+              "en/changelog"
             ]
           }
         ]
