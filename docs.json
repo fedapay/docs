@@ -117,12 +117,12 @@
             "tab": "SDKs",
             "icon": "square-terminal",
             "pages": [
-              "sdks/fr/overview-fr",
-              "sdks/fr/php-fr",
-              "sdks/fr/nodejs-fr",
-              "sdks/fr/ruby-fr",
-              "sdks/fr/reactjs-fr",
-              "sdks/fr/angular-fr"
+              "fr/sdks/overview",
+              "fr/sdks/php",
+              "fr/sdks/nodejs",
+              "fr/sdks/ruby",
+              "fr/sdks/reactjs",
+              "fr/sdks/angular"
             ]
           },
           {
@@ -285,12 +285,12 @@
             "tab": "SDKs",
             "icon": "square-terminal",
             "pages": [
-              "sdks/en/overview-en",
-              "sdks/en/php-en",
-              "sdks/en/nodejs-en",
-              "sdks/en/ruby-en",
-              "sdks/en/reactjs-en",
-              "sdks/en/angular-en"
+              "en/sdks/overview",
+              "en/sdks/php",
+              "en/sdks/nodejs",
+              "en/sdks/ruby",
+              "en/sdks/reactjs",
+              "en/sdks/angular"
             ]
           },
           {
