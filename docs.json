@@ -76,13 +76,13 @@
               {
                 "group": "Plugins FedaPay",
                 "pages": [
-                  "libraries/fr/woocommerce-fr",
-                  "libraries/fr/prestashop-fr",
-                  "libraries/fr/opencart-fr",
-                  "libraries/fr/give-fr",
-                  "libraries/fr/whmcs-fr",
-                  "libraries/fr/bubble-fr",
-                  "libraries/fr/odoo-fr"
+                  "fr/libraries/woocommerce",
+                  "fr/libraries/prestashop",
+                  "fr/libraries/opencart",
+                  "fr/libraries/give",
+                  "fr/libraries/whmcs",
+                  "fr/libraries/bubble",
+                  "fr/libraries/odoo"
                 ]
               },
               {
@@ -245,13 +245,13 @@
               {
                 "group": "Plugins FedaPay",
                 "pages": [
-                  "libraries/en/woocommerce-en",
-                  "libraries/en/prestashop-en",
-                  "libraries/en/opencart-en",
-                  "libraries/en/give-en",
-                  "libraries/en/whmcs-en",
-                  "libraries/en/bubble-en",
-                  "libraries/en/odoo-en"
+                  "en/libraries/woocommerce",
+                  "en/libraries/prestashop",
+                  "en/libraries/opencart",
+                  "en/libraries/give",
+                  "en/libraries/whmcs",
+                  "en/libraries/bubble",
+                  "en/libraries/odoo"
                 ]
               },
               {
