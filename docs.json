@@ -88,18 +88,18 @@
               {
                 "group": "Tableau de bord FedaPay",
                 "pages": [
-                  "dashboard/fr/home-fr",
-                  "dashboard/fr/customer-fr",
-                  "dashboard/fr/collects-fr",
-                  "dashboard/fr/refunds-fr",
-                  "dashboard/fr/retenue-fr",
-                  "dashboard/fr/page-fr",
-                  "dashboard/fr/payout-fr",
-                  "dashboard/fr/api-fr",
-                  "dashboard/fr/profile-fr",
-                  "dashboard/fr/business-fr",
-                  "dashboard/fr/user-fr",
-                  "dashboard/fr/funds-fr"
+                  "fr/dashboard/home",
+                  "fr/dashboard/customer",
+                  "fr/dashboard/collects",
+                  "fr/dashboard/refunds",
+                  "fr/dashboard/retenue",
+                  "fr/dashboard/payment-page",
+                  "fr/dashboard/payout",
+                  "fr/dashboard/api",
+                  "fr/dashboard/profile",
+                  "fr/dashboard/business",
+                  "fr/dashboard/user",
+                  "fr/dashboard/funds"
                 ]
               },
               {
@@ -257,18 +257,18 @@
               {
                 "group": "FedaPay Dashboard",
                 "pages": [
-                  "dashboard/en/home-en",
-                  "dashboard/en/customer-en",
-                  "dashboard/en/collects-en",
-                  "dashboard/en/refunds-en",
-                  "dashboard/en/retenue-en",
-                  "dashboard/en/page-en",
-                  "dashboard/en/payout-en",
-                  "dashboard/en/api-en",
-                  "dashboard/en/profile-en",
-                  "dashboard/en/business-en",
-                  "dashboard/en/user-en",
-                  "dashboard/en/funds-en"
+                  "en/dashboard/home",
+                  "en/dashboard/customer",
+                  "en/dashboard/collects",
+                  "en/dashboard/refunds",
+                  "en/dashboard/retenue",
+                  "en/dashboard/payment-page",
+                  "en/dashboard/payout",
+                  "en/dashboard/api",
+                  "en/dashboard/profile",
+                  "en/dashboard/business",
+                  "en/dashboard/user",
+                  "en/dashboard/funds"
                 ]
               },
               {
