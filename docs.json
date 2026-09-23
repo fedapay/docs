@@ -104,13 +104,16 @@
               },
               {
                 "group": "TAP & GO",
-                "pages": ["tap-go/fr/faq-fr", "tap-go/fr/docs-fr"]
+                "pages": [
+                  "fr/tap-go/faq",
+                  "fr/tap-go/docs"
+                ]
               },
               {
                 "group": "Sécurité",
                 "pages": [
-                  "security/fr/best-practices-fr",
-                  "security/fr/fraud-security-fr"
+                  "fr/security/best-practices",
+                  "fr/security/fraud-security"
                 ]
               }
             ]
@@ -274,15 +277,15 @@
               {
                 "group": "TAP & GO",
                 "pages": [
-                  "tap-go/en/faq-en",
-                  "tap-go/en/docs-en"
-                  ]
+                  "en/tap-go/faq",
+                  "en/tap-go/docs"
+                ]
               },
               {
                 "group": "Security",
                 "pages": [
-                  "security/en/best-practices-en",
-                  "security/en/fraud-security-en"
+                  "en/security/best-practices",
+                  "en/security/fraud-security"
                 ]
               }
             ]
