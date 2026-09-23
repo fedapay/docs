@@ -63,14 +63,14 @@
               {
                 "group": "Intégration API",
                 "pages": [
-                  "integration-api/fr/librairies-fr",
-                  "integration-api/fr/authentication-fr",
-                  "integration-api/fr/api-manage-fr",
-                  "integration-api/fr/customer-management-fr",
-                  "integration-api/fr/collects-management-fr",
-                  "integration-api/fr/payouts-management-fr",
-                  "integration-api/fr/sending-requests-fr",
-                  "integration-api/fr/webhooks-fr"
+                  "fr/integration-api/librairies",
+                  "fr/integration-api/authentication",
+                  "fr/integration-api/api-manage",
+                  "fr/integration-api/customer-management",
+                  "fr/integration-api/collects-management",
+                  "fr/integration-api/payouts-management",
+                  "fr/integration-api/sending-requests",
+                  "fr/integration-api/webhooks"
                 ]
               },
               {
@@ -232,14 +232,14 @@
               {
                 "group": "API integration",
                 "pages": [
-                  "integration-api/en/librairies-en",
-                  "integration-api/en/authentication-en",
-                  "integration-api/en/api-manage-en",
-                  "integration-api/en/customer-management-en",
-                  "integration-api/en/collects-management-en",
-                  "integration-api/en/payouts-management-en",
-                  "integration-api/en/sending-requests-en",
-                  "integration-api/en/webhooks-en"
+                  "en/integration-api/librairies",
+                  "en/integration-api/authentication",
+                  "en/integration-api/api-manage",
+                  "en/integration-api/customer-management",
+                  "en/integration-api/collects-management",
+                  "en/integration-api/payouts-management",
+                  "en/integration-api/sending-requests",
+                  "en/integration-api/webhooks"
                 ]
               },
               {
