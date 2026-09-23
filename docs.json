@@ -197,6 +197,16 @@
                   "api-reference/webhooks/get-by-id",
                   "api-reference/webhooks/get-all"
                 ]
+              },
+              {
+                "group": "customers",
+                "pages": [
+                  "api-reference/customers/create",
+                  "api-reference/customers/delete",
+                  "api-reference/customers/get-all",
+                  "api-reference/customers/get-by-id",
+                  "api-reference/customers/update"
+                ]
               }
             ]
           },
@@ -368,6 +378,12 @@
                 "pages": [
                   "api-reference/webhooks/get-by-id",
                   "api-reference/webhooks/get-all"
+                ]
+              },
+              {
+                "group": "customers",
+                "pages": [
+                  "untitled-page"
                 ]
               }
             ]
