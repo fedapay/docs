@@ -56,7 +56,9 @@
               },
               {
                 "group": "Méthodes de Paiement",
-                "pages": ["payment-methods/fr/payment-methods-fr"]
+                "pages": [
+                  "fr/payment-methods"
+                ]
               },
               {
                 "group": "Intégration API",
@@ -223,7 +225,9 @@
               },
               {
                 "group": "Payment Methods",
-                "pages": ["payment-methods/en/payment-methods-en"]
+                "pages": [
+                  "en/payment-methods"
+                ]
               },
               {
                 "group": "API integration",
