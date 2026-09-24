@@ -260,7 +260,7 @@ Le processus de paiement mobile sans redirection se divise en deux étapes princ
   </Step>
 
   <Step title="Déclencher le paiement">
-    Une fois que vous avez le token de paiement, vous devez envoyer une requête à l'API FedaPay pour traiter le paiement. La requête se fait en utilisant une des [méthodes de paiement](/payment-methods/fr/payment-methods-fr) spécifiques
+    Une fois que vous avez le token de paiement, vous devez envoyer une requête à l'API FedaPay pour traiter le paiement. La requête se fait en utilisant une des [méthodes de paiement](/fr/payment-methods) spécifiques
 
     ***Voici un exemple de code pour envoyer un paiement mobile sans redirection***
 
@@ -374,7 +374,7 @@ transaction.send_now(mode, phone_number)
 <Warning>
   **Attention :**
 
-  Remplacez **METHODE\_PAIEMENT** par la [méthode de paiement](https://docs.fedapay.com/payment-methods/fr/payment-methods-fr#modes-de-paiement-disponibles-sans-redirection) choisie (par exemple **mtn\_open**, **moov**, etc.).
+  Remplacez **METHODE_PAIEMENT** par la [méthode de paiement](/fr/payment-methods#modes-de-paiement-disponibles-sans-redirection) choisie (par exemple **mtn_open**, **moov**, etc.).
 
   **VOTRE\_CLE\_API\_SECRETE** doit être remplacée par votre clé API secrète (en mode **sandbox** pour les tests ou en mode **live** pour les transactions en production).
 
@@ -384,7 +384,7 @@ transaction.send_now(mode, phone_number)
 
   * **Live** : `https://api.fedapay.com/v1/transactions/ID`
 
-  ***Important** : Veillez à tester minutieusement vos intégrations dans l'environnement **sandbox** avant de les déployer en production*
+  **_Important_**\_ : Veillez à tester minutieusement vos intégrations dans l'environnement **sandbox** avant de les déployer en production\_
 </Warning>
 
 <Warning>
@@ -394,7 +394,7 @@ transaction.send_now(mode, phone_number)
 </Warning>
 
 <Note>
-  **Remarque** : Le paiement sans redirection ne prend pas en charge tous les opérateurs. Consulter la section [Méthodes de Paiement](/payment-methods/fr/payment-methods-fr) pour en savoir un peu plus.
+  **Remarque** : Le paiement sans redirection ne prend pas en charge tous les opérateurs. Consulter la section [Méthodes de Paiement](/fr/payment-methods) pour en savoir un peu plus.
 </Note>
 
 ### Récupération Automatique du Statut d’une Collecte
@@ -403,7 +403,7 @@ Pour vérifier le statut final d’une collecte, surtout lors d’un paiement sa
 
 * Envoyez une requête pour obtenir les détails de la collecte.
 
-* **Implémentez un webhook** pour recevoir des notifications automatiques. [Consultez la section Webhooks pour plus de détails](/integration-api/fr/webhooks-fr).
+* **Implémentez un webhook** pour recevoir des notifications automatiques. [Consultez la section Webhooks pour plus de détails](/fr/integration-api/webhooks).
 
 ### Cycle de Vie d’une Collecte : Les Statuts
 

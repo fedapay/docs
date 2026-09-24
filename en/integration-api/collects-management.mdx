@@ -231,7 +231,7 @@ The mobile payment process without redirection is divided into two main steps in
   </Step>
 
   <Step title="Trigger the Payment">
-    Once you have the payment token, you need to send a request to the FedaPay API to process the payment. The request is made using one of the specific [payment methods ](/payment-methods/en/payment-methods-en)
+    Once you have the payment token, you need to send a request to the FedaPay API to process the payment. The request is made using one of the specific [payment methods ](/en/payment-methods)
 
     ***Here is an example code to send a mobile payment without redirection***
 
@@ -343,7 +343,7 @@ transaction.send_now(mode, phone_number)
 <Warning>
   **Important Notes :**
 
-  Replace **METHODE\_PAIEMENT** with the chosen payment method (e.g., **mtn\_benin**, **moov\_benin**, etc.).
+  Replace **METHODE_PAIEMENT** with the chosen [payment method](/en/payment-methods#available-no-redirect-payment-methods) (e.g., **mtn_benin**, **moov_benin**, etc.).
 
   **VOTRE\_CLE\_API\_SECRETE** must be replaced with your secret API key (in sandbox mode for testing or live mode for production transactions).
 
@@ -363,7 +363,7 @@ transaction.send_now(mode, phone_number)
 </Warning>
 
 <Note>
-  **Note**: Payments without redirection do not support all operators. Refer to the [Payment Methods](payment-methods/en/payment-methods-en) section for more details on supported methods.
+  **Note**: Payments without redirection do not support all operators. Refer to the [Payment Methods](/en/payment-methods) section for more details on supported methods.
 </Note>
 
 ### Automatic Retrieval of Collect Status
@@ -372,7 +372,7 @@ To check the final status of a collection, especially during redirection-free pa
 
 * Send a request to retrieve the collection’s details.
 
-* **Implement a webhook** to receive automatic notifications. [See the Webhooks section for more details.](/integration-api/en/webhooks-en).
+* **Implement a webhook** to receive automatic notifications. [See the Webhooks section for more details.](/en/integration-api/webhooks).
 
 ### Collect Lifecycle: Statuses
 
