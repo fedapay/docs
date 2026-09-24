@@ -379,6 +379,12 @@
                   "api-reference/webhooks/get-by-id",
                   "api-reference/webhooks/get-all"
                 ]
+              },
+              {
+                "group": "customers",
+                "pages": [
+                  "untitled-page"
+                ]
               }
             ]
           },
