@@ -1,0 +1,90 @@
+This document will help you integrate the FedaPay SA sub-accounts functionality.
+
+<Steps>
+  <Step title=" Prerequisites">
+    - Have a main account **(Marketplace account type)**
+    - Have at least one sub-account associated with the main account.
+  </Step>
+  <Step title="Context">
+    It is common to see services offering a marketplace. A marketplace is a platform where multiple service providers are registered to sell their products or services. These marketplace platforms each operate differently, but the payment process is often quite similar. For a product sold on the platform, the platform receives a commission, and the remaining amount is transferred to the service provider.
+
+    FedaPay provides everything you need to register service providers, manage your payments, send payouts, and much more.
+  </Step>
+  <Step title=" Creating a Transaction with Commission Splitting">
+    Here, we assume that the marketplace application knows the FedaPay reference of each service provider's account. This is required to specify the commission to be distributed between the service providers and the main FedaPay account of the marketplace platform. <br /> When a FedaPay transaction is created, the application must specify how much of the collected amount should be allocated to third parties, in this case, the service providers. Most often, a transaction involves a single service provider. However, it is possible to have several service providers.
+
+    Here is an example of an HTTP request for creating a transaction with a commission split to a FedaPay sub-account belonging to a service provider:
+
+    ```java Curl highlight={13,23}
+      curl -X POST \
+      https://sandbox-api.fedapay.com/v1/transactions \
+      -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \ 
+      -H 'Content-Type: application/json' \
+      -d '{
+            "description" : "Transaction for john.doe@example.com",
+            "amount" : 5500,
+            "currency" : {"iso" : "XOF"},
+            "callback_url" : "https://maplateforme.com/callback",
+            "customer" : {
+                "email" : "john.doe@example.com",
+              },
+            "sub_accounts_commissions": [
+              {
+                "reference": "acc_xxxxxxxxx", "amount": 400,
+              },
+              {
+                "reference": "acc_yyyyyyyyy", "amount": 5000,
+              },
+              {
+                "reference": "acc_zzzzzzzzz", "amount": 100,
+              }
+            ]
+          }'
+    ```
+
+    **_acc_xxxxxxxxx_** represents the FedaPay account reference of the service provider's account.
+
+    Therefore, once the transaction is approved, the amount of 1,500 F will be transferred to the service provider's account, while the main account will keep the difference. It is important to note that the amount to be distributed must be less than the transaction amount minus FedaPay fees; otherwise, the commission split will fail.
+  </Step>
+  <Step title="Use Case Example">
+    <Frame>
+      ![](https://res.cloudinary.com/dvilp6td2/image/upload/v1790268350/Cap._1_Exemple_de_cas_d_utilisation_sqyqoq.png)
+    </Frame>
+  </Step>
+  <Step title="Checking a Transaction and Its Commissions">
+    From the FedaPay dashboard of the main account, you can check a transaction with a commission split by viewing the transaction details.
+
+    <Frame>
+      ![](https://res.cloudinary.com/dvilp6td2/image/upload/v1790268349/Cap._2_n6sekk.png)
+    </Frame>
+  </Step>
+  <Step title="Inviting a Service Provider's Sub-Account to Your FedaPay Account from the Dashboard">
+    You can invite a service provider to your FedaPay account. Simply click the **_Marketplace_** menu.
+
+    <Frame>
+      ![](https://res.cloudinary.com/dvilp6td2/image/upload/v1790268348/Cap._3_2026-09-23_130208_gzodat.png)
+    </Frame>
+
+    This menu is only available if you have a **_Marketplace_** account. Then, click **_Invite a business_** and fill in the company's information.
+
+    <Frame>
+      ![](https://res.cloudinary.com/dvilp6td2/image/upload/v1790268349/Cap._4_2026-09-23_130447_x7gwd6.png)
+    </Frame>
+
+    Once the invitation is accepted, the company will join your FedaPay account, and you can send commissions to it.
+  </Step>
+  <Step title="Registering a Business Programmatically">
+    It is possible to integrate new sub-accounts into your FedaPay account, meaning that you can automate the addition of new accounts. FedaPay helps you collect and verify identity information to comply with KYC and regulatory requirements.
+
+    ```java Curl highlight={13,23}
+      curl -X POST \
+      https://sandbox-api.fedapay.com/v1/auth/sub_account_invitations \
+      -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \ 
+      -H 'Content-Type: application/json' \
+      -d '{
+            "email" : "user@example.com",
+            "Full_name" : "John Doe"
+          }'
+    ```
+  </Step>
+</Steps>

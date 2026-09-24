@@ -1,0 +1,94 @@
+---
+title: "API des sous-comptes FedaPay SA"
+---
+
+Ce document vous permettra d'intégrer la fonctionnalité de sous-comptes de FedaPay SA.
+
+<Steps>
+  <Step title="Prérequis">
+    - Disposer d’un compte principal **(Compte de type Marketplace)**
+    - Disposer d’au moins un sous-compte du compte principal.
+  </Step>
+  <Step title="Contexte">
+    Il est courant de voir des services offrir une place de marché. Une place de marché est une plateforme où sont enregistrés plusieurs prestataires de services qui vendent leurs produits ou services. Ces plateformes de places de marché fonctionnent chacune différemment, mais le plus souvent le mode de paiement reste quasi le même. Sur le montant d'un produit vendu sur la plateforme, la plateforme touche une commission, et le reste du montant est renvoyé au prestataire de service.
+
+    FedaPay vous offre tout ce dont vous avez besoin pour inscrire des prestataires de services, gérer vos paiements, envoyer des virements et bien plus encore.
+  </Step>
+  <Step title="Créer une transaction avec la répartition des commissions">
+    Nous considérons ici que l’application de place de marché connaît la référence FedaPay des comptes de ses prestataires de services. Cela est obligatoire pour spécifier la commission à répartir entre les prestataires et le compte principal FedaPay de la plateforme de place de marché. <br /> Lorsqu’une transaction FedaPay est créée, l’application doit spécifier sur le montant collecté combien reviennent aux tiers parties, ici les prestataires de service. Le plus souvent une transaction fait intervenir un seul prestataire de service. Mais il est possible qu’il y en ait plusieurs.
+
+    Voici un exemple de requête HTTP de création de transaction avec répartition de commission vers un sous-compte FedaPay d’un prestataire de service:
+
+    ```java Curl highlight={13,23}
+      curl -X POST \
+      https://sandbox-api.fedapay.com/v1/transactions \
+      -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \ 
+      -H 'Content-Type: application/json' \
+      -d '{
+            "description" : "Transaction for john.doe@example.com",
+            "amount" : 5500,
+            "currency" : {"iso" : "XOF"},
+            "callback_url" : "https://maplateforme.com/callback",
+            "customer" : {
+                "email" : "john.doe@example.com",
+              },
+            "sub_accounts_commissions": [
+              {
+                "reference": "acc_xxxxxxxxx", "amount": 400,
+              },
+              {
+                "reference": "acc_yyyyyyyyy", "amount": 5000,
+              },
+              {
+                "reference": "acc_zzzzzzzzz", "amount": 100,
+              }
+            ]
+          }'
+    ```
+
+    **_acc_xxxxxxxxx_** représente la référence du compte FedaPay du compte du prestataire de service.
+
+    Ainsi donc, lorsque la transaction sera approuvée, le montant de 1500 F sera transféré sur le compte du prestataire de service et le compte principal gardera la différence. Il est important de noter que le montant à répartir doit être inférieur au montant de la transaction moins les commissions de FedaPay, sans quoi la répartition échouera.
+  </Step>
+  <Step title="Exemple de cas d’utilisation">
+    <Frame>
+      ![](https://res.cloudinary.com/dvilp6td2/image/upload/v1790268350/Cap._1_Exemple_de_cas_d_utilisation_sqyqoq.png)
+    </Frame>
+  </Step>
+  <Step title="Vérifier une transaction et ses commissions à répartir">
+    Sur le dashboard FedaPay du compte principal, vous pouvez vérifier une transaction avec répartition de commission en consultant les détails d’une transaction.
+
+    <Frame>
+      ![](https://res.cloudinary.com/dvilp6td2/image/upload/v1790268349/Cap._2_n6sekk.png)
+    </Frame>
+  </Step>
+  <Step title="Inviter un sous-compte d’un prestataire à votre compte FedaPay depuis le dashboard">
+    Vous pouvez inviter un prestataire à votre compte FedaPay. Il vous suffit de cliquer sur le menu **_Place de marché_**
+
+    <Frame>
+      ![](https://res.cloudinary.com/dvilp6td2/image/upload/v1790268348/Cap._3_2026-09-23_130208_gzodat.png)
+    </Frame>
+
+    Ce menu n’est disponible que si vous avez un compte de type **_Marketplace_**. Ensuite il faut cliquer sur **_Inviter une entreprise_** puis remplir les informations de l’entreprise.
+
+    <Frame>
+      ![](https://res.cloudinary.com/dvilp6td2/image/upload/v1790268349/Cap._4_2026-09-23_130447_x7gwd6.png)
+    </Frame>
+
+    Une fois l’invitation acceptée, l’entreprise rejoindra votre compte FedaPay et vous pouvez lui envoyer les commissions.
+  </Step>
+  <Step title="Enregistrer une entreprise programmatiquement">
+    Il est possible d’intégrer de nouveaux sous-comptes à votre compte FedaPay, c’est-à-dire que vous pouvez automatiser l’ajout de nouveaux comptes. FedaPay vous aide à recueillir et vérifier les informations d'identité afin de respecter les exigences KYC et de conformité.
+
+    ```java Curl highlight={13,23}
+      curl -X POST \
+      https://sandbox-api.fedapay.com/v1/auth/sub_account_invitations \
+      -H 'Authorization: Bearer VOTRE_CLE_API_SECRETE' \ 
+      -H 'Content-Type: application/json' \
+      -d '{
+            "email" : "user@example.com",
+            "Full_name" : "John Doe"
+          }'
+    ```
+  </Step>
+</Steps>

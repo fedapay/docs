@@ -70,7 +70,8 @@
                   "fr/integration-api/collects-management",
                   "fr/integration-api/payouts-management",
                   "fr/integration-api/sending-requests",
-                  "fr/integration-api/webhooks"
+                  "fr/integration-api/webhooks",
+                  "fr/integration-api/sub-accounts-api"
                 ]
               },
               {
@@ -252,7 +253,8 @@
                   "en/integration-api/collects-management",
                   "en/integration-api/payouts-management",
                   "en/integration-api/sending-requests",
-                  "en/integration-api/webhooks"
+                  "en/integration-api/webhooks",
+                  "en/integration-api/sub-accounts-api"
                 ]
               },
               {
